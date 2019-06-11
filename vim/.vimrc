@@ -41,6 +41,8 @@ call plug#begin('$HOME/.vim/plugins')
 
 " theme github
 Plug 'flrnprz/plastic.vim'
+set background=dark
+colorscheme plastic
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -49,8 +51,20 @@ Plug 'Valloric/YouCompleteMe'
 Plug '/scrooloose/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
+Plug 'w0rp/ale'
+let g:ale_fix_on_save = 1
 
-" git
+" Python dev
+Plug 'klen/python-mode'
+
+" Rust dev
+Plug 'rust-lang/rust.vim'
+
+" JVM dev
+Plug 'tfnico/vim-gradle'
+Plug 'udalov/kotlin-vim'
+
+"git
 Plug 'airblade/vim-gitgutter'
 
 Plug 'easymotion/vim-easymotion'
@@ -60,10 +74,6 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='deus'
 
 call plug#end()
-
-" theme
-set background=dark
-colorscheme plastic
 
 " windows 'manager'
 function! WinMove(key)
@@ -83,6 +93,7 @@ endfunction
 " mappings
 
 map <C-n> :NERDTreeToggle<CR>
+map <Leader> <Plug>(easymotion-prefix)
 
 " keys for wm
 map <silent> <C-j> :call WinMove('j')<CR>

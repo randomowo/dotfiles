@@ -71,8 +71,8 @@ alias restart-blue="sudo launchctl stop com.apple.blued && sudo launchctl start 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-alias cp='cp -gr'
-alias mv='mv -gr'
+alias cp='cp -g'
+alias mv='mv -g'
 alias rmtild='rm -rf *~'
 alias top='gotop'
 alias imgcat='/Users/randomowo/Library/Python/3.7/bin/imgcat'
