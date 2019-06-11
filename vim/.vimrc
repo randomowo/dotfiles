@@ -8,6 +8,7 @@ set colorcolumn=120
 highlight ColorColumn ctermbg=darkgray
 set showmatch	
 set visualbell	
+set nocompatible
 syntax on 
 
 set hlsearch	
@@ -39,10 +40,8 @@ augroup END
 " Plugins
 call plug#begin('$HOME/.vim/plugins')
 
-" theme github
-Plug 'flrnprz/plastic.vim'
-set background=dark
-colorscheme plastic
+" theme
+Plug 'ajh17/spacegray.vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -52,7 +51,6 @@ Plug '/scrooloose/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'w0rp/ale'
-let g:ale_fix_on_save = 1
 
 " Python dev
 Plug 'klen/python-mode'
@@ -66,16 +64,25 @@ Plug 'udalov/kotlin-vim'
 
 "git
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 Plug 'easymotion/vim-easymotion'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='deus'
-
 call plug#end()
 
-" windows 'manager'
+" plugins conf
+" colorscheme 
+set background=dark
+colorscheme spacegray
+" ale
+let g:ale_fix_on_save = 1
+let g:ycm_global_ycm_extra_conf = '/Users/randomowo/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+" airline-theme
+let g:airline_theme='deus'
+
+" wm func 
 function! WinMove(key)
     let t:curwin = winnr()
     exec "wincmd ".a:key
