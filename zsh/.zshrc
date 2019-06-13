@@ -1,7 +1,7 @@
 #tmux
 #erase history
 
-#hello message 
+#hello message
 #~/bash/start-screen.sh
 start-screen
 
@@ -18,12 +18,14 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
 export RUST_SRC_PATH=/usr/local/Cellar/rust/1.30.1/share/rust/rust_src
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+# Path to dotfiles folder
+export DOT=$HOME/dotfiles
 
 ZSH_THEME="dogenpunk-with-batstat"
 #smt, kolo, dogenpunk, jnrowe
 
 plugins=(
-	git
+    git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -40,7 +42,7 @@ alias wspb="curl wttr.in/spb"
 # run dwarf fortress
 alias rdf="cd ~/Games/df_osx/ p&& ./df && cd"
 alias whereami="curl http://ipinfo.io/"
-# wifi 
+# wifi
 alias wifioff="networksetup -setairportpower airport off"
 alias wifion="networksetup -setairportpower airport on"
 # tor
