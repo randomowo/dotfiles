@@ -22,7 +22,7 @@ export ZSH=~/.oh-my-zsh
 export DOT=$HOME/dotfiles
 
 ZSH_THEME="dogenpunk-with-batstat"
-#smt, kolo, dogenpunk, jnrowe
+#kolo, jnrowe, dogenpunk-with-batstat
 
 plugins=(
     git

@@ -65,3 +65,6 @@
 [submodule "vim/.vim/plugins/vim-gradle"]
     path = vim/.vim/plugins/vim-gradle
     url = https://github.com/tfnico/vim-gradle
+[submodule "zsh/oh-my-zsh"]
+    path = zsh/oh-my-zsh
+    url = https://github.com/randomowo/oh-my-zsh
