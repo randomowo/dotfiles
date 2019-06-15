@@ -21,8 +21,8 @@ export ZSH=~/.oh-my-zsh
 # Path to dotfiles folder
 export DOT=$HOME/dotfiles
 
-ZSH_THEME="dogenpunk-with-batstat"
-#kolo, jnrowe, dogenpunk-with-batstat
+ZSH_THEME="nicoulaj"
+#kolo, jnrowe, dogenpunk-with-batstat, nicoulaj
 
 plugins=(
     git

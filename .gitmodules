@@ -70,6 +70,6 @@
     path = zsh/oh-my-zsh
     url = https://github.com/randomowo/oh-my-zsh
 
-[submodule "bin/bash.scripts"]
-    path = bin/bash.scripts
+[submodule "bin/bash"]
+    path = bin/bash
     url = https://github.com/randomowo/bash.scripts
