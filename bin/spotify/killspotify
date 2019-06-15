@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PIDs=$(ps -ex | grep $DOT/bin/spotify/spotifystatus | grep -v grep | cut -d' ' -f1 | tr '\n' ' ' | xargs)
-if [[ ! -z $PIDS ]]; then
+PIDs=$(ps -ex | grep $DOT/bin/spotify/spotifystatus | grep -v grep | cut -d' ' -f1 | tr '\n' ' ' | xargs | cut -d' ' -f1)
+if [[ ! -z $PIDs ]]; then
     kill $PIDs
 fi
 rm -f /tmp/spotify-track

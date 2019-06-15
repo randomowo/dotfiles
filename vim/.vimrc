@@ -80,7 +80,7 @@ let g:ale_fix_on_save = 1
 let g:ycm_global_ycm_extra_conf = '/Users/randomowo/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " airline
 let g:airline_theme = 'deus'
-let g:airline_section_y='%{system("cat /tmp/spotify-track")}'
+let g:airline_section_y = '%{system("if [[ -f /tmp/spotify-track ]]; then cat /tmp/spotify-track; fi")}'
 let g:airline#extensions#tabline#enabled = 1
 " format file after save
 au BufWrite * :Autoformat
@@ -103,6 +103,7 @@ endfunction
 
 " start spotify status 'deamon'
 :call system('$DOT/bin/spotify/startspotify')
+au QuitPre : call system('$DOT/bin/spotify/killspotify')
 
 " mappings
 map <C-n> :NERDTreeToggle<CR>
