@@ -15,4 +15,6 @@ while (( 1 )); do
     if (( ($time - $lastmod) > 20 )); then
 	echo $res > /tmp/spotify-track
     fi
+
+    if [[ -z "$(ps -ex | grep -P " vim" | grep -v grep)" ]]; then $DOT/bin/spotify/killspotify; fi
 done

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PIDs=$(ps -ex | grep $DOT/bin/spotify/spotifystatus | grep -v grep | cut -d' ' -f1 | tr '\n' ' ' | xargs | cut -d' ' -f1)
+PIDs=$(ps -ex | grep $DOT/bin/spotify/spotifystatus | grep -v grep | cut -d' ' -f1 | tr '\n' ' ' | xargs)
 if [[ ! -z $PIDs ]]; then
     kill $PIDs
 fi
