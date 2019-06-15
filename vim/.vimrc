@@ -32,11 +32,6 @@ set ruler
 set undolevels=1000
 set backspace=indent,eol,start
 
-augroup project
-    autocmd!
-    autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
-augroup END
-
 " Plugins
 call plug#begin('$HOME/.vim/plugins')
 
@@ -83,8 +78,10 @@ colorscheme spacegray
 " ale
 let g:ale_fix_on_save = 1
 let g:ycm_global_ycm_extra_conf = '/Users/randomowo/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-" airline-theme
-let g:airline_theme='deus'
+" airline
+let g:airline_theme = 'deus'
+let g:airline_section_y='%{system("cat /tmp/spotify-track")}'
+let g:airline#extensions#tabline#enabled = 1
 " format file after save
 au BufWrite * :Autoformat
 " indent guilines
@@ -104,9 +101,10 @@ function! WinMove(key)
     endif
 endfunction
 
+" start spotify status 'deamon'
+:call system('$DOT/bin/spotify/startspotify')
 
 " mappings
-
 map <C-n> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
 

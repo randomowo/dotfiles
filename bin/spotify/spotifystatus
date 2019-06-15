@@ -1,0 +1,19 @@
+#!/bin/bash
+
+spotify=$DOT/bin/spotify/spotify
+while (( 1  )); do
+    artist=$($spotify status | tr '\n' '|' | cut -d\| -f2 | cut -d: -f2)
+    track=$($spotify status | tr '\n' '|' | cut -d\| -f4 | cut -d: -f2)
+
+    res="♫ $artist - $track"
+    lastmod=$(stat -f %m /tmp/spotify-track)
+    time=$(date +%s)
+
+    if [[ ! -f /tmp/spotify-track ]]; then
+	echo $res > /tmp/spotify-track
+    fi
+
+    if (( ($time - $lastmod) > 20 )); then
+	echo $res > /tmp/spotify-track
+    fi
+done

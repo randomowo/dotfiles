@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [[ "$(ps | grep $DOT/bin/spotify/spotifystatus | grep -v grep)" == "" ]]; then
+    $DOT/bin/spotify/spotifystatus &
+fi
