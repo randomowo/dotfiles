@@ -3,7 +3,7 @@
 
 #hello message
 #~/bash/start-screen.sh
-start-screen
+#start-screen
 
 PATH=/usr/local/opt/ed/libexec/gnubin:/usr/local/opt/ed/libexec/gnubin:/usr/local/opt/ed/libexec/gnubin:/Users/randomowo/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/opt/m4/bin:/usr/local/opt/libressl/bin:/usr/local/opt/file-formula/bin:/usr/local/opt/ruby/bin
 eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"

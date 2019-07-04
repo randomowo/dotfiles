@@ -29,6 +29,8 @@ set softtabstop=2
 set exrc
 set secure
 
+set termguicolors
+
 " Advanced
 set ruler
 
@@ -39,13 +41,13 @@ set backspace=indent,eol,start
 call plug#begin('$HOME/.vim/plugins')
 
 " theme
-Plug 'ajh17/spacegray.vim'
+Plug 'nightsense/cosmic_latte'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " developing plugins
 Plug 'Valloric/YouCompleteMe'
-Plug '/scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'w0rp/ale'
@@ -61,7 +63,6 @@ Plug 'rust-lang/rust.vim'
 " JVM dev
 Plug 'tfnico/vim-gradle'
 Plug 'udalov/kotlin-vim'
-Plug 'ervandew/eclim'
 
 "git
 Plug 'airblade/vim-gitgutter'
@@ -76,7 +77,7 @@ call plug#end()
 " plugins conf
 " colorscheme
 set background=dark
-colorscheme spacegray
+colorscheme cosmic_latte
 
 " ale
 let g:ale_fix_on_save = 1
@@ -89,7 +90,15 @@ let g:airline#extensions#tabline#enabled = 1
 au BufWrite * :Autoformat
 " indent guilines
 let g:indent_guides_enable_on_vim_startup = 1
+" syntactic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " wm func
 function! WinMove(key)
     let t:curwin = winnr()
@@ -111,6 +120,8 @@ au QuitPre : call system('$DOT/bin/spotify/killspotify')
 " mappings
 map <C-n> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
+map bn :bn<CR>
+map bd :bd<CR>
 
 " keys for wm
 map <silent> <C-j> :call WinMove('j')<CR>
