@@ -2,7 +2,7 @@
 set relativenumber
 set number
 set linebreak
-set showbreak=\brk\
+set showbreak=+++
 set textwidth=120
 set colorcolumn=120
 highlight ColorColumn ctermbg=darkgray
@@ -10,6 +10,9 @@ set showmatch
 set visualbell
 set nocompatible
 syntax on
+filetype plugin on
+set path+=**
+set wildmenu
 
 set hlsearch
 set smartcase

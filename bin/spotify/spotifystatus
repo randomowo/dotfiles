@@ -2,19 +2,21 @@
 
 spotify=$DOT/bin/spotify/spotify
 while (( 1 )); do
-    artist=$($spotify status | tr '\n' '|' | cut -d\| -f2 | cut -d: -f2)
-    track=$($spotify status | tr '\n' '|' | cut -d\| -f4 | cut -d: -f2)
-    res="♫ $artist - $track"
+    if [[ ! -z "$(ps -ex | grep /Applications/Spotify.app/Contents/MacOS/Spotify | grep -v grep)" ]]; then
+	artist=$($spotify status | tr '\n' '|' | cut -d\| -f2 | cut -d: -f2)
+	track=$($spotify status | tr '\n' '|' | cut -d\| -f4 | cut -d: -f2)
+	res="♫ $artist - $track"
 
-    if [[ ! -f /tmp/spotify-track ]]; then
-	echo $res > /tmp/spotify-track
+	if [[ ! -f /tmp/spotify-track ]]; then
+	    echo $res > /tmp/spotify-track
+	fi
+	lastmod=$(stat -f %m /tmp/spotify-track)
+	time=$(date +%s)
+
+	if (( ($time - $lastmod) > 20 )); then
+	    echo $res > /tmp/spotify-track
+	fi
+
+	if [[ -z "$(ps -ex | grep -P " vim" | grep -v grep)" ]]; then $DOT/bin/spotify/killspotify; fi
     fi
-    lastmod=$(stat -f %m /tmp/spotify-track)
-    time=$(date +%s)
-
-    if (( ($time - $lastmod) > 20 )); then
-	echo $res > /tmp/spotify-track
-    fi
-
-    if [[ -z "$(ps -ex | grep -P " vim" | grep -v grep)" ]]; then $DOT/bin/spotify/killspotify; fi
 done

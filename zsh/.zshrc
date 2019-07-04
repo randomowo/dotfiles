@@ -21,8 +21,8 @@ export ZSH=~/.oh-my-zsh
 # Path to dotfiles folder
 export DOT=$HOME/dotfiles
 
-ZSH_THEME="nicoulaj"
-#kolo, jnrowe, dogenpunk-with-batstat, nicoulaj
+ZSH_THEME="dogenpunk-with-batstat"
+#jnrowe, dogenpunk-with-batstat, nicoulaj
 
 plugins=(
     git
@@ -79,3 +79,4 @@ alias rmtild='rm -rf *~'
 alias top='gotop'
 alias imgcat='/Users/randomowo/Library/Python/3.7/bin/imgcat'
 alias gcc='gcc-9'
+export PATH="/usr/local/opt/binutils/bin:$PATH"
