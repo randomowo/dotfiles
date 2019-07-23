@@ -1,0 +1,28 @@
+#!/bin/bash
+
+backup_folder="/mnt/backup/$(date +%Y-%m-%d)"
+# change to your disk model (mine Backup+ RD)
+backup_disk="$(sudo fdisk -l | xargs | grep -oE 'Backup\+\ RD.*' | grep -oE '/dev/sd..')"
+
+if [[ "$backup_disk" == "" ]]; then
+    echo "Disk not connected"
+    exit 1
+fi
+
+if [[ "$(df -ah | grep -o $backup_disk)" == "" ]]; then
+    sudo mount $backup_disk /mnt
+    echo "Disk $backup_disk mounted!"
+fi
+
+if [[ ! -d $backup_folder ]]; then
+    sudo mkdir $backup_folder
+    echo "Folder $backup_folder created!"
+fi
+
+sudo rsync -aAxrv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $backup_folder
+echo "System backuped"
+
+sudo umount /mnt
+echo "Disk $backup_disk unmounted"
+
+exit 0
