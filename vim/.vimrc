@@ -7,6 +7,7 @@ set textwidth=120
 set colorcolumn=120
 highlight ColorColumn ctermbg=darkgray
 set showmatch
+set encoding=utf-8
 set visualbell
 set nocompatible
 syntax on
@@ -81,10 +82,8 @@ colorscheme cosmic_latte
 
 " ale
 let g:ale_fix_on_save = 1
-let g:ycm_global_ycm_extra_conf = '/Users/randomowo/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " airline
 let g:airline_theme = 'deus'
-let g:airline_section_y = '%{system("if [[ -f /tmp/spotify-track ]]; then cat /tmp/spotify-track; fi")}'
 let g:airline#extensions#tabline#enabled = 1
 " format file after save
 au BufWrite * :Autoformat
@@ -112,10 +111,6 @@ function! WinMove(key)
 	exec "wincmd ".a:key
     endif
 endfunction
-
-" start spotify status 'deamon'
-:call system('$DOT/bin/spotify/startspotify')
-au QuitPre : call system('$DOT/bin/spotify/killspotify')
 
 " mappings
 map <C-n> :NERDTreeToggle<CR>
