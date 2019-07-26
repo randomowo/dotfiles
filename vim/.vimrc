@@ -42,7 +42,8 @@ set backspace=indent,eol,start
 call plug#begin('$HOME/.vim/plugins')
 
 " theme
-Plug 'nightsense/cosmic_latte'
+" Plug 'nightsense/cosmic_latte'
+Plug 'chriskempson/base16-vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -78,7 +79,9 @@ call plug#end()
 " plugins conf
 " colorscheme
 set background=dark
-colorscheme cosmic_latte
+" colorscheme cosmic_latte
+colorscheme base16-ashes
+let base16colorspace=256
 
 " ale
 let g:ale_fix_on_save = 1

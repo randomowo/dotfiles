@@ -1,9 +1,11 @@
+# zsh config file
+
 export ZSH=$HOME/.oh-my-zsh
 PATH=$PATH; export PATH
 export LC_ALL=en_US.UTF-8
 
-ZSH_THEME="dogenpunk"
-#jnrowe, dogenpunk, nicoulaj
+ZSH_THEME="crunch"
+#jnrowe, dogenpunk, nicoulaj, crunch
 
 plugins=(
     git
@@ -38,4 +40,5 @@ alias git-undo="git reset --hard"
 alias git-cc="git reset HEAD~"
 alias top='gotop'
 alias brightness='xbacklight -set $1'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 TERM=xterm-color
