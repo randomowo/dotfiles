@@ -25,6 +25,7 @@ while (( $(echo "$need_size * 2 > $have_size" | bc) )); do
     oldest=/mnt/backup/$(ls -t /mnt/backup | sort | sed -n 1p)
     sudo rm -rf $oldest
     echo "$oldest deleted for freeing disk space"
+    have_size=$(df -h /mnt | sed -n 2p | xargs | tr ' ' '\n'| sed -n 4p | grep -oE "[0-9]*")
 done
 
 if [[ ! -d $backup_folder ]]; then
