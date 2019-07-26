@@ -7,19 +7,38 @@ backup_disk="$(sudo fdisk -l | xargs | grep -oE 'Backup\+\ RD.*' | grep -oE '/de
 if [[ "$backup_disk" == "" ]]; then
     echo "Disk not connected"
     exit 1
+else
+    echo "Disk connected"
 fi
 
 if [[ "$(df -ah | grep -o $backup_disk)" == "" ]]; then
     sudo mount $backup_disk /mnt
-    echo "Disk $backup_disk mounted!"
 fi
+echo "Disk $backup_disk mounted"
+
+# freeing up disk space if needed
+
+need_size=$(sudo du -ach /usr /boot /etc /home /opt /root /srv /var | grep -oE ".*G.total" | grep -oE "[0-9]*")
+have_size=$(df -h /mnt | sed -n 2p | xargs | tr ' ' '\n'| sed -n 4p | grep -oE "[0-9]*")
+
+while (( $(echo "$need_size * 2 > $have_size" | bc) )); do
+    oldest=/mnt/backup/$(ls -t /mnt/backup | sort | sed -n 1p)
+    sudo rm -rf $oldest
+    echo "$oldest deleted for freeing disk space"
+done
 
 if [[ ! -d $backup_folder ]]; then
     sudo mkdir $backup_folder
-    echo "Folder $backup_folder created!"
+    echo "Folder $backup_folder created"
+else
+    echo "Folder $backup_folder already exist"
 fi
 
-sudo rsync -aAxrv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $backup_folder
+files_count=$(sudo rsync -r --dry-run --stats --human-readable -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $backup_folder | grep -oE "transferred:.*" | grep -oE "[0-9].*" | tr -d ,)
+let files_count+=5
+
+sudo rsync -aAXrv --delete -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $backup_folder | pv -pteabl -s $files_count > /dev/null
+
 echo "System backuped"
 
 sudo umount /mnt
