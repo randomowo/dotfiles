@@ -30,7 +30,7 @@ set softtabstop=2
 set exrc
 set secure
 
-set termguicolors
+"set termguicolors
 
 " Advanced
 set ruler

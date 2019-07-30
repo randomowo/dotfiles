@@ -41,4 +41,3 @@ alias git-cc="git reset HEAD~"
 alias top='gotop'
 alias brightness='xbacklight -set $1'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-TERM=xterm-color
