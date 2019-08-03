@@ -6,6 +6,6 @@ Shell: zsh 5.7.1</br>
 Resolution: 2560x1600</br>
 WM: i3</br>
 Terminal: termite</br>
-Terminal Font: xos4 Terminus 13</br>
+Terminal Font: xos4 Terminus 16</br>
 Intel i5-5257U (4) @ 3.100GHz</br>
 GPU: Intel Iris Graphics 6100</br>
