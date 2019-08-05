@@ -3,6 +3,7 @@ karabiner/automatic_backups
 vim/vimconf/plugins
 canto/feeds
 canto/curses-log
-canto/deamon-log
+canto/daemon-log
 canto/pid
 canto/.canto_socket
+canto/plugins/__pycache__
