@@ -34,7 +34,7 @@ font xft:Droid Sans Mono 13
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec termite
 
 # start a web browser
 bindsym $mod+w exec tabbed -c surf -bNPSg -e & disown

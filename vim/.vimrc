@@ -30,8 +30,7 @@ set softtabstop=2
 set exrc
 set secure
 
-"set termguicolors
-"set t_Co=256
+set termguicolors
 
 " Advanced
 set ruler
@@ -81,9 +80,8 @@ call plug#end()
 " colorscheme
 set background=dark
 " colorscheme cosmic_latte
-"colorscheme base16-ashes
-"let base16colorspace=256
-"set t_ut=
+colorscheme base16-ashes
+let base16colorspace=256
 
 " ale
 let g:ale_fix_on_save = 1
