@@ -35,5 +35,7 @@ alias brightness='xbacklight -set $1'
 # remove unused packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 # alias for programms
-    alias rss='canto-curses'
-    alias irc='weechat'
+alias rss='canto-curses'
+alias irc='weechat'
+# clear vim for fast editing large files
+alias cvim='sudo vim -u NONE'

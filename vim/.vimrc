@@ -89,7 +89,7 @@ let g:ale_fix_on_save = 1
 let g:airline_theme = 'deus'
 let g:airline#extensions#tabline#enabled = 1
 " format file after save
-au BufWrite * :Autoformat
+"au BufWrite * :Autoformat
 " indent guilines
 let g:indent_guides_enable_on_vim_startup = 1
 " syntactic
@@ -101,6 +101,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
 " wm func
 function! WinMove(key)
     let t:curwin = winnr()
@@ -126,4 +127,3 @@ map <silent> <C-j> :call WinMove('j')<CR>
 map <silent> <C-k> :call WinMove('k')<CR>
 map <silent> <C-h> :call WinMove('h')<CR>
 map <silent> <C-l> :call WinMove('l')<CR>
-
