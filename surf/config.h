@@ -80,7 +80,7 @@ WEBKIT_FIND_OPTIONS_WRAP_AROUND;
 /* DOWNLOAD(URI, referer) */
 #define DOWNLOAD(d, r) { \
     .v = (char *[]){ "/bin/sh", "-c", \
-	"cd ~/Telechargements;"\
+	"cd ~/Downloads;"\
 	"st -e /bin/sh -c \"aria2c -U '$1'" \
 	" --referer '$2' --load-cookies $3 --save-cookies $3 '$0';" \
 	" sleep 3;\"", \
