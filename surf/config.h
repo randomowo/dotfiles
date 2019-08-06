@@ -80,7 +80,7 @@ WEBKIT_FIND_OPTIONS_WRAP_AROUND;
 /* DOWNLOAD(URI, referer) */
 #define DOWNLOAD(d, r) { \
     .v = (char *[]){ "/bin/sh", "-c", \
-	"cd ~/Downloads;"\
+	"cd ~/Telechargements;"\
 	"st -e /bin/sh -c \"aria2c -U '$1'" \
 	" --referer '$2' --load-cookies $3 --save-cookies $3 '$0';" \
 	" sleep 3;\"", \
@@ -149,6 +149,8 @@ static Key keys[] = {
     { MODKEY,                GDK_KEY_slash,  spawn,      SETPROP("_SURF_FIND", "_SURF_FIND", PROMPT_FIND) },
     { MODKEY,                GDK_KEY_m,      spawn,      BM_ADD("_SURF_URI") },
 
+    { MODKEY,                GDK_KEY_w,      playexternal, { 0 } },
+
     { 0,                     GDK_KEY_Escape, stop,       { 0 } },
     { MODKEY,                GDK_KEY_c,      stop,       { 0 } },
 
@@ -208,3 +210,5 @@ static Button buttons[] = {
     { OnAny,        0,              9,      clicknavigate,  { .i = +1 },    1 },
     { OnMedia,      MODKEY,         1,      clickexternplayer, { 0 },       1 },
 };
+
+#define HOMEPAGE "https://duckduckgo.com/"
