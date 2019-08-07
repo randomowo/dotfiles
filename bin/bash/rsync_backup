@@ -19,9 +19,9 @@ echo "Disk $backup_disk mounted"
 # freeing up disk space if needed
 
 need_size=$(sudo rsync -r --dry-run --stats -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $backup_folder | grep "Total transferred file size:" | grep -oE "[0-9,]++" | tr -d ',')
-have_size=$(df -h /mnt | sed -n 2p | xargs | tr ' ' '\n'| sed -n 4p | grep -oE "[0-9]*")
+have_size=$(df /mnt | sed -n 2p | xargs | tr ' ' '\n'| sed -n 4p | grep -oE "[0-9]+")
 
-while (( $(echo "($need_size/1000000000) * 1.5 > $have_size" | bc -l) )); do
+while (( $(echo "($need_size * 1.5 > $have_size" | bc -l) )); do
     oldest=/mnt/backup/$(ls -t /mnt/backup | sort | sed -n 1p)
     sudo rm -rf $oldest
     echo "$oldest deleted for freeing disk space"
