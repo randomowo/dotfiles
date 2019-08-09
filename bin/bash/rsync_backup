@@ -16,9 +16,8 @@ if [[ "$(df -ah | grep -o $backup_disk)" == "" ]]; then
 fi
 echo "Disk $backup_disk mounted"
 
-# freeing up disk space if needed
-
-need_size=$(sudo rsync -r --dry-run --stats -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $backup_folder | grep "Total transferred file size:" | grep -oE "[0-9,]++" | tr -d ',')
+echo "Calculating needed size"
+need_size=$(sudo rsync -r --dry-run --stats -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","$HOME/.cache/*","$HOME/Downloads/*"} / $backup_folder | grep "Total transferred file size:" | grep -oE "[0-9,]++" | tr -d ',')
 have_size=$(df /mnt | sed -n 2p | xargs | tr ' ' '\n'| sed -n 4p | grep -oE "[0-9]+")
 
 while (( $(echo "($need_size/1000) * 1.5 > $have_size" | bc -l) )); do
@@ -35,10 +34,10 @@ else
     echo "Folder $backup_folder already exist"
 fi
 
-files_count=$(sudo rsync -r --dry-run --stats --human-readable -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $backup_folder | grep -oE "transferred:.*" | grep -oE "[0-9].*" | tr -d ,)
+files_count=$(sudo rsync -r --dry-run --stats --human-readable -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","$HOME/.cache/*","$HOME/Downloads/*"} /  $backup_folder | grep -oE "transferred:.*" | grep -oE "[0-9].*" | tr -d ,)
 let files_count+=5
 
-sudo rsync -aAXrv --delete -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / $backup_folder | pv -pteabl -s $files_count > /dev/null
+sudo rsync -aAXrv --delete -e --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","$HOME/.cache/*","$HOME/Downloads/*"} / $backup_folder | pv -pteabl -s $files_count > /dev/null
 
 echo "System backuped"
 
