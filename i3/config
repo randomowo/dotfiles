@@ -36,6 +36,9 @@ bindsym $mod+w exec tabbed -c surf -bNPSg -e & disown
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# lock screen
+bindsym $mod+Shift+o exec i3lock -ef
+
 # make a screenshot
 bindsym $mod+F3 exec gnome-screenshot
 
