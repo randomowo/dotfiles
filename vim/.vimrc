@@ -26,6 +26,7 @@ set shiftwidth=4
 set smartindent
 set smarttab
 set softtabstop=2
+set tabstop=4
 
 set exrc
 set secure
@@ -79,19 +80,21 @@ call plug#end()
 " plugins conf
 " colorscheme
 set background=dark
-" colorscheme cosmic_latte
 colorscheme base16-ashes
 let base16colorspace=256
 
 " ale
 let g:ale_fix_on_save = 1
+
 " airline
 let g:airline_theme = 'deus'
 let g:airline#extensions#tabline#enabled = 1
+
 " format file after save
 "au BufWrite * :Autoformat
 " indent guilines
 let g:indent_guides_enable_on_vim_startup = 1
+
 " syntactic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

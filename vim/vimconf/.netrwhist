@@ -1,10 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/randomowo/Documents/University/Circuit-Design'
-let g:netrw_dirhist_2='/Users/randomowo/Documents/University'
-let g:netrw_dirhist_3='/Users/randomowo/Documents'
-let g:netrw_dirhist_4='/Users/randomowo'
-let g:netrw_dirhist_5='/Users/randomowo/.m2'
-let g:netrw_dirhist_6='/Users/randomowo/dotfiles/vim'
-let g:netrw_dirhist_7='/home/randomowo/.config/termite'
-let g:netrw_dirhist_8='/home/randomowo/dotfiles/bin/bash/backup'
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/randomowo/.vim'
