@@ -33,7 +33,7 @@ alias git-cc="git reset HEAD~"
 # set up brightness by xbacklight utillity
 alias brightness='xbacklight -set $1'
 # remove unused packages
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+alias cleanup='yay -Rns $(yay -Qtdq) && sudo pacman -Rns $(pacman -Qtdq)'
 # alias for programms
 alias rss='canto-curses'
 alias irc='weechat'
