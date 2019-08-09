@@ -37,10 +37,19 @@ bindsym $mod+w exec tabbed -c surf -bNPSg -e & disown
 bindsym $mod+Shift+q kill
 
 # lock screen
-bindsym $mod+Shift+o exec i3lock -ef
+bindsym XF86PowerOff exec i3lock -ef
 
 # make a screenshot
 bindsym $mod+F3 exec gnome-screenshot
+
+# brightness control
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# sound control
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioLowerVolume exec amixer set Master 10%-
+bindsym XF86AudioRaiseVolume exec amixer set Master 10%+
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus 12' -sb '#b8a6e0' -sf black
