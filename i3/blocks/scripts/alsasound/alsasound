@@ -1,2 +1,9 @@
 #!/bin/bash
-amixer get Master | grep -oE "[0-9]+%" | sed -n 1p
+
+muted=$(amixer get Master | grep -oE off)
+if [[ "$muted" != "" ]]; then
+	echo "muted"
+else
+	amixer get Master | grep -oE "[0-9]+%" | sed -n 1p
+fi
+
