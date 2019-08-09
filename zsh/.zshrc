@@ -28,10 +28,7 @@ alias convert="ffmpeg -i"
 alias pipup="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 # git aliases
 alias git-adog="git log --all --decorate --oneline --graph"
-alias git-undo="git reset --hard"
-alias git-cc="git reset HEAD~"
-# set up brightness by xbacklight utillity
-alias brightness='xbacklight -set $1'
+alias git-undo="git revert  --soft HEAD~1"
 # remove unused packages
 alias cleanup='yay -Rns $(yay -Qtdq) && sudo pacman -Rns $(pacman -Qtdq)'
 # alias for programms
