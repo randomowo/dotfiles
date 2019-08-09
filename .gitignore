@@ -1,7 +1,7 @@
 cmus
 karabiner/automatic_backups
 vim/vimconf/plugins
-canto/feeds
+canto/feeds*
 canto/curses-log
 canto/daemon-log
 canto/pid
