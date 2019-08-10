@@ -14,7 +14,7 @@ set $mod Mod4
 
 # font
 font pango:xos4 Terminus 13
-font xft:Droid Sans Mono 13
+#font xft:Droid Sans Mono 13
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -22,8 +22,14 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# start spotify
+bindsym $mod+Shift+m exec spotify
+
 # start a web browser
 bindsym $mod+w exec tabbed -c surf -bNPSg -e & disown
+
+# start telegram
+bindsym $mod+Shift+t exec telegram-desktop
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -44,7 +50,7 @@ bindsym XF86AudioLowerVolume exec amixer set Master 10%-
 bindsym XF86AudioRaiseVolume exec amixer set Master 10%+
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus 12' -sb '#b8a6e0' -sf black
+bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus-13' -sb '#b8a6e0' -sf black
 
 # change focus
 bindsym $mod+h focus left
@@ -161,8 +167,8 @@ bar {
 	status_command i3blocks
 	colors{
 		background #222222
-			statusline #dddddd
-			focused_workspace  #333333 #9979bb #dddddd
-			inactive_workspace #333333 #222222 #888888
+		statusline #dddddd
+		focused_workspace  #333333 #9979bb #dddddd
+		inactive_workspace #333333 #222222 #888888
 		}
 }
