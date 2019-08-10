@@ -7,7 +7,7 @@ for_window [class=".*"] border pixel 3
 gaps inner 10
 
 # Wallpaper
-exec --no-startup-id feh --randomize --bg-fill $HOME/pic/wallpapers/
+exec --no-startup-id feh --bg-fill $HOME/pic/wallpapers/arch.jpg
 
 # MOD button
 set $mod Mod4
@@ -35,7 +35,12 @@ bindsym $mod+Shift+t exec telegram-desktop
 bindsym $mod+Shift+q kill
 
 # lock screen
-bindsym XF86PowerOff exec i3lock -ef
+bindsym XF86PowerOff exec i3lock -ne --blur=5 \
+--insidecolor=373445ee --ringcolor=555555ee --line-uses-inside \
+--keyhlcolor=b8a6edff --bshlcolor=d23c3dff --separatorcolor=00000044 \
+--insidevercolor=373445ee --insidewrongcolor=373445ee \
+--ringvercolor=557755ee --ringwrongcolor=775555ee  \
+--radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"
 
 # make a screenshot
 bindsym $mod+F3 exec gnome-screenshot
