@@ -3,8 +3,8 @@
 window:
   # Window dimensions
   dimensions:
-    columns: 0
-    lines: 0
+    columns: 100
+    lines: 40
    
   # Window padding
   padding:
