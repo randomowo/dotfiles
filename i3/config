@@ -7,7 +7,7 @@ for_window [class=".*"] border pixel 3
 gaps inner 10
 
 # Wallpaper
-exec --no-startup-id feh --bg-fill $HOME/pic/wallpapers/windows2.png
+exec_always --no-startup-id feh --bg-fill $HOME/pic/wallpapers/windows2.png
 
 # MOD button
 set $mod Mod4
@@ -170,5 +170,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # start compton
-exec --no-startup-id compton --config $HOME/.config/compton/config
+exec_always --no-startup-id $HOME/.config/compton/launch.sh
+
+# start polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #client.focused              #aa8acc #aa8acc #aa8acc
