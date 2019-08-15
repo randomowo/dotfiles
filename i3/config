@@ -7,7 +7,7 @@ for_window [class=".*"] border pixel 3
 gaps inner 10
 
 # Wallpaper
-exec --no-startup-id feh --bg-fill $HOME/pic/wallpapers/arch.jpg
+exec --no-startup-id feh --bg-fill $HOME/pic/wallpapers/windows2.png
 
 # MOD button
 set $mod Mod4
@@ -27,6 +27,9 @@ bindsym $mod+Shift+m exec spotify
 
 # start a web browser
 bindsym $mod+w exec tabbed -c surf -bNPSg -e & disown
+
+# start chromium
+bindsym $mod+Shift+w exec qutebrowser
 
 # start telegram
 bindsym $mod+Shift+t exec telegram-desktop
@@ -166,14 +169,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-client.focused              #aa8acc #aa8acc #aa8acc
-bar {
-	position bottom
-	status_command i3blocks
-	colors{
-		background #222222
-		statusline #dddddd
-		focused_workspace  #333333 #9979bb #dddddd
-		inactive_workspace #333333 #222222 #888888
-		}
-}
+# start compton
+exec --no-startup-id compton --config $HOME/.config/compton/config
+#client.focused              #aa8acc #aa8acc #aa8acc
