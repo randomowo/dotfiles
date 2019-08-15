@@ -48,6 +48,8 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+Plug 'vim-latex/vim-latex'
+
 " developing plugins
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-syntastic/syntastic'
@@ -56,9 +58,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'Chiel92/vim-autoformat'
 Plug 'nathanaelkane/vim-indent-guides'
-
-" Python dev
-Plug 'klen/python-mode'
 
 " Rust dev
 Plug 'rust-lang/rust.vim'

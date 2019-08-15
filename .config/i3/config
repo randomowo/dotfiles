@@ -174,4 +174,4 @@ exec_always --no-startup-id $HOME/.config/compton/launch.sh
 
 # start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#client.focused              #aa8acc #aa8acc #aa8acc
+client.focused              #9979bb #9979bb #9979bb
