@@ -1,0 +1,3 @@
+backend = "xrender"
+refresh-rate = 0;
+vsync = false;
