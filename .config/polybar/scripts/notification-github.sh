@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TOKEN="fce2de29b041d94fb397f22b674411d92a73df6e"
+TOKEN="39949ee51a8a839a494a7baac9fef8b977f260b3"
 
 notifications=$(curl -fs https://api.github.com/notifications?access_token=$TOKEN | jq ".[].unread" | grep -c true)
 

@@ -26,10 +26,10 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+m exec spotify
 
 # start a web browser
-bindsym $mod+w exec tabbed -c surf -bNPSg -e & disown
+bindsym $mod+Shift+w exec tabbed -c surf -bNPSg -e & disown
 
-# start chromium
-bindsym $mod+Shift+w exec qutebrowser
+# start qutebrowser
+bindsym $mod+w exec qutebrowser
 
 # start telegram
 bindsym $mod+Shift+t exec telegram-desktop
