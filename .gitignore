@@ -1,11 +1,4 @@
 .config/cmus
 karabiner/automatic_backups
 vim/vimconf/plugins
-.config/canto/feeds*
-.config/canto/curses-log
-.config/canto/daemon-log
-.config/canto/pid
-.config/canto/.canto_socket
-.config/canto/plugins/__pycache__
-.config/polybar/scripts/accounts.ini
 .config/polybar/scripts/notification-github.sh

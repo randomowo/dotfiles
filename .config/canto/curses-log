@@ -1,7 +1,0 @@
-02:05:21 : CANTO-CURSES -> canto-curses 0.9.9 
-02:05:21 : PLUGINS -> [plugin] cleantitle
-02:05:21 : PLUGINS -> [plugin] favorites
-02:05:21 : PLUGINS -> [plugin] reader-extras
-02:05:21 : CANTO-CURSES -> Version check passed: 0.9
-02:14:58 : COMMON -> browser.path = tabbed -c surf
-02:15:33 : COMMON -> browser.path = surf
