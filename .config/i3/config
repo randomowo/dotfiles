@@ -1,118 +1,109 @@
-# i3 config file
+#        __                                                              ___
+#  __  /'__`\                                                          /'___\ __
+# /\_\/\_\L\ \  __  __  __    ___ ___              ___    ___     ___ /\ \__//\_\     __
+# \/\ \/_/_\_<_/\ \/\ \/\ \ /' __` __`\  _______  /'___\ / __`\ /' _ `\ \ ,__\/\ \  /'_ `\
+#  \ \ \/\ \L\ \ \ \_/ \_/ \/\ \/\ \/\ \/\______\/\ \__//\ \L\ \/\ \/\ \ \ \_/\ \ \/\ \L\ \
+#   \ \_\ \____/\ \___x___/'\ \_\ \_\ \_\/______/\ \____\ \____/\ \_\ \_\ \_\  \ \_\ \____ \
+#    \/_/\/___/  \/__//__/   \/_/\/_/\/_/         \/____/\/___/  \/_/\/_/\/_/   \/_/\/___L\ \
+#                                                                                     /\____/
+#                                                                                     \_/__/
+# by randomowo
 
-# setting up windows borders
-for_window [class=".*"] border pixel 3
+# ====Settings====
+for_window [class=".*"] border pixel 2 # windows border size
+client.focused #1db954dd #1db954dd #1db954dd
+gaps inner 10 # windows gaps
+font pango:xos4 Terminus 13 # font
+hide_edge_borders smart
 
-# Gaps
-gaps inner 10
+# ====Executing programms====
+exec_always --no-startup-id feh --bg-fill $HOME/pic/wallpapers/windows2.png # wallpaper
+exec_always --no-startup-id $HOME/.config/compton/launch.sh # compton
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh # polybar
 
-# Wallpaper
-exec_always --no-startup-id feh --bg-fill $HOME/pic/wallpapers/windows2.png
-
+# ====Mapping====
 # MOD button
 set $mod Mod4
-
-# font
-font pango:xos4 Terminus 13
-#font xft:Droid Sans Mono 13
-
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
 
-# start a terminal
+# ----Programms----
+# terminal
 bindsym $mod+Return exec alacritty
-
-# start spotify
+# music player
 bindsym $mod+Shift+m exec spotify
-
-# start a web browser
-bindsym $mod+Shift+w exec tabbed -c surf -bNPSg -e & disown
-
-# start qutebrowser
+# web browser
 bindsym $mod+w exec qutebrowser
-
-# start telegram
+# messenger
 bindsym $mod+Shift+t exec telegram-desktop
+# progra, launcher
+bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus-13' -sb '#b8a6e0' -sf black
 
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# lock screen
+# ----System----
 bindsym XF86PowerOff exec i3lock -ne --blur=5 \
 --insidecolor=373445ee --ringcolor=555555ee --line-uses-inside \
 --keyhlcolor=b8a6edff --bshlcolor=d23c3dff --separatorcolor=00000044 \
 --insidevercolor=373445ee --insidewrongcolor=373445ee \
 --ringvercolor=557755ee --ringwrongcolor=775555ee  \
 --radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"
-
-# make a screenshot
+# screenshot
 bindsym $mod+F3 exec gnome-screenshot
-
-# brightness control
+# brigtness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-
-# sound control
+# volume
 bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86AudioLowerVolume exec amixer set Master 10%-
 bindsym XF86AudioRaiseVolume exec amixer set Master 10%+
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus-13' -sb '#b8a6e0' -sf black
-
+# ----Windows----
+# kill
+bindsym $mod+Shift+q kill
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+k focus down
 bindsym $mod+j focus up
 bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
+# move focused
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# enter fullscreen mode for the focused container
+# enter to fullscreen
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
+# focus toggle / floating
 bindsym $mod+space focus mode_toggle
+mode "resize" {
+    # resize window
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
+    # back to normal
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
+}
+# toggle resize mode
+bindsym $mod+r mode "resize"
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
-# switch to workspace
+# ----Workspace----
+# defininig workspaces
+set $ws1 "1:term"
+set $ws2 "2:work"
+set $ws3 "3:work"
+set $ws4 "4:web"
+set $ws5 "5:lect"
+set $ws6 "6:smfg"
+set $ws7 "7:smfg"
+set $ws8 "8:smfg"
+set $ws9 "9:chat"
+set $ws10 "10:music"
+# switch workspaces
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -123,8 +114,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-
-# move focused container to workspace
+# move window to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -135,43 +125,3 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-
-# Pressing left will shrink the window’s width.
-# Pressing right will grow the window’s width.
-# Pressing up will shrink the window’s height.
-# Pressing down will grow the window’s height.
-	bindsym h resize shrink width 10 px or 10 ppt
-	bindsym j resize grow height 10 px or 10 ppt
-	bindsym k resize shrink height 10 px or 10 ppt
-	bindsym l resize grow width 10 px or 10 ppt
-
-# same bindings, but for the arrow keys
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Right resize grow width 10 px or 10 ppt
-
-# back to normal: Enter or Escape or $mod+r
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-	bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# start compton
-exec_always --no-startup-id $HOME/.config/compton/launch.sh
-
-# start polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-client.focused              #9979bb #9979bb #9979bb
