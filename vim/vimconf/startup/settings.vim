@@ -6,20 +6,20 @@
 "  |_____/ \___|\__|\__|_|_| |_|\__, |___/
 "                                __/ |    
 "                               |___/     
+" by randomowo
 
 set relativenumber
 set number
 set linebreak
-set showbreak=+++
+set showbreak=+^+
 set textwidth=120
 set colorcolumn=120
 set showmatch
 set encoding=utf-8
-set path+=**
+set path+=*/*
 set wildmenu
 set hlsearch
 set smartcase
-set ignorecase
 set incsearch
 set autoindent
 set cindent
@@ -28,13 +28,13 @@ set smartindent
 set smarttab
 set softtabstop=2
 set tabstop=4
-set exrc
 set secure
+set exrc
 set termguicolors
 set ruler
 set undolevels=1000
-set backspace=indent,eol,start
 set background=dark
+set foldmethod=indent
 highlight ColorColumn ctermbg=darkgray
 syntax on
 colorscheme base16-ashes
@@ -44,8 +44,8 @@ colorscheme base16-ashes
 let base16colorspace=256
 
 " YcM
-let g:ycm_key_list_select_completion = ['<s-tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
+ let g:ycm_key_list_select_completion = ['<s-tab>', '<Down>']
+ let g:ycm_key_list_previous_completion = ['<Up>']
 
 " LaTex
 let g:livepreview_previewer = 'zathura'
@@ -62,9 +62,6 @@ let g:ale_fix_on_save = 1
 let g:airline_theme = 'deus'
 let g:airline#extensions#tabline#enabled = 1
 
-" indent guilines
-let g:indent_guides_enable_on_vim_startup = 1
-
 " syntactic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -73,6 +70,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_tex_checkers = ['lacheck']
 
 " minisnip
 let g:minisnip_trigger = '<Tab>'
+
+" markdown-preview
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 1

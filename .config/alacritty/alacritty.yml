@@ -108,7 +108,7 @@ visual_bell:
   color: '0xffffff'
 
 # Background opacity
-background_opacity: 0.0
+background_opacity: 0.6
 
 # Mouse bindings
 mouse_bindings:

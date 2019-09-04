@@ -10,16 +10,26 @@
 # by randomowo
 
 # ====Settings====
-for_window [class=".*"] border pixel 2 # windows border size
-client.focused #1db954dd #1db954dd #1db954dd
-gaps inner 10 # windows gaps
-font pango:xos4 Terminus 13 # font
-hide_edge_borders smart
+# windows border
+for_window [class="^.*"] border pixel 1px
+for_window [title="^.*"] border pixel 1px
+client.focused #f5e497dd #f5e497dd #f5e497dd 
+# gaps
+gaps inner 6
+# font
+font pango:xos4 Terminus 13
+# borders
+smart_borders on
 
 # ====Executing programms====
-exec_always --no-startup-id feh --bg-fill $HOME/pic/wallpapers/windows2.png # wallpaper
-exec_always --no-startup-id $HOME/.config/compton/launch.sh # compton
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh # polybar
+# startup sound
+exec --no-startup-id mpv --really-quiet --no-video $HOME/music/sfx/trumpet.flac  
+# wallpaper
+exec_always --no-startup-id feh --bg-fill $HOME/pic/wallpapers/trumpet.png
+# compton
+exec_always --no-startup-id $HOME/.config/compton/launch.sh
+# polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # ====Mapping====
 # MOD button
@@ -42,7 +52,14 @@ bindsym $mod+Shift+t exec telegram-desktop
 bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus-13' -sb '#b8a6e0' -sf black
 
 # ----System----
+# lock screen
 bindsym XF86PowerOff exec i3lock -ne --blur=5 \
+--insidecolor=373445ee --ringcolor=555555ee --line-uses-inside \
+--keyhlcolor=b8a6edff --bshlcolor=d23c3dff --separatorcolor=00000044 \
+--insidevercolor=373445ee --insidewrongcolor=373445ee \
+--ringvercolor=557755ee --ringwrongcolor=775555ee  \
+--radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"
+bindsym $mod+End exec i3lock -ne --blur=5 \
 --insidecolor=373445ee --ringcolor=555555ee --line-uses-inside \
 --keyhlcolor=b8a6edff --bshlcolor=d23c3dff --separatorcolor=00000044 \
 --insidevercolor=373445ee --insidewrongcolor=373445ee \
@@ -99,8 +116,8 @@ set $ws3 "3:work"
 set $ws4 "4:web"
 set $ws5 "5:lect"
 set $ws6 "6:smfg"
-set $ws7 "7:smfg"
-set $ws8 "8:smfg"
+set $ws7 "7:soc"
+set $ws8 "8:mail"
 set $ws9 "9:chat"
 set $ws10 "10:music"
 # switch workspaces

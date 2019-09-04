@@ -7,8 +7,6 @@
 "               | |   | |             __/ |    
 "               |_|   |_|            |___/    
 
-map <C-n> :NERDTreeToggle<CR>
-map <Leader> <Plug>(easymotion-prefix)
 map bn :bn<CR>
 map bd :bd<CR>
 

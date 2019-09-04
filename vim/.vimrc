@@ -10,6 +10,7 @@
 set nocompatible
 filetype on
 filetype indent on
+filetype plugin on
 
 "===== Load =====
 source $HOME/.vim/startup/plugins.vim

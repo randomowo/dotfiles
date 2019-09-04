@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/randomowo/dotfiles/.config/compton'
+let g:netrw_dirhist_4='/home/randomowo/Documents/university/course3/sem1/os/notes'
+let g:netrw_dirhist_3='/home/randomowo/Documents/university/course3/sem1/os'
+let g:netrw_dirhist_2='/home/randomowo/dotfiles/.config/i3/blocks'
 let g:netrw_dirhist_1='/home/randomowo/.vim'
