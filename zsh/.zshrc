@@ -38,10 +38,18 @@ alias pipup="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f
 alias git-adog="git log --all --decorate --oneline --graph"
 alias git-undo="git revert  --soft HEAD~1"
 # remove unused packages
-alias cleanup='yay -Rns $(yay -Qtdq) && sudo pacman -Rns $(pacman -Qtdq)'
+alias cleanup='yay -Rns $(yay -Qtdq)'
 # alias for programms
 alias irc='weechat'
 # clear vim for fast editing large files
 alias cvim='sudo vim -u NONE'
 # update python packages
 alias upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U'
+# rust ls
+alias ls='exa'
+alias l='exa -lahgF'
+alias lst='exa --tree'
+alias lt='exa -lahgF --tree'
+# wifi by netctlc
+alias won='sudo netctl restart $1'
+alias woff='for name in $(sudo systemctl list-units | grep -oE "netctl@.*\.service" | grep -oE "\w+" | grep -Ev "netctl|service"); do sudo netctl stop $name; done'
