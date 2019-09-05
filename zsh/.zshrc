@@ -11,7 +11,8 @@
 # by randomowo
 
 export ZSH=$HOME/.oh-my-zsh
-PATH=$PATH; export PATH
+export PATH=$PATH:/opt/altera/18.1/quartus/bin:/opt/altera/18.1/modelsim_ase/bin
+export QSYS_ROOTDIR="/home/randomowo/.cache/yay/quartus-free/pkg/quartus-free/opt/altera/18.1/quartus/sopc_builder/bin"
 
 ZSH_THEME="crunch"
 #jnrowe, dogenpunk, nicoulaj, crunch
@@ -51,5 +52,5 @@ alias l='exa -lahgF'
 alias lst='exa --tree'
 alias lt='exa -lahgF --tree'
 # wifi by netctlc
-alias won='sudo netctl restart $1'
+alias won='sudo ip link set dev wlp3s0 down; sudo netctl restart $1'
 alias woff='for name in $(sudo systemctl list-units | grep -oE "netctl@.*\.service" | grep -oE "\w+" | grep -Ev "netctl|service"); do sudo netctl stop $name; done'
