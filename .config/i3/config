@@ -4,8 +4,7 @@
 # \/\ \/_/_\_<_/\ \/\ \/\ \ /' __` __`\  _______  /'___\ / __`\ /' _ `\ \ ,__\/\ \  /'_ `\
 #  \ \ \/\ \L\ \ \ \_/ \_/ \/\ \/\ \/\ \/\______\/\ \__//\ \L\ \/\ \/\ \ \ \_/\ \ \/\ \L\ \
 #   \ \_\ \____/\ \___x___/'\ \_\ \_\ \_\/______/\ \____\ \____/\ \_\ \_\ \_\  \ \_\ \____ \
-#    \/_/\/___/  \/__//__/   \/_/\/_/\/_/         \/____/\/___/  \/_/\/_/\/_/   \/_/\/___L\ \
-#                                                                                     /\____/
+#    \/_/\/___/  \/__//__/   \/_/\/_/\/_/         \/____/\/___/  \/_/\/_/\/_/   \/_/\/___L\ \ #                                                                                     /\____/
 #                                                                                     \_/__/
 # by randomowo
 
@@ -25,7 +24,7 @@ smart_borders on
 # startup sound
 exec --no-startup-id mpv --really-quiet --no-video $HOME/music/sfx/trumpet.flac  
 # wallpaper
-exec_always --no-startup-id feh --bg-fill $HOME/pic/wallpapers/trumpet.png
+exec_always --no-startup-id feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/*
 # compton
 exec_always --no-startup-id $HOME/.config/compton/launch.sh
 # polybar
@@ -48,8 +47,9 @@ bindsym $mod+Shift+m exec spotify
 bindsym $mod+w exec qutebrowser
 # messenger
 bindsym $mod+Shift+t exec telegram-desktop
-# progra, launcher
-bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus-13' -sb '#b8a6e0' -sf black
+# program launcher
+#bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus-13' -sb '#b8a6e0' -sf black
+bindsym $mod+d exec rofi -show combi -show-icons
 
 # ----System----
 # lock screen
@@ -80,8 +80,8 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 10%+
 bindsym $mod+Shift+q kill
 # change focus
 bindsym $mod+h focus left
-bindsym $mod+k focus down
-bindsym $mod+j focus up
+bindsym $mod+j focus down
+bindsym $mod+k focus up
 bindsym $mod+l focus right
 # move focused
 bindsym $mod+Shift+h move left
