@@ -1,0 +1,49 @@
+#!/bin/bash
+# wifi manager by netctl utility
+# by randomowo
+
+on() {
+	off
+	list=($(ls /etc/netctl | grep -Ev "hooks|examples|interfaces"))
+	echo "Choose network:"
+	for (( netIndex=0; netIndex<${#list[@]}; netIndex++ )); do
+		echo -e "\t$netIndex ${list[$netIndex]}"
+	done
+	read -p "Network: " netInd
+	if [[ -n $netInd ]] && (( $netInd > ${#list[@]} )); then
+		echo "wrong input"
+		exit 1
+	fi
+	sudo netctl start "${list[netInd]}"
+}
+
+off() {
+	sudo netctl stop-all
+	echo "wifi turned off"
+}
+
+ipDown() {
+	ipstat=$(sudo ip link | grep -E "wlp3s0.*" | grep -oE "UP|DOWN" | sed -n 1p)
+	if [[ $ipstat == "UP" ]]; then sudo ip link set dev wlp3s0 down; fi
+}
+
+new() {
+	sudo wifi-menu
+}
+
+case $1 in
+	"on")
+		ipDown
+		on;;
+	"off")
+		ipDown
+		off;;
+	"new")
+		ipDown	
+		new;;
+	*)
+		echo "wrong input"
+		exit 1;;
+esac
+
+exit 0
