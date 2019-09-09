@@ -2,9 +2,12 @@
 # wifi manager by netctl utility
 # by randomowo
 
+device=$(ip link | grep -oE 'w\w+')
+
 on() {
 	off
-	list=($(ls /etc/netctl | grep -Ev "hooks|examples|interfaces"))
+	ipDown
+	list=($(netctl list))
 	echo "Choose network:"
 	for (( netIndex=0; netIndex<${#list[@]}; netIndex++ )); do
 		echo -e "\t$netIndex ${list[$netIndex]}"
@@ -19,12 +22,22 @@ on() {
 
 off() {
 	sudo netctl stop-all
+	ipUp
 	echo "wifi turned off"
 }
 
 ipDown() {
-	ipstat=$(sudo ip link | grep -E "wlp3s0.*" | grep -oE "UP|DOWN" | sed -n 1p)
-	if [[ $ipstat == "UP" ]]; then sudo ip link set dev wlp3s0 down; fi
+	ipstat=$(ip link | grep -E "$device.*" | grep -oE "UP|DOWN" | sed -n 1p)
+	if [[ $ipstat == "UP" ]]; then sudo ip link set dev $device down; fi
+}
+
+ipUp() {
+	sudo ip link set dev "$device" up
+}
+
+ipRes() {
+	ipDown	
+	ipUp
 }
 
 new() {
@@ -33,7 +46,7 @@ new() {
 
 case $1 in
 	"on")
-		ipDown
+		ipRes
 		on;;
 	"off")
 		ipDown

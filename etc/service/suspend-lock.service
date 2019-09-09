@@ -11,7 +11,7 @@ ExecStart=/usr/bin/i3lock -e --blur=5 \
 --keyhlcolor=b8a6edff --bshlcolor=d23c3dff --separatorcolor=00000044 \
 --insidevercolor=373445ee --insidewrongcolor=373445ee \
 --ringvercolor=557755ee --ringwrongcolor=775555ee  \
---radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"
+--radius=90 --veriftext="" --wrongtext="" --noinputtext="lock" && echo mem > /sys/power/state
 ExecStartPost=/usr/bin/sleep 1
 
 [Install]

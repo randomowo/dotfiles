@@ -1,4 +1,4 @@
 .config/cmus
-karabiner/automatic_backups
+mac/karabiner/automatic_backups
 vim/vimconf/plugins
 .config/polybar/scripts/notification-github.sh

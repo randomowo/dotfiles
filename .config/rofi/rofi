@@ -1,5 +1,5 @@
 rofi.show-icons:            true
-rofi.modi:                  drun,run,window,ssh
+rofi.modi:                  drun,run,window,ssh,combi
 rofi.lines:                 5
 rofi.line-padding:          7
 rofi.matching:              fuzzy
@@ -8,5 +8,5 @@ rofi.padding:               0
 rofi.separator-style:       none
 rofi.hide-scrollbar:        true
 rofi.line-margin:           0
-rofi.font:                  xos4 Terminus 10
+rofi.font:                  xos4-Terminus 10
 rofi.theme: ./config.rasi

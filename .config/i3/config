@@ -18,13 +18,14 @@ gaps inner 6
 # font
 font pango:xos4 Terminus 13
 # borders
+hide_edge_borders smart
 smart_borders on
 
 # ====Executing programms====
 # startup sound
 exec --no-startup-id mpv --really-quiet --no-video $HOME/music/sfx/trumpet.flac  
 # wallpaper
-exec_always --no-startup-id feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/*
+exec_always --no-startup-id feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/love.jpg
 # compton
 exec_always --no-startup-id $HOME/.config/compton/launch.sh
 # polybar

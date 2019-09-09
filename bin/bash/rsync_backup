@@ -1,4 +1,6 @@
 #!/bin/bash
+# backup script
+# by randomowo
 
 backup_folder="/mnt/backup/$(date +%Y-%m-%d)"
 # change to your disk model (mine Backup+ RD)
