@@ -15,3 +15,8 @@
 backend = "xrender"
 refresh-rate = 0;
 vsync = false;
+
+opacity-rule = [
+	"90:class_g = 'TelegramDesktop'",
+	"90:class_g = 'Spotify'"
+];
