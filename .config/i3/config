@@ -23,7 +23,7 @@ smart_borders on
 
 # ====Executing programms====
 # startup sound
-exec --no-startup-id mpv --really-quiet --no-video $HOME/music/sfx/trumpet.flac  
+#exec --no-startup-id mpv --really-quiet --no-video $HOME/music/sfx/trumpet.flac  
 # wallpaper
 exec_always --no-startup-id feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/love.jpg
 # compton
@@ -46,6 +46,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+m exec spotify
 # web browser
 bindsym $mod+w exec qutebrowser
+bindsym $mod+Shift+w exec surf
 # messenger
 bindsym $mod+Shift+t exec telegram-desktop
 # program launcher
@@ -68,6 +69,7 @@ bindsym $mod+End exec i3lock -ne --blur=5 \
 --radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"
 # screenshot
 bindsym $mod+F3 exec gnome-screenshot
+bindsym $mod+F4 exec gnome-screenshot -a
 # brigtness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
