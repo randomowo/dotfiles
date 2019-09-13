@@ -10,7 +10,7 @@
 
 call plug#begin('$HOME/.vim/plugins')
 " theme
-Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim'
 
 " LaTex
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }

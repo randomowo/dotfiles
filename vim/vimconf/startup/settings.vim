@@ -30,18 +30,16 @@ set softtabstop=2
 set tabstop=4
 set secure
 set exrc
-set termguicolors
 set ruler
+set termguicolors
 set undolevels=1000
 set background=dark
-set foldmethod=indent
 highlight ColorColumn ctermbg=darkgray
 syntax on
-colorscheme base16-ashes
+colorscheme nord
 
 " ====Plugins====
 
-let base16colorspace=256
 
 " YcM
  let g:ycm_key_list_select_completion = ['<s-tab>', '<Down>']

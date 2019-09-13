@@ -58,49 +58,35 @@ font:
 
 draw_bold_text_with_bright_colors: true
 
-# Base16 Ashes 256 - alacritty color config
-# Jannik Siebert (https://github.com/janniks)
+# Colors (Nord)
 colors:
-  # Default colors
-  primary:
-    background: '0x1c2023'
-    foreground: '0xc7ccd1'
+   # Default colors
+   primary:
+     background: '0x2E3440'
+     foreground: '0xD8DEE9'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x1c2023'
-    cursor: '0xc7ccd1'
+   # Normal colors
+   normal:
+    black:   '0x3B4252'
+    red:     '0xBF616A'
+    green:   '0xA3BE8C'
+    yellow:  '0xEBCB8B'
+    blue:    '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan:    '0x88C0D0'
+    white:   '0xE5E9F0'
 
-  # Normal colors
-  normal:
-    black:   '0x1c2023'
-    red:     '0xc7ae95'
-    green:   '0x95c7ae'
-    yellow:  '0xaec795'
-    blue:    '0xae95c7'
-    magenta: '0xc795ae'
-    cyan:    '0x95aec7'
-    white:   '0xc7ccd1'
-
-  # Bright colors
-  bright:
-    black:   '0x747c84'
-    red:     '0xc7ae95'
-    green:   '0x95c7ae'
-    yellow:  '0xaec795'
-    blue:    '0xae95c7'
-    magenta: '0xc795ae'
-    cyan:    '0x95aec7'
-    white:   '0xf3f4f5'
-
-  indexed_colors:
-    - { index: 16, color: '0xc7c795' }
-    - { index: 17, color: '0xc79595' }
-    - { index: 18, color: '0x393f45' }
-    - { index: 19, color: '0x565e65' }
-    - { index: 20, color: '0xadb3ba' }
-    - { index: 21, color: '0xdfe2e5' }
-   
+   # Bright colors
+   bright:
+    black:   '0x4C566A'
+    red:     '0xBF616A'
+    green:   '0xA3BE8C'
+    yellow:  '0xEBCB8B'
+    blue:    '0x81A1C1'
+    magenta: '0xB48EAD'
+    cyan:    '0x8FBCBB'
+    white:   '0xECEFF4'
+     
 # Visual Bell
 visual_bell:
   animation: EaseOutExpo
@@ -108,7 +94,7 @@ visual_bell:
   color: '0xffffff'
 
 # Background opacity
-background_opacity: 0.6
+background_opacity: 0.9
 
 # Mouse bindings
 mouse_bindings:
