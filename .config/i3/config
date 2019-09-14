@@ -10,8 +10,8 @@
 
 # ====Settings====
 # windows border
-for_window [class="^.*"] border pixel 1px
-for_window [title="^.*"] border pixel 1px
+for_window [class="^.*"] border pixel 2
+for_window [title="^.*"] border pixel 2
 client.focused #f5e497dd #f5e497dd #f5e497dd 
 # gaps
 gaps inner 6
@@ -30,6 +30,8 @@ exec_always --no-startup-id feh --bg-fill --randomuze $HOME/pic/wallpapers/anime
 exec_always --no-startup-id $HOME/.config/compton/launch.sh
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# set audio muted on startup
+exec amixer set Master mute
 
 # ====Mapping====
 # MOD button
@@ -97,6 +99,10 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 # focus toggle / floating
 bindsym $mod+space focus mode_toggle
+# split containers
+bindsym $mod+v split v
+# change container layout
+bindsym $mod+e layout toggle split
 mode "resize" {
     # resize window
 	bindsym h resize shrink width 10 px or 10 ppt
