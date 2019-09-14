@@ -40,7 +40,6 @@ colorscheme nord
 
 " ====Plugins====
 
-
 " YcM
  let g:ycm_key_list_select_completion = ['<s-tab>', '<Down>']
  let g:ycm_key_list_previous_completion = ['<Up>']
