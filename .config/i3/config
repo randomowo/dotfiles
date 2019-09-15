@@ -16,20 +16,21 @@ client.focused #BF616Add #BF616Add #BF616Add
 # gaps
 gaps inner 6
 # font
-font pango:xos4 Terminus 13
+font pango:Anonymous Pro 16
 # borders
 hide_edge_borders smart
 smart_borders on
 
 # ====Executing programms====
+set $noid --no-startup-id
 # startup sound
 #exec --no-startup-id mpv --really-quiet --no-video $HOME/music/sfx/trumpet.flac  
 # wallpaper
-exec_always --no-startup-id feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/love.jpg
+exec_always $noid feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/love.jpg
 # compton
-exec_always --no-startup-id $HOME/.config/compton/launch.sh
+exec_always $noid $HOME/.config/compton/launch.sh
 # polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always $noid $HOME/.config/polybar/launch.sh
 # set audio muted on startup
 exec amixer set Master mute
 
@@ -43,7 +44,7 @@ bindsym $mod+Shift+r restart
 
 # ----Programms----
 # terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec $noid kitty
 # music player
 bindsym $mod+Shift+m exec spotify
 # web browser
@@ -57,28 +58,29 @@ bindsym $mod+d exec rofi -show combi -show-icons
 
 # ----System----
 # lock screen
-bindsym XF86PowerOff exec i3lock -ne --blur=5 \
+set $lockparams -ne --blur=5 \
 --insidecolor=373445ee --ringcolor=555555ee --line-uses-inside \
 --keyhlcolor=b8a6edff --bshlcolor=d23c3dff --separatorcolor=00000044 \
 --insidevercolor=373445ee --insidewrongcolor=373445ee \
 --ringvercolor=557755ee --ringwrongcolor=775555ee  \
 --radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"
-bindsym $mod+End exec i3lock -ne --blur=5 \
---insidecolor=373445ee --ringcolor=555555ee --line-uses-inside \
---keyhlcolor=b8a6edff --bshlcolor=d23c3dff --separatorcolor=00000044 \
---insidevercolor=373445ee --insidewrongcolor=373445ee \
---ringvercolor=557755ee --ringwrongcolor=775555ee  \
---radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"
+
+bindsym XF86PowerOff exec i3lock $lockparams
+bindsym $mod+End exec i3lock $lockparams
 # screenshot
 bindsym $mod+F3 exec gnome-screenshot
 bindsym $mod+F4 exec gnome-screenshot -a
 # brigtness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+set $light exec xbacklight
+
+bindsym XF86MonBrightnessUp $light -inc 5
+bindsym XF86MonBrightnessDown $light -dec 5
 # volume
-bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86AudioLowerVolume exec amixer set Master 10%-
-bindsym XF86AudioRaiseVolume exec amixer set Master 10%+
+set $sound exec amixer set Master
+
+bindsym XF86AudioMute $sound toggle
+bindsym XF86AudioLowerVolume $sound 10%-
+bindsym XF86AudioRaiseVolume $sound 10%+
 
 # ----Windows----
 # kill
@@ -103,12 +105,19 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+v split v
 # change container layout
 bindsym $mod+e layout toggle split
+# move container to the center of all outputs
+bindsym $mod+c move absolute position center
 mode "resize" {
     # resize window
 	bindsym h resize shrink width 10 px or 10 ppt
 	bindsym j resize grow height 10 px or 10 ppt
 	bindsym k resize shrink height 10 px or 10 ppt
 	bindsym l resize grow width 10 px or 10 ppt
+	bindsym Shift+h resize shrink width 50 px or 50 ppt
+	bindsym Shift+j resize grow height 50 px or 50 ppt
+	bindsym Shift+k resize shrink height 50 px or 50 ppt
+	bindsym Shift+l resize grow width 50 px or 50 ppt
+
     # back to normal
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -125,29 +134,42 @@ set $ws3 "3:work"
 set $ws4 "4:web"
 set $ws5 "5:lect"
 set $ws6 "6:smfg"
-set $ws7 "7:soc"
-set $ws8 "8:mail"
+set $ws7 "7:mail"
+set $ws8 "8:soc"
 set $ws9 "9:chat"
 set $ws10 "10:music"
 # switch workspaces
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+set $ws workspace
+bindsym $mod+1 $ws $ws1
+bindsym $mod+2 $ws $ws2
+bindsym $mod+3 $ws $ws3
+bindsym $mod+4 $ws $ws4
+bindsym $mod+5 $ws $ws5
+bindsym $mod+6 $ws $ws6
+bindsym $mod+7 $ws $ws7
+bindsym $mod+8 $ws $ws8
+bindsym $mod+9 $ws $ws9
+bindsym $mod+0 $ws $ws10
 # move window to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+set $mvc move container to workspace
+bindsym $mod+Shift+1 $mvc $ws1
+bindsym $mod+Shift+2 $mvc $ws2
+bindsym $mod+Shift+3 $mvc $ws3
+bindsym $mod+Shift+4 $mvc $ws4
+bindsym $mod+Shift+5 $mvc $ws5
+bindsym $mod+Shift+6 $mvc $ws6
+bindsym $mod+Shift+7 $mvc $ws7
+bindsym $mod+Shift+8 $mvc $ws8
+bindsym $mod+Shift+9 $mvc $ws9
+bindsym $mod+Shift+0 $mvc $ws10
+
+# ====Assigns====
+assign [class="Telegram"] "9:chat"
+assign [class="Quartus"] "2:work"
+assign [class="Thunderbird"] "7:mail"
+assign [class="jetbrains-idea"] "2:work"
+assign [class="Postman"] "3:work"
+assign [class="discord"] "8:soc"
+assign [class="Gimp"] "3:work"
+assign [class="Blender"] "2:work"
+for_window [class="^Spotify.*"] move to workspace $ws10
