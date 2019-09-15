@@ -1,15 +1,15 @@
 
 * {
-    backgroundcolor: #2e344055;
-    backgroundcoloralternate: #2e344055;
-    separatorcolor: #2e344055;
-    scrollbarcolor: #3b425255;
-    foregroundcolor: #839496;
-    foregroundcolorinverse: #839496;
-    selectioncolor: #3b425255;
+    backgroundcolor: #2e3440aa;
+    backgroundcoloralternate: #3b425200;
+    separatorcolor: #2e344000;
+    scrollbarcolor: #3b425200;
+    foregroundcolor: #88c0d0;
+    foregroundcolorinverse: #bf616a;
+    selectioncolor: #81a1c100;
 
 
-    font-size: 1px;
+    font-size: 4px;
     border-color: @separatorcolor;
     background-color: @backgroundcolor;
     text-color: @foregroundcolor;
@@ -61,11 +61,11 @@
 }
 
 #element.normal.active {
-    background-color: #434c5e;
+    background-color: #434c5e00;
 }
 
 #element.alternate.active {
-    background-color: #434c5e;
+    background-color: #434c5e00;
 }
 
 #element.selected.active {
