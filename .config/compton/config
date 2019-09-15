@@ -17,7 +17,8 @@ refresh-rate = 0;
 vsync = false;
 
 opacity-rule = [
-       "90:class_g = 'TelegramDesktop'",
+       "95:class_g = 'TelegramDesktop'",
        "90:class_g = 'Spotify'",
-	   "90:class_g = 'kitty'"
+	   "95:class_g = 'kitty'",
+	   "95:class_g = 'discord'"
 ];
