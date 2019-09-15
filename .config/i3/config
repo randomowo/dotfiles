@@ -10,9 +10,9 @@
 
 # ====Settings====
 # windows border
-for_window [class="^.*"] border pixel 2
-for_window [title="^.*"] border pixel 2
-client.focused #f5e497dd #f5e497dd #f5e497dd 
+for_window [class="^.*"] border pixel 3
+for_window [title="^.*"] border pixel 3
+client.focused #BF616Add #BF616Add #BF616Add 
 # gaps
 gaps inner 6
 # font
@@ -43,7 +43,7 @@ bindsym $mod+Shift+r restart
 
 # ----Programms----
 # terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 # music player
 bindsym $mod+Shift+m exec spotify
 # web browser
