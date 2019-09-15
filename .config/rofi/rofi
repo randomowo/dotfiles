@@ -8,5 +8,5 @@ rofi.padding:               0
 rofi.separator-style:       none
 rofi.hide-scrollbar:        true
 rofi.line-margin:           0
-rofi.font:                  xos4-Terminus 10
+rofi.font:                  Anonymous Pro 18
 rofi.theme: ./config.rasi
