@@ -7,7 +7,7 @@ device=$(ip link | grep -oE 'w\w+')
 on() {
 	off
 	ipDown
-	list=($(netctl list))
+	list=($(netctl list | sort))
 	echo "Choose network:"
 	for (( netIndex=0; netIndex<${#list[@]}; netIndex++ )); do
 		echo -e "\t$netIndex ${list[$netIndex]}"
@@ -36,12 +36,17 @@ ipUp() {
 }
 
 ipRes() {
-	ipDown	
+	ipDown
 	ipUp
 }
 
 new() {
 	sudo wifi-menu
+}
+
+reset() {
+	sudo rmmod brcmfmac
+	sudo modprobe brcmfmac
 }
 
 case $1 in
@@ -52,8 +57,11 @@ case $1 in
 		ipDown
 		off;;
 	"new")
-		ipDown	
+		ipDown
 		new;;
+	"res"|"reset")
+		reset
+		ipDown;;
 	*)
 		echo "wrong input"
 		exit 1;;

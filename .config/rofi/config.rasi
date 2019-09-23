@@ -1,7 +1,7 @@
 
 * {
     backgroundcolor: #2e3440aa;
-    backgroundcoloralternate: #3b425200;
+    backgroundcoloralternate: #2e3440aa;
     separatorcolor: #2e344000;
     scrollbarcolor: #3b425200;
     foregroundcolor: #88c0d0;

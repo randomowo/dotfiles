@@ -14,3 +14,4 @@ map <silent> <C-j> :call WinMove('j')<CR>
 map <silent> <C-k> :call WinMove('k')<CR>
 map <silent> <C-h> :call WinMove('h')<CR>
 map <silent> <C-l> :call WinMove('l')<CR>
+nmap <F8> :TagbarToggle<CR>

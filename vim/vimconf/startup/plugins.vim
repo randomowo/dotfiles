@@ -25,6 +25,7 @@ Plug 'w0rp/ale'
 Plug 'Chiel92/vim-autoformat'
 Plug 'joereynolds/vim-minisnip'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'majutsushi/tagbar'
 
 " Rust dev
 Plug 'rust-lang/rust.vim'

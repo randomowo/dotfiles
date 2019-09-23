@@ -26,7 +26,7 @@ set $noid --no-startup-id
 # startup sound
 #exec --no-startup-id mpv --really-quiet --no-video $HOME/music/sfx/trumpet.flac  
 # wallpaper
-exec_always $noid feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/love.jpg
+exec_always $noid feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/2.jpg
 # compton
 exec_always $noid $HOME/.config/compton/launch.sh
 # polybar
