@@ -1,0 +1,3 @@
+[submodule "polybar-spotify"]
+	path = .config/polybar/scripts/polybar-spotify	
+	url = https://github.com/Jvanrhijn/polybar-spotify.git
