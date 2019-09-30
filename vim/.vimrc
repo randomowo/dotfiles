@@ -13,7 +13,7 @@ filetype indent on
 filetype plugin on
 
 "===== Load =====
-source $HOME/.vim/startup/plugins.vim
-source $HOME/.vim/startup/settings.vim
-source $HOME/.vim/startup/functions.vim
-source $HOME/.vim/startup/mapping.vim
+source ~/.vim/startup/plugins.vim
+source ~/.vim/startup/settings.vim
+source ~/.vim/startup/functions.vim
+source ~/.vim/startup/mapping.vim
