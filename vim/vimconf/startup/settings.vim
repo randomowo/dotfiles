@@ -31,18 +31,15 @@ set tabstop=4
 set secure
 set exrc
 set ruler
-set termguicolors
 set undolevels=1000
-set background=dark
-highlight ColorColumn ctermbg=darkgray
 syntax on
-colorscheme nord
+colorscheme wal
 
 " ====Plugins====
 
 " YcM
- let g:ycm_key_list_select_completion = ['<s-tab>', '<Down>']
- let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_list_select_completion = ['<s-tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
 
 " LaTex
 let g:livepreview_previewer = 'zathura'

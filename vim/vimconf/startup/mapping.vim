@@ -9,6 +9,8 @@
 
 map bn :bn<CR>
 map bd :bd<CR>
+map <silent> sr :set spell spelllang=ru<CR>
+map <silent> se :set spell spelllang=en<CR>
 
 map <silent> <C-j> :call WinMove('j')<CR>
 map <silent> <C-k> :call WinMove('k')<CR>
