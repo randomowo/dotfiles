@@ -45,7 +45,7 @@ alias irc='weechat'
 # clear vim for fast editing large files
 alias cvim='sudo vim -u NONE'
 # update python packages
-alias upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip install -U'
+alias upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install --ignore-installed -U'
 # rust ls
 alias ls='exa'
 alias l='exa -lahgF'

@@ -19,6 +19,5 @@ vsync = false;
 opacity-rule = [
        "95:class_g = 'TelegramDesktop'",
        "90:class_g = 'Spotify'",
-	   "95:class_g = 'kitty'",
 	   "95:class_g = 'discord'"
 ];

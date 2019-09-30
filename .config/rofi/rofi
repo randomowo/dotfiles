@@ -9,4 +9,4 @@ rofi.separator-style:       none
 rofi.hide-scrollbar:        true
 rofi.line-margin:           0
 rofi.font:                  Anonymous Pro 18
-rofi.theme: ./config.rasi
+rofi.theme: "~/.cache/wal/colors-rofi-dark.rasi"

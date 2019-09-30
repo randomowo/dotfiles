@@ -164,12 +164,12 @@ bindsym $mod+Shift+9 $mvc $ws9
 bindsym $mod+Shift+0 $mvc $ws10
 
 # ====Assigns====
-assign [class="Telegram"] "9:chat"
-assign [class="Quartus"] "2:work"
-assign [class="Thunderbird"] "7:mail"
-assign [class="jetbrains-idea"] "2:work"
-assign [class="Postman"] "3:work"
-assign [class="discord"] "8:soc"
-assign [class="Gimp"] "3:work"
-assign [class="Blender"] "2:work"
-for_window [class="^Spotify.*"] move to workspace $ws10
+#assign [class="Telegram"] "9:chat"
+#assign [class="Quartus"] "2:work"
+#assign [class="Thunderbird"] "7:mail"
+#assign [class="jetbrains-idea"] "2:work"
+#assign [class="Postman"] "3:work"
+#assign [class="discord"] "8:soc"
+#assign [class="Gimp"] "3:work"
+#assign [class="Blender"] "2:work"
+#for_window [class="^Spotify.*"] move to workspace $ws10
