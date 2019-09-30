@@ -24,19 +24,22 @@ smart_borders on
 # ====Executing programms====
 set $noid --no-startup-id
 # startup sound
-#exec --no-startup-id mpv --really-quiet --no-video $HOME/music/sfx/trumpet.flac  
+#exec --no-startup-id mpv --really-quiet --no-video ~/music/sfx/trumpet.flac  
+# start notification deamon
+exec_always $noid ~/.config/dunst/reload
 # wallpaper
-exec_always $noid feh --bg-fill --randomuze $HOME/pic/wallpapers/anime/2.jpg
+exec_always $noid feh --bg-fill --randomuze ~/pic/wallpapers/anime/2.jpg
 # compton
-exec_always $noid $HOME/.config/compton/launch.sh
+exec_always $noid ~/.config/compton/launch.sh
 # polybar
-exec_always $noid $HOME/.config/polybar/launch.sh
+exec_always $noid ~/.config/polybar/launch.sh
 # set audio muted on startup
 exec amixer set Master mute
 
 # ====Mapping====
 # MOD button
 set $mod Mod4
+set $alt Mod1
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 bindsym $mod+Shift+c reload
@@ -68,8 +71,10 @@ set $lockparams -ne --blur=5 \
 bindsym XF86PowerOff exec i3lock $lockparams
 bindsym $mod+End exec i3lock $lockparams
 # screenshot
-bindsym $mod+F3 exec gnome-screenshot
-bindsym $mod+F4 exec gnome-screenshot -a
+set $screenshot_name ~/pic/screenshots/$(date +%Y%m%d)\ $(date +%H-%M-%S).png
+set $notify notify-send -i text-x-script -t 2500 "made a screenshot"
+bindsym $alt+3 exec $noid import -window root -quality 100 $screenshot_name && $notify
+bindsym $alt+4 exec import -quality 100 $screenshot_name && $notify
 # brigtness
 set $light exec xbacklight
 
