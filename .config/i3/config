@@ -10,9 +10,9 @@
 
 # ====Settings====
 # windows border
-for_window [class="^.*"] border pixel 3
-for_window [title="^.*"] border pixel 3
-client.focused #BF616Add #BF616Add #BF616Add 
+for_window [class="^.*"] border pixel 4
+for_window [title="^.*"] border pixel 4
+client.focused #74B3CE #74B3CE #74B3CE #4E5166
 # gaps
 gaps inner 6
 # font
@@ -27,8 +27,10 @@ set $noid --no-startup-id
 #exec --no-startup-id mpv --really-quiet --no-video ~/music/sfx/trumpet.flac  
 # start notification deamon
 exec_always $noid ~/.config/dunst/reload
+# start battery notifyer
+exec_always ~/dotfiles/bin/bash/batlownotify_reload
 # wallpaper
-exec_always $noid feh --bg-fill --randomuze ~/pic/wallpapers/anime/2.jpg
+exec_always $noid feh --bg-fill --randomuze ~/pic/wallpapers/anime/3.jpg
 # compton
 exec_always $noid ~/.config/compton/launch.sh
 # polybar

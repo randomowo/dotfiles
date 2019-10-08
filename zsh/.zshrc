@@ -11,8 +11,8 @@
 # by randomowo
 
 export ZSH=$HOME/.oh-my-zsh
-export PATH=$PATH:/opt/altera/18.1/quartus/bin:/opt/altera/18.1/modelsim_ase/bin
-export QSYS_ROOTDIR="/home/randomowo/.cache/yay/quartus-free/pkg/quartus-free/opt/altera/18.1/quartus/sopc_builder/bin"
+export PATH=$PATH:/opt/altera/13.1/quartus/bin:/opt/altera/13.1/modelsim_ase/bin
+export QUARTUS_64BIT=1
 
 ZSH_THEME="kolo"
 #jnrowe, dogenpunk, nicoulaj, crunch, blinks, kolo
@@ -48,11 +48,8 @@ alias cvim='sudo vim -u NONE'
 alias upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install --ignore-installed -U'
 # rust ls
 alias ls='exa'
-alias l='exa -lahgF'
+alias l='exa -lahgF -a'
 alias lst='exa --tree'
 alias lt='exa -lahgF --tree'
-# wifi by netctlc
-alias won='sudo ip link set dev wlp3s0 down; sudo netctl restart $1'
-alias woff='for name in $(sudo systemctl list-units | grep -oE "netctl@.*\.service" | grep -oE "\w+" | grep -Ev "netctl|service"); do sudo netctl stop $name; done'
 # ranger alias
 alias x='ranger'
