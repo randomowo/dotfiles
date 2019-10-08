@@ -1,0 +1,42 @@
+#!/bin/bash
+# battery capacity notifyer
+# by randomowo <randomowo@ya.ru>
+
+flag=0
+while [[ 1 ]]; do
+	cap=$(cat /sys/class/power_supply/BAT0/capacity)
+	status=$(cat /sys/class/power_supply/BAT0/status)
+	if [[ $status == "Discharging" ]]; then
+		if (( $flag == 0 )); then flag=1; fi
+	else
+		if (( flag != 0 )); then
+		flag=0
+		sleep 5
+		timeToFull=$(acpi | cut -d" " -f5)
+		notify-send -u normal "Time to full battery charge $timeToFull"
+		fi
+	fi
+	case $flag in
+		0)
+			if (( $cap > 96 )); then
+				notify-send -u normal "Battery fully charged"
+				flag=1
+			fi
+			;;
+		1)
+			if (( $cap < 20 )) && (( $cap > 5 )); then
+				notify-send -u critical -t 5000 "Battery capacity below 20%"
+				flag=2
+			fi
+			;;
+		2)
+			if [[ $(echo "$cap < 5" | bc) == "1" ]]; then
+				notify-send -u critical -t 10000 "Battery capacity below 5%"
+				flag=-1
+			fi
+			;;
+		*)
+			continue;;
+	esac
+	sleep 1
+done
