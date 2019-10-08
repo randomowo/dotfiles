@@ -5,7 +5,7 @@
 device=$(ip link | grep -oE 'w\w+')
 
 on() {
-	off
+	off > /dev/null
 	ipDown
 	list=($(netctl list | sort))
 	echo "Choose network:"
@@ -17,13 +17,46 @@ on() {
 		echo "wrong input"
 		exit 1
 	fi
-	sudo netctl start "${list[netInd]}"
+	ping=$((sudo netctl start "${list[netInd]}") 2>&1)
+	if [[ ! -z "$ping" ]]; then
+		echo "Can not connect to ${list[netInd]}"
+		read -p "Try another? [y/n]" -s -n 1 -r try
+		echo
+		case $try in
+			"y"|"Y")
+				on;;
+			*)
+				exit 1;;
+		esac
+	else
+		echo "${list[netInd]}" | sudo tee /var/local/wf_last > /dev/null
+		echo "Successfully connected to ${list[netInd]}"
+	fi
 }
 
 off() {
 	sudo netctl stop-all
 	ipUp
 	echo "wifi turned off"
+}
+
+last() {
+	off > /dev/null	
+	ipDown
+	if [[ -f /var/local/wf_last ]]; then
+		nw=$(cat /var/local/wf_last)
+		ping=$((sudo netctl start $nw) 2>&1)
+		if [[ ! -z $ping ]]; then
+			echo "Can not connect to $nw"
+			exit 1
+		else
+			sudo netctl start $nw
+			echo "Successfully connected to $nw"
+		fi
+	else
+		echo "Can not find last network name"
+		exit 1
+	fi
 }
 
 ipDown() {
@@ -41,12 +74,28 @@ ipRes() {
 }
 
 new() {
+	off > /dev/null	
+	ipDown
 	sudo wifi-menu
 }
 
 reset() {
 	sudo rmmod brcmfmac
 	sudo modprobe brcmfmac
+}
+
+help() {
+	echo "Usage: wf [OPTION]"
+	echo -e "Wifi manager\n"
+	echo "OPTIONS:"
+	echo -e " on\t\tconnect to already registered networks"
+	echo -e " off\t\tdisconnet from all networks"
+	echo -e " new\t\tregister new network"
+	echo -e " res, restart\trestart driver"
+	echo -e " last\t\tconnect to last connected network"
+	echo -e " help\t\tshow this help\n"
+	echo "by randomowo (randomowo@ya.ru)"
+	echo "For any questions write to me directly"
 }
 
 case $1 in
@@ -57,14 +106,16 @@ case $1 in
 		ipDown
 		off;;
 	"new")
-		ipDown
 		new;;
-	"res"|"reset")
+	"res"|"restart")
 		reset
 		ipDown;;
+	"last")
+		last;;
+	"help")
+		help;;
 	*)
-		echo "wrong input"
-		exit 1;;
+		help;;
 esac
 
 exit 0
