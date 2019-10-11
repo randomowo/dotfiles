@@ -4,23 +4,22 @@
 
 flag=0
 while [[ 1 ]]; do
+	echo "flag:$flag"
 	cap=$(cat /sys/class/power_supply/BAT0/capacity)
 	status=$(cat /sys/class/power_supply/BAT0/status)
-	if [[ $status == "Discharging" ]]; then
-		if (( $flag == 0 )); then flag=1; fi
-	else
-		if (( flag != 0 )); then
+	if [[ $status == "Discharging" ]] && ((( $flag == 0 )) || (( $flag == 3 ))); then
+		flag=1
+	elif (( $flag != 0 )) && (( $flag != 3 )); then
 		flag=0
 		sleep 5
 		timeToFull=$(acpi | cut -d" " -f5)
 		notify-send -u normal "Time to full battery charge $timeToFull"
-		fi
 	fi
 	case $flag in
 		0)
-			if (( $cap > 96 )); then
+			if (( $cap > 70 )); then
 				notify-send -u normal "Battery fully charged"
-				flag=1
+				flag=3
 			fi
 			;;
 		1)
@@ -38,5 +37,5 @@ while [[ 1 ]]; do
 		*)
 			continue;;
 	esac
-	sleep 1
+	sleep 120
 done
