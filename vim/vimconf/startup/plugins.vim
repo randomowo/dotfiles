@@ -15,7 +15,6 @@ Plug 'dylanaraps/wal.vim'
 
 " LaTex
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'lervag/vimtex'
 
 " developing plugins
 Plug 'Valloric/YouCompleteMe'
@@ -27,6 +26,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'joereynolds/vim-minisnip'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'majutsushi/tagbar'
+Plug 'terryma/vim-multiple-cursors'
 
 " Rust dev
 Plug 'rust-lang/rust.vim'
@@ -35,7 +35,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'udalov/kotlin-vim'
 
-"git
+" git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 

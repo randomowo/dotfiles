@@ -58,8 +58,7 @@ bindsym $mod+Shift+w exec surf
 # messenger
 bindsym $mod+Shift+t exec telegram-desktop
 # program launcher
-#bindsym $mod+d exec dmenu_run -f -fn 'xos4 Terminus-13' -sb '#b8a6e0' -sf black
-bindsym $mod+d exec rofi -show combi -show-icons
+bindsym $mod+d exec dmenu_run
 
 # ----System----
 # lock screen
@@ -85,7 +84,7 @@ bindsym XF86MonBrightnessDown $light -dec 5
 # volume
 set $sound exec amixer set Master
 
-bindsym XF86AudioMute $sound toggle
+bindsym XF86AudioMute $sound toggle && ~/dotfiles/bin/bash/soundnotify
 bindsym XF86AudioLowerVolume $sound 10%-
 bindsym XF86AudioRaiseVolume $sound 10%+
 

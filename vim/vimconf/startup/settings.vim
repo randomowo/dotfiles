@@ -14,30 +14,26 @@ set linebreak
 set showbreak=+^+
 set textwidth=120
 set colorcolumn=120
-set showmatch
 set encoding=utf-8
 set path+=*/*
-set wildmenu
 set hlsearch
 set smartcase
 set incsearch
-set autoindent
 set cindent
 set shiftwidth=4
-set smartindent
 set smarttab
-set softtabstop=2
+set softtabstop=4
 set tabstop=4
 set secure
 set exrc
 set ruler
-set undolevels=1000
+set undolevels=100
 syntax on
 colorscheme wal
 
 " ====Plugins====
 
-" YcM
+" YcM 
 let g:ycm_key_list_select_completion = ['<s-tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 
@@ -71,3 +67,7 @@ let g:minisnip_trigger = '<Tab>'
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 1
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
