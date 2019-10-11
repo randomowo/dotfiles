@@ -1,0 +1,19 @@
+#!/bin/bash
+
+time=$1
+msg=$2
+
+timer() {
+	sleep $time
+	notify-send -u normal "$msg"
+}
+
+if [[ -n $time ]]; then
+	timer &
+else	
+	echo "timernotify [TIME] [MESSAGE]"
+	echo "TIME in seconds"
+	echo "by rendomowo <randomowo@ya.ru>"
+fi
+
+exit 0

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ -z $(amixer get Master | grep -o "\[on\]") ]]; then
+	notify-send -t 500 "Muted"
+else
+	notify-send -t 500 "Unmuted"
+fi
+
+exit 0
