@@ -1,11 +1,13 @@
 /* See LICENSE file for copyright and license details. */
+#include "/home/randomowo/.cache/wal/colors-wal-st.h"
+// change randomowo to your username
 
 /*
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "xos4 Terminus:size=17:antialias=true:autohint=true";
+static char *font = "Anonymous Pro:size=14:antialias=true:autohint=true";
 static int borderpx = 3;
 
 /*
@@ -83,46 +85,7 @@ char* termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.6;
-
-/* Terminal colors (16 first used in escape sequence) */
-static const char* colorname[] = {
-
-    /* 8 normal colors */
-    [0] = "#1c2023", /* black   */
-    [1] = "#c7ae95", /* red     */
-    [2] = "#95c7ae", /* green   */
-    [3] = "#aec795", /* yellow  */
-    [4] = "#ae95c7", /* blue    */
-    [5] = "#c795ae", /* magenta */
-    [6] = "#95aec7", /* cyan    */
-    [7] = "#c7ccd1", /* white   */
-
-    /* 8 bright colors */
-    [8] = "#747c84",  /* black   */
-    [9] = "#c7ae95",  /* red     */
-    [10] = "#95c7ae", /* green   */
-    [11] = "#aec795", /* yellow  */
-    [12] = "#ae95c7", /* blue    */
-    [13] = "#c795ae", /* magenta */
-    [14] = "#95aec7", /* cyan    */
-    [15] = "#f3f4f5", /* white   */
-
-    /* special colors */
-    [256] = "#1c2023", /* background */
-    [257] = "#c7ccd1", /* foreground */
-
-};
-
-/*
- *  * Default colors (colorname index)
- *   * foreground, background, cursor
- *    */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-static unsigned int defaultcs = 257;
-static unsigned int defaultrcs = 0;
-
+float alpha = 0.85;
 
 /*
  * Default shape of cursor
@@ -173,9 +136,9 @@ static Shortcut shortcuts[] = {
     { ControlMask, XK_Print, toggleprinter, { .i = 0 } },
     { ShiftMask, XK_Print, printscreen, { .i = 0 } },
     { XK_ANY_MOD, XK_Print, printsel, { .i = 0 } },
-    { TERMMOD, XK_Prior, zoom, { .f = +1 } },
-    { TERMMOD, XK_Next, zoom, { .f = -1 } },
-    { TERMMOD, XK_Home, zoomreset, { .f = 0 } },
+	{ TERMMOD, XK_plus, zoom, { .f = +1 } },
+    { TERMMOD, XK_underscore, zoom, { .f = -1 } },
+    { TERMMOD, XK_BackSpace, zoomreset, { .f = 0 } },
     { TERMMOD, XK_C, clipcopy, { .i = 0 } },
     { TERMMOD, XK_V, clippaste, { .i = 0 } },
     { TERMMOD, XK_Y, selpaste, { .i = 0 } },

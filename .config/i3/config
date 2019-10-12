@@ -30,7 +30,7 @@ exec_always $noid ~/.config/dunst/reload
 # start battery notifyer
 exec_always ~/dotfiles/bin/bash/notify/batlownotify_reload
 # wallpaper
-exec_always $noid feh --bg-fill --randomuze ~/pic/wallpapers/anime/3.jpg
+# exec_always $noid feh --bg-fill --randomuze ~/pic/wallpapers/anime/3.jpg
 # compton
 exec_always $noid ~/.config/compton/launch.sh
 # polybar
@@ -49,7 +49,7 @@ bindsym $mod+Shift+r restart
 
 # ----Programms----
 # terminal
-bindsym $mod+Return exec $noid kitty
+bindsym $mod+Return exec $noid st
 # music player
 bindsym $mod+Shift+m exec spotify
 # web browser
