@@ -58,7 +58,7 @@ bindsym $mod+Shift+w exec surf
 # messenger
 bindsym $mod+Shift+t exec telegram-desktop
 # program launcher
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec $noid ~/dotfiles/bin/bash/dmenuwal_run
 # cmus
 bindsym XF86AudioPlay exec $noid cmus-remote -u
 bindsym XF86AudioNext exec $noid cmus-remote -n
