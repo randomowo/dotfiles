@@ -28,7 +28,7 @@ set $noid --no-startup-id
 # start notification deamon
 exec_always $noid ~/.config/dunst/reload
 # start battery notifyer
-exec_always ~/dotfiles/bin/bash/batlownotify_reload
+exec_always ~/dotfiles/bin/bash/notify/batlownotify_reload
 # wallpaper
 exec_always $noid feh --bg-fill --randomuze ~/pic/wallpapers/anime/3.jpg
 # compton
@@ -59,6 +59,10 @@ bindsym $mod+Shift+w exec surf
 bindsym $mod+Shift+t exec telegram-desktop
 # program launcher
 bindsym $mod+d exec dmenu_run
+# cmus
+bindsym XF86AudioPlay exec $noid cmus-remote -u
+bindsym XF86AudioNext exec $noid cmus-remote -n
+bindsym XF86AudioPrev exec $noid cmus-remote -r
 
 # ----System----
 # lock screen
@@ -84,9 +88,12 @@ bindsym XF86MonBrightnessDown $light -dec 5
 # volume
 set $sound exec amixer set Master
 
-bindsym XF86AudioMute $sound toggle && ~/dotfiles/bin/bash/soundnotify
+bindsym XF86AudioMute $sound toggle && ~/dotfiles/bin/bash/notify/soundnotify
 bindsym XF86AudioLowerVolume $sound 10%-
 bindsym XF86AudioRaiseVolume $sound 10%+
+
+# notify current time
+bindsym $mod+t exec $noid ~/dotfiles/bin/bash/notify/timenotify
 
 # ----Windows----
 # kill
