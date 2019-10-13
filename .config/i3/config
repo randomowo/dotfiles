@@ -4,7 +4,8 @@
 # \/\ \/_/_\_<_/\ \/\ \/\ \ /' __` __`\  _______  /'___\ / __`\ /' _ `\ \ ,__\/\ \  /'_ `\
 #  \ \ \/\ \L\ \ \ \_/ \_/ \/\ \/\ \/\ \/\______\/\ \__//\ \L\ \/\ \/\ \ \ \_/\ \ \/\ \L\ \
 #   \ \_\ \____/\ \___x___/'\ \_\ \_\ \_\/______/\ \____\ \____/\ \_\ \_\ \_\  \ \_\ \____ \
-#    \/_/\/___/  \/__//__/   \/_/\/_/\/_/         \/____/\/___/  \/_/\/_/\/_/   \/_/\/___L\ \ #                                                                                     /\____/
+#    \/_/\/___/  \/__//__/   \/_/\/_/\/_/         \/____/\/___/  \/_/\/_/\/_/   \/_/\/___L\ \ 
+#                                                                                     /\____/
 #                                                                                     \_/__/
 # by randomowo
 
@@ -21,16 +22,14 @@ font pango:Anonymous Pro 16
 hide_edge_borders smart
 smart_borders on
 
-# ====Executing programms====
+# ====Startup settings====
 set $noid --no-startup-id
-# startup sound
-#exec --no-startup-id mpv --really-quiet --no-video ~/music/sfx/trumpet.flac  
 # start notification deamon
 exec_always $noid ~/.config/dunst/reload
 # start battery notifyer
 exec_always ~/dotfiles/bin/bash/notify/batlownotify_reload
 # wallpaper
-# exec_always $noid feh --bg-fill --randomuze ~/pic/wallpapers/anime/3.jpg
+exec_always $noid feh --bg-fill $(cat ~/.cache/wal/wal)
 # compton
 exec_always $noid ~/.config/compton/launch.sh
 # polybar
@@ -39,7 +38,7 @@ exec_always $noid ~/.config/polybar/launch.sh
 exec amixer set Master mute
 
 # ====Mapping====
-# MOD button
+# ----Defaults----
 set $mod Mod4
 set $alt Mod1
 # use Mouse+$mod to drag floating windows to their wanted position
@@ -47,7 +46,7 @@ floating_modifier $mod
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-# ----Programms----
+# ----Programs----
 # terminal
 bindsym $mod+Return exec $noid st
 # music player
@@ -72,26 +71,24 @@ set $lockparams -ne --blur=5 \
 --insidevercolor=373445ee --insidewrongcolor=373445ee \
 --ringvercolor=557755ee --ringwrongcolor=775555ee  \
 --radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"
-
 bindsym XF86PowerOff exec i3lock $lockparams
 bindsym $mod+End exec i3lock $lockparams
 # screenshot
 set $screenshot_name ~/pic/screenshots/$(date +%Y%m%d)\ $(date +%H-%M-%S).png
-set $notify notify-send -i text-x-script -t 2500 "made a screenshot"
-bindsym $alt+3 exec $noid import -window root -quality 100 $screenshot_name && $notify
-bindsym $alt+4 exec import -quality 100 $screenshot_name && $notify
+set $notify exec $noid notify-send -i text-x-script -t 2500 "made a screenshot"
+bindsym $alt+3 exec $noid import -window root -quality 100 $screenshot_name; $notify
+bindsym $alt+4 exec $noid import -quality 100 $screenshot_name; $notify 
 # brigtness
 set $light exec xbacklight
-
 bindsym XF86MonBrightnessUp $light -inc 5
+bindsym Shift+XF86MonBrightnessUp $light -set 100 
 bindsym XF86MonBrightnessDown $light -dec 5
+bindsym Shift+XF86MonBrightnessDown $light -set 5
 # volume
 set $sound exec amixer set Master
-
-bindsym XF86AudioMute $sound toggle && ~/dotfiles/bin/bash/notify/soundnotify
+bindsym XF86AudioMute $sound toggle; ~/dotfiles/bin/bash/notify/soundnotify
 bindsym XF86AudioLowerVolume $sound 10%-
 bindsym XF86AudioRaiseVolume $sound 10%+
-
 # notify current time
 bindsym $mod+t exec $noid ~/dotfiles/bin/bash/notify/timenotify
 
@@ -130,7 +127,6 @@ mode "resize" {
 	bindsym Shift+j resize grow height 50 px or 50 ppt
 	bindsym Shift+k resize shrink height 50 px or 50 ppt
 	bindsym Shift+l resize grow width 50 px or 50 ppt
-
     # back to normal
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -138,7 +134,25 @@ mode "resize" {
 }
 # toggle resize mode
 bindsym $mod+r mode "resize"
-
+set $programsnotify exec notify-send -u normal -t 5000 "====Programs====" \
+		"[m] Spotify\n[b] qutebrowser\n[B] surf\n[t] telegram\n[M] cmus\n[I] IDEA\n[q] quartus"
+mode "programs" {
+	set $back mode "default"
+	# close pop-up message script
+	set $closemsg exec $noid ~/.config/dunst/reload
+	bindsym m $back; exec $noid spotify; $closemsg
+	bindsym b $back; exec $noid qutebrowser; $closemsg
+	bindsym Shift+b $back; exec $noid surf; $closemsg
+	bindsym t $back; exec $noid telegram-desktop; $closemsg
+	bindsym Shift+m $back; exec $noid st -e cmus; $closemsg
+	bindsym Shift+i $back; exec $noid intellij-idea-ultimate-edition; $closemsg
+	bindsym q $back; exec $noid /opt/altera/13.1/quartus/bin/quartus; $closemsg
+	# back to normal
+	bindsym Return $programsnotify
+	bindsym Escape mode "default"; exec $noid $closemsg
+}
+# toggle programms mode
+bindsym $mod+p mode "programs"; $programsnotify
 # ----Workspace----
 # defininig workspaces
 set $ws1 "1:term"
@@ -175,14 +189,3 @@ bindsym $mod+Shift+7 $mvc $ws7
 bindsym $mod+Shift+8 $mvc $ws8
 bindsym $mod+Shift+9 $mvc $ws9
 bindsym $mod+Shift+0 $mvc $ws10
-
-# ====Assigns====
-#assign [class="Telegram"] "9:chat"
-#assign [class="Quartus"] "2:work"
-#assign [class="Thunderbird"] "7:mail"
-#assign [class="jetbrains-idea"] "2:work"
-#assign [class="Postman"] "3:work"
-#assign [class="discord"] "8:soc"
-#assign [class="Gimp"] "3:work"
-#assign [class="Blender"] "2:work"
-#for_window [class="^Spotify.*"] move to workspace $ws10
