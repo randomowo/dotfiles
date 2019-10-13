@@ -1,14 +1,28 @@
 #!/bin/bash
 
-time=$1
-msg=$2
+beep=~/music/sfx/trumpet.flac
 
+msg=$3
 timer() {
 	sleep $time
-	notify-send -u normal "$msg"
+	notify-send -u normal "$msg" && mpv $beep > /dev/null
 }
-
-if [[ -n $time ]]; then
+case $1 in
+	"-s")
+		time=$2
+		;;
+	"-m")
+		time=$((( $2 * 60 )))
+		;;
+	"-h")
+		time=$((( $2 * 3600 )))
+		;;
+	*)
+		time=$1
+		msg=$2
+		;;
+esac
+if [[ $time =~ ^[0-9]+$ ]]; then
 	timer &
 else	
 	echo "timernotify [TIME] [MESSAGE]"

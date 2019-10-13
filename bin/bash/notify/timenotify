@@ -1,5 +1,6 @@
 #!/bin/bash
 
-notify-send -u normal -t 1500 "$(date +%H:%M:%S) $(date +%b\ %m%d%y\ %a)"
+notify-send -u normal -t 1500 "$(date +%H:%M:%S)
+$(date +%b\ %D\ %a)"
 
 exit 0
