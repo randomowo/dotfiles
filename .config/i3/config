@@ -62,6 +62,8 @@ bindsym $mod+d exec $noid ~/dotfiles/bin/bash/dmenuwal_run
 bindsym XF86AudioPlay exec $noid cmus-remote -u
 bindsym XF86AudioNext exec $noid cmus-remote -n
 bindsym XF86AudioPrev exec $noid cmus-remote -r
+bindsym Shift+XF86AudioRaiseVolume exec $noid cmus-remote -v +10%
+bindsym Shift+XF86AudioLowerVolume exec $noid cmus-remote -v -10%
 
 # ----System----
 # lock screen
@@ -134,25 +136,73 @@ mode "resize" {
 }
 # toggle resize mode
 bindsym $mod+r mode "resize"
-set $programsnotify exec notify-send -u normal -t 5000 "====Programs====" \
-		"[m] Spotify\n[b] qutebrowser\n[B] surf\n[t] telegram\n[M] cmus\n[I] IDEA\n[q] quartus"
+set $programsnotify exec notify-send -u normal -t 50000
+set $progmsg "====Programs====" \
+		"[m] Spotify\t\t\n\
+[b] qutebrowser\t\n\
+[B] surf\t\t\n\
+[t] telegram\t\t\n\
+[M] cmus\t\t\n\
+[I] IDEA\t\t\n\
+[q] quartus\t\t\n\
+[r] ranger\t\t\n\
+================"
+set $rangermsg "====Directory====" \
+		"[h] Home\t\t\n\
+[U] University\t\t\n\
+[d] dotfiles\t\t\n\
+[m] music\t\t\n\
+[v] videos\t\t\n\
+[M] mounted\t\t\n\
+[c] root\t\t\n\
+================="
+set $qbmsg "====Web====" \
+		"[h] Home\t\t\n\
+[y] youtube\t\t\n\
+[v] vk\t\t\t\n\
+[r] reddit\t\t\n\
+[t] twitter\t\t\n\
+==========="
+set $back mode "default"
+# close pop-up message script
+set $closemsg exec $noid ~/.config/dunst/reload
 mode "programs" {
-	set $back mode "default"
-	# close pop-up message script
-	set $closemsg exec $noid ~/.config/dunst/reload
 	bindsym m $back; exec $noid spotify; $closemsg
-	bindsym b $back; exec $noid qutebrowser; $closemsg
+	bindsym b mode "qbrowser"; $programsnotify $qbmsg
 	bindsym Shift+b $back; exec $noid surf; $closemsg
 	bindsym t $back; exec $noid telegram-desktop; $closemsg
 	bindsym Shift+m $back; exec $noid st -e cmus; $closemsg
 	bindsym Shift+i $back; exec $noid intellij-idea-ultimate-edition; $closemsg
 	bindsym q $back; exec $noid /opt/altera/13.1/quartus/bin/quartus; $closemsg
+	bindsym r mode "ranger"; $programsnotify $rangermsg 
 	# back to normal
-	bindsym Return $programsnotify
-	bindsym Escape mode "default"; exec $noid $closemsg
+	bindsym Return $back; $closemsg
+	bindsym Escape $back; $closemsg
 }
 # toggle programms mode
-bindsym $mod+p mode "programs"; $programsnotify
+bindsym $mod+p mode "programs"; $programsnotify $progmsg
+mode "ranger" {
+	set $x exec $noid st -e ranger
+	bindsym h $back; $x ~ ; $closemsg
+	bindsym Shift+u $back; $x ~/Documents/university; $closemsg
+	bindsym d $back; $x ~/dotfiles; $closemsg
+	bindsym m $back; $x ~/music; $closemsg
+	bindsym v $back; $x ~/vid; $closemsg
+	bindsym Shift+m $back; $x /mnt; $closemsg
+	bindsym c $back; $x /; $closemsg
+	bindsym Return $back; $x; $closemsg 
+	bindsym Escape $back; $closemsg
+}	
+mode "qbrowser" {
+	set $qb exec $noid qutebrowser
+	bindsym h $back; $qb; $closemsg
+	bindsym y $back; $qb youtube.com; $closemsg
+	bindsym v $back; $qb vk.com; $closemsg
+	bindsym r $back; $qb reddit.com; $closemsg
+	bindsym t $back; $qb twitter.com; $closemsg
+	bindsym Return $back; $qb; $closemsg
+	bindsym Escape $back; $closemsg
+}
 # ----Workspace----
 # defininig workspaces
 set $ws1 "1:term"
