@@ -19,7 +19,6 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " developing plugins
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-syntastic/syntastic'
-Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'Chiel92/vim-autoformat'

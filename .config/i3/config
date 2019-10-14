@@ -2,7 +2,7 @@
 #  __  /'__`\                                                          /'___\ __
 # /\_\/\_\L\ \  __  __  __    ___ ___              ___    ___     ___ /\ \__//\_\     __
 # \/\ \/_/_\_<_/\ \/\ \/\ \ /' __` __`\  _______  /'___\ / __`\ /' _ `\ \ ,__\/\ \  /'_ `\
-#  \ \ \/\ \L\ \ \ \_/ \_/ \/\ \/\ \/\ \/\______\/\ \__//\ \L\ \/\ \/\ \ \ \_/\ \ \/\ \L\ \
+#  \ \ \/\ \L\ \ \ \_/ \_/ \/\ \/\ \/\ \/\______\/\ \__//\ \L\ \/\ \/\ \ \ \_/\ \ \/\ \L\ \ 
 #   \ \_\ \____/\ \___x___/'\ \_\ \_\ \_\/______/\ \____\ \____/\ \_\ \_\ \_\  \ \_\ \____ \
 #    \/_/\/___/  \/__//__/   \/_/\/_/\/_/         \/____/\/___/  \/_/\/_/\/_/   \/_/\/___L\ \ 
 #                                                                                     /\____/
@@ -29,13 +29,15 @@ exec_always $noid ~/.config/dunst/reload
 # start battery notifyer
 exec_always ~/dotfiles/bin/bash/notify/batlownotify_reload
 # wallpaper
-exec_always $noid feh --bg-fill $(cat ~/.cache/wal/wal)
+exec $noid feh --bg-fill $(cat ~/.cache/wal/wal)
 # compton
 exec_always $noid ~/.config/compton/launch.sh
 # polybar
 exec_always $noid ~/.config/polybar/launch.sh
 # set audio muted on startup
 exec amixer set Master mute
+# startup terminal
+exec $noid st -t startup_st
 
 # ====Mapping====
 # ----Defaults----
@@ -45,7 +47,6 @@ set $alt Mod1
 floating_modifier $mod
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-
 # ----Programs----
 # terminal
 bindsym $mod+Return exec $noid st
@@ -64,7 +65,6 @@ bindsym XF86AudioNext exec $noid cmus-remote -n
 bindsym XF86AudioPrev exec $noid cmus-remote -r
 bindsym Shift+XF86AudioRaiseVolume exec $noid cmus-remote -v +10%
 bindsym Shift+XF86AudioLowerVolume exec $noid cmus-remote -v -10%
-
 # ----System----
 # lock screen
 set $lockparams -ne --blur=5 \
@@ -79,7 +79,7 @@ bindsym $mod+End exec i3lock $lockparams
 set $screenshot_name ~/pic/screenshots/$(date +%Y%m%d)\ $(date +%H-%M-%S).png
 set $notify exec $noid notify-send -i text-x-script -t 2500 "made a screenshot"
 bindsym $alt+3 exec $noid import -window root -quality 100 $screenshot_name; $notify
-bindsym $alt+4 exec $noid import -quality 100 $screenshot_name; $notify 
+bindsym $alt+4 exec $noid import -quality 100 $screenshot_name && $notify 
 # brigtness
 set $light exec xbacklight
 bindsym XF86MonBrightnessUp $light -inc 5
@@ -88,7 +88,7 @@ bindsym XF86MonBrightnessDown $light -dec 5
 bindsym Shift+XF86MonBrightnessDown $light -set 5
 # volume
 set $sound exec amixer set Master
-bindsym XF86AudioMute $sound toggle; ~/dotfiles/bin/bash/notify/soundnotify
+bindsym XF86AudioMute $sound toggle; exec $noid ~/dotfiles/bin/bash/notify/soundnotify
 bindsym XF86AudioLowerVolume $sound 10%-
 bindsym XF86AudioRaiseVolume $sound 10%+
 # notify current time
@@ -146,6 +146,7 @@ set $progmsg "====Programs====" \
 [I] IDEA\t\t\n\
 [q] quartus\t\t\n\
 [r] ranger\t\t\n\
+[p] passmenu\t\t\n\
 ================"
 set $rangermsg "====Directory====" \
 		"[h] Home\t\t\n\
@@ -156,25 +157,28 @@ set $rangermsg "====Directory====" \
 [M] mounted\t\t\n\
 [c] root\t\t\n\
 ================="
-set $qbmsg "====Web====" \
+set $bmsg "====Web====" \
 		"[h] Home\t\t\n\
 [y] youtube\t\t\n\
 [v] vk\t\t\t\n\
 [r] reddit\t\t\n\
 [t] twitter\t\t\n\
+[g] github\t\t\n\
+[s] suckless\t\t\n\
 ==========="
 set $back mode "default"
 # close pop-up message script
 set $closemsg exec $noid ~/.config/dunst/reload
 mode "programs" {
 	bindsym m $back; exec $noid spotify; $closemsg
-	bindsym b mode "qbrowser"; $programsnotify $qbmsg
-	bindsym Shift+b $back; exec $noid surf; $closemsg
+	bindsym b mode "qbrowser"; $programsnotify $bmsg
+	bindsym Shift+b mode "sbrowser"; $programsnotify $bmsg
 	bindsym t $back; exec $noid telegram-desktop; $closemsg
-	bindsym Shift+m $back; exec $noid st -e cmus; $closemsg
+	bindsym Shift+m $back; exec $noid st -t cmus_st -e cmus; $closemsg
 	bindsym Shift+i $back; exec $noid intellij-idea-ultimate-edition; $closemsg
 	bindsym q $back; exec $noid /opt/altera/13.1/quartus/bin/quartus; $closemsg
 	bindsym r mode "ranger"; $programsnotify $rangermsg 
+	bindsym p $back; exec $noid passmenu; $closemsg
 	# back to normal
 	bindsym Return $back; $closemsg
 	bindsym Escape $back; $closemsg
@@ -200,7 +204,21 @@ mode "qbrowser" {
 	bindsym v $back; $qb vk.com; $closemsg
 	bindsym r $back; $qb reddit.com; $closemsg
 	bindsym t $back; $qb twitter.com; $closemsg
+	bindsym g $back; $qb github.com; $closemsg
+	bindsym s $back; $qb suckless.org; $closemsg
 	bindsym Return $back; $qb; $closemsg
+	bindsym Escape $back; $closemsg
+}
+mode "sbrowser" {
+	set $sb exec $noid surf
+	bindsym h $back; $sb; $closemsg
+	bindsym y $back; $sb youtube.com; $closemsg
+	bindsym v $back; $sb vk.com; $closemsg
+	bindsym r $back; $sb reddit.com; $closemsg
+	bindsym t $back; $sb twitter.com; $closemsg
+	bindsym g $back; $sb github.com; $closemsg
+	bindsym s $back; $sb suckless.org; $closemsg
+	bindsym Return $back; $sb; $closemsg
 	bindsym Escape $back; $closemsg
 }
 # ----Workspace----
@@ -239,3 +257,6 @@ bindsym $mod+Shift+7 $mvc $ws7
 bindsym $mod+Shift+8 $mvc $ws8
 bindsym $mod+Shift+9 $mvc $ws9
 bindsym $mod+Shift+0 $mvc $ws10
+# ====Assigns====
+for_window [title="cmus_st"] move to workspace $ws10
+for_window [title="startup_st"] move to workspace $ws1
