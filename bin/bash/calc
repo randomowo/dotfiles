@@ -1,0 +1,7 @@
+#!/bin/bash
+
+read -p "obase: " obase
+read -p "ibase: " ibase
+read -p "numbers: " num
+echo -n "$num = "
+echo "obase=$obase; ibase=$ibase; $num" | bc

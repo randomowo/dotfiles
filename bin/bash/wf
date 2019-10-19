@@ -13,7 +13,7 @@ on() {
 		echo -e "\t$netIndex ${list[$netIndex]}"
 	done
 	read -p "Network: " netInd
-	if [[ -n $netInd ]] && (( $netInd > ${#list[@]} )); then
+	if [[ ! $netInd =~ ^[0-9]+$ ]] || (( $netInd+1 > ${#list[@]} )); then
 		echo "wrong input"
 		exit 1
 	fi
