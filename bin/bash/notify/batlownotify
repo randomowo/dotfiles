@@ -2,7 +2,7 @@
 # battery capacity notifyer
 # by randomowo <randomowo@ya.ru>
 
-beep=~/music/sfx/trumpet.flac
+beep=~/music/sfx/you_suffer.flac
 maxcap=$((( $(cat /sys/class/power_supply/BAT0/charge_full) * 100 / $(cat /sys/class/power_supply/BAT0/charge_full_design) )))
 flag=0
 while [[ 1 ]]; do
@@ -12,11 +12,6 @@ while [[ 1 ]]; do
 		if ((( $flag == 0 )) || (( $flag == 3 ))); then flag=1; fi
 	elif (( $flag != 0 )) && (( $flag != 3 )); then
 		flag=0
-		if (( $cap < ($maxcap - 10) )); then
-			sleep 5
-			timeToFull=$(acpi | cut -d" " -f5)
-			notify-send -u normal "Time to full battery charge $timeToFull"
-		fi
 	fi
 	case $flag in
 		0)

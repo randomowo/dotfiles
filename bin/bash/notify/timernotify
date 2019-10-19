@@ -1,11 +1,11 @@
 #!/bin/bash
 
-beep=~/music/sfx/trumpet.flac
+beep=~/music/sfx/you_suffer.flac
 
-msg=$3
+msg="$3 $4"
 timer() {
 	sleep $time
-	notify-send -u normal "$msg" && mpv $beep > /dev/null
+	notify-send -u normal $msg && mpv $beep > /dev/null
 }
 case $1 in
 	"-s")
@@ -19,7 +19,7 @@ case $1 in
 		;;
 	*)
 		time=$1
-		msg=$2
+		msg="$2 $3"
 		;;
 esac
 if [[ $time =~ ^[0-9]+$ ]]; then
