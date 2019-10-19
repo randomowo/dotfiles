@@ -17,7 +17,7 @@ client.focused #74B3CE #74B3CE #74B3CE #4E5166
 # gaps
 gaps inner 6
 # font
-font pango:Anonymous Pro 16
+font pango:monospace 16
 # borders
 hide_edge_borders smart
 smart_borders on
@@ -29,7 +29,7 @@ exec_always $noid ~/.config/dunst/reload
 # start battery notifyer
 exec_always ~/dotfiles/bin/bash/notify/batlownotify_reload
 # wallpaper
-exec $noid feh --bg-fill $(cat ~/.cache/wal/wal)
+exec_always $noid feh --bg-fill $(cat ~/.cache/wal/wal)
 # compton
 exec_always $noid ~/.config/compton/launch.sh
 # polybar
