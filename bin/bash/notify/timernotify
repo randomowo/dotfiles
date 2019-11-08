@@ -1,27 +1,32 @@
 #!/bin/bash
 
-beep=~/music/sfx/you_suffer.flac
+beep=~/media/music/sfx/grajdanin.mp3
 
-msg="$3 $4"
+flag=2
 timer() {
 	sleep $time
-	notify-send -u normal $msg && mpv $beep > /dev/null
+	notify-send -u normal "$title" "$msg" && mpv $beep > /dev/null
 }
 case $1 in
 	"-s")
 		time=$2
+		flag=3
 		;;
 	"-m")
 		time=$((( $2 * 60 )))
+		flag=3
 		;;
 	"-h")
 		time=$((( $2 * 3600 )))
+		flag=3
 		;;
 	*)
 		time=$1
-		msg="$2 $3"
 		;;
 esac
+title="$(echo $@ | cut -d' ' -f$flag)"
+(( flag++ ))
+msg="$(echo $@ | cut -d' ' -f$flag-)"
 if [[ $time =~ ^[0-9]+$ ]]; then
 	timer &
 else	

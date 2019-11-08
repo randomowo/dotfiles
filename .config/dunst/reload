@@ -1,4 +1,4 @@
 #!/bin/bash
 
 pkill dunst
-dunst -centering horizontal -config ~/.config/dunst/dunstrc &
+dunst -centering both -config ~/.config/dunst/dunstrc &

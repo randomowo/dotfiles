@@ -94,7 +94,7 @@ help() {
 	echo -e " res, restart\trestart driver"
 	echo -e " last\t\tconnect to last connected network"
 	echo -e " help\t\tshow this help\n"
-	echo "by randomowo (randomowo@ya.ru)"
+	echo "by randomowo <randomowo@ya.ru>"
 	echo "For any questions write to me directly"
 }
 

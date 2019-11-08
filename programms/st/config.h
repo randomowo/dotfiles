@@ -7,7 +7,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "monospace:size=10:antialias=true:autohint=true";
+static char *font = "Anonymous Pro:size=14";
 static int borderpx = 3;
 
 /*

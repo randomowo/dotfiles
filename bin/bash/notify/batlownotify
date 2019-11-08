@@ -2,7 +2,7 @@
 # battery capacity notifyer
 # by randomowo <randomowo@ya.ru>
 
-beep=~/music/sfx/you_suffer.flac
+beep=~/media/music/sfx/grajdanin.mp3
 maxcap=$((( $(cat /sys/class/power_supply/BAT0/charge_full) * 100 / $(cat /sys/class/power_supply/BAT0/charge_full_design) )))
 flag=0
 while [[ 1 ]]; do

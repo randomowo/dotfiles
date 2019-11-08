@@ -76,7 +76,7 @@ set $lockparams -ne --blur=5 \
 bindsym XF86PowerOff exec i3lock $lockparams
 bindsym $mod+End exec i3lock $lockparams
 # screenshot
-set $screenshot_name ~/pic/screenshots/$(date +%Y%m%d)\ $(date +%H-%M-%S).png
+set $screenshot_name ~/media/pic/screenshots/$(date +%Y%m%d)\ $(date +%H-%M-%S).png
 set $notify exec $noid notify-send -i text-x-script -t 2500 "made a screenshot"
 bindsym $alt+3 exec $noid import -window root -quality 100 $screenshot_name; $notify
 bindsym $alt+4 exec $noid import -quality 100 $screenshot_name && $notify 
@@ -119,6 +119,9 @@ bindsym $mod+v split v
 bindsym $mod+e layout toggle split
 # move container to the center of all outputs
 bindsym $mod+c move absolute position center
+# close pop-up message
+set $closemsg exec $noid ~/.config/dunst/reload
+set $back mode "default"
 mode "resize" {
     # resize window
 	bindsym h resize shrink width 10 px or 10 ppt
@@ -130,26 +133,25 @@ mode "resize" {
 	bindsym Shift+k resize shrink height 50 px or 50 ppt
 	bindsym Shift+l resize grow width 50 px or 50 ppt
     # back to normal
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-	bindsym $mod+r mode "default"
+	bindsym Return $back; $closemsg
+	bindsym Escape $back; $closemsg
+	bindsym $mod+r $back; $closemsg
 }
 # toggle resize mode
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "resize"; exec $noid notify-send -u normal -t 50000 "resize"
 set $programsnotify exec notify-send -u normal -t 50000
 set $progmsg "====Programs====" \
-		"[m] Spotify\t\t\n\
-[b] qutebrowser\t\n\
+"[m] Spotify\t\t\n\
+[b] qutebrowser\t\t\n\
 [B] surf\t\t\n\
 [t] telegram\t\t\n\
+[w] work programms\t\n\
 [M] cmus\t\t\n\
-[I] IDEA\t\t\n\
-[q] quartus\t\t\n\
 [r] ranger\t\t\n\
 [p] passmenu\t\t\n\
 ================"
 set $rangermsg "====Directory====" \
-		"[h] Home\t\t\n\
+"[h] Home\t\t\n\
 [U] University\t\t\n\
 [d] dotfiles\t\t\n\
 [m] music\t\t\n\
@@ -158,7 +160,7 @@ set $rangermsg "====Directory====" \
 [c] root\t\t\n\
 ================="
 set $bmsg "====Web====" \
-		"[h] Home\t\t\n\
+"[h] Home\t\t\n\
 [y] youtube\t\t\n\
 [v] vk\t\t\t\n\
 [r] reddit\t\t\n\
@@ -166,17 +168,19 @@ set $bmsg "====Web====" \
 [g] github\t\t\n\
 [s] suckless\t\t\n\
 ==========="
+set $pwork "====Work====" \
+"[q] quartus\t\t\n\
+[i] IDEA\t\t\n\
+[m] matlab\t\t\n\
+==========="
 set $back mode "default"
-# close pop-up message script
-set $closemsg exec $noid ~/.config/dunst/reload
 mode "programs" {
 	bindsym m $back; exec $noid spotify; $closemsg
 	bindsym b mode "qbrowser"; $programsnotify $bmsg
 	bindsym Shift+b mode "sbrowser"; $programsnotify $bmsg
 	bindsym t $back; exec $noid telegram-desktop; $closemsg
+	bindsym w mode "wwork"; $programsnotify $pwork
 	bindsym Shift+m $back; exec $noid st -t cmus_st -e cmus; $closemsg
-	bindsym Shift+i $back; exec $noid intellij-idea-ultimate-edition; $closemsg
-	bindsym q $back; exec $noid /opt/altera/13.1/quartus/bin/quartus; $closemsg
 	bindsym r mode "ranger"; $programsnotify $rangermsg 
 	bindsym p $back; exec $noid passmenu; $closemsg
 	# back to normal
@@ -187,11 +191,11 @@ mode "programs" {
 bindsym $mod+p mode "programs"; $programsnotify $progmsg
 mode "ranger" {
 	set $x exec $noid st -e ranger
-	bindsym h $back; $x ~ ; $closemsg
+	bindsym h $back; $x ~/ ; $closemsg
 	bindsym Shift+u $back; $x ~/Documents/university; $closemsg
 	bindsym d $back; $x ~/dotfiles; $closemsg
-	bindsym m $back; $x ~/music; $closemsg
-	bindsym v $back; $x ~/vid; $closemsg
+	bindsym m $back; $x ~/media/music; $closemsg
+	bindsym v $back; $x ~/media/vid; $closemsg
 	bindsym Shift+m $back; $x /mnt; $closemsg
 	bindsym c $back; $x /; $closemsg
 	bindsym Return $back; $x; $closemsg 
@@ -219,6 +223,14 @@ mode "sbrowser" {
 	bindsym g $back; $sb github.com; $closemsg
 	bindsym s $back; $sb suckless.org; $closemsg
 	bindsym Return $back; $sb; $closemsg
+	bindsym Escape $back; $closemsg
+}
+mode "wwork" {
+	bindsym q $back; exec $noid /opt/altera/13.1/quartus/bin/quartus; $closemsg
+	bindsym i $back; exec $noid intellij-idea-ultimate-edition; $closemsg	
+	bindsym m $back; exec $noid matlab -desktop; $closemsg
+	# back to normal 
+	bindsym Return $back; $closemsg	
 	bindsym Escape $back; $closemsg
 }
 # ----Workspace----
