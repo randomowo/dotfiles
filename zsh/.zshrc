@@ -17,10 +17,11 @@ export QSYS_ROOTDIR="$QUARTUS_ROOTDIR_OVERRIDE/sopc_builder/bin"
 export QUARTUS_LIBRARY_PATHS="$QUARTUS_ROOTDIR_OVERRIDE/linux/:/lib/x86_64-linux-gnu/"
 export SOPC_KIT_NIOS2="$ALTERA_ROOT/nios2eds"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$QUARTUS_LIBRARY_PATHS"
-
+# matlab
+export MATLAB_ROOT="/opt/MATLAB/R2019b"
 
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:$ALTERA_ROOT/quartus/bin"
+export PATH="$PATH:$ALTERA_ROOT/quartus/bin:$MATLAB_ROOT/bin"
 
 ZSH_THEME="kolo"
 #jnrowe, dogenpunk, nicoulaj, crunch, blinks, kolo
@@ -45,7 +46,7 @@ alias count="tree | tail -1"
 alias git-adog="git log --all --decorate --oneline --graph"
 alias git-undo="git revert  --soft HEAD~1"
 # remove unused packages
-alias cleanup='yay -Rns $(yay -Qtdq)'
+alias cleanup='yay -Rns $(yay -Qtdq) && yay -Yc'
 # alias for programms
 alias irc='weechat'
 # update python packages
@@ -53,6 +54,7 @@ alias upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1
 # rust ls
 alias ls='exa'
 alias l='exa -lahgF -a'
+alias ll='exa -lhgF'
 alias lst='exa --tree'
 alias lt='exa -lahgF --tree'
 # ranger alias
