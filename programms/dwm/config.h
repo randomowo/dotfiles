@@ -59,9 +59,16 @@ static const char *spotifycmd[] = { "spotify", NULL };
 static const char *browsercmd[] = { "qutebrowser", NULL };
 static const char *lowervolcmd[] = { "amixer", "set", "Master", "10%-", NULL };
 static const char *raisevolcmd[] = { "amixer", "set", "Master", "10%+", NULL };
-static const char *togglevolcmd[] = { "amixer", "set", "Master", "toggle", " && ", "~/dotfiles/bin/bash/notify/soundnotify", NULL };
+static const char *togglevolcmd[] = { "amixer", "set", "Master", "toggle", NULL };
 static const char *brghtnessupcmd[] = { "xbacklight", "-inc", "5", NULL };
 static const char *brghtnessdowncmd[] = { "xbacklight", "-dec", "5", NULL };
+static const char *lockcmd[] = { "i3lock", "-ne", "--blur=5",
+"--insidecolor=373445ee", "--ringcolor=555555ee", "--line-uses-inside",
+"--keyhlcolor=b8a6edff", "--bshlcolor=d23c3dff", "--separatorcolor=00000044",
+"--insidevercolor=373445ee", "--insidewrongcolor=373445ee",
+"--ringvercolor=557755ee", "--ringwrongcolor=775555ee",
+"--radius=90", "--veriftext=\"nice\"", "--wrongtext=\"WARN\"",
+"--noinputtext=\"lock\"", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
@@ -72,9 +79,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd	} },
 	{ 0,							0x1008ff11,spawn,          {.v = lowervolcmd } },
 	{ 0,                            0x1008ff13,spawn,          {.v = raisevolcmd } },
-	{ 0,							0x1008ff12, spawn,		   {.v = togglevolcmd } },
-	{ 0,							0x1008ff02, spawn,		   {.v = brghtnessupcmd } },
-	{ 0,							0x1008ff03, spawn,		   {.v = brghtnessdowncmd } },
+	{ 0,							0x1008ff12,spawn,		   {.v = togglevolcmd } },
+	{ 0,							0x1008ff02,spawn,		   {.v = brghtnessupcmd } },
+	{ 0,							0x1008ff03,spawn,		   {.v = brghtnessdowncmd } },
+	{ 0,							0x1008ff2a,spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

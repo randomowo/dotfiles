@@ -4,7 +4,7 @@
 const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "-";
 
 /* maximum output string length */
 #define MAXLEN 2048
@@ -63,12 +63,9 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function          format            argument */
-	{ vol_perc,			 "vol:%s%% ",		 "/dev/mixer" },
 	{ battery_perc,      "bat:%s%%",         "BAT0" },
 	{ battery_remaining, "(%s) ",       "BAT0" },
 	{ temp,              "cpu:%s° ",		   "/sys/class/thermal/thermal_zone2/temp" },
 	{ wifi_essid,        "ssid:%s ",      "wlp3s0" },
-	{ netspeed_rx,       "dw:%s ",       "wlp3s0" },
-	{ netspeed_tx,       "up:%s ",     "wlp3s0" },
 	{ datetime,          "%s",             "%T %F" },
 };
