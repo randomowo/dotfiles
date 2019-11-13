@@ -1,5 +1,6 @@
 #!/bin/bash
 
+amixer set Master toggle
 if [[ -z $(amixer get Master | grep -o "\[on\]") ]]; then
 	notify-send -t 500 "Muted"
 else

@@ -7,7 +7,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Anonymous Pro:size=14";
+static char *font = "xos4 Terminus:size=16";
 static int borderpx = 3;
 
 /*
