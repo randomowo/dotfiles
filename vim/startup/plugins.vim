@@ -8,7 +8,7 @@
 "                  |___/             
 " by randomowo
 
-call plug#begin('$HOME/.vim/plugins')
+call plug#begin('~/.config/vim/plugins')
 " theme
 " Plug 'arcticicestudio/nord-vim'
 Plug 'dylanaraps/wal.vim'
