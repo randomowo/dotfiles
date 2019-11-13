@@ -63,6 +63,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function          format            argument */
+	{ vol_perc,			 "vol:%s%% ",		 "/dev/mixer" },
 	{ battery_perc,      "bat:%s%%",         "BAT0" },
 	{ battery_remaining, "(%s) ",       "BAT0" },
 	{ temp,              "cpu:%s° ",		   "/sys/class/thermal/thermal_zone2/temp" },
