@@ -9,7 +9,7 @@ if [[ $1 == "--type" ]]; then
 fi
 
 
-STARTDIR=${PASSWORD_STORE_DIR-~/.password-store}
+STARTDIR=$PASSWORD_STORE_DIR
 BASEDIR=$STARTDIR
 DONE=0
 LEVEL=0
