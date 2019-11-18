@@ -1,0 +1,12 @@
+#!/bin/bash
+
+case $1 in
+	-f)
+		scrot -o -q 100 ~/media/pic/screenshots/$(date +%Y%m%d)_$(date +%H-%M-%S).png && \
+			notify-send -t 2500 "made a screenshot";;
+	-z)
+		scrot -s -f -l style=dash.width=2 -q 100 ~/media/pic/screenshots/$(date +%Y%m%d)_$(date +%H-%M-%S).png && \
+			notify-send -t 2500 "made a screenshot";;
+	*)
+		notify-send -i text-x-script -t 2500 "wrong input"
+esac
