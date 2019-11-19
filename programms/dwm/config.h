@@ -56,6 +56,8 @@ static const char *browsercmd[] = { "qutebrowser", NULL };
 static const char *lowervolcmd[] = { "amixer", "set", "Master", "10%-", NULL };
 static const char *raisevolcmd[] = { "amixer", "set", "Master", "10%+", NULL };
 static const char *togglevolcmd[] = { "soundnotify", NULL };
+static const char *shotfcmd[] = { "shot", "-f", NULL };
+static const char *shotzcmd[] = { "shot", "-z", NULL };
 static const char *brghtnessupcmd[] = { "xbacklight", "-inc", "5", NULL };
 static const char *brghtnessdowncmd[] = { "xbacklight", "-dec", "5", NULL };
 static const char *lockcmd[] = { "i3lock", "-ne", "--blur=5",
@@ -76,6 +78,8 @@ static Key keys[] = {
 	{ 0,							0x1008ff03,spawn,		   {.v = brghtnessdowncmd } },
 	{ 0,							0x1008ff2a,spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
+	{ ALTKEY,                       XK_3,      spawn,          {.v = shotfcmd } },
+	{ ALTKEY,                       XK_4,      spawn,          {.v = shotzcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenucmd } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },

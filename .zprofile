@@ -45,3 +45,5 @@ export UNI="$HOME/Documents/university"
 
 # expand $PATH 
 export PATH="$PATH:$ALTERA_ROOT/quartus/bin:$MATLAB_ROOT/bin:$GOPATH"
+
+startx
