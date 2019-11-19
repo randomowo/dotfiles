@@ -46,4 +46,8 @@ export UNI="$HOME/Documents/university"
 # expand $PATH 
 export PATH="$PATH:$ALTERA_ROOT/quartus/bin:$MATLAB_ROOT/bin:$GOPATH"
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolki
+wmname compiz
+
 startx

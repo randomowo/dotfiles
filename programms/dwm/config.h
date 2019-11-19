@@ -60,7 +60,7 @@ static const char *shotfcmd[] = { "shot", "-f", NULL };
 static const char *shotzcmd[] = { "shot", "-z", NULL };
 static const char *brghtnessupcmd[] = { "xbacklight", "-inc", "5", NULL };
 static const char *brghtnessdowncmd[] = { "xbacklight", "-dec", "5", NULL };
-static const char *lockcmd[] = { "i3lock", "-ne", "--blur=5",
+static const char *lockcmd[] = { "i3lock", "-k", "-ne", "--blur=5",
 "--insidecolor=373445ee", "--ringcolor=555555ee", "--line-uses-inside",
 "--keyhlcolor=b8a6edff", "--bshlcolor=d23c3dff", "--separatorcolor=00000044",
 "--insidevercolor=373445ee", "--insidewrongcolor=373445ee",
