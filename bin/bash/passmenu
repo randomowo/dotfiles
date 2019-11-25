@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Import the colors
+. "${HOME}/.cache/wal/colors.sh"
+
 shopt -s nullglob globstar
 
 typeit=0
@@ -13,7 +16,8 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
+password=$(printf '%s\n' "${password_files[@]}" | \
+   	dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" "$@")
 
 [[ -n $password ]] || exit
 
