@@ -1,50 +1,42 @@
-# ▒███████▒  ██████  ██░ ██     ▄████▄   ▒█████   ███▄    █   █████▒██▓  ▄████ 
+# ▒███████▒  ██████  ██░ ██     ▄████▄   ▒█████   ███▄    █   █████▒██▓  ▄████
 # ▒ ▒ ▒ ▄▀░▒██    ▒ ▓██░ ██▒   ▒██▀ ▀█  ▒██▒  ██▒ ██ ▀█   █ ▓██   ▒▓██▒ ██▒ ▀█▒
 # ░ ▒ ▄▀▒░ ░ ▓██▄   ▒██▀▀██░   ▒▓█    ▄ ▒██░  ██▒▓██  ▀█ ██▒▒████ ░▒██▒▒██░▄▄▄░
 #   ▄▀▒   ░  ▒   ██▒░▓█ ░██    ▒▓▓▄ ▄██▒▒██   ██░▓██▒  ▐▌██▒░▓█▒  ░░██░░▓█  ██▓
 # ▒███████▒▒██████▒▒░▓█▒░██▓   ▒ ▓███▀ ░░ ████▓▒░▒██░   ▓██░░▒█░   ░██░░▒▓███▀▒
-# ░▒▒ ▓░▒░▒▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒   ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒  ▒ ░   ░▓   ░▒   ▒ 
-# ░░▒ ▒ ░ ▒░ ░▒  ░ ░ ▒ ░▒░ ░     ░  ▒     ░ ▒ ▒░ ░ ░░   ░ ▒░ ░      ▒ ░  ░   ░ 
-# ░ ░ ░ ░ ░░  ░  ░   ░  ░░ ░   ░        ░ ░ ░ ▒     ░   ░ ░  ░ ░    ▒ ░░ ░   ░ 
-#   ░ ░          ░   ░  ░  ░   ░ ░          ░ ░           ░         ░        ░ 
-# ░                            ░                                               
+# ░▒▒ ▓░▒░▒▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒   ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒  ▒ ░   ░▓   ░▒   ▒
+# ░░▒ ▒ ░ ▒░ ░▒  ░ ░ ▒ ░▒░ ░     ░  ▒     ░ ▒ ▒░ ░ ░░   ░ ▒░ ░      ▒ ░  ░   ░
+# ░ ░ ░ ░ ░░  ░  ░   ░  ░░ ░   ░        ░ ░ ░ ▒     ░   ░ ░  ░ ░    ▒ ░░ ░   ░
+#   ░ ░          ░   ░  ░  ░   ░ ░          ░ ░           ░         ░        ░
+# ░                            ░
 # by randomowo
 
-ZSH_THEME="kolo"
-#jnrowe, dogenpunk, nicoulaj, crunch, blinks, kolo
+# load aliases
+[ -f "$HOME/.config/aliasrs" ] && source "$HOME/.config/aliasrs"
 
-plugins=(
-    git
-    zsh-syntax-highlighting
-    zsh-history-substring-search
-)
+# theme (kolo from oh-my-zsh)
+source $HOME/.config/zsh/kolo.zsh-theme
 
-source $ZSH/oh-my-zsh.sh
-# zsh plugins
+# history
+source $HOME/.config/zsh/lib/history.zsh 2>/dev/null
 
-# connect by ssh to my server
-alias sshm="ssh makromant@makromant.myjino.ru"
-# check size
-alias dcap="df -h /"
-alias sizeof="du -sh"
-# counting folders and files
-alias count="tree | tail -1"
-# git aliases
-alias git-adog="git log --all --decorate --oneline --graph"
-alias git-undo="git revert  --soft HEAD~1"
-# remove unused packages
-alias cleanup='yay -Rns $(yay -Qtdq) && yay -Yc'
-# alias for programms
-alias irc='weechat'
-# update python packages
-alias upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install --ignore-installed -U'
-# rust ls
-alias ls='exa'
-alias l='exa -lahgF -a'
-alias ll='exa -lhgF'
-alias lst='exa --tree'
-alias lt='exa -lahgF --tree'
-# ranger alias
-alias x='ranger'
-alias calcurse='calcurse -D $PROGPATH/calcurse'
-alias dhex='dhex -f $CONFPATH/dhex/dhexrc'
+# auto complete
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+#source $HOME/.config/zsh/lib/completion.zsh 2>/dev/null
+
+# key bindings
+source $HOME/.config/zsh/lib/key-bindings.zsh 2>/dev/null
+
+# plugins
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/git/git.plugin.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/calc.plugin.zsh/calc.plugin.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/deer/deer 2>/dev/null
+zle -N deer
+bindkey '\ek' deer
+source $HOME/.config/zsh/plugins/zsh-async/async.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh 2>/dev/null
