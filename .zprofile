@@ -7,6 +7,7 @@ export CONFPATH="$HOME/.config"
 # ZSH
 export ZSH="$HOME/.config/zsh/oh-my-zsh"
 export ZDOTDIR="$HOME/.config/zsh"
+export ZSH_COMPDUMP="$HOME/.cache/zsh/.zcompdump"
 
 # DEFAULTS
 export BROWSER="qutebrowser"
