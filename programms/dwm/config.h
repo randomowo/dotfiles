@@ -7,10 +7,10 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "xos4 Terminus:size=12" };
+static const char *fonts[]          = { "xos4 Terminus:size=15" };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -58,8 +58,11 @@ static const char *raisevolcmd[] = { "amixer", "set", "Master", "10%+", NULL };
 static const char *togglevolcmd[] = { "soundnotify", NULL };
 static const char *shotfcmd[] = { "shot", "-f", NULL };
 static const char *shotzcmd[] = { "shot", "-z", NULL };
-static const char *brghtnessupcmd[] = { "xbacklight", "-inc", "5", NULL };
-static const char *brghtnessdowncmd[] = { "xbacklight", "-dec", "5", NULL };
+static const char *showtimecmd[] = { "timenotify", NULL };
+static const char *dbrghtnessupcmd[] = { "xbacklight", "-inc", "5", NULL };
+static const char *dbrghtnessdowncmd[] = { "xbacklight", "-dec", "5", NULL };
+static const char *kbrghtnessupcmd[] = { "xbacklight", "-ctrl", "smc::kbd_backlight", "-inc", "5", NULL };
+static const char *kbrghtnessdowncmd[] = { "xbacklight", "-ctrl", "smc::kbd_backlight", "-dec", "5", NULL };
 static const char *lockcmd[] = { "i3lock", "-k", "-ne", "--blur=5",
 "--insidecolor=373445ee", "--ringcolor=555555ee", "--line-uses-inside",
 "--keyhlcolor=b8a6edff", "--bshlcolor=d23c3dff", "--separatorcolor=00000044",
@@ -74,14 +77,17 @@ static Key keys[] = {
 	{ 0,							0x1008ff11,spawn,          {.v = lowervolcmd } },
 	{ 0,                            0x1008ff13,spawn,          {.v = raisevolcmd } },
 	{ 0,							0x1008ff12,spawn,		   {.v = togglevolcmd } },
-	{ 0,							0x1008ff02,spawn,		   {.v = brghtnessupcmd } },
-	{ 0,							0x1008ff03,spawn,		   {.v = brghtnessdowncmd } },
+	{ 0,							0x1008ff02,spawn,		   {.v = dbrghtnessupcmd } },
+	{ 0,							0x1008ff03,spawn,		   {.v = dbrghtnessdowncmd } },
+	{ 0,							0x1008ff05,spawn,		   {.v = kbrghtnessupcmd } },
+	{ 0,							0x1008ff06,spawn,		   {.v = kbrghtnessdowncmd } },
 	{ 0,							0x1008ff2a,spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ ALTKEY,                       XK_3,      spawn,          {.v = shotfcmd } },
 	{ ALTKEY,                       XK_4,      spawn,          {.v = shotzcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenucmd } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_t,      spawn,          {.v = showtimecmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -93,7 +99,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
