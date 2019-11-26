@@ -29,8 +29,8 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 #include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "|M|",      centeredmaster },
+	{ "|M|",      centeredmaster },		/* first entry is default */
+	{ "[]=",      tile },
 	{ ">M>",      centeredfloatingmaster },
  	{ "[@]",      spiral },
  	{ "[\\]",      dwindle },
@@ -51,7 +51,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenuwal_run", NULL };
+static const char *lreloadcmd[] = { "lreload", NULL };
 static const char *passmenucmd[] = { "passmenu", NULL };
+static const char *dkillcmd[] = { "dkill", NULL };
 static const char *browsercmd[] = { "qutebrowser", NULL };
 static const char *lowervolcmd[] = { "amixer", "set", "Master", "10%-", NULL };
 static const char *raisevolcmd[] = { "amixer", "set", "Master", "10%+", NULL };
@@ -87,13 +89,15 @@ static Key keys[] = {
 	{ ALTKEY,                       XK_4,      spawn,          {.v = shotzcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passmenucmd } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_q,      spawn,          {.v = dkillcmd } },
 	{ MODKEY,                       XK_t,      spawn,          {.v = showtimecmd } },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = lreloadcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },

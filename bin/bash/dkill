@@ -13,10 +13,11 @@ python|\
 grep|\
 ps|\
 cut|\
+sleep|\
+gsettings-helpe|\
+\(sd-pam\)|\
 dmenu|\
 dkill)"
-
-echo $exclude
 
 process=$(ps -U randomowo | grep "?" | grep -vE "$exclude" | cut -c 18- | cut -d" " -f2- | \
    dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" "$@")
