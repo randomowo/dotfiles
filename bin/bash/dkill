@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Import the colors
+. "${HOME}/.cache/wal/colors.sh"
+
+exclude="(systemd|\
+pulseaudio|st|\
+dbus-daemon|\
+QtWebEngineProc|\
+at-spi-bus-laun|\
+zsh|\
+python|\
+grep|\
+ps|\
+cut|\
+dmenu|\
+dkill)"
+
+echo $exclude
+
+process=$(ps -U randomowo | grep "?" | grep -vE "$exclude" | cut -c 18- | cut -d" " -f2- | \
+   dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" "$@")
+
+[ ! -z $process ] && pkill $process
+
+exit 0
