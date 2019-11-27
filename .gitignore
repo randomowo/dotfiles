@@ -1,5 +1,4 @@
 .config/cmus
 mac/karabiner/automatic_backups
-vim/vimconf/plugins
-vim/vimconf/.netwhist
+.config/vim/plugins
 .config/polybar/scripts/notification-github.sh

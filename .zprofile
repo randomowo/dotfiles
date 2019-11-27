@@ -12,7 +12,7 @@ export ZSH_COMPDUMP="$HOME/.cache/zsh/.zcompdump"
 # DEFAULTS
 export BROWSER="qutebrowser"
 export TERMINAL="st"
-export EDITOR="vim"
+export EDITOR="nvim"
 export READER="zathura"
 
 # PATHS FOR SOME PROGRAMS

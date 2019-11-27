@@ -10,13 +10,14 @@ on() {
 	list=($(netctl list | sort))
 	echo "Choose network:"
 	for (( netIndex=0; netIndex<${#list[@]}; netIndex++ )); do
-		echo -e "\t$netIndex ${list[$netIndex]}"
+		echo -e "\t$(($netIndex+1)) ${list[$netIndex]}"
 	done
 	read -p "Network: " netInd
-	if [[ ! $netInd =~ ^[0-9]+$ ]] || (( $netInd+1 > ${#list[@]} )); then
+	if [[ ! $netInd =~ ^[0-9]+$ ]] || (( $netInd > ${#list[@]} )) || (( $netInd < 1 )); then
 		echo "wrong input"
 		exit 1
 	fi
+	(( netInd-- ))
 	ping=$((sudo netctl start "${list[netInd]}") 2>&1)
 	if [[ ! -z "$ping" ]]; then
 		echo "Can not connect to ${list[netInd]}"
