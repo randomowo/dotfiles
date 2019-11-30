@@ -2,4 +2,4 @@
 mac/karabiner/automatic_backups
 .config/vim/vimconf/plugins
 .config/polybar/scripts/notification-github.sh
-.config/emacs/.emacs.d/elpa
+.config/emacs/.emacs.d
