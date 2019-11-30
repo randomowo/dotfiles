@@ -11,10 +11,10 @@ set nocompatible
 filetype on
 filetype indent on
 filetype plugin on
-set runtimepath+=$HOME/.config/vim
+set runtimepath+=$HOME/.config/vim/vimconf
 
 "===== Load =====
-source ~/.config/vim/startup/plugins.vim
-source ~/.config/vim/startup/settings.vim
-source ~/.config/vim/startup/functions.vim
-source ~/.config/vim/startup/mapping.vim
+source ~/.config/vim/vimconf/startup/plugins.vim
+source ~/.config/vim/vimconf/startup/settings.vim
+source ~/.config/vim/vimconf/startup/functions.vim
+source ~/.config/vim/vimconf/startup/mapping.vim

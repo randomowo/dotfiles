@@ -36,7 +36,8 @@ alias \
 alias \
 	x='ranger' \
 	calcurse='calcurse -D $PROGPATH/calcurse' \
-	dhex='dhex -f $CONFPATH/dhex/dhexrc'
+	dhex='dhex -f $CONFPATH/dhex/dhexrc' \
+	vim='nvim'
 # cd aliases
 alias \
 	..='cd ..' \

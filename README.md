@@ -18,6 +18,6 @@ Shell: zsh 5.7.1</br>
 Resolution: 2560x1600</br>
 WM: dwm</br>
 Terminal: st</br>
-Terminal Font: xos4 Terminus</br>
+Terminal Font: Anonymous Pro</br>
 Intel i5-5257U (4) @ 3.100GHz</br>
 GPU: Intel Iris Graphics 6100</br>

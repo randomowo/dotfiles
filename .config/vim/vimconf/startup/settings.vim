@@ -62,7 +62,7 @@ let g:syntastic_tex_checkers = ['lacheck']
 
 " minisnip
 let g:minisnip_trigger = '<Tab>'
-let g:minisnip_dir = '~/.config/vim/minisnip'
+let g:minisnip_dir = '~/.config/vim/vimconf/minisnip'
 
 " markdown-preview
 let g:mkdp_auto_start = 0

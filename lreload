@@ -4,4 +4,3 @@
 feh --bg-fill "$(cat ~/.cache/wal/wal)" # set up background image
 ~/.config/compton/launch.sh # compton reload script
 pkill slstatus; sleep 1; /usr/local/bin/slstatus & # status script for dwm
-exec amixer set Master mute # mute on startup

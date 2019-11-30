@@ -1,5 +1,5 @@
 .config/cmus
 mac/karabiner/automatic_backups
-.config/vim/plugins
+.config/vim/vimconf/plugins
 .config/polybar/scripts/notification-github.sh
 .config/emacs/.emacs.d/elpa
