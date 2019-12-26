@@ -8,6 +8,7 @@ on() {
 	off > /dev/null
 	ipDown
 	list=($(netctl list | sort))
+	[ -z "$list" ] && echo "list empty" && exit 1
 	echo "Choose network:"
 	for (( netIndex=0; netIndex<${#list[@]}; netIndex++ )); do
 		echo -e "\t$(($netIndex+1)) ${list[$netIndex]}"
@@ -32,8 +33,7 @@ on() {
 	else
 		echo "${list[netInd]}" | sudo tee /var/local/wf_last > /dev/null
 		echo "Successfully connected to ${list[netInd]}"
-	fi
-}
+	fi }
 
 off() {
 	sudo netctl stop-all
@@ -58,6 +58,14 @@ last() {
 		echo "Can not find last network name"
 		exit 1
 	fi
+}
+
+list() {
+	list=($(netctl list | sort))
+	echo "List of networks:"
+	for (( ind=0; ind<${#list[@]}; ind++ )); do
+		echo -e "\t${list[$ind]}"
+	done
 }
 
 ipDown() {
@@ -94,6 +102,7 @@ help() {
 	echo -e " new\t\tregister new network"
 	echo -e " res, restart\trestart driver"
 	echo -e " last\t\tconnect to last connected network"
+	echo -e " list\t\tshow list of networks"
 	echo -e " help\t\tshow this help\n"
 	echo "by randomowo <randomowo@ya.ru>"
 	echo "For any questions write to me directly"
@@ -115,6 +124,8 @@ case $1 in
 		last;;
 	"help")
 		help;;
+	"list")
+		list;;
 	*)
 		help;;
 esac
