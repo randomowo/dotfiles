@@ -28,6 +28,8 @@ set secure
 set exrc
 set ruler
 set undolevels=100
+set list
+set listchars+=tab:<\ >
 syntax on
 colorscheme wal
 
@@ -47,7 +49,7 @@ let g:vimtex_quickfix_mode = 0
 let g:ale_fix_on_save = 1
 
 " airline
-let g:airline_theme = 'deus'
+let g:airline_theme = 'wal'
 let g:airline#extensions#tabline#enabled = 1
 
 " syntactic

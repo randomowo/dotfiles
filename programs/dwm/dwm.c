@@ -7,8 +7,7 @@
  * allowed to select for this event mask.
  *
  * The event handlers of dwm are organized in an array which is accessed
- * whenever a new event has been fetched. This allows event dispatching
- * in O(1) time.
+ * whenever a new event has been fetched. This allows event dispatching in O(1) time.
  *
  * Each child of the root window is called a client, except windows which have
  * set the override_redirect flag. Clients are organized in a linked client
