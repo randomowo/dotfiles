@@ -39,9 +39,9 @@ let g:ycm_key_list_previous_completion = ['<Up>']
 
 " LaTex
 let g:livepreview_previewer = 'zathura'
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_mode = 0
 
 " ale
 let g:ale_fix_on_save = 1
@@ -72,3 +72,8 @@ let g:mkdp_refresh_slow = 1
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" indetLine
+let g:indentLine_enabled = 1
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_setColors = 0

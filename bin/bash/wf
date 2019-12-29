@@ -33,7 +33,8 @@ on() {
 	else
 		echo "${list[netInd]}" | sudo tee /var/local/wf_last > /dev/null
 		echo "Successfully connected to ${list[netInd]}"
-	fi }
+	fi
+}
 
 off() {
 	sudo netctl stop-all

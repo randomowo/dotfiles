@@ -39,6 +39,8 @@ export WEECHAT_HOME="$CONFPATH/weechat"
 export LESSHISTFILE="/dev/null"
 # wine
 export WINEPREFIX="$PROGPATH/wine"
+# cargo
+export CARGO_HOME="$PROGPATH/cargo"
 # vim
 export VIMINIT="source $HOME/.config/vim/.vimrc"
 

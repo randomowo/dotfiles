@@ -17,6 +17,7 @@ Plug 'dylanaraps/wal.vim'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 " developing plugins
+Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-syntastic/syntastic'
 Plug 'kien/ctrlp.vim'
@@ -26,6 +27,8 @@ Plug 'joereynolds/vim-minisnip'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'majutsushi/tagbar'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-surround'
 
 " Rust dev
 Plug 'rust-lang/rust.vim'
