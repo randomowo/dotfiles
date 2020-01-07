@@ -69,6 +69,15 @@ list() {
 	done
 }
 
+slast() {
+	if [[ -f /var/local/wf_last ]]; then
+		echo "Last network was $(cat /var/local/wf_last)"
+	else 
+		echo "Can not find last network name"
+		exit 1
+	fi
+}
+
 ipDown() {
 	ipstat=$(ip link | grep -E "$device.*" | grep -oE "UP|DOWN" | sed -n 1p)
 	if [[ $ipstat == "UP" ]]; then sudo ip link set dev $device down; fi
@@ -101,8 +110,10 @@ help() {
 	echo -e " on\t\tconnect to already registered networks"
 	echo -e " off\t\tdisconnet from all networks"
 	echo -e " new\t\tregister new network"
-	echo -e " res, restart\trestart driver"
+	echo -e " res\t\trestart driver"
+	echo -e " restart\trestart driver"
 	echo -e " last\t\tconnect to last connected network"
+	echo -e " slast\t\tshow last connected network"
 	echo -e " list\t\tshow list of networks"
 	echo -e " help\t\tshow this help\n"
 	echo "by randomowo <randomowo@ya.ru>"
@@ -121,6 +132,8 @@ case $1 in
 	"res"|"restart")
 		reset
 		ipDown;;
+	"slast")
+		slast;;
 	"last")
 		last;;
 	"help")
