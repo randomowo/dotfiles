@@ -2,5 +2,5 @@
 ~/.config/dunst/reload # dunst reload script
 ~/dotfiles/bin/bash/notify/batlownotify_reload # reload bat notidy script
 feh --bg-fill "$(cat ~/.cache/wal/wal)" # set up background image
-~/.config/compton/launch.sh # compton reload script
+~/.config/picom/launch.sh # compton reload script
 pkill slstatus; sleep 1; /usr/local/bin/slstatus & # status script for dwm

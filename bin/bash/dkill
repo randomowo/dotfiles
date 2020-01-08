@@ -21,6 +21,7 @@ xclip|\
 sh|\
 timer|\
 compton|\
+picom|\
 batlownotify|\
 gpg-agent|\
 dconf-service|\
@@ -31,6 +32,9 @@ fsnotifier64|\
 tee|\
 soffice.bin|\
 pdflatex|\
+Web|\
+vim|\
+dirmngr|\
 dkill)"
 
 process=$(ps -U randomowo | grep "?" | grep -vE "$exclude" | cut -c 18- | cut -d" " -f2- | \
