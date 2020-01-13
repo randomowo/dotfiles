@@ -3,10 +3,16 @@
 # Import the colors
 . "${HOME}/.cache/wal/colors.sh"
 
+echo "" > /var/local/scrsw_err
 
 layout=$(ls ~/.screenlayout/ \
 	| dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" "$@")
 
-[ ! -z $layout ] && sh ~/.screenlayout/"$layout"
+[ ! -z $layout ] && sh ~/.screenlayout/"$layout" 2&> /var/local/scrsw_err
+if [[ -z "$(cat /var/local/scrsw_err)" ]]; then
+	notify-send -u normal "successfully"
+else
+	notify-send -u critical -t 500 "unsuccessful"
+fi
 
 exit 0
