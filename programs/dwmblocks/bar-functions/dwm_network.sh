@@ -16,7 +16,11 @@ dwm_network () {
     PUBLIC=$(curl -s https://ipinfo.io/ip)
 
     printf "%s" "$SEP1"
-    printf " %s %s | %s" "$CONNAME" "$PRIVATE" "$PUBLIC"
+    if [[ "$CONNAME" != "" ]]; then
+		printf " %s %s | %s" "$CONNAME" "$PRIVATE" "$PUBLIC"
+	else
+		printf ""
+	fi
     printf "%s\n" "$SEP2"
 }
 

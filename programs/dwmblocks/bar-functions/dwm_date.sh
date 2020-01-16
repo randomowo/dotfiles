@@ -7,7 +7,7 @@
 # Date is formatted like like this: "[Mon 01-01-00 00:00:00]"
 dwm_date () {
     printf "%s" "$SEP1"
-    printf " %s" "$(date "+%a %d-%m-%y %T")"
+    printf " %s" "$(date "+%a %m-%d-%y %T")"
     printf "%s\n" "$SEP2"
 }
 
