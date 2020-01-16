@@ -7,7 +7,7 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Anonymous Pro Minus:size=13" };
+static const char *fonts[]          = { "Anonymous Pro Minus:size=15" };
 
 /* tagging */
 static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
@@ -73,7 +73,7 @@ static const char *lockcmd[] = { "i3lock", "-k", "-ne", "--blur=5",
 "--ringvercolor=557755ee", "--ringwrongcolor=775555ee",
 "--radius=90", "--veriftext=\"nice\"", "--wrongtext=\"WARN\"",
 "--noinputtext=\"lock\"", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *menucalccmd[]  = { "=", NULL };
 
 static Key keys[] = {

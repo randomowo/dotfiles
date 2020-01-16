@@ -38,6 +38,7 @@ dirmngr|\
 kitty|\
 lreload|\
 dwmblocks|\
+nmcli|\
 dkill)"
 
 process=$(ps -U randomowo | grep "?" | grep -vE "$exclude" | cut -c 18- | cut -d" " -f2- | \
