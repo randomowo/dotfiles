@@ -14,4 +14,5 @@ static const Block blocks[] = {
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
-static char delim = '|';
+//last char should be NULL ('\0')
+static char *delim = "][\0";
