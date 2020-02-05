@@ -39,6 +39,14 @@ kitty|\
 lreload|\
 dwmblocks|\
 nmcli|\
+curl|\
+zathura|\
+termite|\
+electron|\
+sed|\
+awk|\
+Microsoft.Pytho|\
+cat|\
 dkill)"
 
 process=$(ps -U randomowo | grep "?" | grep -vE "$exclude" | cut -c 18- | cut -d" " -f2- | \

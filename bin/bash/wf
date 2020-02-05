@@ -6,7 +6,6 @@ device=$(ip link | grep -oE 'w\w+')
 
 on() {
 	off > /dev/null
-	ipDown
 	list=($(netctl list | sort))
 	[ -z "$list" ] && echo "list empty" && exit 1
 	echo "Choose network:"
@@ -37,13 +36,12 @@ on() {
 }
 
 off() {
-	sudo netctl stop-all
-	ipUp
+	nmcli radio wifi off
 	echo "wifi turned off"
 }
 
 last() {
-	off > /dev/null	
+	off > /dev/null
 	ipDown
 	if [[ -f /var/local/wf_last ]]; then
 		nw=$(cat /var/local/wf_last)
@@ -72,7 +70,7 @@ list() {
 slast() {
 	if [[ -f /var/local/wf_last ]]; then
 		echo "Last network was $(cat /var/local/wf_last)"
-	else 
+	else
 		echo "Can not find last network name"
 		exit 1
 	fi
@@ -83,18 +81,8 @@ ipDown() {
 	if [[ $ipstat == "UP" ]]; then sudo ip link set dev $device down; fi
 }
 
-ipUp() {
-	sudo ip link set dev "$device" up
-}
-
-ipRes() {
-	ipDown
-	ipUp
-}
-
 new() {
-	off > /dev/null	
-	ipDown
+	off > /dev/null
 	sudo wifi-menu
 }
 
