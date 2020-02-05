@@ -3,4 +3,4 @@ mac/karabiner/automatic_backups
 .config/vim/vimconf/plugins
 .config/polybar/scripts/notification-github.sh
 .config/emacs/.emacs.d
-.comfig/zsh/.zcompdump
+.config/zsh/.zcompdump
