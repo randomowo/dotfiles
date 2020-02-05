@@ -7,8 +7,7 @@
  * allowed to select for this event mask.
  *
  * The event handlers of dwm are organized in an array which is accessed
- * whenever a new event has been fetched. This allows event dispatching
- * in O(1) time.
+ * whenever a new event has been fetched. This allows event dispatching in O(1) time.
  *
  * Each child of the root window is called a client, except windows which have
  * set the override_redirect flag. Clients are organized in a linked client
@@ -157,6 +156,7 @@ static void configure(Client *c);
 static void configurenotify(XEvent *e);
 static void configurerequest(XEvent *e);
 static Monitor *createmon(void);
+static void cyclelayout(const Arg *arg);
 static void destroynotify(XEvent *e);
 static void detach(Client *c);
 static void detachstack(Client *c);
@@ -183,6 +183,7 @@ static void maprequest(XEvent *e);
 static void monocle(Monitor *m);
 static void motionnotify(XEvent *e);
 static void movemouse(const Arg *arg);
+static void moveresize(const Arg *arg);
 static Client *nexttiled(Client *c);
 static void pop(Client *);
 static void propertynotify(XEvent *e);
@@ -647,6 +648,23 @@ createmon(void)
 	m->lt[1] = &layouts[1 % LENGTH(layouts)];
 	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
 	return m;
+}
+
+void
+cyclelayout(const Arg *arg) {
+	Layout *l;
+	for(l = (Layout *)layouts; l != selmon->lt[selmon->sellt]; l++);
+	if(arg->i > 0) {
+		if(l->symbol && (l + 1)->symbol)
+			setlayout(&((Arg) { .v = (l + 1) }));
+		else
+			setlayout(&((Arg) { .v = layouts }));
+	} else {
+		if(l != layouts && (l - 1)->symbol)
+			setlayout(&((Arg) { .v = (l - 1) }));
+		else
+			setlayout(&((Arg) { .v = &layouts[LENGTH(layouts) - 2] }));
+	}
 }
 
 void
@@ -2297,3 +2315,23 @@ centeredfloatingmaster(Monitor *m)
 		tx += WIDTH(c);
 	}
 }
+
+static void
+moveresize(const Arg *arg)
+{
+	XEvent ev;
+	Monitor *m = selmon;
+			
+	if(!(m->sel && arg && arg->v && m->sel->isfloating))
+		return;
+
+				
+	resize(m->sel, m->sel->x + ((int *)arg->v)[0],m->sel->y
+		   	+ ((int *)arg->v)[1], m->sel->w
+		   	+ ((int *)arg->v)[2], m->sel->h
+		   	+ ((int *)arg->v)[3], True);
+
+						
+	while(XCheckMaskEvent(dpy, EnterWindowMask, &ev));
+}
+
