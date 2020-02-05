@@ -40,3 +40,7 @@ zle -N deer
 bindkey '\ek' deer
 source $HOME/.config/zsh/plugins/zsh-async/async.zsh 2>/dev/null
 #source $HOME/.config/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh 2>/dev/null
+
+# colors from pywal
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh

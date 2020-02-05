@@ -56,4 +56,4 @@ timeout = 4
 frame_color = "#191311"
 foreground = "#B7472A"
 background = "#191311"
-timeout = 6
+timeout = 8
