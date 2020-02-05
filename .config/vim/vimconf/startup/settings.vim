@@ -1,11 +1,11 @@
-"     _____      _   _   _                 
-"    / ____|    | | | | (_)                
-"   | (___   ___| |_| |_ _ _ __   __ _ ___ 
+"     _____      _   _   _
+"    / ____|    | | | | (_)
+"   | (___   ___| |_| |_ _ _ __   __ _ ___
 "   \___ \ / _ \ __| __| | '_ \ / _` / __|
 "   ____) |  __/ |_| |_| | | | | (_| \__ \
 "  |_____/ \___|\__|\__|_|_| |_|\__, |___/
-"                                __/ |    
-"                               |___/     
+"                                __/ |
+"                               |___/
 " by randomowo
 
 set relativenumber
@@ -30,13 +30,16 @@ set ruler
 set undolevels=100
 set list
 set listchars+=tab:<\ >
+set splitbelow
+set splitright
+set noswapfile
 syntax on
 colorscheme wal
 
 " ====Plugins====
 
-" YcM 
-let g:ycm_key_list_select_completion = ['<s-tab>', '<Down>']
+" YcM
+let g:ycm_key_list_select_completion = ['<F2>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
 
 " LaTex
@@ -46,24 +49,19 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_mode = 0
 
 " ale
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
+let g:ale_linters = {'python' : ['flake8', 'pylint']}
+let b:ale_fixers = {
+			\'python': ['black', 'isort', 'autopep8', 'yapf', 'reorder-python-imports'],
+			\'c': ['uncrustify'],
+			\'latex': ['textlint']}
 
 " airline
 let g:airline_theme = 'wal'
 let g:airline#extensions#tabline#enabled = 1
 
-" syntactic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_tex_checkers = ['lacheck']
-
 " minisnip
-let g:minisnip_trigger = '<Tab>'
+let g:minisnip_trigger = '<S-Tab>'
 let g:minisnip_dir = '~/.config/vim/vimconf/minisnip'
 
 " markdown-preview

@@ -19,9 +19,8 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " developing plugins
 Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
-Plug 'vim-syntastic/syntastic'
 Plug 'kien/ctrlp.vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'Chiel92/vim-autoformat'
 Plug 'joereynolds/vim-minisnip'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -36,10 +35,13 @@ Plug 'rust-lang/rust.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'udalov/kotlin-vim'
 
+" Python dev
+
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/nerdtree'
 call plug#end()
