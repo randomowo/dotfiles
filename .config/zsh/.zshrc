@@ -17,6 +17,7 @@
 source $HOME/.config/zsh/kolo.zsh-theme
 
 # history
+[ -d "$HOME/.cache/zsh" ] || mkdir "$HOME/.cache/zsh"
 source $HOME/.config/zsh/lib/history.zsh 2>/dev/null
 
 # auto complete
@@ -42,5 +43,5 @@ source $HOME/.config/zsh/plugins/zsh-async/async.zsh 2>/dev/null
 #source $HOME/.config/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh 2>/dev/null
 
 # colors from pywal
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+#(cat ~/.cache/wal/sequences &)
+#source ~/.cache/wal/colors-tty.sh

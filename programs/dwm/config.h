@@ -37,8 +37,8 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
-#define ALTKEY Mod1Mask
+#define MODKEY Mod1Mask
+#define ALTKEY Mod4Mask
 #define TAGKEYS(KEY, TAG)                                                                                              \
     { MODKEY, KEY, view, { .ui = 1 << TAG } }, { MODKEY | ControlMask, KEY, toggleview, { .ui = 1 << TAG } },          \
 	{ MODKEY | ShiftMask, KEY, tag, { .ui = 1 << TAG } },                                                          \
@@ -54,7 +54,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char* dmenucmd[] = { "dmenuwal_run", NULL };
 static const char* lreloadcmd[] = { "lreload", NULL };
-static const char* passmenucmd[] = { "passmenu", NULL };
 static const char* dkillcmd[] = { "dkill", NULL };
 static const char* browsercmd[] = { "qutebrowser", NULL };
 static const char* lowervolcmd[] = { "amixer", "set", "Master", "10%-", NULL };
@@ -89,7 +88,6 @@ static Key keys[] = {
     { MODKEY, XK_w, spawn, { .v = browsercmd } },
     { ALTKEY, XK_3, spawn, { .v = shotfcmd } },
     { ALTKEY, XK_4, spawn, { .v = shotzcmd } },
-    { MODKEY, XK_p, spawn, { .v = passmenucmd } },
     { MODKEY, XK_d, spawn, { .v = dmenucmd } },
     { MODKEY, XK_q, spawn, { .v = dkillcmd } },
     { MODKEY, XK_t, spawn, { .v = showtimecmd } },

@@ -4,3 +4,4 @@ mac/karabiner/automatic_backups
 .config/polybar/scripts/notification-github.sh
 .config/emacs/.emacs.d
 .config/zsh/.zcompdump
+.config/zsh/plugins

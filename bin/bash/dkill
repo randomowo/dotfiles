@@ -47,6 +47,9 @@ sed|\
 awk|\
 Microsoft.Pytho|\
 cat|\
+faked|\
+ping|\
+nacl_helper|\
 dkill)"
 
 process=$(ps -U randomowo | grep "?" | grep -vE "$exclude" | cut -c 18- | cut -d" " -f2- | \
