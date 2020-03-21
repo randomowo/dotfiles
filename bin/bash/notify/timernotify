@@ -1,6 +1,6 @@
 #!/bin/bash
 
-beep=~/media/music/sfx/grajdanin.mp3
+beep=~/media/music/sfx/you_suffer.flac
 
 flag=2
 timer() {

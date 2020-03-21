@@ -37,7 +37,7 @@ vim|\
 dirmngr|\
 kitty|\
 lreload|\
-dwmblocks|\
+dwm|\
 nmcli|\
 curl|\
 zathura|\
@@ -50,6 +50,8 @@ cat|\
 faked|\
 ping|\
 nacl_helper|\
+top|\
+pamixer|\
 dkill)"
 
 process=$(ps -U randomowo | grep "?" | grep -vE "$exclude" | cut -c 18- | cut -d" " -f2- | \

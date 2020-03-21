@@ -1,0 +1,8 @@
+#!/bin/bash
+
+/usr/bin/i3lock -k -e --blur=5 \
+--insidecolor=373445ee --ringcolor=555555ee --line-uses-inside \
+--keyhlcolor=b8a6edff --bshlcolor=d23c3dff --separatorcolor=00000044 \
+--insidevercolor=373445ee --insidewrongcolor=373445ee \
+--ringvercolor=557755ee --ringwrongcolor=775555ee  \
+--radius=90 --veriftext="" --wrongtext="" --noinputtext="lock"

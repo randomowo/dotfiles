@@ -7,7 +7,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Anonymous Pro Minus:size=16";
+static char *font = "Hermit-Regular:size=11";
 static int borderpx = 3;
 
 /*
