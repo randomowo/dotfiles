@@ -6,7 +6,7 @@ static const unsigned int borderpx = 3; /* border pixel of windows */
 static const unsigned int gappx = 5;	/* gaps between windows */
 static const unsigned int snap = 32;	/* snap pixel */
 static const int showbar = 1;		/* 0 means no bar */
-static const int topbar = 1;		/* 0 means bottom bar */
+static const int topbar = 0;		/* 0 means bottom bar */
 static const char* fonts[] = { "Hermit-Regular:size=10" };
 
 /* tagging */
@@ -29,8 +29,8 @@ static const int resizehints = 1; /* 1 means respect size hints in tiled resizal
 #include "fibonacci.c"
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    { "|M|", centeredmaster }, /* first entry is default */
-    { "[]=", tile },
+    { "[]=", tile }, /* first entry is default */
+    { "|M|", centeredmaster }, 
     { ">M>", centeredfloatingmaster },
     { "[@]", spiral },
     { "[\\]", dwindle },
@@ -55,7 +55,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char* dmenucmd[] = { "dmenuwal_run", NULL };
 static const char* lreloadcmd[] = { "lreload", NULL };
 static const char* dkillcmd[] = { "dkill", NULL };
-static const char* browsercmd[] = { "qutebrowser", NULL };
+static const char* browsercmd[] = { "brave", NULL };
 static const char* lowervolcmd[] = { "amixer", "set", "Master", "10%-", NULL };
 static const char* raisevolcmd[] = { "amixer", "set", "Master", "10%+", NULL };
 static const char* togglevolcmd[] = { "soundnotify", NULL };

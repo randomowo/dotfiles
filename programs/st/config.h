@@ -7,7 +7,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Hermit-Regular:size=11";
+static char *font = "monospace:size=11";
 static int borderpx = 3;
 
 /*

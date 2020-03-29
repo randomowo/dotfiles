@@ -17,7 +17,7 @@ dwm_network () {
 
     printf "%s" "$SEP1"
     if [[ "$CONNAME" != "" ]]; then
-		printf " %s %s | %s" "$CONNAME" "$PRIVATE" "$PUBLIC"
+		printf " %s" "$CONNAME" #%s | %s" "$CONNAME" "$PRIVATE" "$PUBLIC"
 	else
 		printf ""
 	fi
