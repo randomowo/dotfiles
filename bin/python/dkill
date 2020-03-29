@@ -1,0 +1,59 @@
+#!/usr/bin/env python
+"""
+Utility that uses dmenu and pkill to choose and kill whitelisted programms
+
+requirements: python3, dmenu
+"""
+import getpass
+import subprocess
+
+# init colors
+color0 = "#432432"
+color1 = "#aaaaaa"
+color15 = "#000000"
+
+username = getpass.getuser()
+output = subprocess.check_output(f"ps -U {username}".split(" "))
+lines = set(line[26::].strip()
+            for line in output.decode("utf-8").split("\n")[1:-1:])
+whitelist = [
+    "Discord",
+    "telegram-deskto",
+    "firefox",
+    "brave",
+    "spotify",
+    "thunderbird",
+    "steam",
+]
+wlines = filter(None, [line if line in whitelist else None for line in lines])
+echo_line = "\n".join(wlines)
+echo = subprocess.Popen(
+    [
+        "echo",
+        f"{echo_line}"
+    ],
+    stdout=subprocess.PIPE
+)
+dmenu = subprocess.Popen(
+    [
+        "dmenu",
+#        "-nb",
+#        f'"{color0}"',
+#        "-nf",
+#        f'"{color15}"',
+#        "-sb",
+#        f'"{color1}"',
+#        "-sf",
+#        f'"{color15}"',
+    ],
+    stdin=echo.stdout,
+    stdout=subprocess.PIPE
+)
+echo.stdout.close()
+process = dmenu.communicate()[0].decode("utf-8").strip()
+subprocess.check_call(
+    [
+        "pkill",
+        process
+    ]
+)
