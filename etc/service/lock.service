@@ -1,5 +1,5 @@
 [Unit]
-Description=User suspend actions
+Description=i3 lock on suspend by randomowo
 Before=sleep.target
 
 [Service]
