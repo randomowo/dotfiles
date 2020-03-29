@@ -11,7 +11,8 @@ set nocompatible
 filetype on
 filetype indent on
 filetype plugin on
-set runtimepath+=$HOME/.config/vim/vimconf
+set runtimepath+=$XDG_CONFIG_HOME/vim/vimconf
+set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
 
 "===== Load =====
 source ~/.config/vim/vimconf/startup/plugins.vim

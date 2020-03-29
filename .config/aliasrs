@@ -13,7 +13,7 @@ alias \
 	dcap="df -h /" \
 	sizeof="du -sh"
 # counting folders and files
-alias count="tree | tail -1"
+alias count="ls -a | wc -l"
 # git aliases
 alias \
 	git-adog="git log --all --decorate --oneline --graph" \

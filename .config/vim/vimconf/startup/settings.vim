@@ -57,8 +57,8 @@ let b:ale_fixers = {
 			\'latex': ['textlint']}
 
 " airline
-let g:airline_theme = 'wal'
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme = 'wal'
+"let g:airline#extensions#tabline#enabled = 1
 
 " minisnip
 let g:minisnip_trigger = '<S-Tab>'
