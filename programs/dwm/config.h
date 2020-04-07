@@ -3,11 +3,13 @@
 
 /* appearance */
 static const unsigned int borderpx = 3; /* border pixel of windows */
-static const unsigned int gappx = 5;	/* gaps between windows */
+static const unsigned int gappx = 2;	/* gaps between windows */
 static const unsigned int snap = 32;	/* snap pixel */
+static const int vertpad = 5;       /* vertical padding of bar */
+static const int sidepad = 10;       /* horizontal padding of bar */
 static const int showbar = 1;		/* 0 means no bar */
 static const int topbar = 0;		/* 0 means bottom bar */
-static const char* fonts[] = { "Hermit-Regular:size=10" };
+static const char* fonts[] = { "xos4 Terminus:size=12" };
 
 /* tagging */
 static const char* tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
