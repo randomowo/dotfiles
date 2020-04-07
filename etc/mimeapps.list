@@ -1,0 +1,6 @@
+[Default Applications]
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/msteams=teams.desktop
+application/pdf=org.pwmt.zathura.desktop
+image/*=sxiv.desktop
+text/html=nvim.desktop

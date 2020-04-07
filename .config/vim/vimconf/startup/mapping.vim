@@ -22,10 +22,11 @@ map <silent> <C-l> :call WinMove('l')<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F1> :Autoformat<CR>
 
-map <F3> :NERDTreeToggle<CR>
+map <F3> :Ranger<CR>
 
 noremap <silent> <C-Left> <C-w><<CR>
 noremap <silent> <C-Right> <C-w>><CR>
 noremap <silent> <C-Up> <C-w>+<CR>
 noremap <silent> <C-Down> <C-w>-<CR>
 noremap <silent> <C-_> <C-w>=<CR>
+nnoremap <F5> :GundoToggle<CR>

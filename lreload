@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ~/.config/dunst/reload # dunst reload script
 feh --bg-fill "$(cat ~/.cache/wal/wal)" # set up background image
 ~/.config/picom/launch.sh # picom reload script

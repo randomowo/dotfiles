@@ -1,11 +1,11 @@
-"   _____  _             _           
-"  |  __ \| |           (_)          
-"  | |__) | |_   _  __ _ _ _ __  ___ 
+"   _____  _             _
+"  |  __ \| |           (_)
+"  | |__) | |_   _  __ _ _ _ __  ___
 "  |  ___/| | | | |/ _` | | '_ \/ __|
 "  | |    | | |_| | (_| | | | | \__ \
 "  |_|    |_|\__,_|\__, |_|_| |_|___/
-"                   __/ |            
-"                  |___/             
+"                   __/ |
+"                  |___/
 " by randomowo
 
 call plug#begin('~/.config/vim/vimconf/plugins')
@@ -19,7 +19,6 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " developing plugins
 Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/YouCompleteMe'
-Plug 'kien/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'Chiel92/vim-autoformat'
 Plug 'joereynolds/vim-minisnip'
@@ -27,6 +26,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'majutsushi/tagbar'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
+Plug 'ap/vim-css-color'
 
 " Rust dev
 Plug 'rust-lang/rust.vim'
@@ -40,8 +40,10 @@ Plug 'udalov/kotlin-vim'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'sjl/gundo.vim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdtree'
+Plug 'itchyny/lightline.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
 call plug#end()

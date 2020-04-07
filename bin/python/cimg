@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+"""
+"""
+from PIL import Image, ImageDraw, ImageFont
+import sys
+
+def comp(name):
+    im = Image.open(name)
+    im.save(f"z_{name}", optimize=True, quality=70)
+    print(f"{name} compressed")
+
+inp = sys.argv[1::]
+
+comp(inp[0])

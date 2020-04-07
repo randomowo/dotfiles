@@ -39,6 +39,16 @@ whitelist = [
     "spotify",
     "thunderbird",
     "steam",
+    "qbittorrent",
+    "gimp",
+    "soffice.bin",
+    "vncviewer",
+    "retroarch",
+    "teams",
+    "subl3",
+    "trello",
+    "intellij-idea-u",
+    "zathura",
 ]
 wlines = filter(None, [line if line in whitelist else None for line in lines])
 echo_line = "\n".join(wlines)

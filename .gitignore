@@ -5,3 +5,4 @@ mac/karabiner/automatic_backups
 .config/emacs/.emacs.d
 .config/zsh/.zcompdump
 .config/zsh/plugins
+.config/ranger/plugins/__pycache__

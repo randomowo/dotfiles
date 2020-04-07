@@ -38,7 +38,9 @@ alias \
 	calcurse='calcurse -D $PROGPATH/calcurse' \
 	dhex='dhex -f $CONFPATH/dhex/dhexrc' \
 	vim='nvim' \
-	cleaner='bleachbit'
+	cleaner='bleachbit' \
+	hex='hexcurse'
+
 # cd aliases
 alias \
 	..='cd ..' \

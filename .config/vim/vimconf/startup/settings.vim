@@ -33,6 +33,7 @@ set listchars+=tab:<\ >
 set splitbelow
 set splitright
 set noswapfile
+set nopaste
 syntax on
 colorscheme wal
 
@@ -52,13 +53,14 @@ let g:vimtex_quickfix_mode = 0
 let g:ale_fix_on_save = 0
 let g:ale_linters = {'python' : ['flake8', 'pylint']}
 let b:ale_fixers = {
-			\'python': ['black', 'isort', 'autopep8', 'yapf', 'reorder-python-imports'],
-			\'c': ['uncrustify'],
-			\'latex': ['textlint']}
+			\ 'python': ['black', 'isort', 'autopep8', 'yapf', 'reorder-python-imports'],
+			\ 'c': ['uncrustify'],
+			\ 'latex': ['textlint']}
 
-" airline
-"let g:airline_theme = 'wal'
-"let g:airline#extensions#tabline#enabled = 1
+" lightline
+let g:lightline = {
+			\ 'colorscheme': 'wal',
+			\ }
 
 " minisnip
 let g:minisnip_trigger = '<S-Tab>'
@@ -69,11 +71,10 @@ let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 1
 
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
 " indetLine
 let g:indentLine_enabled = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_setColors = 0
+
+" ranger
+let g:ranger_map_keys = 0

@@ -70,4 +70,4 @@ export UNI="$XDG_DOCUMENTS_DIR/university"
 export PATH="$PATH:$ALTERA_ROOT/quartus/bin:$MATLAB_ROOT/bin:$GOPATH:/usr/bin:$HOME/.local/bin"
 
 #wmname compiz
-xss-lock -- /usr/local/bin/myi3lock &
+#xss-lock -- /usr/local/bin/myi3lock &

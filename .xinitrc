@@ -2,4 +2,4 @@
 
 amixer set Master mute # mute volume on startup
 exec dwm
-/home/randomowo/lreload # run startup scripts
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
