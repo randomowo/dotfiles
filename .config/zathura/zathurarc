@@ -15,9 +15,7 @@ set scroll-step 100
 
 #zoom settings
 set zoom-min 10
-set guioptions ""
 
-set render-loading "false"
 set scroll-step 50
 unmap f
 map f toggle_fullscreen

@@ -29,4 +29,3 @@ noremap <silent> <C-Right> <C-w>><CR>
 noremap <silent> <C-Up> <C-w>+<CR>
 noremap <silent> <C-Down> <C-w>-<CR>
 noremap <silent> <C-_> <C-w>=<CR>
-nnoremap <F5> :GundoToggle<CR>
