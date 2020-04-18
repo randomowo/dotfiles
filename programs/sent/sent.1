@@ -5,6 +5,9 @@
 .Nd simple plaintext presentation tool
 .Sh SYNOPSIS
 .Nm
+.Op Fl f Ar font
+.Op Fl c Ar fgcolor
+.Op Fl b Ar bgcolor
 .Op Fl v
 .Op Ar file
 .Sh DESCRIPTION
@@ -21,6 +24,14 @@ few minutes.
 .Bl -tag -width Ds
 .It Fl v
 Print version information to stdout and exit.
+.It Fl f Ar font
+Defines the
+.Ar font
+when sent is run.
+.It Fl c Ar fgcolor
+Defines the foreground color when sent is run.
+.It Fl b Ar bgcolor
+Defines the background color when sent is run.
 .El
 .Sh USAGE
 .Bl -tag -width Ds

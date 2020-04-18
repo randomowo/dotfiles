@@ -3,7 +3,7 @@ Description=i3 lock on suspend by randomowo
 Before=sleep.target
 
 [Service]
-User=randomowo
+User=owo
 Type=forking
 Environment=DISPLAY=:0
 ExecStart=/usr/local/bin/myi3lock

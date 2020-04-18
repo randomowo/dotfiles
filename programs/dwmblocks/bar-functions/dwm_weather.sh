@@ -9,9 +9,10 @@
 # Change the value of LOCATION to match your city
 dwm_weather() {
     LOCATION=spb
-
+	WEATHER="$(curl -s wttr.in/$LOCATION?format=3)"
+	[[ -z "$(echo '$WATHER' | grep -E 'Unknown')" ]] && WEATHER="men im ded"
     printf "%s" "$SEP1"
-    printf "%s" "$(curl -s wttr.in/$LOCATION?format=3)"
+    printf "%s" "$WEATHER"
     printf "%s\n" "$SEP2"
 }
 

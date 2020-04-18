@@ -8,6 +8,9 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
 export PROGPATH="$HOME/progs"
+export SHOTPATH="$HOME/media/pic/screenshots"
+export RECPATH="$HOME/media/vid/rec"
+
 export XDG_DOWNLOAD_DIR="$HOME/downloads"
 export XDG_DESKTOP_DIR="$HOME/desktop"
 export XDG_DOCUMENTS_DIR="$HOME/documents"

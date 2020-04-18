@@ -1,0 +1,37 @@
+#!/bin/bash
+# by randomowo
+
+AUDIO="$(pacmd list-sources | grep -PB 1 "analog.*monitor>" | head -n 1 | perl -pe 's/.* //g')"
+FILE="$RECPATH/$(date +%Y%m%d)_$(date +%H-%M-%S).mp4"
+SIZE="$(xdpyinfo | grep dimensions | perl -pe 's/.* ([0-9]+x[0-9]+) .*/$1/g')"
+VAR="/var/run/user/$UID/record_pid"
+
+record() {
+	ffmpeg -y \
+		-loglevel error \
+		-f x11grab -r 30 -s "$SIZE" -i :0.0 \
+		-thread_queue_size 2048 \
+		-f pulse -i "$AUDIO" -filter_complex "aresample" \
+		-threads 4 \
+		-c:v h264 \
+		-crf 0 \
+		-preset ultrafast \
+		"$FILE" &
+
+	ffmpeg_pid=$!
+	echo "$ffmpeg_pid" > "$VAR"
+}
+
+toggle() {
+	if [[ -f "$VAR" ]]; then
+		[[ ! -z "$(ps -ax | grep ffmpeg | grep -v grep)" ]] && kill "$(cat "$VAR")"
+		rm "$VAR"
+		notify-send -t 1000 "record stoped"
+	else
+		notify-send -t 1000 "record started"
+		sleep 1
+		record
+	fi
+}
+
+toggle

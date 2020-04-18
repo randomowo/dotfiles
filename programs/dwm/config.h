@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-#include "/home/randomowo/.cache/wal/colors-wal-dwm.h"
+#include "/home/owo/.cache/wal/colors-wal-dwm.h"
 
 /* appearance */
 static const unsigned int borderpx = 3; /* border pixel of windows */
@@ -63,6 +63,7 @@ static const char* raisevolcmd[] = { "amixer", "set", "Master", "10%+", NULL };
 static const char* togglevolcmd[] = { "soundnotify", NULL };
 static const char* shotfcmd[] = { "shot", "-f", NULL };
 static const char* shotzcmd[] = { "shot", "-z", NULL };
+static const char* recordcmd[] = { "srecord", NULL };
 static const char* showtimecmd[] = { "timenotify", NULL };
 static const char* scrdwcmd[] = { "scrsw", NULL };
 static const char* dbrghtnessupcmd[] = { "xbacklight", "-inc", "5", NULL };
@@ -90,6 +91,7 @@ static Key keys[] = {
     { MODKEY, XK_w, spawn, { .v = browsercmd } },
     { ALTKEY, XK_3, spawn, { .v = shotfcmd } },
     { ALTKEY, XK_4, spawn, { .v = shotzcmd } },
+    { ALTKEY, XK_5, spawn, { .v = recordcmd } },
     { MODKEY, XK_d, spawn, { .v = dmenucmd } },
     { MODKEY, XK_q, spawn, { .v = dkillcmd } },
     { MODKEY, XK_t, spawn, { .v = showtimecmd } },

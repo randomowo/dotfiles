@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
-#include "/home/randomowo/.cache/wal/colors-wal-st.h"
-// change randomowo to your username
+#include "/home/owo/.cache/wal/colors-wal-st.h"
+// change owo to your username
 
 /*
  * appearance

@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 /* Default settings; can be overriden by command line. */
-#include "/home/randomowo/.cache/wal/colors-wal-dmenu.h"
-// change randomowo to your username
+#include "/home/owo/.cache/wal/colors-wal-dmenu.h"
+// change owo to your username
 
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 static int fuzzy = 1;                      /* -F  option; if 0, dmenu doesn't use fuzzy matching     */

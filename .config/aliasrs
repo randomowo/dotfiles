@@ -46,3 +46,5 @@ alias \
 	..='cd ..' \
 	...='cd ../..' \
 	cu='cd $UNI/' \
+	enru='trans en:ru "$@"' \
+	ruen='trans ru:en "$@"'
