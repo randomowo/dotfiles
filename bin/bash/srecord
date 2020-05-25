@@ -4,22 +4,20 @@
 AUDIO="$(pacmd list-sources | grep -PB 1 "analog.*monitor>" | head -n 1 | perl -pe 's/.* //g')"
 FILE="$RECPATH/$(date +%Y%m%d)_$(date +%H-%M-%S).mp4"
 SIZE="$(xdpyinfo | grep dimensions | perl -pe 's/.* ([0-9]+x[0-9]+) .*/$1/g')"
-VAR="/var/run/user/$UID/record_pid"
+VAR="/tmp/record_pid"
 
 record() {
 	ffmpeg -y \
 		-loglevel error \
-		-f x11grab -r 30 -s "$SIZE" -i :0.0 \
-		-thread_queue_size 2048 \
-		-f pulse -i "$AUDIO" -filter_complex "aresample" \
-		-threads 4 \
+		-f x11grab -r 60 -s "$SIZE" -i $DISPLAY \
+		-f pulse -r 30 -filter_complex "aresample" -i "$AUDIO" \
 		-c:v h264 \
-		-crf 0 \
+		-c:a aac \
+		-crf 16 \
 		-preset ultrafast \
 		"$FILE" &
 
-	ffmpeg_pid=$!
-	echo "$ffmpeg_pid" > "$VAR"
+	echo $! > "$VAR"
 }
 
 toggle() {

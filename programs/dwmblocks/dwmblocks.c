@@ -53,17 +53,20 @@ void getcmd(const Block *block, char *output)
 	FILE *cmdf = popen(cmd,"r");
 	if (!cmdf)
 		return;
-	char c;
 	int i = strlen(block->icon);
 	fgets(output+i, CMDLENGTH-i, cmdf);
 	i = strlen(output);
-	if (*delim != '\0' && --i) {
-		int idelim = 0;
-		while ( *(delim+idelim) != '\0') {
-			output[i++] = *(delim+idelim++);
+	if (*delim != '\0' && i > 1) {
+		for (int oi=i; oi >= 0; oi--) {
+			output[oi] = output[oi-1];
 		}
+		output[0] = *delim;
+		output[i++] = *(delim+1);
 	}
+	if (i <= 1)
+		--i;
 	output[i++] = '\0';
+	printf("%s\n", output);
 	pclose(cmdf);
 }
 
@@ -71,10 +74,10 @@ void getcmds(int time)
 {
 	const Block* current;
 	for(int i = 0; i < LENGTH(blocks); i++)
-	{	
+	{
 		current = blocks + i;
 		if ((current->interval != 0 && time % current->interval == 0) || time == -1)
-			getcmd(current,statusbar[i]);
+			getcmd(current, statusbar[i]);
 	}
 }
 
@@ -86,14 +89,14 @@ void getsigcmds(int signal)
 	{
 		current = blocks + i;
 		if (current->signal == signal)
-			getcmd(current,statusbar[i]);
+			getcmd(current, statusbar[i]);
 	}
 }
 
 void setupsignals()
 {
 	for(int i = 0; i < LENGTH(blocks); i++)
-	{	  
+	{
 		if (blocks[i].signal > 0)
 			signal(SIGRTMIN+blocks[i].signal, sighandler);
 	}
@@ -167,7 +170,7 @@ void termhandler(int signum)
 int main(int argc, char** argv)
 {
 	for(int i = 0; i < argc; i++)
-	{	
+	{
 		if (!strcmp("-d",argv[i]))
 			*delim = argv[++i][0];
 		else if(!strcmp("-p",argv[i]))

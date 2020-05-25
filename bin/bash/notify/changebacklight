@@ -1,0 +1,28 @@
+#!/bin/bash
+
+msgId="999666"
+inp="$1"
+flag=""
+
+if [[ "${inp:1:2}" == "+" ]]; then
+	flag="-inc"
+elif [[ "${inp:1:2}" == "-" ]]; then
+	flag="-dec"
+fi
+
+case $inp in
+	"m+" | "m-")
+		xbacklight "$flag" 5
+		;;
+	"k+" | "k-")
+		xbacklight -ctrl smc::kbd_backlight "$flag" 5
+		;;
+esac
+
+if [[ "${inp:0:1}" == "m" ]]; then
+	mbl="$(xbacklight -get)"
+	dunstify -a "changeMonitorBacklight" -u low -r "$msgId" "m:$mbl%"
+elif [[ "${inp:0:1}" == "k" ]]; then
+	kbl="$(xbacklight -ctrl smc::kbd_backlight -get)"
+	dunstify -a "changeKeyboardBacklight" -u low -r "$msgId" "k:$kbl%"
+fi

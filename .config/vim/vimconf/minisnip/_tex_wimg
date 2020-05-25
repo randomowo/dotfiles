@@ -1,5 +1,10 @@
-\begin{wrapfigure}{L}{0.5\textwidth}
-	\centering
-	\includegraphics[width=0.5\textwidth]{{{++}}}
+\begin{wrapfigure}{l}{0.5\textwidth}
+	\vspace{-20pt}
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{{{++}}}
+	\end{center}
+	\vspace{-20pt}
+	\caption{{{++}}}
+	\vspace{-10pt}
 \end{wrapfigure}
 {{++}}

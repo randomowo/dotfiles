@@ -1,0 +1,24 @@
+wallpaper: "/home/owo/media/pic/wallpapers/LidiaMasterkova.jpg"
+
+special:
+    background: "#131314"
+    foreground: "#d4c3a3"
+    cursor: "#d4c3a3"
+
+colors:
+    color0: "#131314"
+    color1: "#2D5753"
+    color2: "#62635E"
+    color3: "#A2342E"
+    color4: "#A55A2F"
+    color5: "#B3423B"
+    color6: "#A25648"
+    color7: "#d4c3a3"
+    color8: "#948872"
+    color9: "#2D5753"
+    color10: "#62635E"
+    color11: "#A2342E"
+    color12: "#A55A2F"
+    color13: "#B3423B"
+    color14: "#A25648"
+    color15: "#d4c3a3"

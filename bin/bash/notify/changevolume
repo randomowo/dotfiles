@@ -1,0 +1,27 @@
+#!/bin/bash
+# changeVolume
+
+case $1 in
+	"+" | "-")
+		amixer set Master 5%"$1" > /dev/null
+		;;
+	"0")
+		amixer set Master toggle > /dev/null
+		;;
+	*);;
+esac
+
+# Arbitrary but unique message id
+msgId="991049"
+
+# Query amixer for the current volume and whether or not the speaker is muted
+volume="$(pamixer --get-volume-human)"
+mute="$(amixer get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
+if [[ $volume == 0 || "$mute" == "off" ]]; then
+    # Show the sound muted notification
+    dunstify -a "changeVolume" -u low -i audio-volume-muted -r "$msgId" "muted" 
+else
+    # Show the volume notification
+    dunstify -a "changeVolume" -u low -i audio-volume-high -r "$msgId" \
+    "volume: $volume"
+fi

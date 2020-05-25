@@ -21,7 +21,7 @@ echo "Disk $backup_disk mounted"
 echo "Calculating needed size"
 need_size=$(sudo rsync -r --dry-run --stats -e --exclude={\
 "/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found",\
-"~/.cache/*","~/Downloads/*"} / $backup_folder \
+"~/.cache/*","~/Downloads/*","~/downloads/*"} / $backup_folder \
 | grep "Total transferred file size:" | grep -oE "[0-9,]++" | tr -d ',')
 
 have_size=$(df /mnt | sed -n 2p | xargs | tr ' ' '\n'| sed -n 4p | grep -oE "[0-9]+")
@@ -42,16 +42,16 @@ fi
 
 files_count=$(sudo rsync -r --dry-run --stats --human-readable -e --exclude={\
 "/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found",\
-"~/.cache/*","~/Downloads/*"} / $backup_folder | grep -oE "transferred:.*" | grep -oE "[0-9].*" | tr -d ,)
+"~/.cache/*","~/Downloads/*","~/downloads/*"} / $backup_folder | grep -oE "transferred:.*" | grep -oE "[0-9].*" | tr -d ,)
 let files_count+=5
 
+echo "Backuping started"
 sudo rsync -aAXrv --delete -e --exclude={\
 "/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found",\
-"~/.cache/*","~/Downloads/*"} / $backup_folder | pv -pteabl -s $files_count > /dev/null
+"~/.cache/*","~/Downloads/*","~/downloads/*"} / $backup_folder | pv -pteabl -s $files_count > /dev/null
 
 echo "System backuped"
 
-sudo umount /mnt
-echo "Disk $backup_disk unmounted"
+sudo umount /mnt && echo "Disk $backup_disk unmounted"
 
 exit 0

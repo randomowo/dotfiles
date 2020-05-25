@@ -1,5 +1,7 @@
 #!/bin/bash
 
-notify-send -u normal -t 1500 "$(date +%H:%M:%S)" "$(date +%b\ %D\ %a)"
+msgId="42069"
+dunstify -a "curentTime" -u normal -t 1500 -r "$msgId" \
+	"$(date +%H:%M:%S)" "$(date +%b\ %D\ %a)"
 
 exit 0

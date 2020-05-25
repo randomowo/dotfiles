@@ -32,6 +32,9 @@ output = subprocess.check_output(f"ps -U {username}".split(" "))
 lines = set(line[26::].strip()
             for line in output.decode("utf-8").split("\n")[1:-1:])
 whitelist = [
+    "audacity",
+    "opera",
+    "krita",
     "Discord",
     "telegram-deskto",
     "firefox",

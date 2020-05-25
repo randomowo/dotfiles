@@ -28,4 +28,5 @@ noremap <silent> <C-Left> <C-w><<CR>
 noremap <silent> <C-Right> <C-w>><CR>
 noremap <silent> <C-Up> <C-w>+<CR>
 noremap <silent> <C-Down> <C-w>-<CR>
-noremap <silent> <C-_> <C-w>=<CR>
+
+map <silent> <S-h> :noh<CR>

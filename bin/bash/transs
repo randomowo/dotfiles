@@ -1,0 +1,15 @@
+#!/bin/bash
+
+text="$(echo "$@" | cut -d ' ' -f2-)"
+case $1 in
+	"-er")
+		trans en:ru "$text"
+		;;
+	"-re")
+		trans ru:en "$text"
+		;;
+	*)
+		;;
+esac
+
+exit 0

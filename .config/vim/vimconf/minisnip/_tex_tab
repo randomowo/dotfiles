@@ -1,4 +1,10 @@
-\begin{tabular}{{{++}}}
-	\hline
-	{{++}}	
-\end{tabular}
+\begin{table}[H]
+	\caption{{{++}}}
+	\begin{center}
+		\begin{tabular}{{{++}}}
+			\hline
+			{{++}}	
+		\end{tabular}
+	\end{center}
+\end{table}
+{{++}}

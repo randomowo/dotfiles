@@ -2,7 +2,7 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 
-	{"", "~/dotfiles/programs/dwmblocks/bar-functions/dwm_record.sh",		10,		10},
+	{"", "~/dotfiles/programs/dwmblocks/bar-functions/dwm_record.sh",		5,		5},
 	{"", "~/dotfiles/programs/dwmblocks/bar-functions/dwm_battery.sh",		10,		10},
 	{"", "~/dotfiles/programs/dwmblocks/bar-functions/dwm_cputemp.sh",		5,		10},
 	{"", "~/dotfiles/programs/dwmblocks/bar-functions/dwm_cpuusage.sh",		5,		10},
@@ -14,6 +14,6 @@ static const Block blocks[] = {
 	
 };
 
-//sets delimeter between status commands. NULL character ('\0') means no delimeter.
-//last char should be NULL ('\0')
-static char *delim = "][\0";
+// set block limeters (only 2 chars)
+// NULL ('\0') means no limiters
+static char *delim = "[]";
