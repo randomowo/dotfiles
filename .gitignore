@@ -7,6 +7,6 @@ mac/karabiner/automatic_backups
 .config/zsh/plugins
 .config/mpv/watch_later
 .config/ranger/plugins/__pycache__
-.config/programms/*/*.def.h
-.config/programms/*/*.orig
-.config/programms/*/*.rej
+.config/programs/*/*.def.h
+.config/programs/*/*.orig
+.config/programs/*/*.rej

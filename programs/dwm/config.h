@@ -59,7 +59,6 @@ static const Layout layouts[] = {
     }
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char* termcmd[] = { "$TERMINAL", NULL };
 static const char* dmenucmd[] = { "dmenuwal_run", NULL };
 
 static Key keys[] = {
@@ -75,13 +74,15 @@ static Key keys[] = {
     { MODKEY,			  XK_w,		  spawn,		  SHCMD("$BROWSER") },
     { ALTKEY,			  XK_3,		  spawn,		  SHCMD("shot -f") },
     { ALTKEY,			  XK_4,		  spawn,		  SHCMD("shot -z") },
+    { ALTKEY | ShiftMask, XK_4,		  spawn,		  SHCMD("shot -a") },
     { ALTKEY,			  XK_5,		  spawn,		  SHCMD("srecord") },
     { MODKEY,			  XK_d,		  spawn,		  SHCMD("dmenuwal_run") },
     { MODKEY,			  XK_q,		  spawn,		  SHCMD("dkill") },
     { MODKEY,			  XK_t,		  spawn,		  SHCMD("timenotify") },
     { MODKEY,			  XK_e,		  spawn,		  SHCMD("emenu") },
     { MODKEY | ShiftMask, XK_r,		  spawn,		  SHCMD("lreload") },
-    { MODKEY | ShiftMask, XK_Return,  spawn,		  { .v = termcmd } },
+    { MODKEY,			  XK_r,		  spawn,		  SHCMD("st -e ranger") },
+    { MODKEY | ShiftMask, XK_Return,  spawn,		  SHCMD("$TERMINAL") },
     { MODKEY,			  XK_b,		  togglebar,	  { 0 } },
     { MODKEY,			  XK_j,		  focusstack,	  { .i = +1 } },
     { MODKEY,			  XK_k,		  focusstack,	  { .i = -1 } },
@@ -125,7 +126,7 @@ static Button buttons[] = {
     { ClkLtSymbol,			0,				Button1,		setlayout,		{ 0 } },
     { ClkLtSymbol,			0,				Button3,		setlayout,		{ .v = &layouts[2] } },
     { ClkWinTitle,			0,				Button2,		zoom,			{ 0 } },
-    { ClkStatusText,		0,				Button2,		spawn,			{ .v = termcmd } },
+    { ClkStatusText,		0,				Button2,		spawn,			SHCMD("$TERMINAL") },
     { ClkClientWin,			MODKEY,			Button1,		movemouse,		{ 0 } },
     { ClkClientWin,			MODKEY,			Button2,		togglefloating, { 0 } },
     { ClkClientWin,			MODKEY,			Button3,		resizemouse,	{ 0 } },
