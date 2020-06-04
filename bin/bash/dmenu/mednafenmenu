@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# choose game which to play with mednefen emulator
+#
+# by randomowo
+
+# Import the colors
+. "${HOME}/.cache/wal/colors.sh"
+
+GAMESPATH="$MEDIAPATH/games/mednafen"
+
+choose_game() {
+	current_path=$1
+	result=$(ls "$current_path" \
+		| dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -p "Choose game:")
+
+	if [[ ! -z "$result" ]]; then
+		if [[ ! -f $current_path/$result ]] ; then
+			choose_game "$current_path/$result"
+		else
+			mednafen "$current_path/$result" > /dev/null
+		fi
+	else
+		cp_count=$(echo "$current_path" | tr "/" " " | wc -w)
+		(( $cp_count-1 < $(echo "$GAMESPATH" | tr "/" " " | wc -w) )) && exit 1
+		choose_game "$(echo $current_path | cut -d '/' -f1-$cp_count)"
+	fi
+}
+
+choose_game "$GAMESPATH"

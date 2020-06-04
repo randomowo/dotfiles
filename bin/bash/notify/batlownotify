@@ -16,19 +16,19 @@ while [[ 1 ]]; do
 	case $flag in
 		0)
 			if (( $cap > $maxcap )); then
-				notify-send -u normal "Battery fully charged"
+				dunstify -u normal "Battery fully charged"
 				flag=3
 			fi
 			;;
 		1)
 			if (( $cap < 20 )) && (( $cap > 5 )); then
-				notify-send -u critical -t 5000 "Battery capacity below 20%" && mpv $beep
+				dunstify -u critical -t 5000 "Battery capacity below 20%" && mpv $beep
 				flag=2
 			fi
 			;;
 		2)
 			if (( $cap < 5 )); then
-				notify-send -u critical -t 10000 "Battery capacity below 5%" && mpv $beep
+				dunstify -u critical -t 10000 "Battery capacity below 5%" && mpv $beep
 				flag=-1
 			fi
 			;;

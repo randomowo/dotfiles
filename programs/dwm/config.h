@@ -3,8 +3,8 @@
 
 /* appearance */
 static const unsigned int borderpx = 3; /* border pixel of windows */
-static const unsigned int gappx = 1;	/* gaps between windows */
-static const unsigned int snap = 8;	/* snap pixel */
+static const unsigned int gappx = 0;	/* gaps between windows */
+static const unsigned int snap = 32;	/* snap pixel */
 static const int vertpad = 0;       /* vertical padding of bar */
 static const int sidepad = 0;       /* horizontal padding of bar */
 static const int showbar = 1;		/* 0 means no bar */
@@ -66,10 +66,10 @@ static Key keys[] = {
     { 0,				  0x1008ff11, spawn,		  SHCMD("changevolume -") },
     { 0,				  0x1008ff13, spawn,		  SHCMD("changevolume +") },
     { 0,				  0x1008ff12, spawn,		  SHCMD("changevolume 0") },
-    { 0,				  0x1008ff02, spawn,		  SHCMD("changebackligt m+") },
-    { 0,				  0x1008ff03, spawn,		  SHCMD("changebackligt m-") },
-    { 0,				  0x1008ff05, spawn,		  SHCMD("changebackligt k+") },
-    { 0,				  0x1008ff06, spawn,		  SHCMD("changebackligt k-") },
+    { 0,				  0x1008ff02, spawn,		  SHCMD("changebacklight m+") },
+    { 0,				  0x1008ff03, spawn,		  SHCMD("changebacklight m-") },
+    { 0,				  0x1008ff05, spawn,		  SHCMD("changebacklight k+") },
+    { 0,				  0x1008ff06, spawn,		  SHCMD("changebacklight k-") },
     { 0,				  0x1008ff4a, spawn,		  SHCMD("scrsw") },
     { MODKEY,			  XK_w,		  spawn,		  SHCMD("$BROWSER") },
     { ALTKEY,			  XK_3,		  spawn,		  SHCMD("shot -f") },
@@ -81,8 +81,9 @@ static Key keys[] = {
     { MODKEY,			  XK_t,		  spawn,		  SHCMD("timenotify") },
     { MODKEY,			  XK_e,		  spawn,		  SHCMD("emenu") },
     { MODKEY | ShiftMask, XK_r,		  spawn,		  SHCMD("lreload") },
-    { MODKEY,			  XK_r,		  spawn,		  SHCMD("st -e ranger") },
+    { MODKEY,			  XK_r,		  spawn,		  SHCMD("$TERMINAL -e ranger") },
     { MODKEY | ShiftMask, XK_Return,  spawn,		  SHCMD("$TERMINAL") },
+    { MODKEY | ShiftMask, XK_m,		  spawn,		  SHCMD("$TERMINAL -e pulsemixer") },
     { MODKEY,			  XK_b,		  togglebar,	  { 0 } },
     { MODKEY,			  XK_j,		  focusstack,	  { .i = +1 } },
     { MODKEY,			  XK_k,		  focusstack,	  { .i = -1 } },

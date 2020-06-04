@@ -24,9 +24,9 @@ toggle() {
 	if [[ -f "$VAR" ]]; then
 		[[ ! -z "$(ps -ax | grep ffmpeg | grep -v grep)" ]] && kill "$(cat "$VAR")"
 		rm "$VAR"
-		notify-send -t 1000 "record stoped"
+		dunstify -t 1000 "record stoped"
 	else
-		notify-send -t 1000 "record started"
+		dunstify -t 1000 "record started"
 		sleep 1
 		record
 	fi

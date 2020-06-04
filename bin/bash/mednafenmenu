@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Import the colors
+. "${HOME}/.cache/wal/colors.sh"
+
+GAMESPATHS="$MEDIAPATH/games/mednafen"
+
+choose_game() {
+	result=$(ls "$1" \
+		| dmenu -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -p "Choose game:")
+
+	if [[ ! -z "$result" ]]; then
+		if [[ ! -f $1/$result ]] ; then
+			choose_game "$1/$result"
+		else
+			error=$(mednafen "$1/$result" 2>&1)
+			[ ! -z "$error" ] && dunstify "can't run this game"
+		fi
+	fi
+}
+
+choose_game $GAMESPATHS

@@ -10,9 +10,9 @@ layout=$(ls ~/.screenlayout/ \
 
 [ ! -z $layout ] && sh ~/.screenlayout/"$layout" 2&> /var/local/scrsw_err
 if [[ -z "$(cat /var/local/scrsw_err)" ]]; then
-	notify-send -u normal "successfully"
+	dunstify -u normal "successfully"
 else
-	notify-send -u critical -t 500 "unsuccessful"
+	dunstify -u critical -t 500 "unsuccessful"
 fi
 
 exit 0

@@ -5,7 +5,7 @@ beep=~/media/music/sfx/you_suffer.flac
 flag=2
 timer() {
 	sleep $time
-	notify-send -u normal "$title" "$msg" && mpv $beep > /dev/null
+	dunstify -u normal "$title" "$msg" && mpv $beep > /dev/null
 }
 case $1 in
 	"-s")

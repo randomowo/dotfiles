@@ -30,7 +30,7 @@ export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/.zcompdump"
 
 # DEFAULTS
 export BROWSER="brave"
-export TERMINAL="st"
+export TERMINAL="tabbed -c -r 2 st -w ''"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export READER="zathura"

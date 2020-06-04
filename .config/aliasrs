@@ -39,7 +39,8 @@ alias \
 	cleaner='bleachbit' \
 	hex='hexcurse' \
 	mocp='mocp -M "$XDG_CONFIG_HOME/moc"' \
-	asciimpv='CACA_DRIVER=ncurses mpv --quiet -vo=caca "$@"' 
+	asciimpv='CACA_DRIVER=ncurses mpv --quiet -vo=caca "$@"' \
+	mix='pulsemixer'
 
 # cd aliases
 alias \

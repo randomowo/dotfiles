@@ -1,6 +1,6 @@
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=1]{{{++}}}
+	\includegraphics[width=\linewidth]{{{++}}}
 	\caption{{{++}}}
 \end{figure}
 {{++}}

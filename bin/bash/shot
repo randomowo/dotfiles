@@ -4,16 +4,16 @@ shotname="$SHOTPATH/$(date +%Y%m%d)_$(date +%H-%M-%S).png"
 case $1 in
 	-f)
 		maim $shotname && \
-			notify-send -t 2500 "made a screenshot" && \
+			dunstify -t 2500 "made a screenshot" && \
 			xclip -selection clipboard -t image/png $shotname;;
 	-z)
 		maim -s $shotname && \
-			notify-send -t 2500 "made a screenshot" && \
+			dunstify -t 2500 "made a screenshot" && \
 			xclip -selection clipboard -t image/png $shotname;;
 	-a)
 		maim -i "$(xdotool getactivewindow)" $shotname && \
-			notify-send -t 2500 "made a screenshot" && \
+			dunstify -t 2500 "made a screenshot" && \
 			xclip -selection clipboard -t image/png $shotname;;
 	*)
-		notify-send -i text-x-script -t 2500 "wrong input"
+		dunstify -i text-x-script -t 2500 "wrong input"
 esac
