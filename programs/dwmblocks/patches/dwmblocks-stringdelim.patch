@@ -1,0 +1,85 @@
+--- dwmblocks.c	2020-06-05 22:34:42.416633427 +0300
++++ dwmblocks.c	2020-06-05 22:34:47.200080971 +0300
+@@ -37,29 +37,20 @@
+ static void (*writestatus) () = setroot;
+ 
+ //opens process *cmd and stores output in *output
+-void getcmd(const Block *block, char *output, int isLast)
++void getcmd(const Block *block, char *output)
+ {
++    strcpy(output, block->icon);
+     char *cmd = block->command;
+     FILE *cmdf = popen(cmd,"r");
+-    if (!cmdf) return;
+-    int ii = strlen(block->icon);
+-    strcpy(output, block->icon);
+-    fgets(output+ii, CMDLENGTH-ii, cmdf);
+-    int i = strlen(output);
+-    int di = strlen(delim);
+-    if (i-1 && di) {
+-        strncpy(output+(di/2), output, i);
+-        i += di/2;
+-        strncpy(output, delim+(di-di/2), di/2);
+-        strncpy(output+i-1, delim, di-di/2);
+-        i += di-di/2;
+-        printf("%d %d", isLast, LENGTH(blocks));
+-        if (isLast) output[i-1] = ' ';
+-    } else {
+-        i--;
+-    }
+-    output[i] = '\0';
+-    printf("%s\n", output);
++    if (!cmdf)
++        return;
++    char c;
++    int i = strlen(block->icon);
++    fgets(output+i, CMDLENGTH-i, cmdf);
++    i = strlen(output);
++    if (delim != '\0' && --i)
++        output[i++] = delim;
++    output[i++] = '\0';
+     pclose(cmdf);
+ }
+ 
+@@ -67,10 +58,10 @@
+ {
+     const Block* current;
+     for(int i = 0; i < LENGTH(blocks); i++)
+-    {
++    {   
+         current = blocks + i;
+         if ((current->interval != 0 && time % current->interval == 0) || time == -1)
+-            getcmd(current, statusbar[i], i+1 == LENGTH(blocks));
++            getcmd(current,statusbar[i]);
+     }
+ }
+ 
+@@ -82,14 +73,14 @@
+     {
+         current = blocks + i;
+         if (current->signal == signal)
+-            getcmd(current, statusbar[i], i+1 == LENGTH(blocks));
++            getcmd(current,statusbar[i]);
+     }
+ }
+ 
+ void setupsignals()
+ {
+     for(int i = 0; i < LENGTH(blocks); i++)
+-    {
++    {     
+         if (blocks[i].signal > 0)
+             signal(SIGRTMIN+blocks[i].signal, sighandler);
+     }
+@@ -163,9 +154,9 @@
+ int main(int argc, char** argv)
+ {
+     for(int i = 0; i < argc; i++)
+-    {
++    {   
+         if (!strcmp("-d",argv[i]))
+-            delim = argv[++i];
++            delim = argv[++i][0];
+         else if(!strcmp("-p",argv[i]))
+             writestatus = pstdout;
+     }
