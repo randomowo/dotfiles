@@ -142,7 +142,7 @@ drawmenu(void)
 {
 	static int curpos, oldcurlen;
 	struct item *item;
-	int x = 0, y = 0, w;
+	int x = 0, y = 0, fh = drw->fonts->h, w;
 	int curlen, rcurlen;
 
 	drw_setscheme(drw, scheme[SchemeNorm]);
@@ -154,6 +154,8 @@ drawmenu(void)
 	}
 	/* draw input field */
 	w = (lines > 0 || !matches) ? mw - x : inputw;
+	drw_setscheme(drw, scheme[SchemeNorm]);
+	drw_text(drw, x, 0, w, bh, lrpad / 2, text, 0);
 	w -= lrpad / 2;
 	x += lrpad / 2;
 
@@ -168,7 +170,7 @@ drawmenu(void)
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	drw_text_align(drw, x, 0, curpos, bh, text, cursor, AlignR);
 	drw_text_align(drw, x + curpos, 0, w - curpos, bh, text + cursor, strlen(text) - cursor, AlignL);
-	drw_rect(drw, x + curpos - 1, 2, 2, bh - 4, 1, 0);
+	drw_rect(drw, x + curpos - 1, 2 + (bh-fh)/2, 2, fh - 4, 1, 0);
 
 	if (lines > 0) {
 		/* draw vertical list */
@@ -657,9 +659,14 @@ run(void)
 	XEvent ev;
 
 	while (!XNextEvent(dpy, &ev)) {
-		if (XFilterEvent(&ev, None))
+		if (XFilterEvent(&ev, win))
 			continue;
 		switch(ev.type) {
+		case DestroyNotify:
+			if (ev.xdestroywindow.window != win)
+				break;
+			cleanup();
+			exit(1);
 		case Expose:
 			if (ev.xexpose.count == 0)
 				drw_map(drw, win, 0, 0, mw, mh);
@@ -778,15 +785,17 @@ setup(void)
 	                    CWOverrideRedirect | CWBackPixel | CWEventMask, &swa);
 	XSetClassHint(dpy, win, &ch);
 
-	/* open input methods */
-	xim = XOpenIM(dpy, NULL, NULL, NULL);
+
+	/* input methods */
+	if ((xim = XOpenIM(dpy, NULL, NULL, NULL)) == NULL)
+		die("XOpenIM failed: could not open input device");
+
 	xic = XCreateIC(xim, XNInputStyle, XIMPreeditNothing | XIMStatusNothing,
 	                XNClientWindow, win, XNFocusWindow, win, NULL);
 
 	XMapRaised(dpy, win);
-	XSetInputFocus(dpy, win, RevertToParent, CurrentTime);
 	if (embed) {
-		XSelectInput(dpy, parentwin, FocusChangeMask);
+		XSelectInput(dpy, parentwin, FocusChangeMask | SubstructureNotifyMask);
 		if (XQueryTree(dpy, parentwin, &dw, &w, &dws, &du) && dws) {
 			for (i = 0; i < du && dws[i] != win; ++i)
 				XSelectInput(dpy, dws[i], FocusChangeMask);
@@ -822,8 +831,6 @@ main(int argc, char *argv[])
 			topbar = 0;
 		else if (!strcmp(argv[i], "-f"))   /* grabs keyboard before reading stdin */
 			fast = 1;
-		else if (!strcmp(argv[i], "-c"))   /* centers dmenu on screen */
-			centered = 1;
 		else if (!strcmp(argv[i], "-F"))   /* grabs keyboard before reading stdin */
 			fuzzy = 0;
 		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
@@ -859,8 +866,6 @@ main(int argc, char *argv[])
 
 	if (!setlocale(LC_CTYPE, "") || !XSupportsLocale())
 		fputs("warning: no locale support\n", stderr);
-	if (!XSetLocaleModifiers(""))
-		fputs("warning: no locale modifiers support\n", stderr);
 	if (!(dpy = XOpenDisplay(NULL)))
 		die("cannot open display");
 	screen = DefaultScreen(dpy);

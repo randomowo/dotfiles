@@ -34,6 +34,7 @@ alias \
 # programs
 alias \
 	x='ranger' \
+    tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf "$@"' \
 	calcurse='calcurse -D $PROGPATH/calcurse' \
 	vim='nvim' \
 	cleaner='bleachbit' \

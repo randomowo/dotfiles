@@ -13,6 +13,13 @@
 # load aliases
 [ -f "$HOME/.config/aliasrs" ] && source "$HOME/.config/aliasrs"
 
+# plugins
+source $HOME/.config/zsh/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/git/git.plugin.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-async/async.zsh 2>/dev/null
+
 # theme (kolo from oh-my-zsh)
 source $HOME/.config/zsh/kolo.zsh-theme
 
@@ -30,18 +37,3 @@ _comp_options+=(globdots)
 
 # key bindings
 source $HOME/.config/zsh/lib/key-bindings.zsh 2>/dev/null
-
-# plugins
-source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source $HOME/.config/zsh/plugins/git/git.plugin.zsh 2>/dev/null
-source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 2>/dev/null
-#source $HOME/.config/zsh/plugins/calc.plugin.zsh/calc.plugin.zsh 2>/dev/null
-source $HOME/.config/zsh/plugins/deer/deer 2>/dev/null
-zle -N deer
-bindkey '\ek' deer
-source $HOME/.config/zsh/plugins/zsh-async/async.zsh 2>/dev/null
-#source $HOME/.config/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh 2>/dev/null
-
-# colors from pywal
-#(cat ~/.cache/wal/sequences &)
-#source ~/.cache/wal/colors-tty.sh

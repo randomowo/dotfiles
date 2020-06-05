@@ -12,6 +12,14 @@ theme_precmd () {
 	}
 	vcs_info
 }
+
+MODE_CURSOR_VIINS="#00ff00 blinking bar"
+MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ff0000"
+MODE_CURSOR_VICMD="green block"
+MODE_CURSOR_SEARCH="#ff00ff steady underline"
+MODE_CURSOR_VISUAL="green underline"
+MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
+
 setopt prompt_subst
 PROMPT='%B%F{magenta}%c%B%F{green}${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%% '
 autoload -U add-zsh-hook

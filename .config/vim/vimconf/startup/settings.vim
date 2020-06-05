@@ -24,12 +24,12 @@ set shiftwidth=4
 set smarttab
 set softtabstop=4
 set tabstop=4
+set expandtab
 set secure
 set exrc
 set ruler
 set undolevels=100
 set list
-set listchars+=tab:<\ >
 set splitbelow
 set splitright
 set noswapfile
