@@ -6,7 +6,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "monospace:size=10";
+static char *font = "mononoki Nerd Font:size=10";
 static char *font2[] = {
 	"Noto Color Emoji:size=10",
 	"TerminessTTF Nerd Font:size=9",

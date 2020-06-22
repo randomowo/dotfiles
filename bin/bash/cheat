@@ -1,0 +1,21 @@
+#!/bin/bash
+# by randomowo
+
+l="$1"
+q=""
+p=""
+if (( $# > 1 )); then
+    q=($(echo "$@" | cut -d' ' -f2- ))
+    qs=$((${#q[@]}-1))
+    if [[ "${q[@]:$qs}" =~ ^[0-9]+$ ]]; then
+        p=${q[@]:$qs}
+        q=(${q[@]::$qs})
+        if [[ -z "$q" ]];then
+            echo "error: empty question"
+            exit 1
+        fi
+    fi
+    [ ! -z "$q" ] && q="$(echo ${q[@]} | tr ' ' '+')"
+fi
+
+curl cheat.sh/"$(echo "$l $q $p" | xargs | tr ' ' '/')"

@@ -9,8 +9,7 @@ static int centered = 0;                    /* -c option; centers dmenu on scree
 static int min_width = 500;                    /* minimum width when centered */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-//	"xos4 Terminus:size=12"
-	"monospace:size=10",
+	"mononoki Nerd Font:size=10",
 	"Noto Color Emoji:size=10",
 	"TerminessTTF Nerd Font:size=9",
 	"JoyPixels:size=10",

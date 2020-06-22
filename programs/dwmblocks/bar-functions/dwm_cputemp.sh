@@ -14,10 +14,8 @@ dwm_cputemp() {
 		TEMPICON=""
 	elif (( $TEMP > 50 )) && (( $TEMP <= 65 )); then
 		TEMPICON=""
-	elif (( $TEMP > 65 )) && (( $TEMP <= 95 )); then
-		TEMPICON=""
 	else 
-		TEMPICON=""
+		TEMPICON=""
 	fi
 	printf "%s %s℃" "$TEMPICON" "$TEMP"
 	printf "%s\n" "$SEP2"

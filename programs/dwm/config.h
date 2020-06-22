@@ -11,8 +11,7 @@ static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
 
 static const char* fonts[] = { 
-    //"xos4 Terminus:size=12",
-    "monospace:size=10",
+    "mononoki Nerd Font:size=10",
     "Noto Color Emoji:size=10",
     "TerminessTTF Nerd Font:size=9",
     "JoyPixels:size=10",

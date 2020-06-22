@@ -19,4 +19,4 @@ static const char * message = "show what you can";
 static const char * text_color = "#d4c3a3";
 
 /* text size (must be a valid size) */
-static const char * font_name = "6x13";
+static const char * font_name = "-xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1";

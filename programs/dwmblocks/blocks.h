@@ -23,4 +23,4 @@ static const Block blocks[] = {
    delim = |
    block|block
    */
-static char *delim = "}{";
+static char *delim = "][";

@@ -64,5 +64,9 @@ export AWT_TOOLKIT=MToolki
 # expand $PATH 
 export PATH="$PATH:$ALTERA_ROOT/quartus/bin:$MATLAB_ROOT/bin:$GOPATH:/usr/bin:$HOME/.local/bin"
 
+# colors
+[ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
+
+/usr/bin/xrdb ~/.Xresources
 #wmname compiz
 #xss-lock -- /usr/local/bin/myi3lock &

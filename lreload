@@ -2,5 +2,7 @@
 
 ~/.config/dunst/reload # dunst reload script
 feh --bg-fill "$(cat ~/.cache/wal/wal)" # set up background image
-~/.config/picom/launch.sh # picom reload script
+#~/.config/picom/launch.sh # picom reload script
+pkill cbatticon; cbatticon -u 1 -i symbolic -l 20 -r 5 BAT0 & # battery status notifier
 killall -q dwmblocks; sleep 1; /usr/local/bin/dwmblocks #dwm status bar
+/usr/bin/xrdb ~/.Xresources

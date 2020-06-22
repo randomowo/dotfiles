@@ -48,17 +48,18 @@ void getcmd(const Block *block, char *output, int isLast)
     int i = strlen(output);
     int di = strlen(delim);
     if (i-1 && di) {
-        strncpy(output+(di/2), output, i);
-        i += di/2;
-        strncpy(output, delim+(di-di/2), di/2);
-        strncpy(output+i-1, delim, di-di/2);
-        i += di-di/2;
-        printf("%d %d", isLast, LENGTH(blocks));
-        if (isLast) output[i-1] = ' ';
-    } else {
-        i--;
+        int hdi = di/2;
+        strncpy(output+hdi, output, i);
+        i += hdi;
+        strncpy(output, delim+(di-hdi), hdi);
+        strncpy(output+i-1, delim, di-hdi);
+        i += di-hdi;
     }
-    output[i] = '\0';
+    if (isLast && !(di%2)) {
+        printf("oi:%d i:%d", strlen(output), i);
+        output[i++-1] = ' ';
+    }
+    output[--i] = '\0';
     printf("%s\n", output);
     pclose(cmdf);
 }
