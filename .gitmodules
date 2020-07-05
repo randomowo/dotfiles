@@ -28,3 +28,6 @@
 [submodule "programs/cbatticon"]
     path = programs/cbatticon
     url = https://github.com/valr/cbatticon
+[submodule "programs/tabbed"]
+    path = programs/tabbed
+    url = https://git.suckless.org/tabbed

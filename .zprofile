@@ -6,19 +6,23 @@ export XCURSOR_SIZE=16
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
+export LC_COLLATE=C
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 export XDG_DOWNLOAD_DIR="$HOME/downloads"
 export XDG_DESKTOP_DIR="$HOME/desktop"
 export XDG_DOCUMENTS_DIR="$HOME/documents"
-export XDG_VIDEOS_DIR="$HOME/media/vid"
-export XDG_PICTURES_DIR="$HOME/media/pic"
-export XDG_MUSIC_DIR="$HOME/media/music"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDF_RUNTIME_DIR="$PROGPATH/xdgruntime"
 
 export MEDIAPATH="$XDG_DOCUMENTS_DIR/media"
+export XDG_VIDEOS_DIR="$MEDIAPATH/vid"
+export XDG_PICTURES_DIR="$MEDIAPATH/pic"
+export XDG_MUSIC_DIR="$MEDIAPATH/music"
+
 export PROGPATH="$XDG_CONFIG_HOME/progs"
+export XDF_RUNTIME_DIR="$PROGPATH/xdgruntime"
+
 export SHOTPATH="$MEDIAPATH/pic/screenshots"
 export RECPATH="$MEDIAPATH/vid/rec"
 export UNI="$XDG_DOCUMENTS_DIR/university"
