@@ -1,0 +1,79 @@
+#!/bin/bash
+#
+# dependencies: translate-shell, dunst
+#
+# by randomowo
+
+CONFIGPATH=~/.config/transmenu/config.sh
+
+# config params
+HSTRFILE=~/.cache/transhst
+HSTSIZE=5 # minimum 2
+ENGINE=google
+
+
+# get config params
+configure() {
+    . $CONFIGPATH # importing config file
+    [ ! -z "$history_path" ] && HSTRFILE=$history_path
+    [ ! -z "$history_size" ] && HSTSIZE=$history_size
+    [ ! -z "$engine" ] && ENGINE=$engine
+}
+
+# list of supported languages
+gettable() {
+    [ -f $HSTRFILE ] && cat $HSTRFILE
+    /usr/bin/trans -e "$ENGINE" -R \
+        | tail -n +2 \
+        | head -n -1 \
+        | cut -d' ' -f2- \
+        | tr -d ' ' \
+        | tr ' │ ' '\n' \
+        | xargs \
+        | tr ' ' '\n' \
+        | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"
+}
+
+# update history list
+updthist() {
+    [ ! -f $HSTRFILE ] && echo -n > $HSTRFILE
+    [ -z "$(grep -o $1 $HSTRFILE)" ] && echo $1 >> $HSTRFILE
+    [ -z "$(grep -o $2 $HSTRFILE)" ] && echo $2 >> $HSTRFILE
+    if (( $(cat $HSTRFILE | wc -l) > $HSTSIZE )); then
+        cat $HSTRFILE | tail -n $HSTSIZE > $HSTRFILE
+    fi
+}
+
+menu() {
+    (( $# < 2 )) && OPTIONS="" || OPTIONS=$*
+    table=gettable
+    from=$($table | awk '!a[$0]++' | dmenu -i -p "From:")
+    [ -z "$from" ] && exit 1
+
+    to=$($table | awk '!a[$0]++' | dmenu -i -p "To:")
+    [ -z "$to" ] && exit 1
+
+    updthist $from $to
+
+    frompref="$(echo $from | cut -d'-' -f1)"
+    topref="$(echo $to | cut -d'-' -f1)"
+
+    frompost="$(echo $from | cut -d'-' -f2-)"
+    topost="$(echo $to | cut -d'-' -f2-)"
+
+    text=$(echo "" | dmenu -p "$frompref:$topref")
+
+    transl=$(/usr/bin/trans $OPTIONS -e $ENGINE -b $frompost:$topost "$text" | xargs)
+
+    echo "$transl" | dmenu > /dev/null
+    echo "$transl" | xclip -selection clipboard && dunstify -t 1500 "added to clipboard"
+}
+
+[ -f $CONFIGPATH ] && configure
+#passed=$*
+
+menu $*
+
+#TODO:
+# trans features (options)
+# add configurable params

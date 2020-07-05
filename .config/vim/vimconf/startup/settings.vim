@@ -78,3 +78,6 @@ let g:indentLine_setColors = 0
 
 " ranger
 let g:ranger_map_keys = 0
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/documents/vimwiki/',}]

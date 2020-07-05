@@ -10,3 +10,6 @@ mac/karabiner/automatic_backups
 .config/programs/*/*.def.h
 .config/programs/*/*.orig
 .config/programs/*/*.rej
+.config/newsboat/urls
+.config/vim/vimconf/autoload/plug.vim.old
+.config/vim/vimconf/autoload/plug.vim

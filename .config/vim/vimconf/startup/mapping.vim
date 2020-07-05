@@ -30,3 +30,4 @@ noremap <silent> <C-Up> <C-w>+<CR>
 noremap <silent> <C-Down> <C-w>-<CR>
 
 map <silent> <S-h> :noh<CR>
+

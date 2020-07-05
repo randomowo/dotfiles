@@ -65,4 +65,5 @@ alias \
 alias \
     mpv='devour mpv' \
     sxiv='devour sxiv' \
-    zathura='devour zathura'
+    zathura='devour zathura' \
+    surf='devour surf'
