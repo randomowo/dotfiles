@@ -22,7 +22,7 @@ HISTSIZE=10000
 SAVEHIST=0
 
 ## zsh
-export ZDOTDIR="$RCONFIGS/.zsh"
+export ZDOTDIR="$RCONFIGS/zsh"
 
 
 # homebrew

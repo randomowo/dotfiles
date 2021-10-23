@@ -43,7 +43,7 @@ alias \
 # programs
 alias \
     x='ranger' \
-    tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf "$@"' \
+    tmux="tmux -f $RCONFIGS/tmux/tmux.conf" \
     vim='nvim' \
     brew='arch -arm64 brew' \
     ubrew='brew cleanup && brew upgrade && brew update && brew doctor' \
