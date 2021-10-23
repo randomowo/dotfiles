@@ -8,7 +8,7 @@
 "                  |___/
 " by randomowo
 
-call plug#begin('~/.vim/vimconf/plugins')
+call plug#begin($VIMDOTDIR . '/conf/plugins')
 " theme
 Plug 'morhetz/gruvbox'
 
