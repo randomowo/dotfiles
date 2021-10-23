@@ -1,0 +1,4 @@
+\lstinputlisting[
+label=code:hello
+]{{{++}}}
+{{++}}
