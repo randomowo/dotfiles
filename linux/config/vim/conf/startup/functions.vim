@@ -18,3 +18,12 @@ function! WinMove(key)
 		exec "wincmd ".a:key
 	endif
 endfunction
+
+" ====GIT====
+function! GetBranchName()
+    let l:name = gitbranch#name()
+    if len(name) > 0
+        return "b:" . name
+    endif
+    return ''
+endfunction

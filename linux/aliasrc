@@ -1,0 +1,64 @@
+#!/bin/sh
+# _____ __    _____ _____ _____ _____ _____
+# |  _  |  |  |     |  _  |   __|   __|   __|
+# |     |  |__|-   -|     |__   |   __|__   |
+# |__|__|_____|_____|__|__|_____|_____|_____|
+#
+# by randomowo
+
+# check size
+alias \
+    dcap="df -h /" \
+    sizeof="du -sh"
+
+# counting folders and files
+alias count="ls -a | wc -l"
+
+# cd aliases
+alias \
+    ..='cd ..' \
+    ...='cd ../..' \
+
+# ls -> exa
+alias \
+    ls='exa' \
+    l='exa -lahgF -a' \
+    ll='exa -lhgF' \
+    lst='exa --tree' \
+    lt='exa -lahgF --tree' \
+
+# git aliases
+alias \
+    git-adog="git log --all --decorate --oneline --graph" \
+    git-undo="git revert  --soft HEAD~1"
+
+# python aliases
+alias \
+    cvenv='[ ! -d .venv ] && python3 -m venv .venv; source ./.venv/bin/activate' \
+    dvenv='type deactivate >/dev/null && deactivate' \ rvenv='type deactivate >/dev/null && deactivate; rm -rf .venv' \
+    pip='pip3' \
+    upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install --ignore-installed -U'
+    python='python3'
+
+# programs
+alias \
+    x='ranger' \
+    tmux="tmux -f $RCONFIGS/tmux/tmux.conf" \
+    vim='nvim'
+
+# docker
+## containers
+MYSQL='docker run --name mysql-for-tests --platform=linux/x87_64 --rm -e MYSQL_ROOT_PASSWORD=password -p 3333:3306 -d'
+POSTGRESQL='docker run --name postgres-for-tests --rm -e POSTGRES_PASSWORD=password -p 5439:5432 -d'
+alias \
+    dmysql=$MYSQL' mysql:5.7' \
+    dvmysql=$MYSQL' -v mysql-test:/var/lib/mysql mysql:5.7' \
+    dpostgres=$POSTGRESQL' postgres' \
+    dvpostgres=$POSTGRESQL' -v postgres-test:/var/lib/postgresql postgres' \
+    dubuntu='docker run --rm -it randomowo/ubuntu-vim bash' \
+    cdubuntu='docker run --rm -it ubuntu bash'
+
+## commands
+alias \
+    dpsi='docker ps --format="{{.Image}} -> {{.Names}}"'
+

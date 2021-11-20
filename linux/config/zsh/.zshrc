@@ -10,30 +10,34 @@
 # ░                            ░
 # by randomowo
 
-# load aliases
-[ -f "$HOME/.config/aliasrs" ] && source "$HOME/.config/aliasrs"
+HISTFILE='/tmp/.hist'
+HISTSIZE=10000
+SAVEHIST=0
 
 # plugins
-source $HOME/.config/zsh/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh 2>/dev/null
-source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
-source $HOME/.config/zsh/plugins/git/git.plugin.zsh 2>/dev/null
-source $HOME/.config/zsh/plugins/zsh-async/async.zsh 2>/dev/null
+source $ZDOTDIR/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh 2>/dev/null
+source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2>/dev/null
+source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $ZDOTDIR/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh 2>/dev/null
+source $ZDOTDIR/plugins/git.plugin.zsh 2>/dev/null
+source $ZDOTDIR/plugins/zsh-async/async.zsh 2>/dev/null
+source $ZDOTDIR/lib/history.zsh 2>/dev/null
 
-# theme (kolo from oh-my-zsh)
-source $HOME/.config/zsh/kolo.zsh-theme
-
-# history
-[ -d "$HOME/.cache/zsh" ] || mkdir "$HOME/.cache/zsh"
-source $HOME/.config/zsh/lib/history.zsh 2>/dev/null
+# theme (rand form from kolo from oh-my-zsh)
+source $ZDOTDIR/themes/rand.zsh-theme
 
 # auto complete
-autoload -U compinit
+fpath+="$ZDOTDIR/zfunc"
+
+autoload -Uz compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
-#source $HOME/.config/zsh/lib/completion.zsh 2>/dev/null
+source $ZDOTDIR/lib/completion.zsh 2>/dev/null
 
 # key bindings
-source $HOME/.config/zsh/lib/key-bindings.zsh 2>/dev/null
+source $ZDOTDIR/lib/key-bindings.zsh 2>/dev/null
+
+# aliases
+source ~/.aliasrc
