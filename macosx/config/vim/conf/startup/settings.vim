@@ -127,7 +127,8 @@ let g:ale_linters = {
     \ 'python' : ['flake8', 'pylint'],
 \}
 let b:ale_fixers = {
-    \ 'python': ['black', 'isort', 'autopep8', 'yapf', 'reorder-python-imports']
+    \ 'python': ['black', 'isort', 'autopep8', 'yapf', 'reorder-python-imports'],
+    \ 'go': ['gofmt']
 \}
 
 

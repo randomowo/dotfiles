@@ -33,10 +33,10 @@ map <silent> <C-h> :call WinMove('h')<CR>
 map <silent> <C-l> :call WinMove('l')<CR>
 
 " window resize
-noremap <silent> <C-Left> <C-w><<CR>
-noremap <silent> <C-Right> <C-w>><CR>
-noremap <silent> <C-Up> <C-w>+<CR>
-noremap <silent> <C-Down> <C-w>-<CR>
+noremap <silent> <A-Left> <C-w><<CR>
+noremap <silent> <A-Right> <C-w>><CR>
+noremap <silent> <A-Up> <C-w>+<CR>
+noremap <silent> <A-Down> <C-w>-<CR>
 
 " pluggins
 map <F3> :Ranger<CR>

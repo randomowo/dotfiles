@@ -1,3 +1,8 @@
+.DS_Store
+**/DS_Store
+
+*/config/zsh/.zsh_sessions
+
 .config/cmus
 mac/karabiner/automatic_backups
 .config/vim/vimconf/plugins

@@ -30,7 +30,14 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # PATH
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubun:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
+export PATH="/opt/homebrew/opt/e2fsprogs/sbin:$PATH"
+
+# add python bin path
+#export PATH="/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/bin:$PATH"
 
