@@ -14,6 +14,7 @@ export RCONFIGS="$HOME/.config"
 # vim
 export VIMDOTDIR="$RCONFIGS/vim"
 export VIMINIT="source $VIMDOTDIR/.vimrc"
+export NVIM_LOG_FILE="/dev/null"
 
 # sh
 ## all

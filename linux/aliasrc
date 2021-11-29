@@ -36,9 +36,15 @@ alias \
 alias \
     cvenv='[ ! -d .venv ] && python3 -m venv .venv; source ./.venv/bin/activate' \
     dvenv='type deactivate >/dev/null && deactivate' \ rvenv='type deactivate >/dev/null && deactivate; rm -rf .venv' \
-    pip='pip3' \
-    upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install --ignore-installed -U'
-    python='python3'
+    python='python3' \
+    pip='python -m pip' \
+    upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python -m pip install --ignore-installed -U'
+
+alias \
+    clean="yay -Scc && yay -Yc" \
+    uyay="yay -Syu" \
+    u="clean; uyay; echo 'ALL YAY PACKAGES UPDATED'; upip; echo 'PIP PACKAGES UPDATED'"
+
 
 # programs
 alias \
