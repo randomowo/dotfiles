@@ -31,7 +31,11 @@ alias \
 alias \
     git-adog="git log --all --decorate --oneline --graph" \
     git-undo="git revert  --soft HEAD~1" \
-    gac="git ls-files -m | tar Tzcf - archive.tar.gz"
+    gac="git ls-files -m | tar Tzcf - archive.tar.gz" \
+    gshf="git show --pretty='' --name-only" \
+    gloglm="git log -1 --pretty=%B" \
+    gtar="git diff --name-only -a | tar Tzcf - $(basename $(pwd)).tgz" \
+    gcham="git commit --amend --author=\"$(git config user.name) <$(git config user.email)>\""
 
 # python aliases
 alias \
@@ -40,14 +44,20 @@ alias \
     python='python3' \
     pip='python -m pip' \
     upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python3 -m pip install --ignore-installed -U' \
+    pyprofile='python -m cProfile -o profile'
 
 # programs
 alias \
     x='ranger' \
     vim='nvim' \
+    e='vim' \
     brew='arch -arm64 brew' \
     ubrew='brew cleanup && brew upgrade && brew update && brew doctor' \
     ffmpeg='arch -arm64 ffmpeg'
+
+# network
+alias \
+    check-ciphers="nmap -sV --script ssl-enum-ciphers"
 
 # shotcuts
 alias \
@@ -55,7 +65,7 @@ alias \
 
 # docker
 ## containers
-MYSQL='docker run --name mysql-for-tests --platform=linux/x87_64 --rm -e MYSQL_ROOT_PASSWORD=password -p 3333:3306 -d'
+MYSQL='docker run --name mysql-for-tests --platform=linux/amd64 --rm -e MYSQL_ROOT_PASSWORD=password -p 3333:3306 -d'
 POSTGRESQL='docker run --name postgres-for-tests --rm -e POSTGRES_PASSWORD=password -p 5439:5432 -d'
 alias \
     dmysql=$MYSQL' mysql:5.7' \
