@@ -105,7 +105,7 @@ pprecmd() {
 psetup() {
     autoload -Uz add-zsh-hook
     autoload -Uz vcs_info
-    
+
     prompt_opts=(cr subst percent)
     add-zsh-hook precmd pprecmd
 
@@ -113,13 +113,13 @@ psetup() {
     zstyle ':vcs_info:*' check-for-changes false
     zstyle ':vcs_info:git*' formats '%b'
     zstyle ':vcs_info:git*' actionformats '%b (%a)'
-    
-    MODE_CURSOR_VIINS="#00ff00 blinking bar"
-    MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ff0000"
-    MODE_CURSOR_VICMD="green block"
-    MODE_CURSOR_SEARCH="#ff00ff steady underline"
-    MODE_CURSOR_VISUAL="green underline"
-    MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
+
+    #MODE_CURSOR_VIINS="cyan blinking bar"
+    #MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS red"
+    #MODE_CURSOR_VICMD="green block"
+    #MODE_CURSOR_SEARCH="magenta steady underline"
+    #MODE_CURSOR_VISUAL="green underline"
+    #MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL light_green"
 }
 
 setopt prompt_subst
