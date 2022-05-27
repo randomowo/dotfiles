@@ -50,7 +50,8 @@ alias \
 alias \
     x='ranger' \
     tmux="tmux -f $RCONFIGS/tmux/tmux.conf" \
-    vim='nvim'
+    vim='nvim' \
+    e='vim'
 
 # docker
 ## containers
