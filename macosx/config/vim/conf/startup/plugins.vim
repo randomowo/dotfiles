@@ -29,7 +29,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 
-
 " dev
 Plug 'joereynolds/vim-minisnip'
 Plug 'majutsushi/tagbar'
