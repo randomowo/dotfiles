@@ -34,6 +34,7 @@ set splitbelow
 set splitright
 set noswapfile
 set nopaste
+set nobackup nowritebackup
 
 set completeopt=menu,menuone,noselect
 
