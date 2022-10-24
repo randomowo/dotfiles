@@ -1,0 +1,106 @@
+#  _____ _         _                                   ___ _
+# |  _  | |___ ___| |_ ___ ___ ___ _ _ ___ ___ ___ ___|  _|_|___
+# |     | | .'|  _|  _| . |  _|  _| | |___|  _| . |   |  _| | . |
+# |__|__|_|__,|___|_| |___|_| |_| |_  |   |___|___|_|_|_| |_|_  |
+#                                 |___|                     |___|
+# by randomowo
+
+import:
+  - ~/.config/alacritty/mapping.yml
+  - ~/.config/alacritty/font.yml
+  - ~/.config/alacritty/colors/gruvbox-dark.yml
+
+tabspaces: 4
+live_config_reload: true
+working_directory: None
+dynamic_title: true
+
+window:
+  opacity: 1.
+
+  dimensions:
+    columns: 180
+    lines: 45
+
+  # Window padding
+  padding:
+    x: 2
+    y: 4
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
+
+  # Window decorations
+  decorations: full
+
+  # Startup Mode
+  startup_mode: Windowed
+
+  # Window title
+  title: (ﾉ･д･)ﾉ
+
+scrolling:
+
+  history: 10000
+  multiplier: 3
+  faux_multiplier: 3
+  auto_scroll: false
+
+cursor:
+  style:
+    shape: Block
+    blinking: Off
+
+  vi_mode_style: Underline
+  blink_interval: 750
+  blink_timeout: 0
+  unfocused_hollow: true
+  thickness: 0.15
+
+# Visual Bell
+bell:
+  animation: EaseOutExpo
+  duration: 0
+  color: '0xffffff'
+
+mouse:
+  # Click settings
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  # If this is `true`, the cursor is temporarily hidden when typing.
+  hide_when_typing: false
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: false
+
+hints:
+  enabled:
+   - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+             [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+     hyperlinks: true
+     command: xdg-open
+     post_processing: true
+     mouse:
+       enabled: false
+       mods: None
+
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
+
+  # Keep the log file after quitting Alacritty.
+  persistent_logging: false
+
+  # Log level
+  log_level: Warn
+
+  # Print all received window events.
+  print_events: false
+
+  # Record all characters and escape sequences as test data.
+  ref_test: false
+
