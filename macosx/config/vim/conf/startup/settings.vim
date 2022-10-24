@@ -34,6 +34,7 @@ set splitbelow
 set splitright
 set noswapfile
 set nopaste
+set mouse=
 
 set completeopt=menu,menuone,noselect
 
@@ -128,7 +129,11 @@ let g:ale_linters = {
 \}
 let b:ale_fixers = {
     \ 'python': ['black', 'isort', 'autopep8', 'yapf', 'reorder-python-imports'],
-    \ 'go': ['gofmt']
+    \ 'go': ['gofmt'],
+    \ 'javascript': ['eslint']
 \}
+
+" Emmet
+let g:user_emmet_leader_key='<C-F>'
 
 
