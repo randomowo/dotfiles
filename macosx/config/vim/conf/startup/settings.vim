@@ -125,13 +125,21 @@ let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
 let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 0
 let g:ale_linters = {
-    \ 'python' : ['flake8', 'pylint'],
+    \ 'python' : ['flake8', 'pylint']
 \}
 let b:ale_fixers = {
-    \ 'python': ['black', 'isort', 'autopep8', 'yapf', 'reorder-python-imports'],
+    \ 'python': ['black', 'isort', 'autopep8', 'reorder-python-imports'],
     \ 'go': ['gofmt'],
-    \ 'javascript': ['eslint']
+    \ 'javascript': ['prettier']
 \}
+let g:ale_python_flake8_options = '--max-line-length 140'
+let g:ale_python_black_options = '-l 140'
+let g:ale_python_reorder_python_imports_options = ''
+let g:ale_python_isort_options = '-l 140'
+let g:ale_python_pylint_options = '--disable C0103,C0116,C0114 --max-line-length 140'
+" C0103 - invalid-name
+" C0114, C0116 - docstring
+let g:ale_python_autopep8_options = '--max-line-length 140'
 
 " Emmet
 let g:user_emmet_leader_key='<C-F>'

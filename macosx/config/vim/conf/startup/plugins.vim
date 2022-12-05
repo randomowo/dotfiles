@@ -38,14 +38,21 @@ Plug 'mattn/emmet-vim'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/vim-gitbranch'
+Plug 'tanvirtin/vgit.nvim'
+" used by vgit
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " status line
 Plug 'itchyny/lightline.vim'
 Plug 'randomowo/vim-bufferline'
 
+" nerdtree
+Plug 'preservim/nerdtree'
+
 " ranger
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+" Plug 'francoiscabrol/ranger.vim'
+" Plug 'rbgrouleff/bclose.vim'
 
 
 call plug#end()
@@ -56,4 +63,6 @@ local vimdir = os.getenv('VIMDOTDIR')
 package.path = package.path .. ';' .. vimdir .. "/conf/startup/scripts/?.lua"
 require 'pcmp'
 require 'plsp'
+
+require('vgit').setup()
 EOF

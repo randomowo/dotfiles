@@ -39,8 +39,17 @@ noremap <silent> <A-Up> <C-w>+<CR>
 noremap <silent> <A-Down> <C-w>-<CR>
 
 " pluggins
-map <F3> :Ranger<CR>
+" map <F3> :Ranger<CR>
+noremap <F3> :NERDTreeToggle<CR>
+noremap <F15> :NERDTreeFind<CR>
 nmap <F8> :TagbarToggle<CR>
+
+" fileformatting
+autocmd FileType javascript map <buffer> <F2> :w<CR>: exec '!prettier -w' shellescape(@%, 1)<CR>
+autocmd FileType javascript imap <buffer> <F2> :w<CR>: exec '!prettier -w' shellescape(@%, 1)<CR>
+
+autocmd FileType typescript map <buffer> <F2> :w<CR>: exec '!prettier -w' shellescape(@%, 1)<CR>
+autocmd FileType typescript imap <buffer> <F2> :w<CR>: exec '!prettier -w' shellescape(@%, 1)<CR>
 
 " file execute mappings
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -54,6 +63,9 @@ autocmd FileType typescript imap <buffer> <F9> <esc>:w<CR>:exec '!npx ts-node' s
 
 autocmd FileType go map <buffer> <F9> :w<CR>:exec '!go run' shellescape(@%, 1)<CR>
 autocmd FileType go imap <buffer> <F9> <esc>:w<CR>:exec '!go run' shellescape(@%, 1)<CR>
+
+autocmd FileType sh map <buffer> <F9> :w<CR>:exec '!sh -c' shellescape(@%, 1)<CR>
+autocmd FileType sh imap <buffer> <F9> <esc>:w<CR>:exec '!sh -c' shellescape(@%, 1)<CR>
 
 " Git Gutter
 nmap ghp <Plug>(GitGutterPreviewHunk)
