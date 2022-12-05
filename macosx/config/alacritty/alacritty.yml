@@ -24,14 +24,14 @@ window:
 
   # Window padding
   padding:
-    x: 2
-    y: 4
+    x: 10
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
 
   # Window decorations
-  decorations: full
+  decorations: buttonless
 
   # Startup Mode
   startup_mode: Windowed
