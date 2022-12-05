@@ -1,6 +1,6 @@
 .DS_Store
 **/DS_Store
-**/.zcompdump*
+**/.zcomp*
 
 */config/zsh/.zsh_sessions
 
