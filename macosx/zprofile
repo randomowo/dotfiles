@@ -43,7 +43,7 @@ export PATH="/opt/homebrew/opt/coreutils/libexec/gnubun:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
 export PATH="/opt/homebrew/opt/e2fsprogs/sbin:$PATH"
 
 [ -f ~/.azprofile ] && source ~/.azprofile
