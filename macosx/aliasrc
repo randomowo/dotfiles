@@ -38,12 +38,12 @@ alias \
 
 # python aliases
 alias \
-    cvenv='[ ! -d .venv ] && python3 -m venv .venv; source ./.venv/bin/activate' \
+    cvenv='[ ! -d .venv ] && python -m venv .venv; . ./.venv/bin/activate' \
     dvenv='type deactivate >/dev/null && deactivate' \ rvenv='type deactivate >/dev/null && deactivate; rm -rf .venv' \
-    python='python3' \
     pip='python -m pip' \
-    upip='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python3 -m pip install --ignore-installed -U' \
-    pyprofile='python -m cProfile -o profile'
+    upip='pip --disable-pip-version-check list --outdated --format=json | jq -r ".[].name" | xargs -I{} pip install --no-cache-dir -U "{}"' \
+    pyprofile='python -m cProfile -o profile' \
+    pytest='python -m pytest'
 
 # programs
 alias \
@@ -53,7 +53,8 @@ alias \
     brew='arch -arm64 brew' \
     ubrew='brew cleanup && brew upgrade && brew update && brew doctor' \
     ffmpeg='arch -arm64 ffmpeg' \
-    yd='yt-dlp'
+    yd='yt-dlp' \
+    prettier='prettier --config ~/.prettierrc.yaml'
 
 # network
 alias \
@@ -61,7 +62,7 @@ alias \
 
 # shotcuts
 alias \
-    u='ubrew; echo -e "\033[0;32mbrew update complete!\033[0m" && upip; echo -e "\033[0;32mpip update complete!\033[0m"'
+    u='softwareupdate --all --install --force; ubrew; echo -e "\033[0;32mbrew update complete!\033[0m" && upip; echo -e "\033[0;32mpip update complete!\033[0m" && npm update -g; echo -e "\033[0;32mnpm update complete!\033[0m"'
 
 # docker
 ## containers
@@ -85,5 +86,5 @@ alias \
 
 
 # load work aliases
-source $HOME/Documents/work/aliases
+#source $HOME/Documents/work/aliases
 
