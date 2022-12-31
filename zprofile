@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 # by randomowo
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_COLLATE=C
+export TERM="xterm-256color"
 
 export EDITOR="nvim"
 
@@ -14,7 +15,6 @@ export RCONFIGS="$HOME/.config"
 # vim
 export VIMDOTDIR="$RCONFIGS/vim"
 export VIMINIT="source $VIMDOTDIR/.vimrc"
-export NVIM_LOG_FILE="/dev/null"
 
 # sh
 ## all
@@ -25,3 +25,5 @@ SAVEHIST=0
 ## zsh
 export ZDOTDIR="$RCONFIGS/zsh"
 
+# system specific zprofile
+[ -f $HOME/.czprofile ] && source $HOME/.czprofile

@@ -1,0 +1,13 @@
+#!/bin/sh
+# _____ __    _____ _____ _____ _____ _____
+# |  _  |  |  |     |  _  |   __|   __|   __|
+# |     |  |__|-   -|     |__   |   __|__   |
+# |__|__|_____|_____|__|__|_____|_____|_____|
+#
+# by randomowo
+
+alias \
+    clean="yay -Scc && yay -Yc" \
+    uyay="yay -Syu" \
+    u="clean; uyay; echo 'ALL YAY PACKAGES UPDATED'; upip; echo 'PIP PACKAGES UPDATED'"
+
