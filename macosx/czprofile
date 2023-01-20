@@ -19,5 +19,10 @@ export PATH="/opt/homebrew/opt/coreutils/libexec/gnubun:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
 export PATH="/opt/homebrew/opt/e2fsprogs/sbin:$PATH"
+
+## pyenv
+# should be placed after /opt/homebrew/bin
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv>/dev/null && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
