@@ -47,11 +47,9 @@ alias \
 
 # programs
 alias \
-    x='ranger' \
+    x="lf" \
     vim='nvim' \
     e='vim' \
-    docker='podman' \
-    docker-compose='podman-compose'
 
 
 # network
