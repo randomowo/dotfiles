@@ -16,7 +16,7 @@ map O $mimeopen --ask $f
 
 cmd open &{{
     case $(file --mime-type -Lb $f) in
-        inode/x-empty | text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        inode/x-empty | text/* | application/json) lf -remote "send $id \$$EDITOR \$fx";;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
@@ -73,4 +73,6 @@ cmd touch ${{
     touch $1
 }}
 map N push :touch<space>
+
+map Y cut
 
