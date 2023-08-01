@@ -1,48 +1,33 @@
-[submodule ".config/polybar/scripts/polybar-spotify"]
-    path = linux/.config/polybar/scripts/polybar-spotify
+[submodule "linux/config/polybar/scripts/polybar-spotify"]
+    path = linux/config/polybar/scripts/polybar-spotify
     url = https://github.com/Jvanrhijn/polybar-spotify.git
-[submodule ".config/zsh/plugins/calc.plugin.zsh"]
-    path = linux/.config/zsh/plugins/calc.plugin.zsh
+[submodule "config/zsh/plugins/calc.plugin.zsh"]
+    path = config/zsh/plugins/calc.plugin.zsh
     url = https://github.com/arzzen/calc.plugin.zsh.git
-[submodule ".config/zsh/plugins/zsh-async"]
-    path = linux/.config/zsh/plugins/zsh-async
+[submodule "config/zsh/plugins/zsh-async"]
+    path = config/zsh/plugins/zsh-async
     url = https://github.com/mafredri/zsh-async.git
-[submodule ".config/zsh/plugins/zsh-auto-notify"]
-    path = linux/.config/zsh/plugins/zsh-auto-notify
+[submodule "config/zsh/plugins/zsh-auto-notify"]
+    path = config/zsh/plugins/zsh-auto-notify
     url = https://github.com/MichaelAquilina/zsh-auto-notify.git
-[submodule ".config/zsh/plugins/zsh-autosuggestions"]
-    path = linux/.config/zsh/plugins/zsh-autosuggestions
+[submodule "config/zsh/plugins/zsh-autosuggestions"]
+    path = config/zsh/plugins/zsh-autosuggestions
     url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule ".config/zsh/plugins/zsh-history-substring-search"]
-    path = linux/.config/zsh/plugins/zsh-history-substring-search
+[submodule "config/zsh/plugins/zsh-history-substring-search"]
+    path = config/zsh/plugins/zsh-history-substring-search
     url = https://github.com/zsh-users/zsh-history-substring-search.git
-[submodule ".config/zsh/plugins/zsh-syntax-highlighting"]
-    path = linux/.config/zsh/plugins/zsh-syntax-highlighting
+[submodule "config/zsh/plugins/zsh-syntax-highlighting"]
+    path = config/zsh/plugins/zsh-syntax-highlighting
     url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "programs/slstatus"]
-    path = linux/programs/slstatus
-    url = https://git.suckless.org/slstatus
-[submodule ".config/zsh/plugins/zsh-vim-mode"]
+[submodule "config/zsh/plugins/zsh-vim-mode"]
     path = linux/.config/zsh/plugins/zsh-vim-mode
     url = https://github.com/softmoth/zsh-vim-mode
-[submodule "programs/cbatticon"]
+[submodule "linux/programs/slstatus"]
+    path = linux/programs/slstatus
+    url = https://git.suckless.org/slstatus
+[submodule "linux/programs/cbatticon"]
     path = linux/programs/cbatticon
     url = https://github.com/valr/cbatticon
-[submodule "programs/tabbed"]
+[submodule "linux/programs/tabbed"]
     path = linux/programs/tabbed
     url = https://git.suckless.org/tabbed
-[submodule "macosx/config/zsh/plugins/zsh-history-substring-search"]
-    path = macosx/config/zsh/plugins/zsh-history-substring-search
-    url = https://github.com/zsh-users/zsh-history-substring-search.git
-[submodule "macosx/config/zsh/plugins/zsh-async"]
-    path = macosx/config/zsh/plugins/zsh-async
-    url = https://github.com/mafredri/zsh-async.git
-[submodule "macosx/config/zsh/plugins/zsh-autosuggestions"]
-    path = macosx/config/zsh/plugins/zsh-autosuggestions
-    url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "macosx/config/zsh/plugins/zsh-syntax-highlighting"]
-    path = macosx/config/zsh/plugins/zsh-syntax-highlighting
-    url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "macosx/config/zsh/plugins/zsh-vim-mode"]
-    path = macosx/config/zsh/plugins/zsh-vim-mode
-    url = https://github.com/softmoth/zsh-vim-mode
