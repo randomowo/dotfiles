@@ -38,5 +38,5 @@ source $ZDOTDIR/lib/completion.zsh 2>/dev/null
 # key bindings
 source $ZDOTDIR/lib/key-bindings.zsh 2>/dev/null
 
-# aliases
-source ~/.aliasrc
+# get aliases
+[ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
