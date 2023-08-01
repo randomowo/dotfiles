@@ -1,0 +1,112 @@
+#!/bin/bash
+
+# Characters
+SEGMENT_SEPARATOR="\ue0b0"
+GITDURTY="±"
+BRANCH=""
+DETACHED="\u27a6"
+CROSS="\u2718"
+LIGHTNING="\u26a1"
+GEAR="\u2699"
+
+toTputColor() {
+    case $1 in
+        black)
+            echo 0;;
+        red)
+            echo 1;;
+        green)
+            echo 2;;
+        yellow)
+            echo 3;;
+        blue)
+            echo 4;;
+        magneta)
+            echo 5;;
+        cyan)
+            echo 6;;
+        while)
+            echo 7;;
+    esac
+}
+
+psegment() {
+    local bg fg
+    [[ -n $1 && -n $(toTputColor $1) ]] && bg="$(toTputColor $1)" || bg=0
+    [[ -n $2 && -n $(toTputColor $2) ]] && fg="$(toTputColor $2)" || fg=0
+
+    echo -n "$(tput sgr0)$(tput setab $bg)$(tput setaf $fg)"
+
+    [[ -n "$3" ]] && echo -n "$3" || echo -n
+}
+
+__pvenv() {
+    [[ -z "$VIRTUAL_ENV" ]] && return
+    echo -n " $(basename $VIRTUAL_ENV) "
+}
+
+pvenv() {
+    psegment cyan "" "\$(__pvenv)"
+}
+
+__pgit() {
+    local color ref
+    is_dirty() {
+        test "$(git status --porcelain --ignore-submodules)"
+    }
+
+    [ $(git rev-parse --abbrev-ref HEAD 2>/dev/null) ] || return
+    ref="$(git rev-parse --abbrev-ref HEAD)"
+
+    [ -z "$ref" ] && return
+
+    ref="$BRANCH $ref"
+    if is_dirty; then
+        ref="${ref} $GITDURTY"
+        color=red
+    else
+        color=green
+    fi
+
+    psegment $color "" " $ref "
+}
+
+pgit() {
+    echo -n "\$(__pgit)"
+}
+
+pdir() {
+    psegment blue '' " \W "
+}
+
+__pstatus() {
+    local symbols
+    symbols=()
+    [[ $RETVAL -ne 0 ]] && symbols+="$(psegment red)$CROSS"
+    [[ $UID -eq 0 ]] && symbols+="$(psegment yellow)$LIGHTNING"
+    [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="$(psegment cyan)$GEAR"
+
+    [[ -n "$symbols" ]] && psegment black '' " $symbols "
+}
+
+pstatus() {
+    echo -n "\$(__pstatus)"
+}
+
+pend() {
+    echo -n
+}
+
+psetup() {
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
+    export PS1="$(pvenv)$(pgit)$(pdir)$(pstatus)$(pend)\[$(tput sgr0)\] "
+}
+
+psetup
+
+unset pvenv
+unset pdir
+unset pstatus
+unset pend
+unset psetup
+

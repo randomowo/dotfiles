@@ -1,0 +1,15 @@
+#!/bin/bash
+
+HISTFILE='/tmp/.hist'
+HISTSIZE=10000
+SAVEHIST=0
+
+# bindings
+bind '"\e":vi-movement-mode'
+bind '"\e[A":history-substring-search-backward'
+
+# prompt theme (like /config/zsh/themes/rand.zsh-theme)
+[ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
+
+# get aliases
+[ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
