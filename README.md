@@ -12,14 +12,13 @@ colors for:</br>
 takes from pywal-generated color tables
 
 ## Current system (2021/10/23)</br>
-OS: macOS 11.6 20G165 arm64</br>
-Kernel: 20.6.0</br>
-Shell: zsh 5.8</br>
+OS: macOS 14.0 arm64</br>
+Shell: zsh</br>
 DE: Aqua</br>
 WM: Quartz Compositor</br>
-Terminal: iTerm2</br>
+Terminal: alacritty</br>
 Terminal Font: mononokiNerdFontCompleteM-Regular 12</br>
-CPU: Apple M1</br>
-GPU: Apple M1</br>
-Memory: 16384MiB</br>
+CPU: Apple M2 Max</br>
+GPU: Apple M2 Max</br>
+Memory: 32768MiB</br>
 
