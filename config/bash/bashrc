@@ -30,7 +30,7 @@ bind '"\e[A":history-substring-search-backward'
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
 
 # os custom bashrc
-[ -f $HOME/.cbashrc ] && source $HOME/.bashrc
+[ -f $HOME/.cbashrc ] && source $HOME/.cbashrc
 
 # get aliases
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
