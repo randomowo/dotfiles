@@ -6,6 +6,7 @@
 # by randomowo
 
 import:
+  - ~/.config/alacritty/window.yml
   - ~/.config/alacritty/mapping.yml
   - ~/.config/alacritty/font.yml
   - ~/.config/alacritty/colors/gruvbox-dark.yml
@@ -14,30 +15,6 @@ tabspaces: 4
 live_config_reload: true
 working_directory: None
 dynamic_title: true
-
-window:
-  opacity: 1.
-
-  dimensions:
-    columns: 180
-    lines: 45
-
-  # Window padding
-  padding:
-    x: 10
-    y: 10
-
-  # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
-
-  # Window decorations
-  decorations: buttonless
-
-  # Startup Mode
-  startup_mode: Windowed
-
-  # Window title
-  title: (ﾉ･д･)ﾉ
 
 scrolling:
 

@@ -1,0 +1,24 @@
+window:
+  opacity: 1.
+
+  dimensions:
+    columns: 180
+    lines: 45
+
+  # Window padding
+  padding:
+    x: 10
+    y: 10
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
+
+  decorations: buttonless
+
+  # Startup Mode
+  startup_mode: Windowed
+
+  # Window title
+  title: (ﾉ･д･)ﾉ
+
+
