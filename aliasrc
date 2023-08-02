@@ -202,7 +202,8 @@ alias \
 # python aliases
 alias \
     cvenv='[ ! -d .venv ] && python -m venv .venv; . ./.venv/bin/activate' \
-    dvenv='type deactivate >/dev/null && deactivate' \ rvenv='type deactivate >/dev/null && deactivate; rm -rf .venv' \
+    dvenv='type deactivate >/dev/null && deactivate' \
+    rvenv='type deactivate >/dev/null && deactivate; rm -rf .venv' \
     pip='python -m pip' \
     upip='pip --disable-pip-version-check list --outdated --format=json | jq -r ".[].name" | xargs -I{} pip install --no-cache-dir -U "{}"' \
     pyprofile='python -m cProfile -o profile' \
