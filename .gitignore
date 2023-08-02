@@ -1,20 +1,13 @@
 .DS_Store
-**/DS_Store
-**/.zcomp*
 
-*/config/zsh/.zsh_sessions
+plug.vim.old
+plug.vim
+.zcomp*
+.zsh_sessions
+__pycache__
 
-.config/cmus
-mac/karabiner/automatic_backups
-.config/vim/vimconf/plugins
-.config/polybar/scripts/notification-github.sh
-.config/emacs/.emacs.d
-.config/zsh/.zcompdump
-.config/mpv/watch_later
-.config/ranger/plugins/__pycache__
-.config/programs/*/*.def.h
-.config/programs/*/*.orig
-.config/programs/*/*.rej
-.config/newsboat/urls
-.config/vim/vimconf/autoload/plug.vim.old
-.config/vim/vimconf/autoload/plug.vim
+*.def.h
+*.orig
+*.rej
+
+config/alacritty/window.yml
