@@ -4,12 +4,33 @@ HISTFILE='/tmp/.hist'
 HISTSIZE=10000
 SAVEHIST=0
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_COLLATE=C
+export TERM="xterm-256color"
+
+export EDITOR="nvim"
+
+# mapping
+export RCONFIGS="$HOME/.config"
+
+# vim
+export VIMDOTDIR="$RCONFIGS/vim"
+export VIMINIT="source $VIMDOTDIR/.vimrc"
+
+# zsh
+export ZDOTDIR="$RCONFIGS/zsh"
+
 # bindings
 bind '"\e":vi-movement-mode'
 bind '"\e[A":history-substring-search-backward'
 
 # prompt theme (like /config/zsh/themes/rand.zsh-theme)
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
+
+# os custom bashrc
+[ -f $HOME/.cbashrc ] && source $HOME/.bashrc
 
 # get aliases
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
