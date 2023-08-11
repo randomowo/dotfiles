@@ -198,7 +198,8 @@ alias \
     gams='git am --skip' \
     gama='git am --abort' \
     gamscp='git am --show-current-patch' \
-    gta='_gta(){ git tag -a "$1" -m ""; }; _gta'
+    gta='_gta(){ git tag -a "$1" -m ""; }; _gta' \
+    gtd='_gtd(){ git tag -d "$1"; }; _gtd'
 
 # python aliases
 alias \
