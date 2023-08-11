@@ -8,7 +8,6 @@
 
 # programs
 alias \
-    brew='arch -arm64 brew' \
     ubrew='brew cleanup && brew upgrade && brew update && brew doctor' \
     ffmpeg='arch -arm64 ffmpeg' \
     yd='yt-dlp' \
