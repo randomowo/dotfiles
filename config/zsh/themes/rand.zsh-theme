@@ -33,7 +33,7 @@ psegment() {
 }
 
 pvenv() {
-    [ $VIRTUAL_ENV ] && print -n "(`basename $VIRTUAL_ENV`) "
+    [ -n "$VIRTUAL_ENV" ] && psegment cyan $PRIMARY_FG " `basename $VIRTUAL_ENV` "
 }
 
 pgit() {
@@ -114,6 +114,7 @@ psetup() {
     zstyle ':vcs_info:git*' formats '%b'
     zstyle ':vcs_info:git*' actionformats '%b (%a)'
 
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
     #MODE_CURSOR_VIINS="cyan blinking bar"
     #MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS red"
     #MODE_CURSOR_VICMD="green block"
