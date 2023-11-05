@@ -12,10 +12,6 @@ export EDITOR="nvim"
 # mapping
 export RCONFIGS="$HOME/.config"
 
-# vim
-export VIMDOTDIR="$RCONFIGS/vim"
-export VIMINIT="source $VIMDOTDIR/.vimrc"
-
 # sh
 ## all
 HISTFILE='/tmp/.hist'
