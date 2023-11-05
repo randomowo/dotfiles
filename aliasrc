@@ -19,13 +19,13 @@ alias \
     ..='cd ..' \
     ...='cd ../..' \
 
-# ls -> exa
+# ls -> eza
 alias \
-    ls='exa' \
-    l='exa -lahgF -a' \
-    ll='exa -lhgF' \
-    lst='exa --tree' \
-    lt='exa -lahgF --tree' \
+    ls='eza' \
+    l='eza -lahgF -a' \
+    ll='eza -lhgF' \
+    lst='eza --tree' \
+    lt='eza -lahgF --tree' \
 
 # git aliases
 alias \
@@ -215,7 +215,7 @@ alias \
 # programs
 alias \
     x="lf" \
-    vim='nvim' \
+    vim='nvim -i NONE' \
     e='vim' \
 
 
