@@ -17,7 +17,6 @@ working_directory: None
 dynamic_title: true
 
 scrolling:
-
   history: 10000
   multiplier: 3
   faux_multiplier: 3
