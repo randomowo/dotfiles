@@ -26,14 +26,6 @@ require('lazy').setup({
     -- visual
     'ap/vim-css-color',
     {
-        'nathanaelkane/vim-indent-guides',
-        config = function()
-            vim.cmd.highlight({ 'IndentGuidesEven', 'ctermbg=black' })
-            vim.cmd.highlight({ 'IndentGuidesOdd', 'ctermbg=darkgrey' })
-        end,
-        opts = require('settings/indent-guides').opts,
-    },
-    {
         'nvim-treesitter/nvim-treesitter',
         opts = require('settings/treesitter').opts,
     },
@@ -97,15 +89,16 @@ require('lazy').setup({
     -- dev
     {
         'joereynolds/vim-minisnip',
-        config = function() end,
-        opts = require('settings/minisnip').opts,
+        config = function()
+            require('settings/minisnip').setup()
+        end,
     },
     {
         'majutsushi/tagbar',
-        config = function() 
+        config = function()
+            require('settings/tagbar').setup()
             mappings.tagbar()
         end,
-        opts = require('settings/tagbar').opts,
     },
     'tpope/vim-commentary',
     'mattn/emmet-vim',
@@ -122,26 +115,19 @@ require('lazy').setup({
         'tanvirtin/vgit.nvim',
         config = function() end,
         dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
-        --init = function() require('vgit').setup() end,
     },
     -- status line
+    -- use  instead
     {
-        'itchyny/lightline.vim',
-        -- config = function()
-        --     vim.api.nvim_create_autocmd(
-        --         {'VimEnter', 'BufWritePost', 'TextChanged', 'TextChangedI'},
-        --         {
-        --             pattern = {'*'},
-        --             callback = function() vim.cmd('lightline#update()') end,
-        --         }
-        --     )
-        -- end
+        'nvim-lualine/lualine.nvim',
+        opts = require('settings/lualine').opts
     },
     -- buffer line
     {
         'randomowo/vim-bufferline',
-        config = function() end,
-        opts = require('settings/bufferline').opts,
+        config = function()
+            require('settings/bufferline').setup()
+        end,
     },
     -- files
     {
@@ -150,5 +136,4 @@ require('lazy').setup({
             mappings.nerdtree()
         end,
     },
-
 })

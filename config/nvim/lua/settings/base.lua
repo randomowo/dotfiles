@@ -26,6 +26,7 @@ opt.expandtab = true
 opt.secure = true
 opt.ruler = true
 opt.list = true
+opt.listchars = { trail = '-', lead = '-', tab = '> ' }
 opt.splitbelow = true
 opt.splitright = true
 opt.swapfile = false
@@ -36,14 +37,43 @@ opt.syntax = 'on'
 globals.compeleteopt = 'menu,menuone,noselect'
 globals.showmode = 'off'
 
+local functions = require('functions/globals')
+
+-- make background transparent
+vim.cmd('hi! Normal ctermbg=NONE guibg=NONE')
 
 -- highlight extra whitespace at the end
-vim.cmd.highlight({ 'TrailingWhitespaces', 'ctermbg=red', 'guibg=red' })
+vim.cmd('highlight ExtraWhitespace ctermbg=red guibg=red')
+vim.api.nvim_create_autocmd(
+    { 'ColorScheme' },
+    {
+        pattern = {'*'},
+        command = 'highlight ExtraWhitespace ctermbg=red guibg=red',
+    }
+)
 vim.api.nvim_create_autocmd(
     { 'BufNew', 'BufEnter', 'BufWinEnter', 'WinEnter' },
     {
         pattern = {'*'},
-        command = 'match TrailingWhitespaces /\\s\\+$/',
+        command = 'match ExtraWhitespace /\\s\\+$/',
     }
 )
+
+-- on save file actions
+vim.api.nvim_create_autocmd(
+    { 'BufWritePre', 'FileWritePre' },
+    {
+        pattern = {'*'},
+        callback = function()
+            -- trim trailing whitespaces
+            functions.trim_whitespaces()
+            -- fix tabs and spaces
+            vim.cmd('retab!')
+            -- make files ends with one new line
+            functions.fix_newlines_at_eof()
+        end,
+    }
+)
+
+require('settings/files')
 

@@ -3,9 +3,10 @@
 -- load all extra conf files
 -- settings
 require('settings/base')
-require('settings/files')
+-- functions
+require('functions/globals')
 -- mappings
 require('mappings/base')
-require('mappings/files')
 -- plugins
 require('plugins')
+
