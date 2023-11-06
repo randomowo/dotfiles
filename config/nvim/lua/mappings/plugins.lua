@@ -27,7 +27,7 @@ function export.cmp(plug)
 end
 
 function export.lsp(plug)
-    local opts = { silent = true, buffer = true }
+    local opts = { silent = true }
     alias.normal_map('gD', vim.lsp.buf.declaration, opts)
     alias.normal_map('gd', vim.lsp.buf.definition, opts)
     alias.normal_map('K', vim.lsp.buf.hover, opts)
@@ -35,11 +35,11 @@ function export.lsp(plug)
     alias.normal_map('<space>D', vim.lsp.buf.type_definition, opts)
     alias.normal_map('<space>rn', vim.lsp.buf.rename, opts)
     alias.normal_map('<space>ca', vim.lsp.buf.code_action, opts)
-    alias.normal_map('<space>e', vim.lsp.diagnostic.show_line_diagnostics, opts)
-    alias.normal_map('[d', vim.lsp.diagnostic.goto_prev, opts)
-    alias.normal_map(']d', vim.lsp.diagnostic.goto_next, opts)
-    alias.normal_map('<space>q', vim.lsp.diagnostic.st_loclist, opts)
-    alias.normal_map('<space>f', vim.lsp.buf.formatting, opts)
+    alias.normal_map('<space>e', vim.diagnostic.open_float, opts)
+    alias.normal_map('[d', vim.diagnostic.goto_prev, opts)
+    alias.normal_map(']d', vim.diagnostic.goto_next, opts)
+    alias.normal_map('<space>q', vim.diagnostic.setloclist, opts)
+    alias.normal_map('<space>f', vim.lsp.buf.format, opts)
 end
 
 return export

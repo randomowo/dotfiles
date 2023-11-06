@@ -63,6 +63,7 @@ require('lazy').setup({
             'hrsh7th/cmp-nvim-lsp',
         },
         init = function()
+            mappings.lsp()
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
@@ -137,3 +138,4 @@ require('lazy').setup({
         end,
     },
 })
+
