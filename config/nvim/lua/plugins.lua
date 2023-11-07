@@ -137,5 +137,12 @@ require('lazy').setup({
             mappings.nerdtree()
         end,
     },
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        init = function()
+            mappings.telescope()
+        end,
+    },
 })
 

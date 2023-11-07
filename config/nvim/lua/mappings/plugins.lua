@@ -42,5 +42,12 @@ function export.lsp(plug)
     alias.normal_map('<space>f', vim.lsp.buf.format, opts)
 end
 
+function export.telescope(plug)
+    alias.normal_map('<leader>ff', '<cmd>Telescope find_files<cr>')
+    alias.normal_map('<leader>fg', '<cmd>Telescope live_grep<cr>')
+    alias.normal_map('<leader>fb', '<cmd>Telescope buffers<cr>')
+    alias.normal_map('<leader>fh', '<cmd>Telescope help_tags<cr>')
+end
+
 return export
 
