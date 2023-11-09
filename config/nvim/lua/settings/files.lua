@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd(
     { 'FileType' },
     {
-        pattern = { '*.yaml', '*.yml' },
+        pattern = { 'yaml', 'yml' },
         command = 'setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab'
     }
 )
@@ -11,7 +11,8 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd(
     { 'FileType' },
     {
-        pattern = { '*.go' },
+        pattern = { 'go' },
         command = 'setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab'
     }
 )
+
