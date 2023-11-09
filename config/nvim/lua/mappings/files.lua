@@ -13,7 +13,10 @@ function run_file()
     for _, obj in pairs(file_obj) do
         if vim.bo.filetype == obj.filetype then
             vim.cmd('write!')
-            vim.cmd('exec \'!' .. table.concat(obj.cmd, ' ') .. '\' shellescape(@%, 1)')
+            local filepath = vim.fn.expand('%')
+            vim.cmd.wincmd('v')
+            vim.cmd.terminal()
+            vim.api.nvim_chan_send(vim.bo.channel, table.concat(obj.cmd, ' ') .. ' ' .. filepath ..'\r')
         end
     end
 end

@@ -18,6 +18,7 @@ end
 function export.cmp(plug)
     return {
         ['<F2>'] = plug.mapping.select_next_item({ behavior = plug.SelectBehavior.Select }),
+        ['<F14>'] = plug.mapping.select_prev_item({ behavior = plug.SelectBehavior.Select }),
         ['<C-d>'] = plug.mapping.scroll_docs(-4),
         ['<C-f>'] = plug.mapping.scroll_docs(4),
         ['<C-a>'] = plug.mapping.complete(),

@@ -1,9 +1,7 @@
 local opt = vim.opt
 local globals = vim.g
 
-vim.cmd('filetype on')
-vim.cmd('filetype indent on')
-vim.cmd('filetype plugin on')
+vim.cmd('filetype plugin indent on')
 
 opt.relativenumber = true
 opt.linebreak = true

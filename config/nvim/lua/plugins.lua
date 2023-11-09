@@ -23,6 +23,8 @@ require('lazy').setup({
             vim.cmd('colorscheme gruvbox')
         end,
     },
+    -- better highlighting
+    'sheerun/vim-polyglot',
     -- visual
     'ap/vim-css-color',
     {
