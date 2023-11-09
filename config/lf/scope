@@ -11,11 +11,12 @@ CACHE="${XDG_CACHE_HOME}:-$HOME/.cache"
 # be regenerated once seen.
 
 case "$(file --dereference --brief --mime-type -- "$1")" in
-	text/troff) man ./ "$1" | col -b ;;
-	text/* | */xml | application/json) bat --terminal-width "$(($4-2))" -f "$1" ;;
-	audio/* | application/octet-stream) mediainfo "$1" || exit 1 ;;
-	application/*zip) atool --list -- "$1" ;;
-	*opendocument*) odt2txt "$1" ;;
-	application/pgp-encrypted) gpg -d -- "$1" ;;
+    text/troff) man ./ "$1" | col -b ;;
+    text/* | */xml | application/json) bat --terminal-width "$(($4-2))" -f "$1" ;;
+    audio/* | application/octet-stream) mediainfo "$1" || exit 1 ;;
+    application/*zip) atool --list -- "$1" ;;
+    *opendocument*) odt2txt "$1" ;;
+    application/pgp-encrypted) gpg -d -- "$1" ;;
 esac
 exit 1
+
