@@ -15,10 +15,6 @@ export EDITOR="nvim"
 # mapping
 export RCONFIGS="$HOME/.config"
 
-# vim
-export VIMDOTDIR="$RCONFIGS/vim"
-export VIMINIT="source $VIMDOTDIR/.vimrc"
-
 # zsh
 export ZDOTDIR="$RCONFIGS/zsh"
 
@@ -34,3 +30,4 @@ bind '"\e[A":history-substring-search-backward'
 
 # get aliases
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
+
