@@ -5,9 +5,9 @@ function export.move(key)
     vim.cmd.wincmd(key)
     if current_window == vim.fn.winnr() then
         if key == 'j' or key == 'k' then
-            vim.cmd.wincmd('s')
+            vim.cmd.new()
         else
-            vim.cmd.wincmd('v')
+            vim.cmd.vnew()
         end
     end
 end
