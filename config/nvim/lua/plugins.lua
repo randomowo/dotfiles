@@ -125,13 +125,6 @@ require('lazy').setup({
         'nvim-lualine/lualine.nvim',
         opts = require('settings/lualine').opts
     },
-    -- buffer line
-    {
-        'randomowo/vim-bufferline',
-        config = function()
-            require('settings/bufferline').setup()
-        end,
-    },
     -- files
     {
         'preservim/nerdtree',
