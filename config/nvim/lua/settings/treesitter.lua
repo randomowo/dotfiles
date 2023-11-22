@@ -9,6 +9,7 @@ local export = {
             'rust',
             'go',
             'python',
+            'gitignore',
         },
         sync_install = false,
         auto_install = true,
