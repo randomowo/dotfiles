@@ -218,7 +218,6 @@ alias \
     vim='nvim -i NONE' \
     e='vim' \
 
-
 # network
 alias \
     check-ciphers="nmap -sV --script ssl-enum-ciphers"
@@ -245,3 +244,4 @@ alias \
 
 # system specific aliases
 [ -f $HOME/.caliasrc ] && source $HOME/.caliasrc
+

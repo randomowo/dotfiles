@@ -18,16 +18,8 @@ export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 export PATH="/opt/homebrew/opt/e2fsprogs/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
-## pyenv
-# should be placed after /opt/homebrew/bin
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
+## rtx-cli
+eval "$(rtx activate ${SHELL##*/})"
 
 # Toolbox
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"

@@ -10,10 +10,29 @@
 alias \
     ubrew='brew cleanup && brew upgrade && brew update && brew doctor' \
     ffmpeg='arch -arm64 ffmpeg' \
-    yd='yt-dlp' \
-    prettier='prettier --config ~/.prettierrc.yaml'
+    yd='yt-dlp'
 
-# shotcuts
+_uall() {
+    cmds=( \
+        "softwareupdate --all --install --force" \
+        "ubrew" \
+        "upip" \
+        "rtx upgrade" \
+    )
+
+    for cmd in $cmds; do
+        echo -e "\033[1;33mexecuting $cmd\033[0m"
+
+        logcmd="$(echo "$cmd" | cut -d' ' -f1)"
+        if eval "$cmd"; then
+            echo -e "\033[0;32m$logcmd completed!\033[0m"
+        else
+            echo -e "\033[0;31m$logcmd failed!\033[0m"
+        fi
+    done
+}
+
+# shortcuts
 alias \
-    u='softwareupdate --all --install --force; ubrew; echo -e "\033[0;32mbrew update complete!\033[0m" && upip; echo -e "\033[0;32mpip update complete!\033[0m" && npm update -g; echo -e "\033[0;32mnpm update complete!\033[0m"'
+    u='_uall'
 
