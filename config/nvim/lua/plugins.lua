@@ -29,7 +29,11 @@ require('lazy').setup({
     'ap/vim-css-color',
     {
         'nvim-treesitter/nvim-treesitter',
-        opts = require('settings/treesitter').opts,
+        init = function()
+            require('nvim-treesitter.configs').setup(
+                require('settings/treesitter').opts
+            )
+        end,
     },
     {
         'neovim/nvim-lspconfig',
