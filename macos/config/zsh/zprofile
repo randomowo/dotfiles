@@ -20,6 +20,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 ## rtx-cli
 eval "$(rtx activate ${SHELL##*/})"
+RTX_GO_SET_GOROOT=true
+RTX_GO_SET_GOPATH=true
 
 # Toolbox
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"

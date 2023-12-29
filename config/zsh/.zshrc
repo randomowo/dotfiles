@@ -40,3 +40,6 @@ source $ZDOTDIR/lib/key-bindings.zsh 2>/dev/null
 
 # get aliases
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
+
+# bun completions
+[ -s "/Users/deniskorolev/.bun/_bun" ] && source "/Users/deniskorolev/.bun/_bun"
