@@ -1,0 +1,10 @@
+[[language]]
+name = "go"
+auto-format = true
+indent = { tab-width = 4, unit = "\t" }
+
+[[languate]]
+name = "yaml"
+auto-format = true
+indent = { tab-width = 2, unit = " " }
+

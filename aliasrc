@@ -216,7 +216,7 @@ alias \
 alias \
     x="lf" \
     vim='nvim -i NONE' \
-    e='vim' \
+    e='hx' \
 
 # network
 alias \
