@@ -1,0 +1,15 @@
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+opacity = 1.0
+startup_mode = "Windowed"
+title = "(ﾉ･д･)ﾉ"
+
+[window.dimensions]
+columns = 180
+lines = 45
+
+[window.padding]
+x = 5
+y = 5
+

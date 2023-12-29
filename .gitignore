@@ -10,4 +10,5 @@ __pycache__
 *.orig
 *.rej
 
-config/alacritty/window.yml
+config/alacritty/window.toml
+

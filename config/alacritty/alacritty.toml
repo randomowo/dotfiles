@@ -1,0 +1,47 @@
+import = ["/Users/deniskorolev/.config/alacritty/window.toml", "/Users/deniskorolev/.config/alacritty/mapping.toml", "/Users/deniskorolev/.config/alacritty/font.toml", "/Users/deniskorolev/.config/alacritty/colors/gruvbox-dark.toml"]
+live_config_reload = true
+working_directory = "None"
+
+[bell]
+animation = "EaseOutExpo"
+color = "0xffffff"
+duration = 0
+
+[cursor]
+blink_interval = 750
+blink_timeout = 0
+thickness = 0.15
+unfocused_hollow = true
+vi_mode_style = "Underline"
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[debug]
+log_level = "Warn"
+persistent_logging = false
+print_events = false
+render_timer = false
+
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.mouse]
+enabled = false
+mods = "None"
+
+[mouse]
+hide_when_typing = false
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
