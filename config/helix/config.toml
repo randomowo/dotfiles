@@ -9,6 +9,7 @@ auto-format = true
 auto-save = false
 true-color = false
 rulers = [120]
+idle-timeout = 20
 
 [editor.statusline]
 left = ["mode", "diagnostics", "version-control"]

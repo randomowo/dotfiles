@@ -1,10 +1,23 @@
+[language-server.buf]
+# cargo install buffer-language-server
+command = "buffer-language-server"
+
 [[language]]
 name = "go"
 auto-format = true
 indent = { tab-width = 4, unit = "\t" }
 
-[[languate]]
+[[language]]
 name = "yaml"
 auto-format = true
 indent = { tab-width = 2, unit = " " }
 
+[[language]]
+name = "markdown"
+auto-format = true
+language-servers = [ "buf" ]
+
+[[language]]
+name = "git-commit"
+auto-format = true
+language-servers = [ "buf" ]
