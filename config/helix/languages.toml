@@ -7,6 +7,10 @@ name = "go"
 auto-format = true
 indent = { tab-width = 4, unit = "\t" }
 
+[language-server.gopls.config]
+# go install mvdan.cc/gofumpt@latest
+"formatting.gofumpt" = true
+
 [[language]]
 name = "yaml"
 auto-format = true
