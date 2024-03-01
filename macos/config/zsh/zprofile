@@ -18,10 +18,11 @@ export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 export PATH="/opt/homebrew/opt/e2fsprogs/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
-## rtx-cli
-eval "$(rtx activate ${SHELL##*/})"
-RTX_GO_SET_GOROOT=true
-RTX_GO_SET_GOPATH=true
+## mise-cli
+eval "$(mise activate ${SHELL##*/})"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+MISE_GO_SET_GOROOT=true
+MISE_GO_SET_GOPATH=true
 
 # Toolbox
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
