@@ -12,6 +12,8 @@ export EDITOR="hx"
 # mapping
 export RCONFIGS="$HOME/.config"
 
+export GPG_TTY=$(tty)
+
 # sh
 ## all
 HISTFILE='/tmp/.hist'
