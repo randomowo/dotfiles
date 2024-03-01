@@ -8,16 +8,17 @@
 
 # programs
 alias \
-    ubrew='brew cleanup && brew upgrade && brew update && brew doctor' \
-    ffmpeg='arch -arm64 ffmpeg' \
-    yd='yt-dlp'
+    ubrew="brew cleanup && brew upgrade && brew update && brew doctor" \
+    ffmpeg="arch -arm64 ffmpeg" \
+    yd="yt-dlp" \
+    top="btm"
 
 _uall() {
     cmds=( \
         "softwareupdate --all --install --force" \
         "ubrew" \
         "upip" \
-        "rtx upgrade" \
+        "mise upgrade" \
     )
 
     for cmd in $cmds; do
@@ -32,7 +33,33 @@ _uall() {
     done
 }
 
+_hud() {
+    enabled=$(launchctl getenv MTL_HUD_ENABLED)
+
+    case "$1" in
+        1|true)
+            enabled=1
+            ;;
+        0|false)
+            enabled=0
+            ;;
+        toggle)
+            if [[ "$enabled" == "0" ]]; then
+                enabled=1
+            else
+                enabled=0
+            fi
+            ;;
+        *)
+            echo -e "- \`1|true\` to enable\n- \`0|false\` to disable\n- \`toggle\` to toggle"
+            return
+            ;;
+    esac
+
+    launchctl setenv MTL_HUD_ENABLED "$enabled"
+}
+
 # shortcuts
 alias \
-    u='_uall'
-
+    u="_uall" \
+    hud="_hud"
