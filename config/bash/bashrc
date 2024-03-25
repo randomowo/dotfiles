@@ -10,7 +10,7 @@ export LANGUAGE=en_US.UTF-8
 export LC_COLLATE=C
 export TERM="xterm-256color"
 
-export EDITOR="nvim"
+export EDITOR="nvim -i NONE"
 
 # mapping
 export RCONFIGS="$HOME/.config"

@@ -215,8 +215,7 @@ alias \
 # programs
 alias \
     x="lf" \
-    vim='nvim -i NONE' \
-    e='hx' \
+    e="$EDITOR"
 
 # network
 alias \

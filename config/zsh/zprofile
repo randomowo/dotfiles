@@ -7,7 +7,7 @@ export LANGUAGE=en_US.UTF-8
 export LC_COLLATE=C
 export TERM="xterm-256color"
 
-export EDITOR="hx"
+export EDITOR="nvim -i NONE"
 
 # mapping
 export RCONFIGS="$HOME/.config"
@@ -25,3 +25,4 @@ export ZDOTDIR="$RCONFIGS/zsh"
 
 # system specific zprofile
 [ -f $HOME/.czprofile ] && source $HOME/.czprofile
+
