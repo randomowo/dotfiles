@@ -95,12 +95,6 @@ require('lazy').setup({
     },
     -- dev
     {
-        'joereynolds/vim-minisnip',
-        config = function()
-            require('settings/minisnip').setup()
-        end,
-    },
-    {
         'majutsushi/tagbar',
         config = function()
             require('settings/tagbar').setup()
