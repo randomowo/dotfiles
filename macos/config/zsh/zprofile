@@ -21,8 +21,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 ## mise-cli
 eval "$(mise activate ${SHELL##*/})"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
-export MISE_GO_SET_GOROOT=true
-export MISE_GO_SET_GOPATH=true
 
 # Toolbox
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
