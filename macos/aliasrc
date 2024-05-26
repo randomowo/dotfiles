@@ -19,7 +19,6 @@ _uall() {
         "ubrew" \
         "upip" \
         "mise upgrade" \
-        "rustup upgrade" \
         "rustup update" \
     )
 
