@@ -19,6 +19,8 @@ _uall() {
         "ubrew" \
         "upip" \
         "mise upgrade" \
+        "rustup upgrade" \
+        "rustup update" \
     )
 
     for cmd in $cmds; do
@@ -63,3 +65,4 @@ _hud() {
 alias \
     u="_uall" \
     hud="_hud"
+
