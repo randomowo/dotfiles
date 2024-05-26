@@ -22,6 +22,13 @@ export PATH="/opt/homebrew/bin:$PATH"
 eval "$(mise activate ${SHELL##*/})"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
+# rust
+export RUSTUP_HOME="$HOME/.local/share/rustup"
+export CARGO_HOME="$HOME/.local/share/cargo"
+[ -d "$CARGO_HOME" ] && source "${CARGO_HOME}/env"
+
+export PATH="$CARGO_HOME/bin:$PATH"
+
 # Toolbox
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 

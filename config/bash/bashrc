@@ -27,3 +27,10 @@ set -o vi
 # get aliases
 [ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
 
+# rust
+export RUSTUP_HOME="$HOME/.local/share/rustup"
+export CARGO_HOME="$HOME/.local/share/cargo"
+[ -d "$CARGO_HOME" ] && source "${CARGO_HOME}/env"
+
+export PATH="$CARGO_HOME/bin:$PATH"
+
