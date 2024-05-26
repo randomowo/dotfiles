@@ -79,16 +79,15 @@ require('lazy').setup({
             for _, server in pairs(settings.configs) do
                 if server.preload_cmd ~= nil then
                     -- local result = vim.fn.system(server.preload_cmd)
-                    lsp[server.name].setup{
-                        settings = server.settings,
-                        on_attach = require('functions/lsp').on_attach,
-                        capabilities = capabilities,
-                        flags = {
-                            debounce_text_changes = 150,
-                        }
-                    }
                 end
-
+                lsp[server.name].setup{
+                    settings = server.settings,
+                    on_attach = require('functions/lsp').on_attach,
+                    capabilities = capabilities,
+                    flags = {
+                        debounce_text_changes = 150,
+                    }
+                }
             end
         end
 
