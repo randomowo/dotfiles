@@ -7,6 +7,7 @@ file_obj = {
     { filetype = 'typescript', cmd = { 'npx', 'ts-node' } },
     { filetype = 'go', cmd = { 'go', 'run' } },
     { filetype = 'sh', cmd = { 'sh', '-c' } },
+    { filetype = 'rust', cmd = { 'rustc', '-o', '/var/tmp/single_rust' }, after_cmd = { '&&', '/var/tmp/single_rust', ';', 'rm', '-f', '/var/tmp/single_rust' } },
 }
 
 function run_file()
@@ -16,12 +17,34 @@ function run_file()
             local filepath = vim.fn.expand('%')
             vim.cmd.vnew()
             vim.cmd.terminal()
-            vim.api.nvim_chan_send(vim.bo.channel, table.concat(obj.cmd, ' ') .. ' ' .. filepath ..'\r')
+            local cmd = table.concat(obj.cmd, ' ') .. ' ' .. filepath
+            if obj.after_cmd then
+                cmd = cmd .. table.concat(obj.after_cmd, ' ')
+            end
+            cmd = cmd .. '\r'
+            vim.api.nvim_chan_send(vim.bo.channel, cmd)
         end
     end
 end
 
 alias.map('<F9>', run_file, { buffer = true })
+
+local file_fmt = {
+    { filetype = 'go', cmd = { 'gofmt' } },
+    { filetype = 'rust', cmd = { 'rustfmt' } },
+}
+
+function format_file()
+    for _, obj in pairs(file_fmt) do
+        if vim.bo.filetype == obj.filetype then
+            local cmd = table.concat(obj.cmd, ' ') .. ' '
+            vim.cmd('%!' .. cmd)
+            vim.cmd('write!')
+        end
+    end
+end
+
+alias.map('<F10>', format_file, { buffer = true })
 
 function close_term()
     vim.cmd.startinsert()
@@ -30,6 +53,7 @@ function close_term()
     local exit = vim.api.nvim_replace_termcodes('<C-d>', true, false, true)
     vim.api.nvim_feedkeys(exit, 't', true)
 end
+
 vim.api.nvim_create_autocmd(
     { 'TermOpen' },
     {
