@@ -11,6 +11,10 @@ file_obj = {
 }
 
 function run_file()
+    if vim.bo == nil then
+        return
+    end
+
     for _, obj in pairs(file_obj) do
         if vim.bo.filetype == obj.filetype then
             vim.cmd('write!')
@@ -27,7 +31,7 @@ function run_file()
     end
 end
 
-alias.map('<F9>', run_file, { buffer = true })
+alias.map('<F9>', run_file)
 
 local file_fmt = {
     { filetype = 'go', cmd = { 'gofmt' } },
@@ -35,16 +39,20 @@ local file_fmt = {
 }
 
 function format_file()
+    if vim.bo == nil then
+        return
+    end
+
     for _, obj in pairs(file_fmt) do
         if vim.bo.filetype == obj.filetype then
-            local cmd = table.concat(obj.cmd, ' ') .. ' '
-            vim.cmd('%!' .. cmd)
             vim.cmd('write!')
+            local cmd = table.concat(obj.cmd, ' ')
+            vim.cmd('%!' .. cmd)
         end
     end
 end
 
-alias.map('<F10>', format_file, { buffer = true })
+alias.map('<F10>', format_file)
 
 function close_term()
     vim.cmd.startinsert()
