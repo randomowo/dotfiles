@@ -60,8 +60,20 @@ _hud() {
     launchctl setenv MTL_HUD_ENABLED "$enabled"
 }
 
+_ugomod() {
+    if [ ! -f './go.mod' ]; then
+        echo "missing go.mod in CWD"
+        exit 1
+    fi
+
+    for dep in $(cat go.mod | grep -E '^ ' | sed -e 's/\/\/\ indirect//g' | cut -d ' ' -f1 | xargs); do
+        go get -u "$dep";
+    done
+}
+
 # shortcuts
 alias \
     u="_uall" \
-    hud="_hud"
+    hud="_hud" \
+    ugomod="_ugomod"
 
