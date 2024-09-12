@@ -146,6 +146,7 @@ require('lazy').setup({
             mappings.dap(plug)
         end,
     },
+    -- go dap plug
     {
         'leoluz/nvim-dap-go',
         dependencies = {
@@ -153,6 +154,16 @@ require('lazy').setup({
         },
         init = function()
             require('dap-go').setup()
+        end,
+    },
+    -- python dap plug
+    {
+        'mfussenegger/nvim-dap-python',
+        dependencies = {
+            'mfussenegger/nvim-dap'
+        },
+        init = function()
+            require('dap-python').setup('python')
         end,
     },
     {
