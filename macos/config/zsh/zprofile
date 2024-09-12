@@ -6,6 +6,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # PATH
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubun:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
