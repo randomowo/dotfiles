@@ -5,6 +5,7 @@ local alias = require('mappings/alias')
 function export.nerdtree(plug)
     alias.map('<F3>', '<cmd>NERDTreeToggle<cr>')
     alias.map('<F15>', '<cmd>NERDTreeFind<cr>')
+    alias.map('<S-F3>', '<cmd>NERDTreeFind<cr>')
 end
 
 function export.tagbar(plug)
