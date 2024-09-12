@@ -1,7 +1,7 @@
 import = [
-  "~/.config/alacritty/window.toml", 
-  "~/.config/alacritty/mapping.toml", 
-  "~/.config/alacritty/font.toml", 
+  "~/.config/alacritty/window.toml",
+  "~/.config/alacritty/mapping.toml",
+  "~/.config/alacritty/font.toml",
   "~/.config/alacritty/colors/gruvbox-dark.toml"
 ]
 live_config_reload = true
