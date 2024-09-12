@@ -51,5 +51,12 @@ function export.telescope(plug)
     alias.normal_map('<leader>fh', '<cmd>Telescope help_tags<cr>')
 end
 
+function export.dap(plug)
+    alias.normal_map('<F21>', plug.continue)
+    alias.normal_map('<F20>', plug.step_over)
+    alias.normal_map('<F19>', plug.step_into)
+    alias.normal_map('<space>b', plug.toggle_breakpoint)
+end
+
 return export
 

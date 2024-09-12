@@ -23,6 +23,8 @@ require('lazy').setup({
             vim.cmd('colorscheme gruvbox')
         end,
     },
+    -- highlight similars
+    'RRethy/vim-illuminate',
     -- better highlighting
     'sheerun/vim-polyglot',
     -- visual
@@ -136,5 +138,36 @@ require('lazy').setup({
             mappings.telescope()
         end,
     },
+    -- debugger
+    {
+        'mfussenegger/nvim-dap',
+        init = function()
+            local plug = require('dap')
+            mappings.dap(plug)
+        end,
+    },
+    {
+        'leoluz/nvim-dap-go',
+        dependencies = {
+            'mfussenegger/nvim-dap'
+        },
+        init = function()
+            require('dap-go').setup()
+        end,
+    },
+    {
+        'rcarriga/nvim-dap-ui',
+        dependencies = {
+            'mfussenegger/nvim-dap',
+            'nvim-neotest/nvim-nio',
+        },
+        init = function()
+            local dap, dapui = require('dap'), require('dapui')
+
+            dapui.setup()
+
+            require('functions/dap').add_listeners_for_ui(dap, dapui)
+        end,
+    }
 })
 
