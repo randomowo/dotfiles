@@ -144,6 +144,7 @@ require('lazy').setup({
         init = function()
             local plug = require('dap')
             mappings.dap(plug)
+            require('functions/dap').setup_codelldb(plug)
         end,
     },
     -- go dap plug
@@ -178,6 +179,14 @@ require('lazy').setup({
             dapui.setup()
 
             require('functions/dap').add_listeners_for_ui(dap, dapui)
+        end,
+    },
+    {
+        'williamboman/mason.nvim',
+        init = function()
+            local plug = require('mason')
+            plug.setup()
+            require('functions/mason').install_required(plug)
         end,
     }
 })
