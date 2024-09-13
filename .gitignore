@@ -11,4 +11,5 @@ __pycache__
 *.rej
 
 config/alacritty/window.toml
+nvimdata
 
