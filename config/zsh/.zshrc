@@ -27,6 +27,11 @@ source $ZDOTDIR/themes/rand.zsh-theme
 
 # auto complete
 fpath+="$ZDOTDIR/zfunc"
+# custom
+fpath+="$HOME/.zfunc"
+# homebrew
+fpath+="/opt/homebrew/share/zsh/site-functions"
+
 
 autoload -Uz compinit
 zstyle ':completion:*' menu select
@@ -43,3 +48,4 @@ source $ZDOTDIR/lib/key-bindings.zsh 2>/dev/null
 
 # bun completions
 [ -s "/Users/deniskorolev/.bun/_bun" ] && source "/Users/deniskorolev/.bun/_bun"
+
