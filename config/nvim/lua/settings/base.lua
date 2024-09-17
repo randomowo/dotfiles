@@ -34,6 +34,7 @@ opt.syntax = 'on'
 
 globals.compeleteopt = 'menu,menuone,noselect'
 globals.showmode = 'off'
+globals.mapleader = ' '
 
 local functions = require('functions/globals')
 
