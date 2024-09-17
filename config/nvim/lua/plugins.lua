@@ -191,10 +191,19 @@ require('lazy').setup({
     },
     -- auto-resize windows
     {
-        "anuvyklack/windows.nvim",
-        dependencies = "anuvyklack/middleclass",
+        'anuvyklack/windows.nvim',
+        dependencies = 'anuvyklack/middleclass',
         init = function()
             local plug = require('windows')
+            plug.setup()
+        end
+    },
+    -- highlight TODO, FIXME and etc
+    {
+        'folke/todo-comments.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        init = function()
+            local plug = require('todo-comments')
             plug.setup()
         end
     },
