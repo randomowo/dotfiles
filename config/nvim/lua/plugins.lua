@@ -188,6 +188,15 @@ require('lazy').setup({
             plug.setup()
             require('functions/mason').install_required(plug)
         end,
-    }
+    },
+    -- auto-resize windows
+    {
+        "anuvyklack/windows.nvim",
+        dependencies = "anuvyklack/middleclass",
+        init = function()
+            local plug = require('windows')
+            plug.setup()
+        end
+    },
 })
 

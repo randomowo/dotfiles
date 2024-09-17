@@ -3,7 +3,8 @@ local globals = vim.g
 
 vim.cmd('filetype plugin indent on')
 
-opt.relativenumber = true
+opt.number = true
+opt.relativenumber = false
 opt.linebreak = true
 opt.wrapmargin = 0
 opt.textwidth = 0
