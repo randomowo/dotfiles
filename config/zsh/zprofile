@@ -26,3 +26,6 @@ export ZDOTDIR="$RCONFIGS/zsh"
 # system specific zprofile
 [ -f $HOME/.czprofile ] && source $HOME/.czprofile
 
+# machine specific zprofile
+[ -f $HOME/.c2zprofile ] && source $HOME/.c2zprofile
+
