@@ -58,5 +58,9 @@ function export.dap(plug)
     alias.normal_map('<leader>b', plug.toggle_breakpoint)
 end
 
+function export.todo_comments(plug)
+    alias.normal_map('<leader>ft', '<cmd>TodoTelescope<cr>')
+end
+
 return export
 

@@ -205,6 +205,8 @@ require('lazy').setup({
         init = function()
             local plug = require('todo-comments')
             plug.setup()
+
+            mappings.todo_comments(plug)
         end
     },
 })
