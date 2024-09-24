@@ -18,9 +18,9 @@ local export = {
                             enabled = true,
                         },
                     },
-                },
-                configurationSources = {
-                    'flake8',
+                    configurationSources = {
+                        'flake8',
+                    },
                 },
             },
         },
@@ -40,8 +40,11 @@ local export = {
             name = 'rust_analyzer',
             settings = {},
         },
+        {
+            name = 'lua_ls',
+            settings = {},
+        },
     },
 }
 
 return export
-
