@@ -243,4 +243,5 @@ alias \
 
 # system specific aliases
 [ -f $HOME/.caliasrc ] && source $HOME/.caliasrc
-
+# other specific aliases (for only on machine aliases)
+[ -f $HOME/.c2aliasrc ] && source $HOME/.c2aliasrc
