@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd(
             -- fix tabs and spaces
             vim.cmd('retab!')
             -- make files ends with one new line
-            functions.fix_newlines_at_eof()
+            -- functions.fix_newlines_at_eof()
         end,
     }
 )

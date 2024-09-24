@@ -40,6 +40,28 @@ require('lazy').setup({
     {
         'neovim/nvim-lspconfig',
         dependencies = {
+            -- right order is:
+            -- 1. mason
+            -- 2. mason-lspconfig
+            -- 3. lspconfig
+            {
+                'williamboman/mason-lspconfig.nvim',
+                dependencies = {
+                    {
+                        'williamboman/mason.nvim',
+                        init = function()
+                            local plug = require('mason')
+                            plug.setup()
+                            require('functions/mason').install_required(plug)
+                        end,
+                    },
+                },
+                init = function()
+                    local plug = require('mason-lspconfig')
+                    plug.setup()
+                 end,
+            },
+
             {
                 'hrsh7th/nvim-cmp',
                 dependencies = {
@@ -181,15 +203,7 @@ require('lazy').setup({
             require('functions/dap').add_listeners_for_ui(dap, dapui)
         end,
     },
-    {
-        'williamboman/mason.nvim',
-        init = function()
-            local plug = require('mason')
-            plug.setup()
-            require('functions/mason').install_required(plug)
-        end,
-    },
-    -- auto-resize windows
+        -- auto-resize windows
     {
         'anuvyklack/windows.nvim',
         dependencies = 'anuvyklack/middleclass',
