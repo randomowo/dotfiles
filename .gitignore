@@ -3,6 +3,7 @@
 plug.vim.old
 plug.vim
 .zcomp*
+.zshenv
 .zsh_sessions
 __pycache__
 
@@ -13,3 +14,6 @@ __pycache__
 config/alacritty/window.toml
 nvimdata
 
+
+# only machine specific config
+/config/pip
