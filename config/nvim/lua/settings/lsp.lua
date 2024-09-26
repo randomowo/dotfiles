@@ -1,50 +1,54 @@
-local export = {
-    configs = {
-        {
-            name = 'pylsp',
-            settings = {
-                pylsp = {
-                    plugins = {
-                        pycodestyle = {
-                            enabled = false,
-                        },
-                        mccabe = {
-                            enabled = false,
-                        },
-                        pyflakes = {
-                            enabled = false,
-                        },
-                        flake8 = {
-                            enabled = true,
-                        },
+local export = {}
+
+export.configs = {
+    {
+        name = 'pylsp',
+        settings = {
+            pylsp = {
+                plugins = {
+                    pycodestyle = {
+                        enabled = false,
                     },
-                    configurationSources = {
-                        'flake8',
+                    mccabe = {
+                        enabled = false,
                     },
+                    pyflakes = {
+                        enabled = false,
+                    },
+                    flake8 = {
+                        enabled = true,
+                    },
+                },
+                configurationSources = {
+                    'flake8',
                 },
             },
         },
-        {
-            name = 'gopls',
-            settings = {},
-        },
-        {
-            name = 'ts_ls',
-            settings = {},
-        },
-        {
-            name = 'dockerls',
-            settings = {},
-        },
-        {
-            name = 'rust_analyzer',
-            settings = {},
-        },
-        {
-            name = 'lua_ls',
-            settings = {},
-        },
     },
+    {
+        name = 'gopls',
+        settings = {},
+    },
+    {
+        name = 'ts_ls',
+        settings = {},
+    },
+    {
+        name = 'dockerls',
+        settings = {},
+    },
+    {
+        name = 'rust_analyzer',
+        settings = {},
+    },
+    {
+        name = 'lua_ls',
+        settings = {},
+    },
+}
+
+export.ui = {
+    virtual_text = true,
 }
 
 return export

@@ -113,19 +113,19 @@ require('lazy').setup({
                     }
                 }
             end
+
+            local flsp = require('functions/lsp')
+            flsp.setup_ui()
         end
 
     },
     -- dev
     {
-        'majutsushi/tagbar',
-        config = function()
-            require('settings/tagbar').setup()
-            mappings.tagbar()
-        end,
+        'tpope/vim-commentary',
     },
-    'tpope/vim-commentary',
-    'mattn/emmet-vim',
+    {
+        'mattn/emmet-vim',
+    },
     -- git
     {
         'airblade/vim-gitgutter',
@@ -223,5 +223,17 @@ require('lazy').setup({
             mappings.todo_comments(plug)
         end
     },
+    -- list of diagnostics and symbols tree
+    {
+        'folke/trouble.nvim',
+        init = function()
+            local plug = require('trouble')
+            plug.setup(
+                require('settings/trouble').opts
+            )
+
+            mappings.trouble(plug)
+        end
+    }
 })
 
