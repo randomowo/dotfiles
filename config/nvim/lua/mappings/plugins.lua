@@ -8,6 +8,10 @@ function export.nerdtree(plug)
     alias.map('<S-F3>', '<cmd>NERDTreeFind<cr>')
 end
 
+function export.tagbar()
+    alias.map('<F8>', '<cmd>TagbarToggle<cr>')
+end
+
 function export.gitgutter(plug)
     -- TODO
 end
@@ -62,7 +66,6 @@ end
 function export.trouble(plug)
     local settings = require('settings/trouble')
     alias.normal_map('<leader>t', '<cmd>Trouble diagnostics toggle focus=true<cr>')
-    alias.normal_map('<F8>', '<cmd>Trouble symbols toggle<cr>')
 end
 
 return export

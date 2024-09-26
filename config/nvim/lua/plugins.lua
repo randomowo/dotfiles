@@ -223,7 +223,7 @@ require('lazy').setup({
             mappings.todo_comments(plug)
         end
     },
-    -- list of diagnostics and symbols tree
+    -- list of diagnostics and etc
     {
         'folke/trouble.nvim',
         init = function()
@@ -234,6 +234,12 @@ require('lazy').setup({
 
             mappings.trouble(plug)
         end
-    }
+    },
+    {
+        'preservim/tagbar',
+        init = function()
+            mappings.tagbar()
+        end
+    },
 })
 
