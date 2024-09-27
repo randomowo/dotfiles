@@ -33,6 +33,16 @@ vim.cmd('set nopaste')
 opt.mouse = ''
 opt.syntax = 'on'
 
+-- fold settings
+opt.foldmethod = 'expr'
+opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- treesitter required
+opt.foldcolumn = '0'
+opt.foldtext = ''
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldnestmax = 4
+--
+
 globals.compeleteopt = 'menu,menuone,noselect'
 globals.showmode = 'off'
 globals.mapleader = ' '
