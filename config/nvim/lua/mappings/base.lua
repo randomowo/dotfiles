@@ -1,4 +1,5 @@
-local alias = require('mappings/alias')
+local utils = require('functions/utils')
+local alias = utils.import('mappings/alias')
 
 alias.normal_map(',<space>', '<cmd>nohlsearch<cr>')
 
@@ -12,7 +13,7 @@ alias.map('bn', '<cmd>bnext<cr>')
 alias.map('bd', '<cmd>bdelete<cr>')
 
 -- WINDOW
-local window = require('functions/window')
+local window = utils.import('functions/window')
 -- arrange
 alias.map('<C-j>', function() window.move('j') end, { silent = true })
 alias.map('<C-k>', function() window.move('k') end, { silent = true })
@@ -24,5 +25,5 @@ alias.map('<A-Right>', '<C-w>><cr>', { silent = true })
 alias.map('<A-Up>', '<C-w>+<cr>', { silent = true })
 alias.map('<A-Down>', '<C-w>-<cr>', { silent = true })
 
-require('mappings/files')
+utils.import('mappings/files')
 

@@ -12,7 +12,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local mappings = require('mappings/plugins')
+local utils = require('functions/utils')
+local mappings = utils.import('mappings/plugins')
 
 -- plugins
 require('lazy').setup({
@@ -33,7 +34,7 @@ require('lazy').setup({
         'nvim-treesitter/nvim-treesitter',
         init = function()
             require('nvim-treesitter.configs').setup(
-                require('settings/treesitter').opts
+                utils.import('settings/treesitter').opts
             )
         end,
     },
@@ -52,7 +53,7 @@ require('lazy').setup({
                         init = function()
                             local plug = require('mason')
                             plug.setup()
-                            require('functions/mason').install_required(plug)
+                            utils.import('functions/mason').install_required(plug)
                         end,
                     },
                 },
@@ -98,7 +99,8 @@ require('lazy').setup({
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
             local lsp = require('lspconfig')
-            local settings = require('settings/lsp')
+            local flsp = utils.import('functions/lsp')
+            local settings = utils.import('settings/lsp')
 
             for _, server in pairs(settings.configs) do
                 if server.preload_cmd ~= nil then
@@ -106,7 +108,7 @@ require('lazy').setup({
                 end
                 lsp[server.name].setup{
                     settings = server.settings,
-                    on_attach = require('functions/lsp').on_attach,
+                    on_attach = flsp.on_attach,
                     capabilities = capabilities,
                     flags = {
                         debounce_text_changes = 150,
@@ -114,7 +116,6 @@ require('lazy').setup({
                 }
             end
 
-            local flsp = require('functions/lsp')
             flsp.setup_ui()
         end
 
@@ -132,7 +133,7 @@ require('lazy').setup({
         config = function()
             mappings.gitgutter()
         end,
-        opts = require('settings/gitgutter').opts,
+        opts = utils.import('settings/gitgutter').opts,
     },
     'itchyny/vim-gitbranch',
     {
@@ -144,7 +145,7 @@ require('lazy').setup({
     -- use  instead
     {
         'nvim-lualine/lualine.nvim',
-        opts = require('settings/lualine').opts
+        opts = utils.import('settings/lualine').opts
     },
     -- files
     {
@@ -166,7 +167,7 @@ require('lazy').setup({
         init = function()
             local plug = require('dap')
             mappings.dap(plug)
-            require('functions/dap').setup_codelldb(plug)
+            utils.import('functions/dap').setup_codelldb(plug)
         end,
     },
     -- go dap plug
@@ -200,7 +201,7 @@ require('lazy').setup({
 
             dapui.setup()
 
-            require('functions/dap').add_listeners_for_ui(dap, dapui)
+            utils.import('functions/dap').add_listeners_for_ui(dap, dapui)
         end,
     },
         -- auto-resize windows
@@ -229,7 +230,7 @@ require('lazy').setup({
         init = function()
             local plug = require('trouble')
             plug.setup(
-                require('settings/trouble').opts
+                utils.import('settings/trouble').opts
             )
 
             mappings.trouble(plug)

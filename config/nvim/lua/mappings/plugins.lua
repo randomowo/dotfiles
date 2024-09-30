@@ -1,6 +1,7 @@
 local export = {}
 
-local alias = require('mappings/alias')
+local utils = require('functions/utils')
+local alias = utils.import('mappings/alias')
 
 function export.nerdtree(plug)
     alias.map('<F3>', '<cmd>NERDTreeToggle<cr>')
@@ -64,7 +65,7 @@ function export.todo_comments(plug)
 end
 
 function export.trouble(plug)
-    local settings = require('settings/trouble')
+    local settings = utils.import('settings/trouble')
     alias.normal_map('<leader>t', '<cmd>Trouble diagnostics toggle focus=true<cr>')
 end
 

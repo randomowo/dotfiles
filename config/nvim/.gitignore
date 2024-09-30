@@ -1,2 +1,4 @@
 /data/lazy
 /lazy-lock.json
+
+/lua/**/custom_*.lua

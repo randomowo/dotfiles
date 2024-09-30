@@ -1,12 +1,14 @@
 local export = {}
 
+local utils = require('functions/utils')
+
 function export.on_attach(client, bufnr)
-    require('mappings/plugins').lsp()
+    utils.import('mappings/plugins').lsp()
 end
 
 function export.setup_ui()
     vim.diagnostic.config({
-        require('settings/lsp').ui
+        utils.import('settings/lsp').ui
     })
 
     vim.o.updatetime = 250

@@ -47,7 +47,11 @@ globals.compeleteopt = 'menu,menuone,noselect'
 globals.showmode = 'off'
 globals.mapleader = ' '
 
-local functions = require('functions/globals')
+--
+
+local utils = require('functions/utils')
+
+local functions = utils.import('functions/globals')
 
 -- make background transparent
 vim.cmd('hi! Normal ctermbg=NONE guibg=NONE')
@@ -85,5 +89,5 @@ vim.api.nvim_create_autocmd(
     }
 )
 
-require('settings/files')
+utils.import('settings/files')
 
