@@ -95,27 +95,10 @@ require('lazy').setup({
         },
         init = function()
             mappings.lsp()
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
             local lsp = require('lspconfig')
             local flsp = utils.import('functions/lsp')
-            local settings = utils.import('settings/lsp')
 
-            for _, server in pairs(settings.configs) do
-                if server.preload_cmd ~= nil then
-                    -- local result = vim.fn.system(server.preload_cmd)
-                end
-                lsp[server.name].setup {
-                    settings = server.settings,
-                    on_attach = flsp.on_attach,
-                    capabilities = capabilities,
-                    flags = {
-                        debounce_text_changes = 150,
-                    }
-                }
-            end
-
+            flsp.setup(lsp)
             flsp.setup_ui()
         end
 

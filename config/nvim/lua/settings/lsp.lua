@@ -3,6 +3,7 @@ local export = {}
 export.configs = {
     {
         name = 'pylsp',
+        cmd = {},
         settings = {
             pylsp = {
                 plugins = {
@@ -27,22 +28,27 @@ export.configs = {
     },
     {
         name = 'gopls',
+        cmd = {},
         settings = {},
     },
     {
         name = 'ts_ls',
+        cmd = {},
         settings = {},
     },
     {
         name = 'dockerls',
+        cmd = {},
         settings = {},
     },
     {
         name = 'rust_analyzer',
+        cmd = {},
         settings = {},
     },
     {
         name = 'lua_ls',
+        cmd = {},
         settings = {},
     },
 }
