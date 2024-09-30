@@ -2,12 +2,31 @@
 local alias = require('mappings/alias')
 
 file_obj = {
-    { filetype = 'python', cmd = { 'python' } },
-    { filetype = 'javascript', cmd = { 'node' } },
-    { filetype = 'typescript', cmd = { 'npx', 'ts-node' } },
-    { filetype = 'go', cmd = { 'go', 'run' } },
-    { filetype = 'sh', cmd = { 'sh', '-c' } },
-    { filetype = 'rust', cmd = { 'rustc', '-o', '/var/tmp/single_rust' }, after_cmd = { '&&', '/var/tmp/single_rust', ';', 'rm', '-f', '/var/tmp/single_rust' } },
+    {
+        filetype = 'python',
+        cmd = { 'python' },
+    },
+    {
+        filetype = 'javascript',
+        cmd = { 'node' },
+    },
+    {
+        filetype = 'typescript',
+        cmd = { 'npx', 'ts-node' },
+    },
+    {
+        filetype = 'go',
+        cmd = { 'go', 'run' },
+    },
+    {
+        filetype = 'sh',
+        cmd = { 'sh', '-c' },
+    },
+    {
+        filetype = 'rust',
+        cmd = { 'rustc', '-o', '/var/tmp/single_rust' },
+        after_cmd = { '&&', '/var/tmp/single_rust', ';', 'rm', '-f', '/var/tmp/single_rust' },
+    },
 }
 
 function run_file()
@@ -34,7 +53,7 @@ end
 alias.map('<F9>', run_file)
 
 local file_fmt = {
-    { filetype = 'go', cmd = { 'gofmt' } },
+    { filetype = 'go',   cmd = { 'gofmt' } },
     { filetype = 'rust', cmd = { 'rustfmt' } },
 }
 
@@ -65,7 +84,7 @@ end
 vim.api.nvim_create_autocmd(
     { 'TermOpen' },
     {
-        pattern = {'*'},
+        pattern = { '*' },
         callback = function()
             alias.map('<F9>', close_term, { buffer = true })
         end,
@@ -74,10 +93,9 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd(
     { 'TermClose' },
     {
-        pattern = {'*'},
+        pattern = { '*' },
         callback = function()
             vim.cmd(':bd')
         end,
     }
 )
-

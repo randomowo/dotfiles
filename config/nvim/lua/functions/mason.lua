@@ -8,4 +8,3 @@ function export.install_required(plug)
 end
 
 return export
-

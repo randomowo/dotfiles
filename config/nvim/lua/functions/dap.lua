@@ -23,7 +23,7 @@ function export.setup_codelldb(dap)
         port = port,
         executable = {
             command = vim.fn.stdpath('data') .. '/mason/bin/codelldb',
-            args = {'--port', port},
+            args = { '--port', port },
         },
     }
 
@@ -45,4 +45,3 @@ function export.setup_codelldb(dap)
 end
 
 return export
-

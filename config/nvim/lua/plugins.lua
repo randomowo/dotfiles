@@ -60,7 +60,7 @@ require('lazy').setup({
                 init = function()
                     local plug = require('mason-lspconfig')
                     plug.setup()
-                 end,
+                end,
             },
 
             {
@@ -82,11 +82,11 @@ require('lazy').setup({
                         },
                         mapping = mappings.cmp(plug),
                         sources = plug.config.sources({
-                                { name = 'nvim_lsp' },
-                                { name = 'nvim_lsp_signature_help' },
-                                { name = 'buffer' },
-                                { name = 'luasnip' },
-                                { name = 'path' },
+                            { name = 'nvim_lsp' },
+                            { name = 'nvim_lsp_signature_help' },
+                            { name = 'buffer' },
+                            { name = 'luasnip' },
+                            { name = 'path' },
                         })
                     })
                 end,
@@ -106,7 +106,7 @@ require('lazy').setup({
                 if server.preload_cmd ~= nil then
                     -- local result = vim.fn.system(server.preload_cmd)
                 end
-                lsp[server.name].setup{
+                lsp[server.name].setup {
                     settings = server.settings,
                     on_attach = flsp.on_attach,
                     capabilities = capabilities,
@@ -204,7 +204,7 @@ require('lazy').setup({
             utils.import('functions/dap').add_listeners_for_ui(dap, dapui)
         end,
     },
-        -- auto-resize windows
+    -- auto-resize windows
     {
         'anuvyklack/windows.nvim',
         dependencies = 'anuvyklack/middleclass',
@@ -243,4 +243,3 @@ require('lazy').setup({
         end
     },
 })
-

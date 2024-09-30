@@ -61,14 +61,14 @@ vim.cmd('highlight ExtraWhitespace ctermbg=red guibg=red')
 vim.api.nvim_create_autocmd(
     { 'ColorScheme' },
     {
-        pattern = {'*'},
+        pattern = { '*' },
         command = 'highlight ExtraWhitespace ctermbg=red guibg=red',
     }
 )
 vim.api.nvim_create_autocmd(
     { 'BufNew', 'BufEnter', 'BufWinEnter', 'WinEnter' },
     {
-        pattern = {'*'},
+        pattern = { '*' },
         command = 'match ExtraWhitespace /\\s\\+$/',
     }
 )
@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd(
     { 'BufWritePre', 'FileWritePre' },
     {
-        pattern = {'*'},
+        pattern = { '*' },
         callback = function()
             -- trim trailing whitespaces
             functions.trim_whitespaces()
@@ -90,4 +90,3 @@ vim.api.nvim_create_autocmd(
 )
 
 utils.import('settings/files')
-

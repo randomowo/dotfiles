@@ -22,4 +22,3 @@ local export = {
 }
 
 return export
-

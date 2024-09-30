@@ -27,4 +27,3 @@ function export.terminal_map(key, command, opts)
 end
 
 return export
-

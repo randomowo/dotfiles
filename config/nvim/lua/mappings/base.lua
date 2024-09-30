@@ -26,4 +26,3 @@ alias.map('<A-Up>', '<C-w>+<cr>', { silent = true })
 alias.map('<A-Down>', '<C-w>-<cr>', { silent = true })
 
 utils.import('mappings/files')
-
