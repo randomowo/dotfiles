@@ -4,7 +4,7 @@ local function mergeTables(t1, t2)
     for k, v in pairs(t2) do
         if type(v) == 'table' then
             if type(t1[k] or false) == 'table' then
-                t1[k] = export.mergeTables(t1[k] or {}, t2[k] or {})
+                t1[k] = mergeTables(t1[k] or {}, t2[k] or {})
             else
                 t1[k] = v
             end
@@ -44,7 +44,7 @@ function export.import(module)
     local custom_module = table.concat(module_parts, '/')
 
     if pcall(require, custom_module) then
-        m = mergeTables(m, require(custom_module))
+        m = mergeTables(m or {}, require(custom_module) or {})
     end
 
     return m
