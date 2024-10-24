@@ -8,7 +8,7 @@ opt.relativenumber = false
 opt.linebreak = true
 opt.wrapmargin = 0
 opt.textwidth = 0
-opt.colorcolumn = '+120'
+opt.colorcolumn = '120'
 opt.fileformat = 'unix'
 opt.encoding = 'utf-8'
 opt.cmdheight = 1
@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd(
             -- trim trailing whitespaces
             functions.trim_whitespaces()
             -- fix tabs and spaces
-            vim.cmd('retab!')
+            -- vim.cmd('retab!')
             -- make files ends with one new line
             -- functions.fix_newlines_at_eof()
         end,

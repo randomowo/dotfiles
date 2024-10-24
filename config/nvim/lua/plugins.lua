@@ -1,14 +1,17 @@
 -- install packer if not installer
 local lazypath = vim.fn.stdpath('config') .. 'data/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        'git',
-        'clone',
-        '--filter=blob:none',
-        'https://github.com/folke/lazy.nvim.git',
-        '--branch=stable',
-        lazypath,
-    })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -38,31 +41,28 @@ require('lazy').setup({
             )
         end,
     },
+    -- right order is:
+    -- 1. mason
+    -- 2. mason-lspconfig
+    -- 3. lspconfig
+    {
+        'williamboman/mason.nvim',
+        init = function()
+            local plug = require('mason')
+            plug.setup()
+            utils.import('functions/mason').install_required(plug)
+        end,
+    },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        init = function()
+            local plug = require('mason-lspconfig')
+            plug.setup()
+        end,
+    },
     {
         'neovim/nvim-lspconfig',
         dependencies = {
-            -- right order is:
-            -- 1. mason
-            -- 2. mason-lspconfig
-            -- 3. lspconfig
-            {
-                'williamboman/mason-lspconfig.nvim',
-                dependencies = {
-                    {
-                        'williamboman/mason.nvim',
-                        init = function()
-                            local plug = require('mason')
-                            plug.setup()
-                            utils.import('functions/mason').install_required(plug)
-                        end,
-                    },
-                },
-                init = function()
-                    local plug = require('mason-lspconfig')
-                    plug.setup()
-                end,
-            },
-
             {
                 'hrsh7th/nvim-cmp',
                 dependencies = {
@@ -186,15 +186,6 @@ require('lazy').setup({
 
             utils.import('functions/dap').add_listeners_for_ui(dap, dapui)
         end,
-    },
-    -- auto-resize windows
-    {
-        'anuvyklack/windows.nvim',
-        dependencies = 'anuvyklack/middleclass',
-        init = function()
-            local plug = require('windows')
-            plug.setup()
-        end
     },
     -- highlight TODO, FIXME and etc
     {
