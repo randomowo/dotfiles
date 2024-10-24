@@ -62,7 +62,7 @@ function export.mergeListsByKey(l1, l2, key)
             local res = export.getFromListByKV(l2, key, v[key])
             if res ~= nil then
                 result[k] = res[2]
-                table.insert(visited, res[2])
+                table.insert(visited, res[1])
             else
                 result[k] = v
             end
