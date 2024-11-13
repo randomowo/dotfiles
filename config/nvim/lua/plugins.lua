@@ -216,4 +216,13 @@ require('lazy').setup({
             mappings.tagbar()
         end
     },
+    {
+        'anuvyklack/windows.nvim',
+        dependencies = {
+            'anuvyklack/middleclass',
+        },
+        init = function()
+            require('windows').setup()
+        end
+    },
 })
