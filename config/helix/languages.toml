@@ -25,3 +25,9 @@ language-servers = [ "buf" ]
 name = "git-commit"
 auto-format = true
 language-servers = [ "buf" ]
+
+[[language]]
+name = "rust"
+auto-format = true
+indent = { tab-width = 4, unit=" " }
+
