@@ -69,4 +69,9 @@ function export.trouble(plug)
     alias.normal_map('<leader>t', '<cmd>Trouble diagnostics toggle focus=true<cr>')
 end
 
+function export.formatter(plug)
+    alias.normal_map('<leader>f', '<cmd>:Format<cr>')
+    alias.normal_map('<leader>F', '<cmd>:FormatWrite<cr>')
+end
+
 return export

@@ -52,27 +52,6 @@ end
 
 alias.map('<F9>', run_file)
 
-local file_fmt = {
-    { filetype = 'go',   cmd = { 'gofmt' } },
-    { filetype = 'rust', cmd = { 'rustfmt' } },
-}
-
-function format_file()
-    if vim.bo == nil then
-        return
-    end
-
-    for _, obj in pairs(file_fmt) do
-        if vim.bo.filetype == obj.filetype then
-            vim.cmd('write!')
-            local cmd = table.concat(obj.cmd, ' ')
-            vim.cmd('%!' .. cmd)
-        end
-    end
-end
-
-alias.map('<F10>', format_file)
-
 function close_term()
     vim.cmd.startinsert()
     local stop = vim.api.nvim_replace_termcodes('<C-c>', true, false, true)

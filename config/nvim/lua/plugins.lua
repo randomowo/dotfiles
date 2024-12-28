@@ -57,7 +57,16 @@ require('lazy').setup({
         'williamboman/mason-lspconfig.nvim',
         init = function()
             local plug = require('mason-lspconfig')
-            plug.setup()
+            local config = require('settings/mason-lspconfig')
+            plug.setup(config)
+
+            local lspconfig = require('lspconfig')
+
+            plug.setup_handlers {
+                function(server_name)
+                    lspconfig[server_name].setup {}
+                end,
+            }
         end,
     },
     {
@@ -223,6 +232,14 @@ require('lazy').setup({
         },
         init = function()
             require('windows').setup()
+        end
+    },
+    {
+        'mhartington/formatter.nvim',
+        init = function()
+            local plug = require('formatter')
+
+            mappings.formatter(plug)
         end
     },
 })
