@@ -2,7 +2,7 @@ local export = {}
 
 export.ensure_installed = {
     'pylsp',
-    'gopls',
+    -- 'gopls', -- fails with error
     'ts_ls',
     'dockerls',
     'rust_analyzer',
