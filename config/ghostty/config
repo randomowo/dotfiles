@@ -1,0 +1,5 @@
+config-file = base
+config-file = font
+config-file = ?theme
+config-file = ?keybinds
+config-file = ?window

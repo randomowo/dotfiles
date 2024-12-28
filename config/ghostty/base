@@ -1,0 +1,6 @@
+working-directory = home
+shell-integration = zsh
+macos-titlebar-style = hidden
+macos-option-as-alt = left
+shell-integration-features = no-cursor
+cursor-style = block

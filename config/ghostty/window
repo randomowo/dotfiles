@@ -1,0 +1,7 @@
+window-decoration = true
+window-theme = dark
+window-inherit-working-directory = true
+window-height = 45
+window-width = 150
+window-padding-x = 5
+window-padding-y = 5
