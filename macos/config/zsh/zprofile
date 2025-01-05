@@ -4,6 +4,9 @@
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# macos dev-tools
+export PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
+
 # PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
