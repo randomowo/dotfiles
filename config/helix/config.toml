@@ -10,6 +10,7 @@ auto-save = false
 true-color = false
 rulers = [120]
 idle-timeout = 20
+bufferline = "always"
 
 [editor.statusline]
 left = ["mode", "diagnostics", "version-control"]
@@ -41,7 +42,7 @@ space = "·"
 nbsp = "_"
 tab = ">"
 newline = "\n"
-tabpad = "." # Tabs will look like "→···" (depending on tab width)
+tabpad = "." # Tabs will look like ">···" (depending on tab width)
 
 [editor.soft-wrap]
 enable = false
