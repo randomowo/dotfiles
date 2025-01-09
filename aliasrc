@@ -215,7 +215,9 @@ alias \
 # programs
 alias \
     x="lf" \
-    e="$EDITOR"
+    e="$EDITOR" \
+    k="kubectl" \
+    kx="kubectx"
 
 # network
 alias \
