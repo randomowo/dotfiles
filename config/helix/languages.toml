@@ -13,7 +13,7 @@ indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
 name = "yaml"
-auto-format = true
+auto-format = false
 indent = { tab-width = 2, unit = " " }
 formatter = { command = "yq" }
 
