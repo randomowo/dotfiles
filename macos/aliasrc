@@ -13,6 +13,10 @@ alias \
     yd="yt-dlp" \
     top="btm"
 
+_ucargobins() {
+    cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
+}
+
 _uall() {
     cmds=( \
         "softwareupdate --all --install --force" \
@@ -20,6 +24,7 @@ _uall() {
         "upip" \
         "mise upgrade" \
         "rustup update" \
+        "_ucargobins"
     )
 
     for cmd in $cmds; do
@@ -75,5 +80,5 @@ _ugomod() {
 alias \
     u="_uall" \
     hud="_hud" \
-    ugomod="_ugomod"
-
+    ugomod="_ugomod" \
+    ucargobins="_ucargobins"
