@@ -22,6 +22,10 @@ export PATH="/opt/homebrew/bin:$PATH"
 eval "$(mise activate ${SHELL##*/})"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
+# go installed bins hack
+export GOBIN="$HOME/go/bin"
+export PATH="$GOBIN:$PATH"
+
 # rust
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 export CARGO_HOME="$HOME/.local/share/cargo"
