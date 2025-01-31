@@ -4,12 +4,12 @@ command = "buffer-language-server"
 
 [[language]]
 name = "go"
-auto-format = true
+auto-format = false
 indent = { tab-width = 4, unit = "\t" }
 
 [language-server.gopls.config]
 # go install mvdan.cc/gofumpt@latest
-"formatting.gofumpt" = true
+"formatting.gofumpt" = false
 
 [[language]]
 name = "yaml"
@@ -19,13 +19,13 @@ formatter = { command = "yq" }
 
 [[language]]
 name = "json"
-auto-format = true
+auto-format = false
 indent = { tab-width = 2, unit = " " }
 formatter = { command = "jq" }
 
 [[language]]
 name = "markdown"
-auto-format = true
+auto-format = false
 language-servers = [ "buf" ]
 
 [[language]]
@@ -35,6 +35,12 @@ language-servers = [ "buf" ]
 
 [[language]]
 name = "rust"
-auto-format = true
+auto-format = false
 indent = { tab-width = 4, unit=" " }
+
+[[language]]
+# npm -i bash-language-server
+name = "bash"
+auto-format  = false
+indent = { tab-width = 2, unit=" " }
 
