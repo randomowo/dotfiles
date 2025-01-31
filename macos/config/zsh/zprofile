@@ -36,3 +36,5 @@ export PATH="$CARGO_HOME/bin:$PATH"
 # Toolbox
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 
+# kubectl packag emanager (krew)
+export PATH="${KREW_ROT:-$HOME/.krew}/bin:$PATH"
