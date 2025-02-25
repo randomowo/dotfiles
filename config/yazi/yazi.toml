@@ -1,0 +1,4 @@
+[manager]
+ratio = [1, 2, 3]
+sort_by = "natural"
+linemode = "size"

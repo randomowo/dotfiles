@@ -212,9 +212,18 @@ alias \
     pyprofile='python -m cProfile -o profile' \
     pytest='python -m pytest'
 
+function _yazi() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
 # programs
 alias \
-    x="lf" \
+    x="_yazi" \
     e="$EDITOR" \
     k="kubectl" \
     kx="kubectx"
