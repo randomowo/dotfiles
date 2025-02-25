@@ -18,7 +18,7 @@ export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 export PATH="/opt/homebrew/opt/e2fsprogs/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 
-## mise-cli
+# mise-cli
 eval "$(mise activate ${SHELL##*/})"
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
@@ -38,3 +38,9 @@ export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 
 # kubectl packag emanager (krew)
 export PATH="${KREW_ROT:-$HOME/.krew}/bin:$PATH"
+
+# zoxide
+type zoxide>/dev/null && eval "$(zoxide init zsh)"
+
+# fzf
+type fzf>/dev/null && source <(fzf --zsh)
