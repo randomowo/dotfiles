@@ -1,0 +1,55 @@
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+{
+  "ui_font_size": 13,
+  "ui_font_family": "Mononoki Nerd Font",
+  "buffer_font_size": 13,
+  "buffer_font_family": "Mononoki Nerd Font",
+  "buffer_line_height": {
+    "custom": 0.99
+  },
+  "show_whitespaces": "boundary",
+  "remove_trailing_whitespace_on_save": true,
+  "base_keymap": "JetBrains",
+  "confirm_quit": false,
+  "format_on_save": "off",
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Light Soft",
+    "dark": "Gruvbox Dark Hard"
+  },
+  "restore_on_startup": "none",
+  "languages": {
+    "Go": {
+      "formatter": {
+        "external": {
+          "command": "goimports",
+          "arguments": []
+        }
+      }
+    }
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "available_models": [
+        {
+          "name": "llama3.1:8b",
+          "display_name": "llama3.1:8b",
+          "max_tokens": 32768
+        }
+      ]
+    }
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "llama3.1:8b"
+    },
+    "version": "2"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  }
+}
