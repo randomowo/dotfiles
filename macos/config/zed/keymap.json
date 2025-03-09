@@ -4,13 +4,16 @@
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-r": null
+      "cmd-r": null,
+      "cmd-alt": null
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      "cmd-r": "buffer_search::DeployReplace"
+      "cmd-r": "buffer_search::DeployReplace",
+      "cmd-alt": null,
+      "alt-enter": "editor::OpenContextMenu"
     }
   }
 ]
