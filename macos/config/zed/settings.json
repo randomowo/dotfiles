@@ -18,6 +18,8 @@
     "light": "Gruvbox Light Soft",
     "dark": "Gruvbox Dark Hard"
   },
+  "preferred_line_length": 120,
+  "soft_wrap": "bounded",
   "restore_on_startup": "none",
   "languages": {
     "Go": {
