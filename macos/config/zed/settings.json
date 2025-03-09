@@ -26,12 +26,22 @@
   "restore_on_startup": "none",
   "languages": {
     "Go": {
-      "formatter": {
-        "external": {
-          "command": "goimports",
-          "arguments": []
+      "formatter": [
+        {
+          "external": {
+            // go install github.com/segmentio/golines@latest
+            "command": "golines",
+            "arguments": ["-m", "120", "--chain-split-dots", "--ignore-generated"]
+          }
+        },
+        {
+          "external": {
+            // go install mvdan.cc/gofumpt@latest
+            "command": "gofumpt",
+            "arguments": ["-extra"]
+          }
         }
-      }
+      ]
     }
   },
   "language_models": {
