@@ -12,6 +12,7 @@
     "custom": 0.99
   },
   "show_whitespaces": "boundary",
+  "show_wrap_guides": true,
   "remove_trailing_whitespace_on_save": true,
   "base_keymap": "JetBrains",
   "confirm_quit": false,
@@ -21,6 +22,17 @@
     "light": "Gruvbox Light Soft",
     "dark": "Gruvbox Dark Hard"
   },
+  "tabs": {
+    "close_position": "left",
+    "git_status": true,
+    "show_diagnostics": "errors",
+    "file_icons": true,
+    "activate_on_close": "left_neighbour"
+  },
+  "when_closing_with_no_tabs": "keep_window_open",
+  "on_last_window_closed":"quit_app",
+  "autosave": "on_focus_change",
+  "ensure_final_newline_on_save": false,
   "preferred_line_length": 120,
   "soft_wrap": "bounded",
   "restore_on_startup": "none",
@@ -54,15 +66,6 @@
       ]
     }
   },
-  "lsp": {
-    "ltex": {
-      "settings": {
-        "ltex": {
-          "language": "auto"
-        }
-      }
-    }
-  },
   "auto_install_extensions": {
     "html": true,
     "toml": true,
@@ -76,7 +79,7 @@
     "marksman": true,
     "wgsl": true,
     "vacuum": true,
-    "ltex": true
+    "nginx": true
   },
   "language_models": {
     "ollama": {
