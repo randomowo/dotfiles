@@ -24,6 +24,16 @@
   "preferred_line_length": 120,
   "soft_wrap": "bounded",
   "restore_on_startup": "none",
+  "diagnostics": {
+    "include_warnings": false,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
   "languages": {
     "Go": {
       "formatter": [
@@ -43,6 +53,30 @@
         }
       ]
     }
+  },
+  "lsp": {
+    "ltex": {
+      "settings": {
+        "ltex": {
+          "language": "auto"
+        }
+      }
+    }
+  },
+  "auto_install_extensions": {
+    "html": true,
+    "toml": true,
+    "dockerfile": true,
+    "sql": true,
+    "make": true,
+    "docker-compose": true,
+    "pylsp": true,
+    "env": true,
+    "basher": true,
+    "marksman": true,
+    "wgsl": true,
+    "vacuum": true,
+    "ltex": true
   },
   "language_models": {
     "ollama": {
