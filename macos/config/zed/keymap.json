@@ -13,7 +13,13 @@
     "bindings": {
       "cmd-r": "buffer_search::DeployReplace",
       "cmd-alt": null,
-      "alt-enter": "editor::ToggleCodeActions"
+      "alt-enter": "editor::ToggleCodeActions",
+      "cmd--": [
+        "zed::DecreaseBufferFontSize",
+        {
+          "persist": false
+        }
+      ]
     }
   }
 ]
