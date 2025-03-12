@@ -5,7 +5,9 @@
     "context": "Workspace",
     "bindings": {
       "cmd-r": null,
-      "cmd-alt": null
+      "cmd-alt": null,
+      "shift-cmd-p": "command_palette::Toggle",
+      "shift shift": "file_finder::Toggle"
     }
   },
   {
@@ -19,7 +21,9 @@
         {
           "persist": false
         }
-      ]
+      ],
+      "shift-cmd-p": "command_palette::Toggle",
+      "shift shift": "file_finder::Toggle"
     }
   }
 ]
