@@ -81,4 +81,5 @@ alias \
     u="_uall" \
     hud="_hud" \
     ugomod="_ugomod" \
-    ucargobins="_ucargobins"
+    ucargobins="_ucargobins" \
+    cd="z"
