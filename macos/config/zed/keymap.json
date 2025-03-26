@@ -7,7 +7,13 @@
       "cmd-r": null,
       "cmd-alt": null,
       "shift-cmd-p": "command_palette::Toggle",
-      "shift shift": "file_finder::Toggle"
+      "shift shift": "file_finder::Toggle",
+      "shift-cmd-o": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": true
+        }
+      ]
     }
   },
   {
