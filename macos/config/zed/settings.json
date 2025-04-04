@@ -62,6 +62,17 @@
           }
         }
       ]
+    },
+    "Shell Script": {
+      "formatter": [
+        {
+          "external": {
+            // go install mvdan.cc/sh/v3/cmd/shfmt@latest
+            "command": "shfmt",
+            "arguments": ["-i", "2"]
+          }
+        }
+      ]
     }
   },
   "auto_install_extensions": {
