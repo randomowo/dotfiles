@@ -28,7 +28,7 @@
     "activate_on_close": "left_neighbour"
   },
   "when_closing_with_no_tabs": "keep_window_open",
-  "on_last_window_closed":"quit_app",
+  "on_last_window_closed": "quit_app",
   "autosave": "on_focus_change",
   "ensure_final_newline_on_save": false,
   "preferred_line_length": 120,
