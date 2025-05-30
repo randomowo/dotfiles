@@ -7,7 +7,7 @@
   "buffer_font_size": 13,
   "buffer_font_family": "Mononoki Nerd Font",
   "buffer_line_height": {
-    "custom": 0.99
+    "custom": 1.0
   },
   "show_whitespaces": "boundary",
   "show_wrap_guides": true,
@@ -89,7 +89,9 @@
     "wgsl": true,
     "vacuum": true,
     "nginx": true,
-    "cspell": true
+    "nix": true,
+    "vue": true,
+    "git-firefly": true
   },
   "language_models": {
     "ollama": {
@@ -103,7 +105,7 @@
       ]
     }
   },
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "ollama",
       "model": "llama3.1:8b"
@@ -117,7 +119,7 @@
       "proxy": null,
       "proxy_no_verify": null
     },
-    "enabled_in_assistant": false
+    "enabled_in_text_threads": false
   },
   "features": {
     "edit_prediction_provider": "zed"
