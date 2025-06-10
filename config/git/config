@@ -1,0 +1,84 @@
+[include]
+	path = ~/.gituserconfig
+	path = ~/.cgitconfig
+
+[core]
+	autocrlf = input
+	compression = 9
+	whitespace = blank-at-eol,space-before-tab
+	fsync = none
+
+[advice]
+	addEmptyPathspec = false
+	statusHints = false
+
+[commit]
+	verbose = true
+
+[blame]
+	coloring = highlightRecent
+	date = local
+
+[diff]
+	context = 3
+	renames = copies
+	interHunkContext = 10
+	noPrefix = true
+	relative = false
+	suppressBlankEmpty = false
+
+[init]
+	defaultBranch = main
+
+[log]
+	abbrevCommit = true
+	date = local
+	decorate = short
+	graphColors = blue,yellow,cyan,magenta,green,red
+
+[status]
+	relativePaths = true
+	branch = true
+	renames = copies
+	showStash = true
+	short = true
+	showUntrackedFiles = all
+
+[interactive]
+	singleKey = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+	followTags = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	missingCommitsCheck = warn
+
+[color "blame"]
+	highlightRecent = white,1 year ago,yellow,1 month ago,green,7 days ago,blue
+
+[color "diff"]
+	old = red
+	new = green
+	frag = magenta
+	context = brightwhite
+	meta = brightblack bold
+	whitespaces = red reverse
+
+[color "decorate"]
+	HEAD = red
+	branch = blue
+	tag = yellow
+	remoteBranch = magenta
+
+[color "branch"]
+	current = green
+	local = default
+	remote = magenta
+	upstream = red
+	plain = blue

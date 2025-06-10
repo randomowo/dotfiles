@@ -1,0 +1,68 @@
+#!/bin/sh
+
+_outline="--output-indicator-new=' ' --output-indicator-old=' '"
+
+alias \
+    ga="git add" \
+    gap="git add --patch"
+
+alias \
+    gd="git diff $_outline" \
+    gds="git diff --staged $_outline"
+
+alias \
+    gc="git commit" \
+    gc!="git commit --amend" \
+    gcn!="git commit --amend --no-edit"
+
+alias \
+    gp="git push" \
+    gp!="git push -f"
+
+alias \
+    gl="git pull"
+
+alias \
+    gb="git branch" \
+    gbmv="git branch -m" \
+    gba="git branch -a"
+
+alias \
+    gco="git checkout" \
+    gcb="git checkout -b"
+
+alias \
+    gcl="git clone --recursive"
+
+alias \
+    glog="git log --stat --graph" \
+    glogf="git log --oneline --graph"
+
+alias \
+    gm="git merge"
+
+alias \
+    grb="git rebase" \
+    grbo="git rebase --onto" \
+    grba="git rebase --abort" \
+    grbc="git rebase --commit" \
+    grbi="git rebase -i"
+
+alias \
+    grs="git restore" \
+    grst="git restore --staged"
+
+alias \
+    gsh="git show $_outline"
+
+alias \
+    gstl="git stash list" \
+    gstp="git stash pop" \
+    gsta="git stash push"
+
+alias \
+    gst="git status"
+
+alias \
+    gt="git tag" \
+    gtd="git tag -d"
