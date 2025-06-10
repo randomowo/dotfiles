@@ -9,6 +9,10 @@
   "buffer_line_height": {
     "custom": 1.0
   },
+  "terminal": {
+    "button": false,
+    "copy_on_select": false
+  },
   "show_whitespaces": "boundary",
   "show_wrap_guides": true,
   "remove_trailing_whitespace_on_save": true,
