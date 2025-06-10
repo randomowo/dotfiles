@@ -57,27 +57,6 @@ alias \
 alias \
     check-ciphers="nmap -sV --script ssl-enum-ciphers"
 
-# docker
-## containers
-MYSQL='docker run --name mysql-for-tests --platform=linux/amd64 --rm -e MYSQL_ROOT_PASSWORD=password -p 3333:3306 -d'
-POSTGRESQL='docker run --name postgres-for-tests --rm -e POSTGRES_PASSWORD=password -p 5439:5432 -d'
-CLICKHOUSE='docker run --name clickhouse-for-tests --rm -p 9321:9000 -p 8321:8123 -d'
-
-alias \
-    dmysql=$MYSQL' mysql:5.7' \
-    dvmysql=$MYSQL' -v mysql-test:/var/lib/mysql mysql:5.7-debian' \
-    dpostgres=$POSTGRESQL' postgres' \
-    dvpostgres=$POSTGRESQL' -v postgres-test:/var/lib/postgresql postgres' \
-    dclickhouse=$CLICKHOUSE' clickhouse/clickhouse-server:latest' \
-    dvclickhouse=$CLICKHOUSE' -v clickhouse-test:/var/lib/clickhouse clickhouse/clickhouse-server:latest' \
-    dubuntu='docker run --rm -it randomowo/ubuntu-vim bash' \
-    cdubuntu='docker run --rm -it ubuntu bash'
-
-## commands
-alias \
-    dpsi='docker ps --format="{{.Image}} -> {{.Names}}"'
-
-# system specific aliases
 # aliases
 ## git aliases
 [ -f $HOME/.gitaliasrc ] && source $HOME/.gitaliasrc
