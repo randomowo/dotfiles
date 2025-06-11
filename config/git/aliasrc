@@ -35,8 +35,8 @@ alias \
     gcl="git clone --recursive"
 
 alias \
-    glog="git log --stat --graph" \
-    glogf="git log --oneline --graph"
+    glog="git log --oneline --graph" \
+    glogf="git log --stat --graph"
 
 alias \
     gm="git merge"
