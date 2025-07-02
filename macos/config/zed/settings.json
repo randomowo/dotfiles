@@ -1,9 +1,9 @@
-// For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
 {
   "vim_mode": true,
   "vim": {
-    "default_mode": "helix_normal"
+    "default_mode": "helix_normal",
+    "use_system_clipboard": "on_yank"
   },
   "show_edit_predictions": true,
   "ui_font_size": 13,
@@ -99,7 +99,8 @@
     "marksman": true,
     "vacuum": true,
     "nginx": true,
-    "git-firefly": true
+    "git-firefly": true,
+    "mcp-server-context7": true
   },
   "edit_predictions": {
     "disabled_globs": []
@@ -107,5 +108,86 @@
   "telemetry": {
     "diagnostics": false,
     "metrics": false
+  },
+  "agent": {
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "copy_path": true,
+          "create_directory": true,
+          "delete_path": true,
+          "diagnostics": true,
+          "edit_file": true,
+          "fetch": true,
+          "list_directory": true,
+          "move_path": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "grep": true,
+          "terminal": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "mcp-server-sequential-thinking": {
+            "tools": {
+              "sequentialthinking": true
+            }
+          },
+          "mcp-server-context7": {
+            "tools": {
+              "resolve-library-id": true,
+              "get-library-docs": true
+            }
+          }
+        }
+      },
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "contents": true,
+          "diagnostics": true,
+          "fetch": true,
+          "list_directory": true,
+          "now": true,
+          "find_path": true,
+          "read_file": true,
+          "open": true,
+          "grep": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "mcp-server-sequential-thinking": {
+            "tools": {
+              "sequentialthinking": true
+            }
+          },
+          "mcp-server-context7": {
+            "tools": {
+              "resolve-library-id": true,
+              "get-library-docs": true
+            }
+          }
+        }
+      }
+    },
+    "default_profile": "ask",
+    "version": "2",
+    "enabled": true,
+    "button": true,
+    "dock": "right",
+    "default_width": 640,
+    "default_height": 320,
+    "default_view": "thread",
+    "default_model": {
+      "provider": "lmstudio",
+      "model": "qwen/qwen3-8b"
+    },
+    "single_file_review": true
   }
 }
