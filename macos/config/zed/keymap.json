@@ -38,5 +38,11 @@
         }
       ]
     }
+  },
+  {
+    "context": "vim_mode != normal",
+    "bindings": {
+      "escape": "vim::HelixNormalAfter"
+    }
   }
 ]
