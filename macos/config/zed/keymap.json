@@ -14,7 +14,7 @@
           "create_new_window": true
         }
       ],
-      "cmd-w": "workspace::CloseActiveDock",
+      "cmd-w": "workspace::CloseActiveDock"
     }
   },
   {
