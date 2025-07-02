@@ -1,6 +1,10 @@
 // For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
 {
+  "vim_mode": true,
+  "vim": {
+    "default_mode": "helix_normal"
+  },
   "show_edit_predictions": true,
   "ui_font_size": 13,
   "ui_font_family": "Mononoki Nerd Font",
@@ -10,11 +14,13 @@
     "custom": 1.0
   },
   "terminal": {
-    "button": false,
+    "button": true,
     "copy_on_select": false
   },
   "show_whitespaces": "boundary",
+  "preferred_line_length": 120,
   "show_wrap_guides": true,
+  "soft_wrap": "bounded",
   "remove_trailing_whitespace_on_save": true,
   "base_keymap": "JetBrains",
   "confirm_quit": false,
@@ -31,12 +37,8 @@
     "file_icons": true,
     "activate_on_close": "left_neighbour"
   },
-  "when_closing_with_no_tabs": "keep_window_open",
-  "on_last_window_closed": "quit_app",
   "autosave": "on_focus_change",
   "ensure_final_newline_on_save": false,
-  "preferred_line_length": 120,
-  "soft_wrap": "bounded",
   "restore_on_startup": "none",
   "diagnostics": {
     "include_warnings": false,
@@ -51,6 +53,11 @@
   "languages": {
     "Go": {
       "formatter": [
+        {
+          "external": {
+            "command": "gofmt"
+          }
+        },
         {
           "external": {
             // go install github.com/segmentio/golines@latest
@@ -90,43 +97,12 @@
     "env": true,
     "basher": true,
     "marksman": true,
-    "wgsl": true,
     "vacuum": true,
     "nginx": true,
-    "nix": true,
-    "vue": true,
     "git-firefly": true
   },
-  "language_models": {
-    "ollama": {
-      "api_url": "http://localhost:11434",
-      "available_models": [
-        {
-          "name": "llama3.1:8b",
-          "display_name": "llama3.1:8b",
-          "max_tokens": 32768
-        }
-      ]
-    }
-  },
-  "agent": {
-    "default_model": {
-      "provider": "ollama",
-      "model": "llama3.1:8b"
-    },
-    "version": "2"
-  },
   "edit_predictions": {
-    "disabled_globs": [],
-    "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null
-    },
-    "enabled_in_text_threads": false
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
+    "disabled_globs": []
   },
   "telemetry": {
     "diagnostics": false,
