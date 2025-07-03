@@ -41,16 +41,34 @@
     }
   },
   {
-    "context": "vim_mode != normal",
+    "context": "vim_mode == insert || vim_mode == replace",
     "bindings": {
+      "ctrl-c": "vim::HelixNormalAfter",
+      "ctrl-[": "vim::HelixNormalAfter",
       "escape": "vim::HelixNormalAfter"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-[": "vim::SwitchToHelixNormalMode",
+      "escape": "vim::SwitchToHelixNormalMode"
     }
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
+      "ctrl-c": "vim::SwitchToHelixNormalMode",
+      "ctrl-[": "vim::SwitchToHelixNormalMode",
+      "escape": "vim::SwitchToHelixNormalMode",
       "g l": "vim::EndOfLine",
       "g h": "vim::StartOfLine"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == waiting && (vim_operator == ys || vim_operator == cs)",
+    "bindings": {
+      "escape": "vim::SwitchToHelixNormalMode"
     }
   }
 ]
