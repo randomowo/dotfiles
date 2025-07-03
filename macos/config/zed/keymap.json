@@ -14,7 +14,8 @@
           "create_new_window": true
         }
       ],
-      "cmd-w": "workspace::CloseActiveDock"
+      "cmd-w": "workspace::CloseActiveDock",
+      "ctrl-tab": "tab_switcher::ToggleAll"
     }
   },
   {
@@ -43,6 +44,13 @@
     "context": "vim_mode != normal",
     "bindings": {
       "escape": "vim::HelixNormalAfter"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "g l": "vim::EndOfLine",
+      "g h": "vim::StartOfLine"
     }
   }
 ]
