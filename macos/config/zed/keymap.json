@@ -52,7 +52,8 @@
     "context": "VimControl && !menu",
     "bindings": {
       "ctrl-[": "vim::SwitchToHelixNormalMode",
-      "escape": "vim::SwitchToHelixNormalMode"
+      "escape": "vim::SwitchToHelixNormalMode",
+      "escape escape": "editor::Cancel"
     }
   },
   {
@@ -62,7 +63,8 @@
       "ctrl-[": "vim::SwitchToHelixNormalMode",
       "escape": "vim::SwitchToHelixNormalMode",
       "g l": "vim::EndOfLine",
-      "g h": "vim::StartOfLine"
+      "g h": "vim::StartOfLine",
+      "space n": "vim::SelectNext"
     }
   },
   {
