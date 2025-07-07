@@ -47,4 +47,3 @@ type fzf>/dev/null && source <(fzf --zsh)
 
 # colima
 export COLIMA_HOME="$HOME/.colima"
-[ -d $COLIMA_HOME ] && export DOCKER_HOST="unix://$COLIMA_HOME/docker.sock"
