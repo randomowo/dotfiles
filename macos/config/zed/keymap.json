@@ -53,7 +53,7 @@
     "bindings": {
       "ctrl-[": "vim::SwitchToHelixNormalMode",
       "escape": "vim::SwitchToHelixNormalMode",
-      "escape escape": "editor::Cancel"
+      "space escape": "editor::Cancel"
     }
   },
   {
