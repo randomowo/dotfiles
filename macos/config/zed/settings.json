@@ -16,7 +16,7 @@
       }
     }
   },
-  "vim_mode": true,
+  "helix_mode": true,
   "vim": {
     "default_mode": "helix_normal",
     "use_system_clipboard": "on_yank"
