@@ -135,7 +135,7 @@
   "agent": {
     "inline_assistant_model": {
       "provider": "lmstudio",
-      "model": "mistralai/devstral-small-2505"
+      "model": "mistralai/devstral-small-2507"
     },
     "inline_alternatives": [],
     "always_allow_tool_actions": true,
@@ -205,8 +205,7 @@
         }
       }
     },
-    "default_profile": "ask",
-    "version": "2",
+    "default_profile": "write",
     "enabled": true,
     "button": true,
     "dock": "right",
@@ -215,7 +214,7 @@
     "default_view": "thread",
     "default_model": {
       "provider": "lmstudio",
-      "model": "qwen/qwen3-8b"
+      "model": "mistralai/devstral-small-2507"
     },
     "single_file_review": true
   }
