@@ -72,5 +72,20 @@
     "bindings": {
       "escape": "vim::SwitchToHelixNormalMode"
     }
+  },
+  {
+    "context": "vim_mode == helix_normal && !menu",
+    "bindings": {
+      "space w s": "pane::SplitDown",
+      "space w v": "pane::SplitRight",
+      "space w d": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "AgentPanel || GitPanel || ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView || DebugPanel",
+    "bindings": {
+      "space w t n": "pane::ActivateNextItem",
+      "space w t b": "pane::ActivatePreviousItem"
+    }
   }
 ]
