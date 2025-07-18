@@ -1,18 +1,14 @@
 // documentation: https://zed.dev/docs/configuring-zed
 {
+  "calls": {
+    "mute_on_join": true
+  },
   "context_servers": {
     "mcp-server-context7": {
       "source": "extension",
       "enabled": true,
       "settings": {
         "default_minimum_tokens": "10000"
-      }
-    },
-    "postgres-context-server": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {
-        "database_url": "postgresql://postgres:postgres@localhost:5432"
       }
     }
   },
@@ -28,6 +24,9 @@
   "buffer_font_family": "Mononoki Nerd Font",
   "buffer_line_height": {
     "custom": 1.0
+  },
+  "buffer_font_features": {
+    "calt": false
   },
   "terminal": {
     "button": true,

@@ -64,7 +64,8 @@
       "escape": "vim::SwitchToHelixNormalMode",
       "g l": "vim::EndOfLine",
       "g h": "vim::StartOfLine",
-      "space n": "vim::SelectNext"
+      "space n": "vim::SelectNext",
+      "space c": "editor::ToggleComments"
     }
   },
   {
@@ -78,7 +79,10 @@
     "bindings": {
       "space w s": "pane::SplitDown",
       "space w v": "pane::SplitRight",
-      "space w d": "pane::SplitRight"
+      "space w d": "pane::SplitRight",
+      "g q": "vim::Rewrap",
+      "g w": "vim::Rewrap",
+      "space b": "editor::ToggleBreakpoint",
     }
   },
   {
