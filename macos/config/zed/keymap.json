@@ -82,7 +82,7 @@
       "space w d": "pane::SplitRight",
       "g q": "vim::Rewrap",
       "g w": "vim::Rewrap",
-      "space b": "editor::ToggleBreakpoint",
+      "space b": "editor::ToggleBreakpoint"
     }
   },
   {
