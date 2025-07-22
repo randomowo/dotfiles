@@ -91,5 +91,11 @@
       "space w t n": "pane::ActivateNextItem",
       "space w t b": "pane::ActivatePreviousItem"
     }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "space w o": "pane::CloseInactiveItems"
+    }
   }
 ]
