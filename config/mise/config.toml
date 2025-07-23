@@ -1,8 +1,7 @@
 [settings]
-go_default_packages_file = "$HOME/.config/mise/default-go-packages"
 python_default_packages_file = "$HOME/.config/mise/default-pips"
 experimental = true
-python_compile = true
+python_compile = false
 go_set_gobin = false
 
 [tools]
