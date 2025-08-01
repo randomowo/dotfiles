@@ -3,6 +3,9 @@
   "calls": {
     "mute_on_join": true
   },
+  "file_types": {
+    "env": [".env*"]
+  },
   "context_servers": {
     "mcp-server-context7": {
       "source": "extension",
