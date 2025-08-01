@@ -95,7 +95,13 @@
   {
     "context": "Pane",
     "bindings": {
-      "space w o": "pane::CloseInactiveItems"
+      "space w o": "pane::CloseOtherItems"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "escape": null
     }
   }
 ]
