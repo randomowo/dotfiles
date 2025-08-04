@@ -15,7 +15,8 @@
         }
       ],
       "cmd-w": "workspace::CloseActiveDock",
-      "ctrl-tab": "tab_switcher::ToggleAll"
+      "ctrl-tab": "tab_switcher::ToggleAll",
+      "cmd-alt-r": "task::Spawn"
     }
   },
   {
