@@ -54,7 +54,8 @@
     "bindings": {
       "ctrl-[": "vim::SwitchToHelixNormalMode",
       "escape": "vim::SwitchToHelixNormalMode",
-      "space escape": "editor::Cancel"
+      "space escape": "editor::Cancel",
+      "space ctrl-[": "editor::Cancel"
     }
   },
   {
@@ -72,7 +73,8 @@
   {
     "context": "Editor && vim_mode == waiting && (vim_operator == ys || vim_operator == cs)",
     "bindings": {
-      "escape": "vim::SwitchToHelixNormalMode"
+      "escape": "vim::SwitchToHelixNormalMode",
+      "ctrl-[": "vim::SwitchToHelixNormalMode"
     }
   },
   {
@@ -102,7 +104,8 @@
   {
     "context": "Terminal",
     "bindings": {
-      "escape": null
+      "escape": null,
+      "ctrl-[": null
     }
   }
 ]
