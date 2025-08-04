@@ -4,7 +4,7 @@
 [
   {
     "label": "Go: test",
-    "command": "go test $ZED_WORKTREE_ROOT/..",
+    "command": "go test $ZED_WORKTREE_ROOT/...",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always",
@@ -37,7 +37,7 @@
   },
   {
     "label": "Go: generate",
-    "command": "go generate $ZED_WORKTREE_ROOT/..",
+    "command": "go generate $ZED_WORKTREE_ROOT/...",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always",
