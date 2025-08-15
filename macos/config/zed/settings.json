@@ -1,5 +1,6 @@
 // documentation: https://zed.dev/docs/configuring-zed
 {
+  "icon_theme": "Zed (Default)",
   "calls": {
     "mute_on_join": true
   },
@@ -46,7 +47,7 @@
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light Soft",
-    "dark": "Gruvbox Dark Hard"
+    "dark": "Gruvbox Dark Hard (blurred)"
   },
   "tabs": {
     "close_position": "left",
