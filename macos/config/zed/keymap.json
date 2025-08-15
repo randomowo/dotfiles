@@ -105,7 +105,8 @@
     "context": "Terminal",
     "bindings": {
       "escape": null,
-      "ctrl-[": null
+      "ctrl-[": null,
+      "cmd-alt-r": "task::Spawn"
     }
   }
 ]
