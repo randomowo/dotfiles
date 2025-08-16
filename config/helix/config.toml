@@ -1,4 +1,4 @@
-theme = "gruvbox"
+theme = "randblur"
 
 [editor]
 line-number = "relative"
