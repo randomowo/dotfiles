@@ -76,20 +76,9 @@ _ugomod() {
     done
 }
 
-_cd() {
-    if command -v zoxide &>/dev/null; then
-        type z >/dev/null || eval "$(zoxide init zsh)"
-
-        z "$@"
-    else
-        \cd "$@"
-    fi
-}
-
 # shortcuts
 alias \
     u="_uall" \
     hud="_hud" \
     ugomod="_ugomod" \
-    ucargobins="_ucargobins" \
-    cd="_cd"
+    ucargobins="_ucargobins"

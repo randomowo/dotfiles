@@ -40,7 +40,7 @@ export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 export PATH="${KREW_ROT:-$HOME/.krew}/bin:$PATH"
 
 # zoxide
-type zoxide>/dev/null && eval "$(zoxide init zsh)"
+type zoxide>/dev/null && eval "$(zoxide init --cmd cd zsh)"
 
 # fzf
 type fzf>/dev/null && source <(fzf --zsh)
