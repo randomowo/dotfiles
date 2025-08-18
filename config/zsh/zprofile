@@ -29,6 +29,3 @@ export ZDOTDIR="$RCONFIGS/zsh"
 
 # machine specific zprofile
 [ -f $HOME/.c2zprofile ] && source $HOME/.c2zprofile
-
-# aliases
-[ -f $HOME/.aliasrc ] && source $HOME/.aliasrc
