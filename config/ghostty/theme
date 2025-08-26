@@ -1,1 +1,3 @@
 theme = GruvboxDark
+
+custom-shader = ./shaders/liquid-glass.glsl
