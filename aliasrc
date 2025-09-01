@@ -60,6 +60,8 @@ alias \
 # aliases
 ## git aliases
 [ -f $HOME/.gitaliasrc ] && source $HOME/.gitaliasrc
+## docker aliases
+[ -f $HOME/.dockeraliasrc ] && source $HOME/.dockeraliasrc
 ## system specific aliases
 [ -f $HOME/.caliasrc ] && source $HOME/.caliasrc
 ## other specific aliases (for only on machine aliases)

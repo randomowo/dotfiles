@@ -1,0 +1,4 @@
+#!/bin/sh
+
+alias \
+  dps="docker ps --format=\"{{.ID}} {{.Image}} {{.Status}}\""
