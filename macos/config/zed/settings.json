@@ -7,15 +7,7 @@
   "file_types": {
     "env": [".env*"]
   },
-  "context_servers": {
-    "mcp-server-context7": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {
-        "default_minimum_tokens": "10000"
-      }
-    }
-  },
+  "context_servers": {},
   "helix_mode": true,
   "vim": {
     "default_mode": "helix_normal",

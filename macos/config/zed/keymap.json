@@ -56,7 +56,9 @@
       "escape": "vim::SwitchToHelixNormalMode",
       "space escape": "editor::Cancel",
       "space ctrl-[": "editor::Cancel",
-      "space n": "vim::SelectNext"
+      "space n": "vim::SelectNext",
+      "g l": "vim::EndOfLine",
+      "g h": "vim::StartOfLine"
     }
   },
   {
