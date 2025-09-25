@@ -44,9 +44,9 @@
   {
     "context": "vim_mode == insert || vim_mode == replace",
     "bindings": {
-      "ctrl-c": "vim::HelixNormalAfter",
-      "ctrl-[": "vim::HelixNormalAfter",
-      "escape": "vim::HelixNormalAfter"
+      "ctrl-c": "vim::SwitchToHelixNormalMode",
+      "ctrl-[": "vim::SwitchToHelixNormalMode",
+      "escape": "vim::SwitchToHelixNormalMode"
     }
   },
   {

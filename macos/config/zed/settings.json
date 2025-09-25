@@ -25,6 +25,7 @@
   "ui_font_size": 13,
   "ui_font_family": "Mononoki Nerd Font",
   "buffer_font_size": 13,
+  "agent_font_size": 13,
   "buffer_font_family": "Mononoki Nerd Font",
   "buffer_line_height": {
     "custom": 1.0
@@ -32,10 +33,15 @@
   "buffer_font_features": {
     "calt": false
   },
+  "whitespace_map": {
+    "space": "·",
+    "tab": ">"
+  },
   "terminal": {
     "button": true,
     "copy_on_select": false
   },
+  "use_system_window_tabs": true,
   "show_whitespaces": "boundary",
   "preferred_line_length": 120,
   "show_wrap_guides": true,
@@ -47,7 +53,7 @@
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light Soft",
-    "dark": "Gruvbox Dark Hard (blurred)"
+    "dark": "Gruvbox Dark Hard"
   },
   "tabs": {
     "close_position": "left",
