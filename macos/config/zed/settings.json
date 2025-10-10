@@ -10,7 +10,6 @@
   "context_servers": {},
   "helix_mode": true,
   "vim": {
-    "default_mode": "helix_normal",
     "use_system_clipboard": "on_yank"
   },
   "show_edit_predictions": true,
@@ -22,12 +21,11 @@
   "buffer_line_height": {
     "custom": 1.0
   },
+  "whitespace_map": {
+    "tab": ">"
+  },
   "buffer_font_features": {
     "calt": false
-  },
-  "whitespace_map": {
-    "space": "·",
-    "tab": ">"
   },
   "terminal": {
     "button": true,
