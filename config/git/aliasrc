@@ -34,7 +34,7 @@ alias \
     gb="git branch" \
     gbmv="git branch -m" \
     gba="git branch -a" \
-    gbd="_gitdefaultbrach" \
+    gbd="_gitdefaultbranch" \
     gbclr="_gitclearbranches"
 
 alias \
