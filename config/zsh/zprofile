@@ -19,7 +19,7 @@ export GPG_TTY=$(tty)
 ## all
 HISTFILE='/tmp/.hist'
 HISTSIZE=10000
-SAVEHIST=0
+SAVEHIST=10000
 
 ## zsh
 export ZDOTDIR="$RCONFIGS/zsh"
