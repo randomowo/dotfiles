@@ -8,7 +8,7 @@
 
 # programs
 alias \
-    ubrew="brew upgrade && brew update && brew doctor && brew cleanup" \
+    ubrew="brew upgrade --greedy && brew update && brew doctor && brew cleanup" \
     ffmpeg="arch -arm64 ffmpeg" \
     yd="yt-dlp" \
     top="btm"
