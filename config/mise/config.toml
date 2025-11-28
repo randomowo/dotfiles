@@ -1,6 +1,6 @@
 [settings]
 python_default_packages_file = "$HOME/.config/mise/default-pips"
-experimental = true
+experimental = false
 python_compile = false
 go_set_gobin = false
 
@@ -8,5 +8,4 @@ go_set_gobin = false
 python = "latest"
 go = "latest"
 bun = "latest"
-node = "latest"
 
