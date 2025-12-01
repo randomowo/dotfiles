@@ -6,7 +6,8 @@
     "mute_on_join": true
   },
   "file_types": {
-    "env": [".env*"]
+    "env": [".env*"],
+    "Dockerfile": ["Dockerfile*"]
   },
   "context_servers": {},
   "helix_mode": true,
