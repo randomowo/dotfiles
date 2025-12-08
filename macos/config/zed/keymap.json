@@ -16,7 +16,9 @@
       ],
       "cmd-w": "workspace::CloseActiveDock",
       "ctrl-tab": "tab_switcher::ToggleAll",
-      "cmd-alt-r": "task::Spawn"
+      "cmd-alt-r": "task::Spawn",
+      "cmd-shift-d": "debug_panel::ToggleFocus",
+      "cmd-shift-t": "terminal_panel::ToggleFocus"
     }
   },
   {
