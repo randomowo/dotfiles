@@ -113,5 +113,15 @@
       "ctrl-[": null,
       "cmd-alt-r": "task::Spawn"
     }
+  },
+  {
+    "bindings": {
+      "cmd-shift-f1": "collab::Mute"
+    }
+  },
+  {
+    "bindings": {
+      "cmd-shift-f2": "collab::Deafen"
+    }
   }
 ]
