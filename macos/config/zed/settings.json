@@ -206,7 +206,7 @@
         }
       }
     },
-    "default_profile": "write",
+    "default_profile": "ask",
     "enabled": true,
     "button": true,
     "dock": "right",
@@ -215,7 +215,7 @@
     "default_view": "thread",
     "default_model": {
       "provider": "lmstudio",
-      "model": "mistralai/devstral-small-2507"
+      "model": "mistralai/devstral-small-2-2512"
     },
     "single_file_review": true
   }
