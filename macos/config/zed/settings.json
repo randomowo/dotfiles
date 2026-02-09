@@ -43,8 +43,8 @@
   "confirm_quit": false,
   "format_on_save": "off",
   "theme": {
-    "mode": "system",
-    "light": "Gruvbox Light Soft",
+    "mode": "dark",
+    "light": "Gruvbox Light Hard",
     "dark": "Gruvbox Dark Hard"
   },
   "tabs": {
@@ -56,7 +56,7 @@
   },
   "autosave": "on_focus_change",
   "ensure_final_newline_on_save": false,
-  "restore_on_startup": "none",
+  "restore_on_startup": "empty_tab",
   "diagnostics": {
     "include_warnings": false,
     "inline": {
@@ -120,6 +120,12 @@
     "mcp-server-context7": true
   },
   "edit_predictions": {
+    "provider": "ollama",
+    "ollama": {
+      "api_url": "http://127.0.0.1:11434",
+      "max_output_tokens": 70,
+      "model": "qwen3:4b"
+    },
     "mode": "subtle",
     "copilot": {
       "proxy": null,
@@ -134,9 +140,16 @@
     "metrics": false
   },
   "agent": {
+    "favorite_models": [
+      {
+        "provider": "ollama",
+        "model": "qwen3:4b"
+      }
+    ],
+    "inline_assistant_use_streaming_tools": true,
     "inline_assistant_model": {
-      "provider": "lmstudio",
-      "model": "mistralai/devstral-small-2507"
+      "provider": "ollama",
+      "model": "qwen3:4b"
     },
     "inline_alternatives": [],
     "always_allow_tool_actions": true,
@@ -214,8 +227,8 @@
     "default_height": 320,
     "default_view": "thread",
     "default_model": {
-      "provider": "lmstudio",
-      "model": "mistralai/devstral-small-2-2512"
+      "provider": "ollama",
+      "model": "qwen3:4b"
     },
     "single_file_review": true
   }
