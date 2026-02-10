@@ -14,7 +14,7 @@ alias \
     top="btm"
 
 _ucargobins() {
-    cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
+    cargo install --locked $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
 }
 
 _uall() {
