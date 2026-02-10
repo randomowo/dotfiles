@@ -123,8 +123,8 @@
     "provider": "ollama",
     "ollama": {
       "api_url": "http://127.0.0.1:11434",
-      "max_output_tokens": 70,
-      "model": "qwen3:4b"
+      "max_output_tokens": 64,
+      "model": "qwen2.5-coder:7b"
     },
     "mode": "subtle",
     "copilot": {
@@ -143,13 +143,13 @@
     "favorite_models": [
       {
         "provider": "ollama",
-        "model": "qwen3:4b"
+        "model": "qwen2.5-coder:7b"
       }
     ],
     "inline_assistant_use_streaming_tools": true,
     "inline_assistant_model": {
       "provider": "ollama",
-      "model": "qwen3:4b"
+      "model": "qwen2.5-coder:7b"
     },
     "inline_alternatives": [],
     "always_allow_tool_actions": true,
@@ -228,7 +228,7 @@
     "default_view": "thread",
     "default_model": {
       "provider": "ollama",
-      "model": "qwen3:4b"
+      "model": "qwen2.5-coder:7b"
     },
     "single_file_review": true
   }
