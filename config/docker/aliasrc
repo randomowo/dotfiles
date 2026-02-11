@@ -1,4 +1,12 @@
 #!/bin/sh
 
+# docker
 alias \
-  dps="docker ps --format=\"{{.ID}} {{.Image}} {{.Status}}\""
+  dps="docker ps --format=\"{{.ID}} {{.Image}} {{.Status}}\"" \
+  dclr="docker ps --format=\"{{ .ID }}\" | xargs -I{} docker kill {}"
+
+# docker compose
+alias \
+  dcu="docker compose up" \
+  dcud="docker compose up -d" \
+  dcd="docker compose down --remove-orphans"
