@@ -47,3 +47,17 @@ type fzf>/dev/null && source <(fzf --zsh)
 
 # colima
 export COLIMA_HOME="$HOME/.colima"
+
+# ollama
+
+# disable ollama cloud features
+OLLAMA_NO_CLOUD=1
+
+# reducee memory use for context size grows
+OLLAMA_FLASH_ATTENTION=1
+
+# context quantization
+# f16 - default 15bit per parameter
+# q8_0 - 1/2 of f16
+# q4_0 - 1/4 of f16
+OLLAMA_KV_CACHE_TYPE=q8_0
