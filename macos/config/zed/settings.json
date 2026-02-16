@@ -139,6 +139,41 @@
     "diagnostics": false,
     "metrics": false
   },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://127.0.0.1:11434",
+      "available_models": [
+        {
+          "display_name": "qwen2.5-coder:7b",
+          "name": "qwen2.5-coder:7b",
+          "max_tokens": 4096,
+          "supports_thinking": false,
+          "supports_tools": true,
+        },
+        {
+          "display_name": "ministral-3:3b",
+          "name": "ministral-3:3b",
+          "max_tokens": 65536,
+          "supports_thinking": false,
+          "supports_tools": true,
+        },
+        {
+          "display_name": "ministral-3:8b",
+          "name": "ministral-3:8b",
+          "max_tokens": 65536,
+          "supports_thinking": false,
+          "supports_tools": true,
+        },
+        {
+          "display_name": "ministral-3:14b",
+          "name": "ministral-3:14b",
+          "max_tokens": 32768,
+          "supports_thinking": false,
+          "supports_tools": true,
+        },
+      ]
+    }
+  },
   "agent": {
     "favorite_models": [
       {
