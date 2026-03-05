@@ -224,27 +224,6 @@
           "supports_tools": true
         },
         {
-          "display_name": "ministral-3:3b",
-          "name": "ministral-3:3b",
-          "max_tokens": 65536,
-          "supports_thinking": false,
-          "supports_tools": true
-        },
-        {
-          "display_name": "ministral-3:8b",
-          "name": "ministral-3:8b",
-          "max_tokens": 65536,
-          "supports_thinking": false,
-          "supports_tools": true
-        },
-        {
-          "display_name": "ministral-3:14b",
-          "name": "ministral-3:14b",
-          "max_tokens": 32768,
-          "supports_thinking": false,
-          "supports_tools": true
-        },
-        {
           "display_name": "gpt-oss:20b",
           "name": "gpt-oss:20b",
           "max_tokens": 32768,
@@ -288,11 +267,6 @@
       {
         "provider": "ollama",
         "model": "qwen2.5-coder:7b",
-        "enable_thinking": false
-      },
-      {
-        "provider": "ollama",
-        "model": "ministral-3:14b",
         "enable_thinking": false
       },
       {
