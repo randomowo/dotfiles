@@ -250,23 +250,60 @@
           "max_tokens": 32768,
           "supports_thinking": true,
           "supports_tools": true
+        },
+        {
+          "display_name": "qwen3.5:0.8b",
+          "name": "qwen3.5:0.8b",
+          "max_tokens": 4096,
+          "supports_thinking": true,
+          "supports_tools": true
+        },
+        {
+          "display_name": "qwen3.5:4b",
+          "name": "qwen3.5:4b",
+          "max_tokens": 32768,
+          "supports_thinking": true,
+          "supports_tools": true
+        },
+        {
+          "display_name": "qwen3.5:9b",
+          "name": "qwen3.5:9b",
+          "max_tokens": 32768,
+          "supports_thinking": true,
+          "supports_tools": true
         }
       ]
     }
   },
   "agent": {
+    "tool_permissions": {
+      "default": "confirm"
+    },
     "favorite_models": [
       {
         "provider": "ollama",
-        "model": "gpt-oss:20b"
+        "model": "gpt-oss:20b",
+        "enable_thinking": false
       },
       {
         "provider": "ollama",
-        "model": "qwen2.5-coder:7b"
+        "model": "qwen2.5-coder:7b",
+        "enable_thinking": false
       },
       {
         "provider": "ollama",
-        "model": "ministral-3:14b"
+        "model": "ministral-3:14b",
+        "enable_thinking": false
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen3.5:4b",
+        "enable_thinking": true
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen3.5:9b",
+        "enable_thinking": true
       }
     ],
     "inline_assistant_use_streaming_tools": true,
@@ -275,7 +312,6 @@
       "model": "qwen2.5-coder:7b"
     },
     "inline_alternatives": [],
-    "always_allow_tool_actions": true,
     "profiles": {
       "write": {
         "name": "Write",
@@ -351,8 +387,9 @@
     "default_height": 320,
     "default_view": "thread",
     "default_model": {
+      "enable_thinking": true,
       "provider": "ollama",
-      "model": "gpt-oss:20b"
+      "model": "qwen3.5:9b"
     },
     "single_file_review": true
   }

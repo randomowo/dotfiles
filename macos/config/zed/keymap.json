@@ -123,5 +123,15 @@
     "bindings": {
       "cmd-shift-f2": "collab::Deafen"
     }
+  },
+  {
+    "bindings": {
+      "cmd-shift-g": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "bindings": {
+      "cmd-shift-b": "outline_panel::ToggleFocus"
+    }
   }
 ]
