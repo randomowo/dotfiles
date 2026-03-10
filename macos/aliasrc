@@ -11,7 +11,8 @@ alias \
     ubrew="brew upgrade --greedy && brew update && brew doctor && brew cleanup" \
     ffmpeg="arch -arm64 ffmpeg" \
     yd="yt-dlp" \
-    top="btm"
+    top="btm" \
+    rf="rainfrog"
 
 _ucargobins() {
     cargo install --locked $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
