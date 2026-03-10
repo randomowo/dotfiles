@@ -15,7 +15,6 @@
         }
       ],
       "cmd-w": "workspace::CloseActiveDock",
-      "ctrl-tab": "tab_switcher::ToggleAll",
       "cmd-alt-r": "task::Spawn",
       "cmd-shift-d": "debug_panel::ToggleFocus",
       "cmd-shift-t": "terminal_panel::ToggleFocus"
@@ -132,6 +131,17 @@
   {
     "bindings": {
       "cmd-shift-b": "outline_panel::ToggleFocus"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-tab": "tab_switcher::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-tab": null
     }
   }
 ]
