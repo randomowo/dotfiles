@@ -247,22 +247,6 @@
     "git-firefly": true,
     "mcp-server-context7": true
   },
-  "edit_predictions": {
-    "provider": "ollama",
-    "ollama": {
-      "api_url": "http://127.0.0.1:11434",
-      "max_output_tokens": 64,
-      "model": "qwen2.5-coder:1.5b"
-    },
-    "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null,
-      "enterprise_uri": null
-    },
-    "enabled_in_text_threads": true,
-    "disabled_globs": []
-  },
   "language_models": {
     "ollama": {
       "api_url": "http://127.0.0.1:11434",
@@ -312,6 +296,22 @@
       ]
     }
   },
+  "edit_predictions": {
+    "provider": "ollama",
+    "ollama": {
+      "api_url": "http://127.0.0.1:11434",
+      "max_output_tokens": 64,
+      "model": "qwen2.5-coder:3b"
+    },
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": true,
+    "disabled_globs": []
+  },
   "agent": {
     "tool_permissions": {
       "default": "confirm"
@@ -329,6 +329,11 @@
         "effort": "medium"
       }
     ],
+    "inline_assistant_model": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "enable_thinking": false
+    },
     "single_file_review": false,
     "model_parameters": [],
     "default_profile": "ask",
