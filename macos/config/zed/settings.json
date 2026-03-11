@@ -1,9 +1,139 @@
 {
-  "on_last_window_closed": "quit_app",
-  "icon_theme": "Zed (Default)",
+  "use_system_prompts": true,
+  "use_system_path_prompts": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
   "calls": {
     "mute_on_join": true
   },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": false
+    }
+  },
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    }
+  },
+  "git_panel": {
+    "tree_view": true,
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "sort_mode": "directories_first",
+    "hide_root": true,
+    "diagnostic_badges": true,
+    "bold_folder_labels": true,
+    "entry_spacing": "comfortable",
+    "dock": "left"
+  },
+  "use_system_window_tabs": true,
+  "bottom_dock_layout": "contained",
+  "preview_tabs": {
+    "enable_preview_multibuffer_from_code_navigation": true,
+    "enable_preview_from_file_finder": true
+  },
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": true,
+    "show_tab_bar_buttons": false
+  },
+  "tabs": {
+    "show_diagnostics": "errors",
+    "close_position": "left",
+    "file_icons": false,
+    "git_status": true
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_branch_icon": true
+  },
+  "status_bar": {
+    "active_encoding_button": "non_utf8"
+  },
+  "file_finder": {
+    "modal_max_width": "small"
+  },
+  "use_smartcase_search": true,
+  "search": {
+    "center_on_match": true,
+    "whole_word": false
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": false
+    }
+  },
+  "semantic_tokens": "combined",
+  "colorize_brackets": false,
+  "middle_click_paste": true,
+  "inlay_hints": {
+    "enabled": true
+  },
+  "completion_detail_alignment": "left",
+  "completions": {
+    "lsp_insert_mode": "replace",
+    "words": "fallback"
+  },
+  "show_whitespaces": "boundary",
+  "whitespace_map": {
+    "tab": ">"
+  },
+  "use_on_type_format": false,
+  "format_on_save": "off",
+  "autosave": "on_focus_change",
+  "indent_guides": {
+    "enabled": true,
+    "background_coloring": "disabled",
+    "coloring": "fixed"
+  },
+  "allow_rewrap": "anywhere",
+  "preferred_line_length": 120,
+  "soft_wrap": "bounded",
+  "vim": {
+    "use_smartcase_find": true,
+    "use_system_clipboard": "on_yank",
+    "toggle_relative_line_numbers": false
+  },
+  "toolbar": {
+    "code_actions": false
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "relative_line_numbers": "disabled",
+  "auto_signature_help": false,
+  "autoscroll_on_clicks": false,
+  "sticky_scroll": {
+    "enabled": false
+  },
+  "scroll_beyond_last_line": "one_page",
+  "diff_view_style": "unified",
+  "which_key": {
+    "enabled": true,
+    "delay_ms": 10
+  },
+  "show_wrap_guides": true,
+  "current_line_highlight": "all",
+  "ui_font_family": "Mononoki Nerd Font",
+  "buffer_line_height": {
+    "custom": 1
+  },
+  "buffer_font_family": "Mononoki Nerd Font",
+  "restore_on_startup": "empty_tab",
+  "on_last_window_closed": "quit_app",
+  "when_closing_with_no_tabs": "keep_window_open",
+  "icon_theme": "Zed (Default)",
+  "helix_mode": true,
+  "base_keymap": "JetBrains",
+  "ui_font_size": 13,
+  "buffer_font_size": 13,
+  "theme": "Gruvbox Dark Hard",
   "file_types": {
     "env": [
       ".env*"
@@ -11,72 +141,6 @@
     "Dockerfile": [
       "Dockerfile*"
     ]
-  },
-  "context_servers": {
-    "mcp-server-context7": {
-      "enabled": true,
-      "remote": false,
-      "settings": {
-        "context7_api_key": ""
-      }
-    }
-  },
-  "helix_mode": true,
-  "vim": {
-    "use_system_clipboard": "on_yank"
-  },
-  "show_edit_predictions": true,
-  "ui_font_size": 13,
-  "ui_font_family": "Mononoki Nerd Font",
-  "buffer_font_size": 13,
-  "agent_ui_font_size": 13,
-  "buffer_font_family": "Mononoki Nerd Font",
-  "buffer_line_height": {
-    "custom": 1
-  },
-  "whitespace_map": {
-    "tab": ">"
-  },
-  "buffer_font_features": {
-    "calt": false
-  },
-  "terminal": {
-    "button": true,
-    "copy_on_select": false
-  },
-  "use_system_window_tabs": true,
-  "show_whitespaces": "boundary",
-  "preferred_line_length": 120,
-  "show_wrap_guides": true,
-  "soft_wrap": "bounded",
-  "remove_trailing_whitespace_on_save": true,
-  "base_keymap": "JetBrains",
-  "confirm_quit": false,
-  "format_on_save": "off",
-  "theme": {
-    "mode": "dark",
-    "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard"
-  },
-  "tabs": {
-    "close_position": "left",
-    "git_status": true,
-    "show_diagnostics": "errors",
-    "file_icons": true,
-    "activate_on_close": "left_neighbour"
-  },
-  "autosave": "on_focus_change",
-  "ensure_final_newline_on_save": false,
-  "restore_on_startup": "empty_tab",
-  "diagnostics": {
-    "include_warnings": false,
-    "inline": {
-      "enabled": true,
-      "update_debounce_ms": 150,
-      "padding": 4,
-      "min_column": 0,
-      "max_severity": null
-    }
   },
   "languages": {
     "Go": {
@@ -176,12 +240,10 @@
     "sql": true,
     "make": true,
     "docker-compose": true,
-    "pylsp": true,
     "env": true,
     "basher": true,
     "marksman": true,
     "vacuum": true,
-    "nginx": true,
     "git-firefly": true,
     "mcp-server-context7": true
   },
@@ -200,10 +262,6 @@
     },
     "enabled_in_text_threads": true,
     "disabled_globs": []
-  },
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
   },
   "language_models": {
     "ollama": {
@@ -261,110 +319,36 @@
     "favorite_models": [
       {
         "provider": "ollama",
-        "model": "gpt-oss:20b",
-        "enable_thinking": false
-      },
-      {
-        "provider": "ollama",
-        "model": "qwen2.5-coder:7b",
-        "enable_thinking": false
-      },
-      {
-        "provider": "ollama",
-        "model": "qwen3.5:4b",
-        "enable_thinking": true
-      },
-      {
-        "provider": "ollama",
         "model": "qwen3.5:9b",
         "enable_thinking": true
+      },
+      {
+        "provider": "ollama",
+        "model": "gpt-oss:20b",
+        "enable_thinking": true,
+        "effort": "medium"
       }
     ],
-    "inline_assistant_use_streaming_tools": true,
-    "inline_assistant_model": {
-      "provider": "ollama",
-      "model": "qwen2.5-coder:7b"
-    },
-    "inline_alternatives": [],
-    "profiles": {
-      "write": {
-        "name": "Write",
-        "tools": {
-          "copy_path": true,
-          "create_directory": true,
-          "delete_path": true,
-          "diagnostics": true,
-          "edit_file": true,
-          "fetch": true,
-          "list_directory": true,
-          "move_path": true,
-          "now": true,
-          "find_path": true,
-          "read_file": true,
-          "grep": true,
-          "terminal": true,
-          "thinking": true,
-          "web_search": true
-        },
-        "enable_all_context_servers": true,
-        "context_servers": {
-          "mcp-server-sequential-thinking": {
-            "tools": {
-              "sequentialthinking": true
-            }
-          },
-          "mcp-server-context7": {
-            "tools": {
-              "resolve-library-id": true,
-              "get-library-docs": true
-            }
-          }
-        }
-      },
-      "ask": {
-        "name": "Ask",
-        "tools": {
-          "contents": true,
-          "diagnostics": true,
-          "fetch": true,
-          "list_directory": true,
-          "now": true,
-          "find_path": true,
-          "read_file": true,
-          "open": true,
-          "grep": true,
-          "thinking": true,
-          "web_search": true
-        },
-        "enable_all_context_servers": true,
-        "context_servers": {
-          "mcp-server-sequential-thinking": {
-            "tools": {
-              "sequentialthinking": true
-            }
-          },
-          "mcp-server-context7": {
-            "tools": {
-              "query-docs": true,
-              "resolve-library-id": true,
-              "get-library-docs": true
-            }
-          }
-        }
-      }
-    },
+    "single_file_review": false,
+    "model_parameters": [],
     "default_profile": "ask",
     "enabled": true,
     "button": true,
     "dock": "right",
-    "default_width": 640,
-    "default_height": 320,
     "default_view": "thread",
     "default_model": {
       "enable_thinking": true,
       "provider": "ollama",
       "model": "qwen3.5:9b"
-    },
-    "single_file_review": true
+    }
+  },
+  "context_servers": {
+    "mcp-server-context7": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "context7_api_key": ""
+      }
+    }
   }
 }
