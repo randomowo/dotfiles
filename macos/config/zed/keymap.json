@@ -10,6 +10,13 @@
       "cmd-shift-s": "task::Spawn",
       "ctrl-tab": "tab_switcher::Toggle",
       "cmd-shift-n": "workspace::NewWindow",
+      "cmd-shift-o": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": true
+        }
+      ],
+      "cmd-shift-p": "command_palette::Toggle",
       "cmd-0": null,
       "cmd-5": null,
       "cmd-6": null,
@@ -49,14 +56,7 @@
     "context": "Workspace",
     "bindings": {
       "cmd-n": "workspace::NewFile",
-      "shift-cmd-p": "command_palette::Toggle",
       "shift shift": "file_finder::Toggle",
-      "shift-cmd-o": [
-        "projects::OpenRecent",
-        {
-          "create_new_window": true
-        }
-      ],
       "cmd-w": "workspace::CloseActiveDock",
       "cmd-r": "buffer_search::DeployReplace",
       "cmd--": [
