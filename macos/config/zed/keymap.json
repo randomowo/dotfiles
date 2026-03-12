@@ -57,12 +57,7 @@
           "create_new_window": true
         }
       ],
-      "cmd-w": "workspace::CloseActiveDock"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
+      "cmd-w": "workspace::CloseActiveDock",
       "cmd-r": "buffer_search::DeployReplace",
       "cmd--": [
         "zed::DecreaseBufferFontSize",
@@ -71,19 +66,11 @@
         }
       ],
       "cmd-+": "zed::IncreaseBufferFontSize",
-      "cmd-=": "zed::ResetBufferFontSize",
-      "shift-cmd-p": "command_palette::Toggle",
-      "shift shift": "file_finder::Toggle",
-      "shift-cmd-o": [
-        "projects::OpenRecent",
-        {
-          "create_new_window": true
-        }
-      ]
+      "cmd-=": "zed::ResetBufferFontSize"
     }
   },
   {
-    "context": "Editor && vim_mode != insert",
+    "context": "Editor && vim_mode != insert && !Picker",
     "bindings": {
       "space b": "editor::ToggleBreakpoint",
       "space w s": "pane::SplitDown",
@@ -101,18 +88,30 @@
     "context": "Terminal",
     "bindings": {
       "escape": null,
-      "ctrl-[": null,
-      "cmd-alt-r": "task::Spawn"
+      "ctrl-[": null
     }
   },
   {
-    "context": "vim_mode == insert",
+    "context": "AgentPanel",
+    "bindings": {
+      "space s m": "agent::ToggleModelSelector",
+      "space s p": "agent::ToggleProfileSelector",
+      "space s d": "agent::OpenAgentDiff",
+      "space t": "agent::OpenHistory"
+    }
+  },
+  {
+    "context": "vim_mode == insert || Terminal || Picker",
     "bindings": {
       "space n": null,
       "space p": null,
       "space w o": null,
       "space t n": null,
-      "space t p": null
+      "space t p": null,
+      "space s m": null,
+      "space s p": null,
+      "space s d": null,
+      "space t": null
     }
   }
 ]
