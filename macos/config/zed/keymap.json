@@ -75,7 +75,7 @@
       "cmd-n": "workspace::NewFile",
       "shift shift": "file_finder::Toggle",
       "cmd-w": "workspace::CloseActiveDock",
-      "cmd-r": "buffer_search::DeployReplace",
+      "cmd-r": "buffer_search::DeployReplace"
     }
   },
   {
@@ -93,6 +93,17 @@
       "space g s": "git::StageAndNext",
       "space g u": "git::UnstageAndNext",
       "space o": "editor::ToggleSelectedDiffHunks"
+    }
+  },
+  {
+    "context": "GitPanel > Editor || CommitEditor",
+    "bindings": {
+      "space a": "git::Amend",
+      "space c": "git::Commit",
+      "space p": "git::Push",
+      "space shift-p": "git::ForcePush",
+      "space f": "git::Fetch",
+      "space l": "git::Pull"
     }
   },
   {
@@ -136,7 +147,12 @@
       "space g shift-s": null,
       "space g b": null,
       "space g r": null,
-      "space o": null
+      "space o": null,
+      "space a": null,
+      "space c": null,
+      "space shift-p": null,
+      "space f": null,
+      "space l": null
     }
   }
 ]
