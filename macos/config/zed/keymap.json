@@ -27,7 +27,7 @@
     }
   },
   {
-    "context": "!RunModal",
+    "context": "!RunModal && !GitPicker",
     "bindings": {
       "cmd-1": null,
       "cmd-2": null,
@@ -42,6 +42,15 @@
       "cmd-2": "new_process_modal::ActivateDebugTab",
       "cmd-3": "new_process_modal::ActivateAttachTab",
       "cmd-4": "new_process_modal::ActivateLaunchTab"
+    }
+  },
+  {
+    "context": "GitPicker",
+    "bindings": {
+      "cmd-1": "git_picker::ActivateBranchesTab",
+      "cmd-2": "git_picker::ActivateWorktreesTab",
+      "cmd-3": "git_picker::ActivateStashTab",
+      "cmd-4": null
     }
   },
   {
@@ -74,7 +83,16 @@
     "bindings": {
       "space b": "editor::ToggleBreakpoint",
       "space w s": "pane::SplitDown",
-      "space w d": "pane::SplitRight"
+      "space w d": "pane::SplitRight",
+      "space g w": "git::Worktree",
+      "space g h": "git::FileHistory",
+      "space g t": "git::ViewStash",
+      "space g b": "git::Branch",
+      "space g r": "git::Restore",
+      "space g shift-s": "git::ToggleStaged",
+      "space g s": "git::StageAndNext",
+      "space g u": "git::UnstageAndNext",
+      "space o": "editor::ToggleSelectedDiffHunks"
     }
   },
   {
@@ -111,7 +129,14 @@
       "space s m": null,
       "space s p": null,
       "space s d": null,
-      "space t": null
+      "space t": null,
+      "space g w": null,
+      "space g h": null,
+      "space g s": null,
+      "space g shift-s": null,
+      "space g b": null,
+      "space g r": null,
+      "space o": null
     }
   }
 ]
