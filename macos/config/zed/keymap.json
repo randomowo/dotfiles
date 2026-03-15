@@ -17,6 +17,14 @@
         }
       ],
       "cmd-shift-p": "command_palette::Toggle",
+      "cmd--": [
+        "zed::DecreaseBufferFontSize",
+        {
+          "persist": false
+        }
+      ],
+      "cmd-+": "zed::IncreaseBufferFontSize",
+      "cmd-=": "zed::ResetBufferFontSize",
       "cmd-0": null,
       "cmd-5": null,
       "cmd-6": null,
@@ -68,14 +76,6 @@
       "shift shift": "file_finder::Toggle",
       "cmd-w": "workspace::CloseActiveDock",
       "cmd-r": "buffer_search::DeployReplace",
-      "cmd--": [
-        "zed::DecreaseBufferFontSize",
-        {
-          "persist": false
-        }
-      ],
-      "cmd-+": "zed::IncreaseBufferFontSize",
-      "cmd-=": "zed::ResetBufferFontSize"
     }
   },
   {
