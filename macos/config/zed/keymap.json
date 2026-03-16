@@ -62,14 +62,6 @@
     }
   },
   {
-    "context": "Pane && vim_mode != insert",
-    "bindings": {
-      "space t n": "pane::ActivateNextItem",
-      "space t p": "pane::ActivatePreviousItem",
-      "space w o": "pane::CloseOtherItems"
-    }
-  },
-  {
     "context": "Workspace",
     "bindings": {
       "cmd-n": "workspace::NewFile",
@@ -79,11 +71,14 @@
     }
   },
   {
-    "context": "Editor && vim_mode != insert && !Picker",
+    "context": "Editor && vim_mode != insert && VimControl",
     "bindings": {
       "space b": "editor::ToggleBreakpoint",
       "space w s": "pane::SplitDown",
       "space w d": "pane::SplitRight",
+      "space w o": "pane::CloseOtherItems",
+      "space t n": "pane::ActivateNextItem",
+      "space t p": "pane::ActivatePreviousItem",
       "space g w": "git::Worktree",
       "space g h": "git::FileHistory",
       "space g t": "git::ViewStash",
@@ -92,11 +87,13 @@
       "space g shift-s": "git::ToggleStaged",
       "space g s": "git::StageAndNext",
       "space g u": "git::UnstageAndNext",
-      "space o": "editor::ToggleSelectedDiffHunks"
+      "space o": "editor::ToggleSelectedDiffHunks",
+      "space n": "editor::SelectNext",
+      "space p": "editor::SelectPrevious"
     }
   },
   {
-    "context": "GitPanel > Editor || CommitEditor",
+    "context": "vim_mode != insert && (GitPanel > Editor || CommitEditor)",
     "bindings": {
       "space a": "git::Amend",
       "space c": "git::Commit",
@@ -104,13 +101,6 @@
       "space shift-p": "git::ForcePush",
       "space f": "git::Fetch",
       "space l": "git::Pull"
-    }
-  },
-  {
-    "context": "!menu && vim_mode != insert",
-    "bindings": {
-      "space n": "editor::SelectNext",
-      "space p": "editor::SelectPrevious"
     }
   },
   {
@@ -127,32 +117,6 @@
       "space s p": "agent::ToggleProfileSelector",
       "space s d": "agent::OpenAgentDiff",
       "space t": "agent::OpenHistory"
-    }
-  },
-  {
-    "context": "vim_mode == insert || Terminal || Picker",
-    "bindings": {
-      "space n": null,
-      "space p": null,
-      "space w o": null,
-      "space t n": null,
-      "space t p": null,
-      "space s m": null,
-      "space s p": null,
-      "space s d": null,
-      "space t": null,
-      "space g w": null,
-      "space g h": null,
-      "space g s": null,
-      "space g shift-s": null,
-      "space g b": null,
-      "space g r": null,
-      "space o": null,
-      "space a": null,
-      "space c": null,
-      "space shift-p": null,
-      "space f": null,
-      "space l": null
     }
   }
 ]
