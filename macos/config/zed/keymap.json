@@ -71,12 +71,13 @@
     }
   },
   {
-    "context": "Editor && vim_mode != insert && VimControl",
+    "context": "EmptyPane || (Editor && vim_mode != insert && VimControl)",
     "bindings": {
       "space b": "editor::ToggleBreakpoint",
       "space w s": "pane::SplitDown",
       "space w d": "pane::SplitRight",
       "space w o": "pane::CloseOtherItems",
+      "space w e": "editor::ToggleFocus",
       "space t n": "pane::ActivateNextItem",
       "space t p": "pane::ActivatePreviousItem",
       "space g w": "git::Worktree",
