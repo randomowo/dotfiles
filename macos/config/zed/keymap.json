@@ -90,7 +90,8 @@
       "space g u": "git::UnstageAndNext",
       "space o": "editor::ToggleSelectedDiffHunks",
       "space n": "editor::SelectNext",
-      "space p": "editor::SelectPrevious"
+      "space p": "editor::SelectPrevious",
+      "space m": "editor::OpenSelectionsInMultibuffer"
     }
   },
   {
@@ -101,7 +102,8 @@
       "space p": "git::Push",
       "space shift-p": "git::ForcePush",
       "space f": "git::Fetch",
-      "space l": "git::Pull"
+      "space l": "git::Pull",
+      "space f c": "git_panel::FocusChanges"
     }
   },
   {
