@@ -121,5 +121,14 @@
       "space s d": "agent::OpenAgentDiff",
       "space t": "agent::OpenHistory"
     }
+  },
+  {
+    "context": "AgentPanel > Editor && vim_mode == insert",
+    "bindings": {
+      "space s m": null,
+      "space s p": null,
+      "space s d": null,
+      "space t": null
+    }
   }
 ]
