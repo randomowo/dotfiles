@@ -1,0 +1,3 @@
+# vacuum.conf.yaml
+# Point to a custom ruleset where rules are turned off
+ruleset: "vacuum/custom-ruleset.yaml"

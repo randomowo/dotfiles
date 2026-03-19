@@ -1,0 +1,5 @@
+# custom-ruleset.yaml
+extends: [[vacuum:oas, recommended]]
+rules:
+  oas3-missing-example: false
+  operation-description: false
