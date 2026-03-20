@@ -96,6 +96,9 @@
   "preferred_line_length": 120,
   "soft_wrap": "bounded",
   "vim": {
+    "cursor_shape": {
+      "visual": "hollow"
+    },
     "use_smartcase_find": true,
     "use_system_clipboard": "on_yank",
     "toggle_relative_line_numbers": false
