@@ -133,21 +133,13 @@
     }
   },
   {
-    "context": "AgentPanel",
+    "context": "AgentPanel > Editor && vim_mode != insert && VimControl",
     "bindings": {
       "space s m": "agent::ToggleModelSelector",
       "space s p": "agent::ToggleProfileSelector",
       "space s d": "agent::OpenAgentDiff",
-      "space t": "agent::OpenHistory"
+      "space t": "agent::OpenHistory",
+      "ctrl-c": "editor::Cancel"
     }
   },
-  {
-    "context": "AgentPanel > Editor && vim_mode == insert",
-    "bindings": {
-      "space s m": null,
-      "space s p": null,
-      "space s d": null,
-      "space t": null
-    }
-  }
 ]
