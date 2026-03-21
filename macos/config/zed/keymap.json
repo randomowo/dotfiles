@@ -100,8 +100,13 @@
       "shift-r": [
         "action::Sequence",
         [
-          "editor::Delete",
-          "editor::Paste"
+          "vim::HelixSubstituteNoYank",
+          [
+            "vim::HelixPaste",
+            {
+              "before": true
+            }
+          ]
         ]
       ],
       "shift-w": "vim::NextSubwordStart",
