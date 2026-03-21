@@ -1,6 +1,9 @@
 working-directory = home
-#shell-integration = zsh
-macos-titlebar-style = hidden
+shell-integration = zsh
+macos-titlebar-style = native
 macos-option-as-alt = left
-shell-integration-features = no-cursor
+shell-integration-features = cursor,ssh-env,ssh-terminfo
 cursor-style = block
+
+macos-auto-secure-input = true
+macos-secure-input-indication = true
