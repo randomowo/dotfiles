@@ -91,7 +91,9 @@
       "space o": "editor::ToggleSelectedDiffHunks",
       "space n": "editor::SelectNext",
       "space p": "editor::SelectPrevious",
-      "space m": "editor::OpenSelectionsInMultibuffer"
+      "space m": "editor::OpenSelectionsInMultibuffer",
+      "shift-w": "vim::NextSubwordStart",
+      "shift-b": "vim::PreviousSubwordStart"
     }
   },
   {
@@ -108,9 +110,7 @@
             }
           ]
         ]
-      ],
-      "shift-w": "vim::NextSubwordStart",
-      "shift-b": "vim::PreviousSubwordStart"
+      ]
     }
   },
   {
@@ -141,5 +141,5 @@
       "space t": "agent::OpenHistory",
       "ctrl-c": "editor::Cancel"
     }
-  },
+  }
 ]
