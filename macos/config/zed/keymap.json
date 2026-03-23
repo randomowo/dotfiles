@@ -93,12 +93,7 @@
       "space p": "editor::SelectPrevious",
       "space m": "editor::OpenSelectionsInMultibuffer",
       "shift-w": "vim::NextSubwordStart",
-      "shift-b": "vim::PreviousSubwordStart"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
+      "shift-b": "vim::PreviousSubwordStart",
       "shift-r": [
         "action::Sequence",
         [
