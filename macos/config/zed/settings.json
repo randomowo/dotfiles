@@ -20,18 +20,22 @@
   },
   "git_panel": {
     "tree_view": true,
-    "dock": "left"
+    "dock": "right"
   },
   "outline_panel": {
     "dock": "right"
   },
   "project_panel": {
     "sort_mode": "directories_first",
-    "hide_root": true,
+    "hide_root": false,
     "diagnostic_badges": true,
     "bold_folder_labels": true,
     "entry_spacing": "comfortable",
-    "dock": "left"
+    "dock": "left",
+    "starts_open": false
+  },
+  "collaboration_panel": {
+    "dock": "right"
   },
   "use_system_window_tabs": true,
   "bottom_dock_layout": "contained",
@@ -51,7 +55,9 @@
   },
   "title_bar": {
     "show_menus": false,
-    "show_branch_icon": true
+    "show_branch_icon": true,
+    "show_user_menu": false,
+    "show_sign_in": false
   },
   "status_bar": {
     "active_encoding_button": "non_utf8"
@@ -88,7 +94,7 @@
   "format_on_save": "off",
   "autosave": "on_focus_change",
   "indent_guides": {
-    "enabled": true,
+    "enabled": false,
     "background_coloring": "disabled",
     "coloring": "fixed"
   },
@@ -102,6 +108,15 @@
     "use_smartcase_find": true,
     "use_system_clipboard": "on_yank",
     "toggle_relative_line_numbers": false
+  },
+  "cursor_blink": false,
+  "drag_and_drop_selection": {
+    "enabled": false
+  },
+  "gutter": {
+    "min_line_number_digits": 0,
+    "folds": true,
+    "runnables": true
   },
   "toolbar": {
     "code_actions": false
@@ -128,15 +143,32 @@
     "custom": 1
   },
   "buffer_font_family": "Mononoki Nerd Font",
-  "restore_on_startup": "empty_tab",
+  "restore_on_startup": "launchpad",
   "on_last_window_closed": "quit_app",
   "when_closing_with_no_tabs": "keep_window_open",
+  "auto_indent": "syntax_aware",
+  "auto_indent_on_paste": true,
+  "inline_code_actions": false,
+  "extend_comment_on_newline": false,
+  "close_panel_on_toggle": true,
+  "hover_popover_enabled": true,
   "icon_theme": "Zed (Default)",
   "helix_mode": true,
   "base_keymap": "JetBrains",
   "ui_font_size": 13,
   "buffer_font_size": 13,
+  "agent_buffer_font_size": 13,
+  "agent_ui_font_size": 13,
   "theme": "Gruvbox Dark Hard",
+  "theme_overrides": {
+    "Gruvbox Dark Hard": {
+      "scrollbar.thumb.background": "#4943404a",
+      "scrollbar.thumb.border": "#00000000",
+      "scrollbar.thumb.hover_background": "#49434090",
+      "scrollbar.thumb.active_background": "#49434090",
+      "scrollbar.track.border": "#00000000"
+    }
+  },
   "file_types": {
     "env": [
       ".env*"
