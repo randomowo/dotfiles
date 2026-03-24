@@ -61,4 +61,4 @@ OLLAMA_FLASH_ATTENTION=1
 # f16 - default 16bit per parameter
 # q8_0 - 1/2 of f16
 # q4_0 - 1/4 of f16
-OLLAMA_KV_CACHE_TYPE=q8_0
+OLLAMA_KV_CACHE_TYPE=f16
