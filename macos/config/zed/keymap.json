@@ -74,6 +74,7 @@
     "context": "EmptyPane || (Editor && vim_mode != insert && VimControl)",
     "bindings": {
       "space b": "editor::ToggleBreakpoint",
+      "space r": "editor::Rewrap",
       "space w s": "pane::SplitDown",
       "space w d": "pane::SplitRight",
       "space w o": "pane::CloseOtherItems",
