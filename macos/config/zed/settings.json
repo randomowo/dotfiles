@@ -57,13 +57,13 @@
   },
   "title_bar": {
     "button_layout": "platform_default",
-    "show_user_picture": false,
+    "show_user_picture": true,
     "show_onboarding_banner": true,
     "show_branch_name": true,
     "show_menus": false,
     "show_branch_icon": true,
-    "show_user_menu": false,
-    "show_sign_in": false
+    "show_user_menu": true,
+    "show_sign_in": true
   },
   "status_bar": {
     "cursor_position_button": false,
@@ -362,6 +362,9 @@
     "disabled_globs": []
   },
   "agent": {
+    "show_turn_stats": true,
+    "cancel_generation_on_terminal_stop": true,
+    "enable_feedback": false,
     "tool_permissions": {
       "default": "confirm"
     },
