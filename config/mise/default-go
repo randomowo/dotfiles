@@ -1,0 +1,7 @@
+github.com/go-delve/delve/cmd/dlv@latest
+golang.org/x/tools/cmd/goimports@latest
+golang.org/x/tools/gopls@latest
+mvdan.cc/sh/v3/cmd/shfmt@latest
+github.com/mikefarah/yq/v4@latest
+mvdan.cc/gofumpt@latest
+github.com/pranshuparmar/witr/cmd/witr@latest

@@ -1,11 +1,12 @@
 [settings]
-python_default_packages_file = "$HOME/.config/mise/default-pips"
-experimental = false
-python_compile = false
-go_set_gobin = false
+python.default_packages_file = "$HOME/.config/mise/default-pips"
+python.compile = false
+
+go.set_gobin = true
+go.set_goroot = true
+go.default_packages_file = "$HOME/.config/mise/default-go"
 
 [tools]
 python = "latest"
 go = "latest"
 bun = "latest"
-
