@@ -358,7 +358,6 @@
       "proxy_no_verify": null,
       "enterprise_uri": null
     },
-    "enabled_in_text_threads": true,
     "disabled_globs": []
   },
   "agent": {
