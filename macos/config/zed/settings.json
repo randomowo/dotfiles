@@ -315,13 +315,6 @@
           "supports_tools": true
         },
         {
-          "display_name": "gpt-oss:20b",
-          "name": "gpt-oss:20b",
-          "max_tokens": 32768,
-          "supports_thinking": true,
-          "supports_tools": true
-        },
-        {
           "display_name": "qwen3.5:0.8b",
           "name": "qwen3.5:0.8b",
           "max_tokens": 4096,
@@ -380,12 +373,6 @@
         "provider": "ollama",
         "model": "qwen3.5:9b",
         "enable_thinking": true
-      },
-      {
-        "provider": "ollama",
-        "model": "gpt-oss:20b",
-        "enable_thinking": true,
-        "effort": "medium"
       },
       {
         "provider": "ollama",
