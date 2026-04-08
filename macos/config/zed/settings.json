@@ -66,7 +66,7 @@
     "show_sign_in": true
   },
   "status_bar": {
-    "cursor_position_button": false,
+    "cursor_position_button": true,
     "active_language_button": true,
     "active_encoding_button": "non_utf8"
   },
