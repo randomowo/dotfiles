@@ -402,6 +402,15 @@
     }
   },
   "context_servers": {
+    "gopls-mcp": {
+      "enabled": true,
+      "remote": false,
+      "command": "gopls",
+      "args": [
+        "mcp"
+      ],
+      "env": {}
+    },
     "mcp-server-context7": {
       "enabled": true,
       "remote": false,
