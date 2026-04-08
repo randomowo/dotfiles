@@ -341,6 +341,13 @@
           "max_tokens": 32768,
           "supports_thinking": true,
           "supports_tools": true
+        },
+        {
+          "display_name": "gemma4:e4b",
+          "name": "gemma4:e4b",
+          "max_tokens": 65536,
+          "supports_thinking": true,
+          "supports_tools": true
         }
       ]
     }
@@ -379,6 +386,11 @@
         "model": "gpt-oss:20b",
         "enable_thinking": true,
         "effort": "medium"
+      },
+      {
+        "provider": "ollama",
+        "model": "gemma4:e4b",
+        "enable_thinking": true
       }
     ],
     "inline_assistant_model": {
@@ -397,11 +409,10 @@
     "enabled": true,
     "button": true,
     "dock": "right",
-    "default_view": "thread",
     "default_model": {
       "enable_thinking": true,
       "provider": "ollama",
-      "model": "qwen3.5:9b"
+      "model": "gemma4:e4b"
     }
   },
   "context_servers": {
