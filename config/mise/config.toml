@@ -2,7 +2,7 @@
 python.default_packages_file = "$HOME/.config/mise/default-pips"
 python.compile = false
 
-go.set_gobin = true
+go.set_gobin = false
 go.set_goroot = true
 go.default_packages_file = "$HOME/.config/mise/default-go"
 
