@@ -282,6 +282,18 @@
       ]
     }
   },
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "gofumpt": true
+      }
+    },
+    "zls": {
+      "binary": {
+        "path": "zls"
+      }
+    }
+  },
   "auto_install_extensions": {
     "html": true,
     "toml": true,
