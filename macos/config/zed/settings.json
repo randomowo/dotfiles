@@ -362,9 +362,10 @@
   "edit_predictions": {
     "provider": "ollama",
     "ollama": {
+      "max_output_tokens": 32,
+      "prompt_format": "qwen",
       "api_url": "http://127.0.0.1:11434",
-      "max_output_tokens": 64,
-      "model": "qwen2.5-coder:3b"
+      "model": "qwen2.5-coder:7b"
     },
     "mode": "subtle",
     "copilot": {
