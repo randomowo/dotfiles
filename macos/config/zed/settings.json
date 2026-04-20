@@ -89,6 +89,8 @@
   "colorize_brackets": false,
   "middle_click_paste": true,
   "inlay_hints": {
+    "show_parameter_hints": false,
+    "show_value_hints": false,
     "enabled": true
   },
   "completion_detail_alignment": "left",
