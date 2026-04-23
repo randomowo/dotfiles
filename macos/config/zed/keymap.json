@@ -7,6 +7,7 @@
       "cmd-shift-b": "outline_panel::ToggleFocus",
       "cmd-shift-d": "debug_panel::ToggleFocus",
       "cmd-shift-t": "terminal_panel::ToggleFocus",
+      "cmd-shift-j": "multi_workspace::ToggleWorkspaceSidebar",
       "cmd-shift-s": "task::Spawn",
       "ctrl-tab": "tab_switcher::Toggle",
       "cmd-shift-n": "workspace::NewWindow",
@@ -31,7 +32,7 @@
       "cmd-7": null,
       "cmd-8": null,
       "cmd-9": null,
-      "cmd-k": null
+      "cmd-k": null,
     }
   },
   {
@@ -56,9 +57,8 @@
     "context": "GitPicker",
     "bindings": {
       "cmd-1": "git_picker::ActivateBranchesTab",
-      "cmd-2": "git_picker::ActivateWorktreesTab",
-      "cmd-3": "git_picker::ActivateStashTab",
-      "cmd-4": null
+      "cmd-2": "git_picker::ActivateStashTab",
+      "cmd-3": null
     }
   },
   {
@@ -134,8 +134,20 @@
       "space s m": "agent::ToggleModelSelector",
       "space s p": "agent::ToggleProfileSelector",
       "space s d": "agent::OpenAgentDiff",
-      "space t": "agent::OpenHistory",
       "ctrl-c": "editor::Cancel"
+    }
+  },
+  {
+    "context": "ThreadsSidebar",
+    "bindings": {
+      "ctrl-h": "agents_sidebar::ToggleThreadHistory",
+    }
+  },
+  {
+    "context": "ThreadsSidebar && not_searching",
+    "bindings": {
+      "ctrl-f": "agents_sidebar::FocusSidebarFilter",
+      "/": "agents_sidebar::FocusSidebarFilter"
     }
   }
 ]

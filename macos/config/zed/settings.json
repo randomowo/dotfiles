@@ -61,9 +61,10 @@
     "show_onboarding_banner": true,
     "show_branch_name": true,
     "show_menus": false,
-    "show_branch_icon": true,
     "show_user_menu": true,
-    "show_sign_in": true
+    "show_sign_in": true,
+    "show_branch_status_icon": true,
+    "show_project_items": true,
   },
   "status_bar": {
     "cursor_position_button": true,
@@ -376,6 +377,7 @@
     "disabled_globs": []
   },
   "agent": {
+    "sidebar_side": "right",
     "show_turn_stats": true,
     "cancel_generation_on_terminal_stop": true,
     "enable_feedback": false,
