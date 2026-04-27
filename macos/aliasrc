@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # _____ __    _____ _____ _____ _____ _____
 # |  _  |  |  |     |  _  |   __|   __|   __|
 # |     |  |__|-   -|     |__   |   __|__   |
@@ -15,7 +15,7 @@ alias \
     rf="rainfrog"
 
 _ucargobins() {
-    cargo install --locked $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
+    cargo install --locked $(cargo install --list | grep -E '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ')
 }
 
 _uall() {
@@ -28,7 +28,7 @@ _uall() {
         "_ucargobins"
     )
 
-    for cmd in $cmds; do
+    for cmd in "${cmds[@]}"; do
         echo -e "\033[1;33mexecuting $cmd\033[0m"
 
         logcmd="$(echo "$cmd" | cut -d' ' -f1)"
