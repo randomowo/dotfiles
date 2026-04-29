@@ -32,7 +32,7 @@
       "cmd-7": null,
       "cmd-8": null,
       "cmd-9": null,
-      "cmd-k": null,
+      "cmd-k": null
     }
   },
   {
@@ -81,6 +81,7 @@
       "space w e": "editor::ToggleFocus",
       "space t n": "pane::ActivateNextItem",
       "space t p": "pane::ActivatePreviousItem",
+      "space g g": "git_graph::Open",
       "space g w": "git::Worktree",
       "space g h": "git::FileHistory",
       "space g t": "git::ViewStash",
@@ -105,6 +106,25 @@
               "before": true
             }
           ]
+        ]
+      ]
+    }
+  },
+  {
+    "context": "GitGraph && !Editor",
+    "bindings": {
+      "/": "git_graph::FocusSearch",
+      "space": "git_graph::OpenCommitView"
+    }
+  },
+  {
+    "context": "GitGraph > Editor",
+    "bindings": {
+      "space": [
+        "action::Sequence",
+        [
+          "editor::Cancel",
+          "git_graph::OpenCommitView"
         ]
       ]
     }
@@ -140,7 +160,7 @@
   {
     "context": "ThreadsSidebar",
     "bindings": {
-      "ctrl-h": "agents_sidebar::ToggleThreadHistory",
+      "ctrl-h": "agents_sidebar::ToggleThreadHistory"
     }
   },
   {
