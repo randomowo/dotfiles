@@ -154,11 +154,12 @@
       "space s m": "agent::ToggleModelSelector",
       "space s p": "agent::ToggleProfileSelector",
       "space s d": "agent::OpenAgentDiff",
+      "space s e": "agent::ToggleThinkingEffortMenu",
       "ctrl-c": "editor::Cancel"
     }
   },
   {
-    "context": "ThreadsSidebar",
+    "context": "ThreadsSidebar || (ThreadsSidebar > Editor)",
     "bindings": {
       "ctrl-h": "agents_sidebar::ToggleThreadHistory"
     }
