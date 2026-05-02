@@ -28,6 +28,16 @@ key-mapping.preset = 'qwerty'
     outer.top =        5
     outer.right =      5
 
+[workspace-to-monitor-force-assignment]
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'main'
+    5 = 'main'
+    Q = 'secondary'
+    W = 'secondary'
+    E = 'secondary'
+
 [mode.main.binding]
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
@@ -69,6 +79,7 @@ key-mapping.preset = 'qwerty'
     alt-shift-semicolon = 'mode service'
 
     alt-f = 'layout floating tiling'
+    alt-m = 'mode monitor'
 
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
@@ -80,3 +91,11 @@ key-mapping.preset = 'qwerty'
     alt-shift-j = ['join-with down', 'mode main']
     alt-shift-k = ['join-with up', 'mode main']
     alt-shift-l = ['join-with right', 'mode main']
+
+[mode.monitor.binding]
+    esc = 'mode main'
+
+    alt-shift-h = ['move-node-to-monitor --focus-follows-window left']
+    alt-shift-j = ['move-node-to-monitor --focus-follows-window down']
+    alt-shift-k = ['move-node-to-monitor --focus-follows-window up']
+    alt-shift-l = ['move-node-to-monitor --focus-follows-window right']
