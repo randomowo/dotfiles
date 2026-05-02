@@ -80,6 +80,7 @@ key-mapping.preset = 'qwerty'
 
     alt-f = 'layout floating tiling'
     alt-m = 'mode monitor'
+    ctrl-alt-f = 'fullscreen'
 
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
