@@ -76,13 +76,18 @@ key-mapping.preset = 'qwerty'
     alt-shift-w = 'move-node-to-workspace W'
     alt-shift-x = 'move-node-to-workspace X'
 
+    ctrl-alt-shift-h = 'move-node-to-monitor --focus-follows-window left'
+    ctrl-alt-shift-j = 'move-node-to-monitor --focus-follows-window down'
+    ctrl-alt-shift-k = 'move-node-to-monitor --focus-follows-window up'
+    ctrl-alt-shift-l = 'move-node-to-monitor --focus-follows-window right'
+
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     alt-shift-semicolon = 'mode service'
 
     alt-f = 'layout floating tiling'
-    alt-m = 'mode monitor'
+
     ctrl-alt-f = 'fullscreen'
 
 [mode.service.binding]
@@ -95,11 +100,3 @@ key-mapping.preset = 'qwerty'
     alt-shift-j = ['join-with down', 'mode main']
     alt-shift-k = ['join-with up', 'mode main']
     alt-shift-l = ['join-with right', 'mode main']
-
-[mode.monitor.binding]
-    esc = 'mode main'
-
-    alt-shift-h = ['move-node-to-monitor --focus-follows-window left']
-    alt-shift-j = ['move-node-to-monitor --focus-follows-window down']
-    alt-shift-k = ['move-node-to-monitor --focus-follows-window up']
-    alt-shift-l = ['move-node-to-monitor --focus-follows-window right']
