@@ -14,7 +14,10 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 automatically-unhide-macos-hidden-apps = false
 
-persistent-workspaces = ["1", "2", "3", "4", "5", "Q", "W", "E"]
+persistent-workspaces = [
+    "1", "2", "3", "4",
+    "Q", "W", "E", "X"
+]
 
 on-mode-changed = []
 
@@ -33,10 +36,10 @@ key-mapping.preset = 'qwerty'
     2 = 'main'
     3 = 'main'
     4 = 'main'
-    5 = 'main'
     Q = 'secondary'
     W = 'secondary'
     E = 'secondary'
+    X = 'secondary'
 
 [mode.main.binding]
     alt-slash = 'layout tiles horizontal vertical'
@@ -59,19 +62,19 @@ key-mapping.preset = 'qwerty'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
     alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
     alt-e = 'workspace E'
     alt-q = 'workspace Q'
     alt-w = 'workspace W'
+    alt-x = 'workspace X'
 
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
     alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
     alt-shift-e = 'move-node-to-workspace E'
     alt-shift-q = 'move-node-to-workspace Q'
     alt-shift-w = 'move-node-to-workspace W'
+    alt-shift-x = 'move-node-to-workspace X'
 
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
