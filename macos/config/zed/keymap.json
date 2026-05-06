@@ -130,6 +130,12 @@
     }
   },
   {
+    "context": "GitPanel && ChangesList && !GitBranchSelector",
+    "bindings": {
+      "space": "git::ToggleStaged"
+    }
+  },
+  {
     "context": "vim_mode != insert && (GitPanel > Editor || CommitEditor)",
     "bindings": {
       "space a": "git::Amend",
