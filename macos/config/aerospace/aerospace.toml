@@ -81,9 +81,6 @@ key-mapping.preset = 'qwerty'
     ctrl-alt-shift-k = 'move-node-to-monitor --focus-follows-window up'
     ctrl-alt-shift-l = 'move-node-to-monitor --focus-follows-window right'
 
-    alt-tab = 'workspace-back-and-forth'
-    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-
     alt-shift-semicolon = 'mode service'
 
     alt-f = 'layout floating tiling'
