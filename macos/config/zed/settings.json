@@ -20,6 +20,7 @@
     }
   },
   "git_panel": {
+    "commit_title_max_length": 80,
     "tree_view": true,
     "dock": "right"
   },
