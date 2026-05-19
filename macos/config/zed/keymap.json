@@ -176,5 +176,11 @@
       "ctrl-f": "agents_sidebar::FocusSidebarFilter",
       "/": "agents_sidebar::FocusSidebarFilter"
     }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "space": "project_panel::OpenPermanent"
+    }
   }
 ]
