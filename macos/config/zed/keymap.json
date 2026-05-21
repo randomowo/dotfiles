@@ -81,6 +81,7 @@
       "space w e": "editor::ToggleFocus",
       "space t n": "pane::ActivateNextItem",
       "space t p": "pane::ActivatePreviousItem",
+      "space t t": "tab_switcher::ToggleAll",
       "space g g": "git_graph::Open",
       "space g w": "git::Worktree",
       "space g h": "git::FileHistory",
