@@ -57,6 +57,7 @@ key-mapping.preset = 'qwerty'
 
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
+    alt-shift-equal = 'resize smart +50'
 
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
