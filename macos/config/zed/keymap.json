@@ -95,6 +95,7 @@
       "space n": "editor::SelectNext",
       "space p": "editor::SelectPrevious",
       "space m": "editor::OpenSelectionsInMultibuffer",
+      "space u": "editor::ToggleCase",
       "shift-w": "vim::NextSubwordStart",
       "shift-b": "vim::PreviousSubwordStart",
       "shift-r": [
