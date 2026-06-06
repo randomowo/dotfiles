@@ -55,6 +55,11 @@ key-mapping.preset = 'qwerty'
     alt-shift-k = 'move up'
     alt-shift-l = 'move right'
 
+    alt-shift-left = 'move left'
+    alt-shift-down = 'move down'
+    alt-shift-up = 'move up'
+    alt-shift-right = 'move right'
+
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
     alt-shift-equal = 'resize smart +50'
@@ -82,6 +87,11 @@ key-mapping.preset = 'qwerty'
     ctrl-alt-shift-k = 'move-node-to-monitor --focus-follows-window up'
     ctrl-alt-shift-l = 'move-node-to-monitor --focus-follows-window right'
 
+    ctrl-alt-shift-left = 'move-node-to-monitor --focus-follows-window left'
+    ctrl-alt-shift-down = 'move-node-to-monitor --focus-follows-window down'
+    ctrl-alt-shift-up = 'move-node-to-monitor --focus-follows-window up'
+    ctrl-alt-shift-right = 'move-node-to-monitor --focus-follows-window right'
+
     alt-shift-semicolon = 'mode service'
 
     alt-f = 'layout floating tiling'
@@ -98,3 +108,8 @@ key-mapping.preset = 'qwerty'
     alt-shift-j = ['join-with down', 'mode main']
     alt-shift-k = ['join-with up', 'mode main']
     alt-shift-l = ['join-with right', 'mode main']
+
+    alt-shift-left = ['join-with left', 'mode main']
+    alt-shift-down = ['join-with down', 'mode main']
+    alt-shift-up = ['join-with up', 'mode main']
+    alt-shift-right = ['join-with right', 'mode main']
