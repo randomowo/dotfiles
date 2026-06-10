@@ -134,7 +134,9 @@
   {
     "context": "GitPanel && ChangesList && !GitBranchSelector",
     "bindings": {
-      "space": "git::ToggleStaged"
+      "space": "git::ToggleStaged",
+      "h": "git_panel::ActivateHistoryTab",
+      "c": "git_panel::ActivateChangesTab"
     }
   },
   {
