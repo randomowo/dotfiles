@@ -1,4 +1,5 @@
 {
+  "cli_default_open_behavior": "new_window",
   "use_system_prompts": true,
   "use_system_path_prompts": true,
   "telemetry": {
@@ -315,44 +316,23 @@
       "api_url": "http://127.0.0.1:11434",
       "available_models": [
         {
-          "display_name": "qwen2.5-coder:7b",
-          "name": "qwen2.5-coder:7b",
-          "max_tokens": 4096,
-          "supports_thinking": false,
-          "supports_tools": true
-        },
-        {
-          "display_name": "qwen2.5-coder:1.5b",
-          "name": "qwen2.5-coder:1.5b",
-          "max_tokens": 2048,
-          "supports_thinking": false,
-          "supports_tools": true
-        },
-        {
-          "display_name": "qwen3.5:0.8b",
-          "name": "qwen3.5:0.8b",
-          "max_tokens": 4096,
-          "supports_thinking": true,
-          "supports_tools": true
-        },
-        {
-          "display_name": "qwen3.5:4b",
-          "name": "qwen3.5:4b",
-          "max_tokens": 32768,
-          "supports_thinking": true,
-          "supports_tools": true
-        },
-        {
-          "display_name": "qwen3.5:9b",
-          "name": "qwen3.5:9b",
-          "max_tokens": 32768,
-          "supports_thinking": true,
-          "supports_tools": true
-        },
-        {
           "display_name": "gemma4:e4b",
-          "name": "gemma4:e4b",
+          "name": "gemma4:e4b-mlx",
           "max_tokens": 65536,
+          "supports_thinking": true,
+          "supports_tools": true
+        },
+        {
+          "display_name": "gemma4:e2b",
+          "name": "gemma4:e2b-mlx",
+          "max_tokens": 65536,
+          "supports_thinking": true,
+          "supports_tools": true
+        },
+        {
+          "display_name": "gemma4:26b",
+          "name": "gemma4:26b-mlx",
+          "max_tokens": 32818,
           "supports_thinking": true,
           "supports_tools": true
         }
@@ -360,13 +340,11 @@
     }
   },
   "edit_predictions": {
-    "provider": "ollama",
     "ollama": {
-      "max_output_tokens": 32,
-      "prompt_format": "qwen",
-      "api_url": "http://127.0.0.1:11434",
-      "model": "qwen2.5-coder:7b"
+      "model": "gemma4:e2b-mlx"
     },
+    "allow_data_collection": "no",
+    "provider": "ollama",
     "mode": "subtle",
     "copilot": {
       "proxy": null,
@@ -386,23 +364,23 @@
     "favorite_models": [
       {
         "provider": "ollama",
-        "model": "qwen3.5:9b",
+        "model": "gemma4:26b-mlx",
         "enable_thinking": true
       },
       {
         "provider": "ollama",
-        "model": "gemma4:e4b",
+        "model": "gemma4:e4b-mlx",
         "enable_thinking": true
       }
     ],
     "inline_assistant_model": {
       "provider": "ollama",
-      "model": "qwen2.5-coder:7b",
+      "model": "gemma4:e2b-mlx",
       "enable_thinking": false
     },
     "commit_message_model": {
       "provider": "ollama",
-      "model": "qwen2.5-coder:7b",
+      "model": "gemma4:e2b-mlx",
       "enable_thinking": false
     },
     "single_file_review": false,
@@ -414,7 +392,7 @@
     "default_model": {
       "enable_thinking": true,
       "provider": "ollama",
-      "model": "gemma4:e4b"
+      "model": "gemma4:26b-mlx"
     }
   },
   "context_servers": {
