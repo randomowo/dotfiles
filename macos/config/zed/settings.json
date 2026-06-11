@@ -277,7 +277,7 @@
             "arguments": [
               "-in",
               "-formatter",
-              "indent=2,force_quote_style=single"
+              "indent=2,force_quote_style=single,include_document_start=true"
             ]
           }
         }
