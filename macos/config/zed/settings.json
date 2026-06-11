@@ -273,13 +273,11 @@
       "formatter": [
         {
           "external": {
-            "command": "yq",
+            "command": "yamlfmt",
             "arguments": [
-              "-I",
-              "2",
-              "-P",
-              "-o",
-              "yaml"
+              "-in",
+              "-formatter",
+              "indent=2,force_quote_style=single"
             ]
           }
         }
