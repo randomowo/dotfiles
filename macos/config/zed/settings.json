@@ -157,11 +157,11 @@
   },
   "show_wrap_guides": true,
   "current_line_highlight": "all",
-  "ui_font_family": "Mononoki Nerd Font",
+  "ui_font_family": "Melno",
   "buffer_line_height": {
     "custom": 1
   },
-  "buffer_font_family": "Mononoki Nerd Font",
+  "buffer_font_family": "Melno",
   "restore_on_startup": "launchpad",
   "on_last_window_closed": "quit_app",
   "when_closing_with_no_tabs": "keep_window_open",
@@ -178,16 +178,7 @@
   "buffer_font_size": 13,
   "agent_buffer_font_size": 13,
   "agent_ui_font_size": 13,
-  "theme": "Gruvbox Dark Hard",
-  "theme_overrides": {
-    "Gruvbox Dark Hard": {
-      "scrollbar.thumb.background": "#4943404a",
-      "scrollbar.thumb.border": "#00000000",
-      "scrollbar.thumb.hover_background": "#49434090",
-      "scrollbar.thumb.active_background": "#49434090",
-      "scrollbar.track.border": "#00000000"
-    }
-  },
+  "theme": "One Light",
   "file_types": {
     "env": [
       ".env*"

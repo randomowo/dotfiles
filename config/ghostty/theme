@@ -1,3 +1,1 @@
-theme = "Gruvbox Dark"
-
-#custom-shader = ./shaders/liquid-glass.glsl
+theme = "Atom One Light"
