@@ -159,10 +159,22 @@
   "show_wrap_guides": true,
   "current_line_highlight": "all",
   "ui_font_family": "Menlo",
+  "ui_font_size": 13,
+  "ui_font_fallbacks": ["Mononoki Nerd Font"],
+  "ui_font_features": {
+    "calt": false
+  },
+  "buffer_font_family": "Menlo",
+  "buffer_font_size": 13,
+  "buffer_font_fallbacks": ["Mononoki Nerd Font"],
+  "buffer_font_features": {
+    "calt": false
+  },
+  "agent_buffer_font_size": 13,
+  "agent_ui_font_size": 13,
   "buffer_line_height": {
     "custom": 1
   },
-  "buffer_font_family": "Melno",
   "restore_on_startup": "launchpad",
   "on_last_window_closed": "quit_app",
   "when_closing_with_no_tabs": "keep_window_open",
@@ -175,10 +187,6 @@
   "icon_theme": "Zed (Default)",
   "helix_mode": true,
   "base_keymap": "JetBrains",
-  "ui_font_size": 13,
-  "buffer_font_size": 13,
-  "agent_buffer_font_size": 13,
-  "agent_ui_font_size": 13,
   "theme": "One Light",
   "file_types": {
     "env": [
