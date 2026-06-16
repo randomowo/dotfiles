@@ -1,5 +1,5 @@
 window-decoration = true
-window-theme = dark
+window-theme = light
 window-inherit-working-directory = true
 window-height = 45
 window-width = 150
