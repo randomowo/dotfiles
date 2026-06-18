@@ -1,20 +1,19 @@
 # -----------------------------------------------------------------------------
 # OneLight Skin
 # -----------------------------------------------------------------------------
-
+---
 # Styles...
-foreground: &foreground "#383a42"
-background: &background "#fafafa"
-white: &white "#ffffff"
-blue: &blue "#4078f2"
-green: &green "#50a14f"
-grey: &grey "#a0a1a7"
-orange: &orange "#c18401"
-purple: &purple "#a626a4"
-red: &red "#e45649"
-cyan: &cyan "#0184bc"
-highlight: &highlight "#e5e5e6"
-
+foreground: &foreground '#383a42'
+background: &background '#fafafa'
+white: &white '#ffffff'
+blue: &blue '#4078f2'
+green: &green '#50a14f'
+grey: &grey '#a0a1a7'
+orange: &orange '#c18401'
+purple: &purple '#a626a4'
+red: &red '#e45649'
+cyan: &cyan '#0184bc'
+highlight: &highlight '#e5e5e6'
 # Skin...
 k9s:
   body:
