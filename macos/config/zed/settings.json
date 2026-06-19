@@ -160,13 +160,17 @@
   "current_line_highlight": "all",
   "ui_font_family": "Menlo",
   "ui_font_size": 13,
-  "ui_font_fallbacks": ["Mononoki Nerd Font"],
+  "ui_font_fallbacks": [
+    "Mononoki Nerd Font"
+  ],
   "ui_font_features": {
     "calt": false
   },
   "buffer_font_family": "Menlo",
   "buffer_font_size": 13,
-  "buffer_font_fallbacks": ["Mononoki Nerd Font"],
+  "buffer_font_fallbacks": [
+    "Mononoki Nerd Font"
+  ],
   "buffer_font_features": {
     "calt": false
   },
