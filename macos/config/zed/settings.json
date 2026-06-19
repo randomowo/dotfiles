@@ -385,14 +385,14 @@
     },
     "single_file_review": false,
     "model_parameters": [],
-    "default_profile": "ask",
+    "default_profile": "write",
     "enabled": true,
     "button": true,
     "dock": "right",
     "default_model": {
       "enable_thinking": true,
       "provider": "ollama",
-      "model": "gemma4:26b-mlx"
+      "model": "gemma4:e4b-mlx"
     }
   },
   "context_servers": {
