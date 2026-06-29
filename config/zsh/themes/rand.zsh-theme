@@ -115,12 +115,13 @@ psetup() {
     zstyle ':vcs_info:git*' actionformats '%b (%a)'
 
     export VIRTUAL_ENV_DISABLE_PROMPT=1
-    #MODE_CURSOR_VIINS="cyan blinking bar"
-    #MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS red"
-    #MODE_CURSOR_VICMD="green block"
-    #MODE_CURSOR_SEARCH="magenta steady underline"
-    #MODE_CURSOR_VISUAL="green underline"
-    #MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL light_green"
+    MODE_CURSOR_DEFAULT="red blinking bar"
+    MODE_CURSOR_VIINS="$MODE_CURSOR_DEFAULT"
+    MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS red"
+    MODE_CURSOR_VICMD="green block"
+    MODE_CURSOR_SEARCH="magenta steady underline"
+    MODE_CURSOR_VISUAL="green underline"
+    MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL light_green"
 }
 
 setopt prompt_subst
