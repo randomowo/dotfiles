@@ -167,7 +167,7 @@
     "calt": false
   },
   "buffer_font_family": "Menlo",
-  "buffer_font_size": 13.0,
+  "buffer_font_size": 13,
   "buffer_font_fallbacks": [
     "Mononoki Nerd Font"
   ],
@@ -345,7 +345,10 @@
   },
   "edit_predictions": {
     "ollama": {
-      "model": "gemma4:e2b-mlx"
+      "prompt_format": "infer",
+      "api_url": "http://127.0.0.1:11434",
+      "max_output_tokens": 64,
+      "model": "qwen2.5-coder:3b"
     },
     "allow_data_collection": "no",
     "provider": "ollama",
@@ -379,7 +382,7 @@
     ],
     "inline_assistant_model": {
       "provider": "ollama",
-      "model": "gemma4:e2b-mlx",
+      "model": "gemma4:e4b-mlx",
       "enable_thinking": false
     },
     "commit_message_model": {
