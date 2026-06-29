@@ -167,7 +167,7 @@
     "calt": false
   },
   "buffer_font_family": "Menlo",
-  "buffer_font_size": 13,
+  "buffer_font_size": 13.0,
   "buffer_font_fallbacks": [
     "Mononoki Nerd Font"
   ],
