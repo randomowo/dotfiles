@@ -327,13 +327,6 @@
           "supports_tools": true
         },
         {
-          "display_name": "gemma4:e2b",
-          "name": "gemma4:e2b-mlx",
-          "max_tokens": 65536,
-          "supports_thinking": true,
-          "supports_tools": true
-        },
-        {
           "display_name": "gemma4:26b",
           "name": "gemma4:26b-mlx",
           "max_tokens": 32818,
@@ -387,7 +380,7 @@
     },
     "commit_message_model": {
       "provider": "ollama",
-      "model": "gemma4:e2b-mlx",
+      "model": "qwen2.5-coder:3b",
       "enable_thinking": false
     },
     "single_file_review": false,
