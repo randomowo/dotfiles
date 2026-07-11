@@ -320,16 +320,23 @@
       "api_url": "http://127.0.0.1:11434",
       "available_models": [
         {
-          "display_name": "gemma4:e4b",
+          "display_name": "gemma4:e4b-mlx",
           "name": "gemma4:e4b-mlx",
-          "max_tokens": 65536,
+          "max_tokens": 128000,
           "supports_thinking": true,
           "supports_tools": true
         },
         {
-          "display_name": "gemma4:26b",
-          "name": "gemma4:26b-mlx",
-          "max_tokens": 32818,
+          "display_name": "gemma4:12b-mlx",
+          "name": "gemma4:12b-mlx",
+          "max_tokens": 128000,
+          "supports_thinking": true,
+          "supports_tools": true
+        },
+        {
+          "display_name": "ornith:9b",
+          "name": "ornith:9b",
+          "max_tokens": 128000,
           "supports_thinking": true,
           "supports_tools": true
         }
@@ -341,7 +348,7 @@
       "prompt_format": "infer",
       "api_url": "http://127.0.0.1:11434",
       "max_output_tokens": 64,
-      "model": "qwen2.5-coder:3b"
+      "model": "qwen2.5-coder:7b"
     },
     "allow_data_collection": "no",
     "provider": "ollama",
@@ -364,12 +371,17 @@
     "favorite_models": [
       {
         "provider": "ollama",
-        "model": "gemma4:26b-mlx",
+        "model": "gemma4:12b-mlx",
         "enable_thinking": true
       },
       {
         "provider": "ollama",
         "model": "gemma4:e4b-mlx",
+        "enable_thinking": true
+      },
+      {
+        "provider": "ollama",
+        "model": "ornith:9b",
         "enable_thinking": true
       }
     ],
@@ -380,7 +392,7 @@
     },
     "commit_message_model": {
       "provider": "ollama",
-      "model": "qwen2.5-coder:3b",
+      "model": "qwen2.5-coder:7b",
       "enable_thinking": false
     },
     "single_file_review": false,
@@ -392,7 +404,7 @@
     "default_model": {
       "enable_thinking": true,
       "provider": "ollama",
-      "model": "gemma4:e4b-mlx"
+      "model": "gemma4:12b-mlx"
     }
   },
   "context_servers": {
