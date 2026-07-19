@@ -20,6 +20,12 @@ persistent-workspaces = [
 ]
 
 on-mode-changed = []
+on-window-detected = [
+    {
+        if = 'true',
+        run = ['layout floating']
+    }
+]
 
 key-mapping.preset = 'qwerty'
 
