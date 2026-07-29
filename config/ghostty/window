@@ -1,4 +1,4 @@
-window-decoration = true
+window-decoration = auto
 window-theme = light
 window-inherit-working-directory = true
 window-height = 45
@@ -8,5 +8,5 @@ window-padding-y = 5
 
 background-blur = false
 
-macos-titlebar-style = hidden
 macos-window-buttons = hidden
+macos-titlebar-style = native
