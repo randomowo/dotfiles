@@ -1,16 +1,23 @@
 theme = "onelight"
 
 [editor]
-line-number = "relative"
+line-number = "absolute"
 mouse = false
-shell=["/bin/zsh", "-c"]
+middle-click-paste = true
+shell = ["/bin/zsh", "-c"]
 auto-completion = true
-auto-format = true
-auto-save = false
+auto-format = false
+continue-comments = false
 true-color = false
+text-width = 120
 rulers = [120]
-idle-timeout = 20
+idle-timeout = 10
 bufferline = "always"
+cursorline = true
+end-of-line-diagnostics = "disable"
+
+[editor.auto-save]
+focus-lost = true
 
 [editor.statusline]
 left = ["mode", "diagnostics", "version-control"]
@@ -23,6 +30,15 @@ mode.select = "SELECT"
 
 [editor.lsp]
 enable = true
+display-inlay-hints = true
+auto-signature-help = false
+
+[editor.inline-diagnostics]
+cursor-line = "disable"
+other-lines = "disable"
+
+[editor.search]
+smart-case = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -44,8 +60,12 @@ tab = ">"
 newline = "\n"
 tabpad = "." # Tabs will look like ">···" (depending on tab width)
 
+[editor.indent-guides]
+render = false
+
 [editor.soft-wrap]
-enable = false
+enable = true
+wrap-at-text-width = true
 
 [editor.smart-tab]
 enable = true
@@ -53,10 +73,9 @@ enable = true
 ## Mappings
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
-"A-c"= "copy_selection_on_prev_line"
+"A-c" = "copy_selection_on_prev_line"
 G = "goto_last_line"
 
 [keys.select]
 
 [keys.insert]
-

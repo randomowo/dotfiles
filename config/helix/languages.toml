@@ -2,45 +2,75 @@
 # cargo install buffer-language-server
 command = "buffer-language-server"
 
+[language-server.marksman]
+# brew install marksman
+command = "marksman"
+args = ["server"]
+
+[language-server.gopls.config]
+# go install mvdan.cc/gofumpt@latest
+"formatting.gofumpt" = true
+
 [[language]]
 name = "go"
 auto-format = false
 indent = { tab-width = 4, unit = "\t" }
-
-[language-server.gopls.config]
-# go install mvdan.cc/gofumpt@latest
-"formatting.gofumpt" = false
+# go install github.com/segmentio/golines@latest
+formatter = { command = "/bin/zsh", args = [
+  "-c",
+  "set -o pipefail; gofmt | golines -m 100 --chain-split-dots --ignore-generated | gofumpt -extra",
+] }
 
 [[language]]
 name = "yaml"
 auto-format = false
 indent = { tab-width = 2, unit = " " }
-formatter = { command = "yq" }
+# go install github.com/google/yamlfmt/cmd/yamlfmt@latest
+formatter = { command = "yamlfmt", args = [
+  "-in",
+  "-formatter",
+  "indent=2,force_quote_style=single,include_document_start=true",
+] }
 
 [[language]]
 name = "json"
 auto-format = false
 indent = { tab-width = 2, unit = " " }
-formatter = { command = "jq" }
+formatter = { command = "yq", args = ["-I", "2", "-P", "-o", "json"] }
+
+[[language]]
+name = "jsonc"
+auto-format = false
+indent = { tab-width = 2, unit = " " }
+formatter = { command = "yq", args = ["-I", "2", "-P", "-o", "json"] }
+
+[[language]]
+# npm i -g bash-language-server
+name = "bash"
+auto-format = false
+indent = { tab-width = 2, unit = " " }
+# go install mvdan.cc/sh/v3/cmd/shfmt@latest
+formatter = { command = "shfmt", args = ["-i", "2"] }
 
 [[language]]
 name = "markdown"
 auto-format = false
-language-servers = [ "buf" ]
+language-servers = ["marksman", "buf"]
 
 [[language]]
 name = "git-commit"
 auto-format = true
-language-servers = [ "buf" ]
+language-servers = ["buf"]
 
 [[language]]
 name = "rust"
 auto-format = false
-indent = { tab-width = 4, unit=" " }
+indent = { tab-width = 4, unit = " " }
 
 [[language]]
-# npm -i bash-language-server
-name = "bash"
-auto-format  = false
-indent = { tab-width = 2, unit=" " }
+name = "env"
+file-types = [{ glob = ".env*" }]
 
+[[language]]
+name = "dockerfile"
+file-types = ["dockerfile", { glob = "Dockerfile*" }, { glob = "Containerfile*" }]
