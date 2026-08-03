@@ -16,6 +16,12 @@
   },
   "terminal": {
     "font_family": "Menlo",
+    "font_features": {
+      "calt": false
+    },
+    "font_fallbacks": [
+      "Mononoki Nerd Font"
+    ],
     "button": true,
     "toolbar": {
       "breadcrumbs": false
