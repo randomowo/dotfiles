@@ -5,6 +5,14 @@
 - Never write code that is explicitly backwards compatible. Systems should handle backwards compatibility (like migrations), not logic. If there is some logic that needs to be written otherwise it would appear it would break older users, you MUST make the assumption that no users have ran that code yet and its unreleased, so it would not make sense to consider the side effects that code would produce. This is a safe assumption because the maintainers of this codebase always ensure code that gets shipped is compatbile with the systems that allow for us to not have to explicitly hardcode backwards compatibility
 - Commit every change (small, atomic commits) so full history exists and any change can be reverted. Overrides default "only commit when asked" behavior.
 
+## File Operations
+
+- Use Claude Code's native `Read`, `Edit`, and `Write` tools for reading, editing, and writing files. If one is missing from the toolset it is deferred, not absent — load it with `ToolSearch("select:Read,Edit,Write")` rather than falling back to the shell.
+- Do not use `cat`, `head`, `tail`, `less`, `sed`, `awk`, `tee`, `echo >`, `printf >`, or `cat >>` for file reading and writing unless the task explicitly requires shell processing (piping into another command, `tail -f`, `sudo tee`, or a flag the native tool has no equivalent for).
+- Appending to a file is an edit: use `Edit` (or `Write` for a new file), never `cat >> file` or a `cat` heredoc.
+- `Glob` and `Grep` are preferred for file discovery and search, but are not present in every session — `ls`, `find`, and `grep`/`rg` are acceptable fallbacks when they are missing.
+- Use Bash for tests, builds, Git, Docker, and other executable commands.
+
 ## Subagent Delegation
 
 - When a request contains 2 or more separable tasks, delegate them to subagents instead of doing them all inline.
