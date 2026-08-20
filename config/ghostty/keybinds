@@ -1,0 +1,11 @@
+keybind = global:shift+ctrl+j=resize_split:down,15
+keybind = global:shift+ctrl+k=resize_split:up,15
+keybind = global:shift+ctrl+h=resize_split:left,15
+keybind = global:shift+ctrl+l=resize_split:right,15
+
+keybind = global:ctrl+j=goto_split:down
+keybind = global:ctrl+k=goto_split:up
+keybind = global:ctrl+h=goto_split:left
+keybind = global:ctrl+l=goto_split:right
+
+keybind = global:shift+ctrl+==equalize_splits
