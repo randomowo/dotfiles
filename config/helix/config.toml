@@ -73,6 +73,8 @@ enable = true
 ## Mappings
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+W = ["move_next_sub_word_end"]
+B = ["move_prev_sub_word_start"]
 
 [keys.normal.space]
 h = "@*%s<up><ret>"
