@@ -3,9 +3,9 @@ keybind = global:shift+ctrl+k=resize_split:up,15
 keybind = global:shift+ctrl+h=resize_split:left,15
 keybind = global:shift+ctrl+l=resize_split:right,15
 
-keybind = global:ctrl+j=goto_split:down
-keybind = global:ctrl+k=goto_split:up
-keybind = global:ctrl+h=goto_split:left
-keybind = global:ctrl+l=goto_split:right
+keybind = ctrl+a>j=goto_split:down
+keybind = ctrl+a>k=goto_split:up
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>l=goto_split:right
 
-keybind = global:shift+ctrl+==equalize_splits
+keybind = shift+ctrl+==equalize_splits
