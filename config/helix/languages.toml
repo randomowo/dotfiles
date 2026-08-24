@@ -17,17 +17,22 @@ format = { enable = false }
 keyOrdering = false
 
 [language-server.yaml-language-server.config.yaml.schemas]
+"https://json.schemastore.org/kustomization.json" = [
+  "**/kustomization.yaml",
+  "**/kustomization.yml",
+  "**/Kustomization",
+]
 "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.36.0-standalone-strict/all.json" = [
-  "**/k8s/**/*.yaml",
-  "**/k8s/**/*.yml",
-  "**/manifests/**/*.yaml",
-  "**/manifests/**/*.yml",
-  "**/kustomize/**/*.yaml",
-  "**/kustomize/**/*.yml",
-  "**/overlays/**/*.yaml",
-  "**/overlays/**/*.yml",
-  "**/base/**/*.yaml",
-  "**/base/**/*.yml",
+  "**/k8s/**/!(kustomization).yaml",
+  "**/k8s/**/!(kustomization).yml",
+  "**/manifests/**/!(kustomization).yaml",
+  "**/manifests/**/!(kustomization).yml",
+  "**/kustomize/**/!(kustomization).yaml",
+  "**/kustomize/**/!(kustomization).yml",
+  "**/overlays/**/!(kustomization).yaml",
+  "**/overlays/**/!(kustomization).yml",
+  "**/base/**/!(kustomization).yaml",
+  "**/base/**/!(kustomization).yml",
 ]
 
 [language-server.gopls.config]
@@ -48,7 +53,7 @@ formatter = { command = "/bin/zsh", args = [
 name = "yaml"
 auto-format = false
 language-servers = ["yaml-language-server"]
-file-types = ["yaml", "yml"]
+file-types = ["yaml", "yml", { glob = "Kustomization" }]
 indent = { tab-width = 2, unit = " " }
 # go install github.com/google/yamlfmt/cmd/yamlfmt@latest
 formatter = { command = "yamlfmt", args = [
