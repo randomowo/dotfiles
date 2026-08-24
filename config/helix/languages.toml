@@ -7,6 +7,29 @@ command = "buffer-language-server"
 command = "marksman"
 args = ["server"]
 
+[language-server.yaml-language-server]
+# brew install yaml-language-server
+command = "yaml-language-server"
+args = ["--stdio"]
+
+[language-server.yaml-language-server.config.yaml]
+format = { enable = false }
+keyOrdering = false
+
+[language-server.yaml-language-server.config.yaml.schemas]
+"https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.36.0-standalone-strict/all.json" = [
+  "**/k8s/**/*.yaml",
+  "**/k8s/**/*.yml",
+  "**/manifests/**/*.yaml",
+  "**/manifests/**/*.yml",
+  "**/kustomize/**/*.yaml",
+  "**/kustomize/**/*.yml",
+  "**/overlays/**/*.yaml",
+  "**/overlays/**/*.yml",
+  "**/base/**/*.yaml",
+  "**/base/**/*.yml",
+]
+
 [language-server.gopls.config]
 # go install mvdan.cc/gofumpt@latest
 "formatting.gofumpt" = true
@@ -24,6 +47,8 @@ formatter = { command = "/bin/zsh", args = [
 [[language]]
 name = "yaml"
 auto-format = false
+language-servers = ["yaml-language-server"]
+file-types = ["yaml", "yml"]
 indent = { tab-width = 2, unit = " " }
 # go install github.com/google/yamlfmt/cmd/yamlfmt@latest
 formatter = { command = "yamlfmt", args = [
