@@ -53,4 +53,4 @@ Applies to every Agent/Task tool call.
 
 - If project git inited: edit code in separate git worktree, not main checkout.
 - Always create worktrees from latest local main (`git fetch` not required; rebase onto main if branch cut from stale ref).
-- All new code files go inside worktree dir, never main checkout. Spec, plan, and design docs go in a temp dir outside the repo (path shared in chat), so they are never committed or merged into main.
+- All new code files go inside worktree dir (`.claude/worktrees` inside project root), never main checkout. Spec, plan, and design docs go in a temp dir outside the repo (path shared in chat), so they are never committed or merged into main.
