@@ -93,3 +93,8 @@ file-types = [{ glob = ".env*" }]
 [[language]]
 name = "dockerfile"
 file-types = ["dockerfile", { glob = "Dockerfile*" }, { glob = "Containerfile*" }]
+
+[[language]]
+name = "toml"
+auto-format = true
+language-servers = ["tombi"]
