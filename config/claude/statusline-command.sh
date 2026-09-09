@@ -1,6 +1,6 @@
 #!/bin/bash
 # Claude Code statusLine — mirrors rand.zsh-theme segment order:
-#   venv (cyan) | git branch (green=clean, red=dirty ±) | cwd (blue) | status icons
+#   venv (cyan) | jj or git (green=clean/described, yellow=undescribed work, red=conflict/dirty ±) | cwd (blue) | status icons
 # Input: JSON from Claude Code via stdin
 
 input=$(cat)
@@ -32,14 +32,41 @@ if [ -n "$VIRTUAL_ENV" ]; then
     parts+=("${BG_CYAN}${FG_BLACK} ${venv_name} ${RESET}")
 fi
 
-# --- git segment (green=clean, red=dirty) ---
-branch=$(git -C "$cwd" rev-parse --abbrev-ref HEAD 2>/dev/null)
-if [ -n "$branch" ]; then
-    dirty=$(git -C "$cwd" status --porcelain --ignore-submodules 2>/dev/null)
-    if [ -n "$dirty" ]; then
-        parts+=("${BG_RED}${FG_BLACK} ${branch} ± ${RESET}")
-    else
-        parts+=("${BG_GREEN}${FG_BLACK} ${branch} ${RESET}")
+# --- jj or git segment (jj wins when a .jj repo is present; green=clean/described, yellow=undescribed work, red=conflict/dirty) ---
+JJ_SEP=$'\x1f'
+JJ_TEMPLATE="change_id.shortest(4) ++ \"$JJ_SEP\" ++ bookmarks ++ \"$JJ_SEP\" ++ if(conflict, \"c\") ++ \"$JJ_SEP\" ++ if(description, \"d\") ++ \"$JJ_SEP\" ++ if(empty, \"e\")"
+jjdir="$cwd"
+jjroot=''
+while [ "$jjdir" != "/" ]; do
+    if [ -d "$jjdir/.jj" ]; then
+        jjroot="$jjdir"
+        break
+    fi
+    jjdir=$(dirname "$jjdir")
+done
+if [ -n "$jjroot" ]; then
+    info=$(jj log -R "$jjroot" -r @ --no-graph -T "$JJ_TEMPLATE" 2>/dev/null)
+    if [ -n "$info" ]; then
+        IFS="$JJ_SEP" read -r cid marks conflict described empty <<<"$info"
+        ref="$cid"
+        [ -n "$marks" ] && ref="$marks $cid"
+        if [ "$conflict" = c ]; then
+            parts+=("${BG_RED}${FG_BLACK} $ref ! ${RESET}")
+        elif [ "$described" != d ] && [ "$empty" != e ]; then
+            parts+=("${BG_YELLOW}${FG_BLACK} $ref ${RESET}")
+        else
+            parts+=("${BG_GREEN}${FG_BLACK} $ref ${RESET}")
+        fi
+    fi
+else
+    branch=$(git -C "$cwd" rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+        dirty=$(git -C "$cwd" status --porcelain --ignore-submodules 2>/dev/null)
+        if [ -n "$dirty" ]; then
+            parts+=("${BG_RED}${FG_BLACK} ${branch} ± ${RESET}")
+        else
+            parts+=("${BG_GREEN}${FG_BLACK} ${branch} ${RESET}")
+        fi
     fi
 fi
 
@@ -69,12 +96,12 @@ fi
 # Mirrors Claude Code's own low→max effort gradient.
 effort_bg() {
     case "$1" in
-        low)    printf '\033[48;2;76;175;80m'  ;; # green
-        medium) printf '\033[48;2;255;193;7m'  ;; # amber
-        high)   printf '\033[48;2;255;112;67m' ;; # orange
-        xhigh)  printf '\033[48;2;229;57;53m'  ;; # red
-        max)    printf '\033[48;2;216;27;96m'  ;; # magenta/pink
-        *)      printf '%s' "$BG_MAGENTA"      ;;
+    low) printf '\033[48;2;76;175;80m' ;;    # green
+    medium) printf '\033[48;2;255;193;7m' ;; # amber
+    high) printf '\033[48;2;255;112;67m' ;;  # orange
+    xhigh) printf '\033[48;2;229;57;53m' ;;  # red
+    max) printf '\033[48;2;216;27;96m' ;;    # magenta/pink
+    *) printf '%s' "$BG_MAGENTA" ;;
     esac
 }
 if [ -n "$effort" ]; then
@@ -88,7 +115,7 @@ fi
 # 100% -> bright red
 # The color brightens and shifts toward red as the value grows.
 pct_bg_color() {
-    local n=${1%.*}   # truncate decimal part for integer comparison
+    local n=${1%.*} # truncate decimal part for integer comparison
     n=${n:-0}
     [ "$n" -lt 0 ] && n=0
     [ "$n" -gt 100 ] && n=100
@@ -96,13 +123,13 @@ pct_bg_color() {
     local r g b t
     if [ "$n" -le 50 ]; then
         t=$n
-        r=$(( 76  + (230 - 76)  * t / 50 ))
-        g=$(( 175 + (140 - 175) * t / 50 ))
-        b=$(( 80  + (40  - 80)  * t / 50 ))
+        r=$((76 + (230 - 76) * t / 50))
+        g=$((175 + (140 - 175) * t / 50))
+        b=$((80 + (40 - 80) * t / 50))
     else
-        t=$(( n - 50 ))
-        r=$(( 230 + (255 - 230) * t / 50 ))
-        g=$(( 140 + (40  - 140) * t / 50 ))
+        t=$((n - 50))
+        r=$((230 + (255 - 230) * t / 50))
+        g=$((140 + (40 - 140) * t / 50))
         b=40
     fi
     printf '\033[48;2;%d;%d;%dm' "$r" "$g" "$b"
@@ -123,8 +150,8 @@ fi
 fmt_remaining() {
     local secs=$1
     [ "$secs" -le 0 ] && echo "0m" && return
-    local h=$(( secs / 3600 ))
-    local m=$(( (secs % 3600) / 60 ))
+    local h=$((secs / 3600))
+    local m=$(((secs % 3600) / 60))
     if [ "$h" -gt 0 ]; then
         printf '%dh%dm' "$h" "$m"
     else
@@ -141,7 +168,7 @@ if [ -n "$five_pct" ]; then
     five_fmt=$(printf '%.0f' "$five_pct")
     five_left=""
     if [ -n "$five_resets" ]; then
-        five_secs=$(( five_resets - now ))
+        five_secs=$((five_resets - now))
         five_left="($(fmt_remaining "$five_secs"))"
     fi
     usage_parts+=("$(pct_bg_color "$five_fmt")${FG_BLACK} 5h${five_left}:${five_fmt}% ${RESET}")
@@ -150,7 +177,7 @@ if [ -n "$week_pct" ]; then
     week_val=$(printf '%.0f' "$week_pct")
     week_left=""
     if [ -n "$week_resets" ]; then
-        week_secs=$(( week_resets - now ))
+        week_secs=$((week_resets - now))
         week_left="($(fmt_remaining "$week_secs"))"
     fi
     usage_parts+=("$(pct_bg_color "$week_val")${FG_BLACK} 7d${week_left}:${week_val}% ${RESET}")
