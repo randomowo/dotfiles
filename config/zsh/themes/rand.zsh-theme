@@ -11,6 +11,9 @@ DETACHED="\u27a6"
 CROSS="\u2718"
 LIGHTNING="\u26a1"
 GEAR="\u2699"
+# jj segment: fields of one `jj log -r @` call, split on this
+JJ_SEP=$'\x1f'
+JJ_TEMPLATE="change_id.shortest(4) ++ \"$JJ_SEP\" ++ bookmarks ++ \"$JJ_SEP\" ++ if(conflict, \"c\") ++ \"$JJ_SEP\" ++ if(description, \"d\") ++ \"$JJ_SEP\" ++ if(empty, \"e\")"
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' stagedstr '%F{green}●'
@@ -34,6 +37,40 @@ psegment() {
 
 pvenv() {
     [ -n "$VIRTUAL_ENV" ] && psegment cyan $PRIMARY_FG " `basename $VIRTUAL_ENV` "
+}
+
+pjj_root() {
+    JJ_ROOT=''
+    local d=$PWD
+    while [[ $d != / ]]; do
+        if [[ -d $d/.jj ]]; then
+            JJ_ROOT=$d
+            return
+        fi
+        d=${d:h}
+    done
+}
+
+pjj() {
+    local color ref cid marks info
+    info=$(jj log -R $JJ_ROOT -r @ --no-graph -T $JJ_TEMPLATE 2>/dev/null) || return
+    local -a f
+    f=("${(@ps:$JJ_SEP:)info}")
+    cid=$f[1]
+    marks=$f[2]
+    if [[ $f[3] == c ]]; then
+        color=red
+    elif [[ $f[4] != d && $f[5] != e ]]; then
+        color=yellow
+    else
+        color=green
+    fi
+    ref=''
+    [[ -n $marks ]] && ref="$BRANCH $marks "
+    ref="$ref$DETACHED $cid"
+    [[ $f[3] == c ]] && ref="$ref !"
+    psegment $color $PRIMARY_FG
+    print -n " $ref "
 }
 
 pgit() {
@@ -90,7 +127,11 @@ pend() {
 
 pbuild() {
     pvenv
-    pgit
+    if [[ -n $JJ_ROOT ]]; then
+        pjj
+    else
+        pgit
+    fi
     pdir
     RETVAL=$?
     pstatus
@@ -98,7 +139,8 @@ pbuild() {
 }
 
 pprecmd() {
-    vcs_info
+    pjj_root
+    [[ -z $JJ_ROOT ]] && vcs_info
     PROMPT='%{%f%b%k%}$(pbuild)'
 }
 
