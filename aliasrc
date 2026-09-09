@@ -25,7 +25,7 @@ alias \
     l='eza -lahgF -a' \
     ll='eza -lhgF' \
     lst='eza --tree' \
-    lt='eza -lahgF --tree' \
+    lt='eza -lahgF --tree -I ".git"' \
 
 # python aliases
 alias \
