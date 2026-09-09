@@ -1,4 +1,4 @@
 "$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
 
 [revsets]
-log = "ancestors(all(), 10)"
+log = "latest(all(), 10)"
