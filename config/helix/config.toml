@@ -79,6 +79,10 @@ B = ["move_prev_sub_word_start"]
 [keys.normal.space]
 h = "@*%s<up><ret>"
 
-[keys.select]
+[keys.normal.space.w]
+d = ["vsplit_new"]
+
+[keys.select.space]
+h = "@*%s<up><ret>"
 
 [keys.insert]

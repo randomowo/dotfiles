@@ -18,21 +18,10 @@ keyOrdering = false
 
 [language-server.yaml-language-server.config.yaml.schemas]
 "https://json.schemastore.org/kustomization.json" = [
-  "**/kustomization.yaml",
-  "**/kustomization.yml",
-  "**/Kustomization",
+  "**/kustomization(.yaml)?",
 ]
 "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.36.0-standalone-strict/all.json" = [
-  "**/k8s/**/!(kustomization).yaml",
-  "**/k8s/**/!(kustomization).yml",
-  "**/manifests/**/!(kustomization).yaml",
-  "**/manifests/**/!(kustomization).yml",
-  "**/kustomize/**/!(kustomization).yaml",
-  "**/kustomize/**/!(kustomization).yml",
-  "**/overlays/**/!(kustomization).yaml",
-  "**/overlays/**/!(kustomization).yml",
-  "**/base/**/!(kustomization).yaml",
-  "**/base/**/!(kustomization).yml",
+  "**/(k8s|manifests|overlays|base)/**/!(kustomization).ya(m)?l",
 ]
 
 [language-server.gopls.config]
