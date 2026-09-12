@@ -1,4 +1,4 @@
-Detect at repo root: `.jj` present → jj workflow below; otherwise git. Never mix the two in one repo.
+Detect at repo root: `.jj` present → jj rules below; otherwise the git workflow above. Never mix the two in one repo.
 
 ### jj
 
@@ -7,11 +7,4 @@ Detect at repo root: `.jj` present → jj workflow below; otherwise git. Never m
 - Isolation happens in a workspace, never the main checkout: `jj workspace add .claude/workspaces/<name>`. Workspaces share the repo — their commits are visible from the main checkout's `jj log`.
 - Conflicts never block: rebases record conflicts inside commits. Resolve by editing the conflicted files (removing the markers); the next jj command snapshots the resolution.
 - Read-only git commands (`git log`, `git show`, `git blame`) are fine. Mutating git commands (`git commit`, `git rebase`, `git merge`, `git reset`) are forbidden — jj owns the history.
-
-### git
-
-- All merges are local only, fast-forward into main from the worktree branch. If the branch fell behind main, rebase it onto main (`git rebase main`) rather than merging main into the branch — history stays linear so integration is a fast-forward.
-- Rebasing rewrites commits, so reviewed SHAs stop existing: re-share the new SHAs after a rebase, and never rebase a branch another checkout currently has open.
-- In worktree mode, all new code files go inside `.claude/worktrees/` in the project root, never the main checkout.
-- After a successful merge, remove the worktree (`git worktree remove`) and delete its branch so stale worktrees don't accumulate.
 - If a repo would clearly benefit from jj, suggest `jj git init --colocate` once; never run it without approval.
