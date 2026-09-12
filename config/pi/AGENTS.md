@@ -20,7 +20,7 @@ Detect at repo root: `.jj` present → jj workflow below. No `.jj` → git workf
 
 ### jj
 
-The working copy is always a commit; every edit is snapshotted automatically. Nothing can be lost, but nothing is described either: at every logical checkpoint run `jj describe -m "<message>"`, then `jj new` to start the next commit. Keep commits small and single-purpose; if one commit grew multiple concerns, `jj split <paths>` before landing.
+The working copy is always a commit; every edit is snapshotted automatically. Nothing can be lost, but nothing is described either: at every logical checkpoint run `jj commit -m "<message>"`. Keep commits small and single-purpose; if one commit grew multiple concerns, `jj split <paths>` before landing.
 
 Workspaces:
 
