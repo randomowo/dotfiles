@@ -23,6 +23,7 @@ Isolation, common to both workflows:
 - Simple edits (typo, one-line tweak, config value) never ask — commit directly in the main checkout.
 - If the user picks isolation, comply without pushback. Recommend it when work is experimental or parallel, long-running, or the user may want the main checkout kept clean.
 - Landing isolated work requires explicit approval first.
+- For landing, cleanup, conflict-resolution, and undo procedures, plus the jj cheat sheet, use the `vcs-workflows` skill.
 
 Remotes, common to both workflows:
 
