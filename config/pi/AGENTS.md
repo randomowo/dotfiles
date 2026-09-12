@@ -25,6 +25,10 @@ Isolation, common to both workflows:
 - Landing isolated work requires explicit approval first.
 - For landing, cleanup, conflict-resolution, and undo procedures, plus the jj cheat sheet, use the `vcs-workflows` skill.
 
+Commit messages, common to both workflows:
+
+- The title should stay under 80 characters; 120 is the hard limit.
+
 Remotes, common to both workflows:
 
 - NEVER push — no `git push`, `jj git push`, or any other push command.
