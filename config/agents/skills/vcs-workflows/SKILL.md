@@ -10,13 +10,13 @@ description: Procedural half of the VCS rules in AGENTS.md — landing jj worksp
 - Resolving conflicts recorded inside jj commits.
 - Undoing a jj operation.
 
-Rules of engagement (never push, ask before remotes, isolation asks, commit discipline) live in AGENTS.md; this skill carries only procedures.
+Rules of engagement (never push, ask before remotes, isolation asks, commit discipline) live in AGENTS.md / CLAUDE.md; this skill carries only procedures.
 
 ## Procedure
 
 ### jj: create a workspace
 
-1. `jj workspace add .pi/workspaces/<name>` — isolation never happens in the main checkout.
+1. `jj workspace add <isolation-dir>/<name>` (`.pi/workspaces` for pi, `.claude/workspaces` for Claude Code) — isolation never happens in the main checkout.
 2. The workspace shares the repo; its commits are visible from the main checkout's `jj log`.
 
 ### jj: land a workspace (after explicit approval)
@@ -35,7 +35,7 @@ Rules of engagement (never push, ask before remotes, isolation asks, commit disc
 ### git: create a worktree
 
 1. Create from latest local main (`git fetch` not required); if the branch was cut from a stale ref, rebase it onto main.
-2. All new code files go inside `.pi/worktrees/` in the project root, never the main checkout.
+2. All new code files go inside the agent's worktree dir (`.pi/worktrees/` for pi, `.claude/worktrees/` for Claude Code), never the main checkout.
 
 ### git: land a worktree (after explicit approval)
 
