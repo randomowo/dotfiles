@@ -1,1 +1,1 @@
-No jj. The git workflow above applies in every repo, including colocated ones.
+No jj. Git workflow above apply in every repo, colocated ones too.

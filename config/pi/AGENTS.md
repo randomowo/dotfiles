@@ -1,40 +1,40 @@
 # Global preferences
 
-- Do not write comments proactively. Code should be self explanatory; write a comment only for something locally unintuitive to a reader new to the codebase, and keep it 1-2 lines and jargon-free. Long comments go stale as the code changes.
-- Spec, plan, and design docs are never committed: write them to a temp dir outside the repo and share the path in chat. No other stray markdown files in the codebase either.
-- Never write backwards-compatible logic (shims, deprecated-path handling). Assume no users have run the code and it is unreleased; compatibility between old and new data belongs in systems like migrations, not in logic.
-- Commit every change in small, atomic commits so full history exists and any change can be reverted. Overrides the default "only commit when asked" behavior.
+- No proactive comments. Code self-explanatory; comment only for something locally unintuitive to codebase newcomer, 1-2 lines, jargon-free. Long comments go stale.
+- Spec/plan/design docs never committed: write to temp dir outside repo, share path in chat. No stray markdown files in codebase.
+- Never write backwards-compatible logic (shims, deprecated-path handling). Assume no users ran code, unreleased; old/new data compatibility belongs in migrations, not logic.
+- Commit every change small, atomic — full history exists, any change revertible. Overrides default "only commit when asked" behavior.
 
 ## File Operations
 
-- Use pi's native `read`, `edit`, and `write` tools for reading, editing, and writing files.
-- Do not use `cat`, `head`, `tail`, `less`, `sed`, `awk`, `tee`, `echo >`, `printf >`, or `cat >>` for file reading or writing unless the task explicitly requires shell processing (piping into another command, `tail -f`, `sudo tee`, or a flag the native tool has no equivalent for).
-- Appending to a file is an edit: use `edit` (or `write` for a new file), never a `cat` heredoc.
-- `rg`, `find`, `grep`, and `ls` via the `bash` tool are the preferred means of file discovery and search.
-- Use `bash` for tests, builds, Git, jj, Docker, and other executable commands.
+- Use pi's native `read`, `edit`, `write` tools for file read/edit/write.
+- No `cat`, `head`, `tail`, `less`, `sed`, `awk`, `tee`, `echo >`, `printf >`, `cat >>` for file reading/writing unless task needs shell processing (piping into another command, `tail -f`, `sudo tee`, or flag native tool lacks).
+- Appending = edit: use `edit` (or `write` for new file), never `cat` heredoc.
+- `rg`, `find`, `grep`, `ls` via `bash` tool preferred for file discovery/search.
+- Use `bash` for tests, builds, Git, jj, Docker, other executables.
 
 ## Version Control
 
 Isolation, common to both workflows:
 
-- Before non-trivial edits, ask once per task: commits in the main checkout, or a separate workspace (jj) / worktree (git)? Default to commits when the user can't be asked (background run).
-- Simple edits (typo, one-line tweak, config value) never ask — commit directly in the main checkout.
-- If the user picks isolation, comply without pushback. Recommend it when work is experimental or parallel, long-running, or the user may want the main checkout kept clean.
-- Landing isolated work requires explicit approval first.
-- For landing, cleanup, conflict-resolution, and undo procedures, plus the jj cheat sheet, use the `vcs-workflows` skill.
+- Before non-trivial edits, ask once per task: commits in main checkout, or separate workspace (jj) / worktree (git)? Default commits when user can't be asked (background run).
+- Simple edits (typo, one-line tweak, config value): never ask — commit directly in main checkout.
+- User picks isolation: comply, no pushback. Recommend when work experimental or parallel, long-running, or user wants main checkout clean.
+- Landing isolated work needs explicit approval first.
+- Landing, cleanup, conflict-resolution, undo procedures + jj cheat sheet: use `vcs-workflows` skill.
 
 Commit messages, common to both workflows:
 
-- The title should stay under 80 characters; 120 is the hard limit.
+- Title under 80 chars; 120 hard limit.
 
 Remotes, common to both workflows:
 
-- NEVER push — no `git push`, `jj git push`, or any other push command.
-- Ask before any command that touches a remote (`fetch`, `fetch --prune`, remote ref updates).
+- NEVER push — no `git push`, `jj git push`, or other push command.
+- Ask before any remote-touching command (`fetch`, `fetch --prune`, remote ref updates).
 
 ### git
 
-- All merges are local only, fast-forward into main from the worktree branch. If the branch fell behind main, rebase it onto main (`git rebase main`) rather than merging main into the branch — history stays linear so integration is a fast-forward.
-- Rebasing rewrites commits, so reviewed SHAs stop existing: re-share the new SHAs after a rebase, and never rebase a branch another checkout currently has open.
-- In worktree mode, all new code files go inside `.pi/worktrees/` in the project root, never the main checkout.
-- After a successful merge, remove the worktree (`git worktree remove`) and delete its branch so stale worktrees don't accumulate.
+- Merges local only, fast-forward into main from worktree branch. Branch behind main: rebase onto main (`git rebase main`), not merge main into branch — history linear, integration fast-forward.
+- Rebase rewrites commits, reviewed SHAs stop existing: re-share new SHAs after rebase; never rebase branch another checkout has open.
+- Worktree mode: new code files go in `.pi/worktrees/` in project root, never main checkout.
+- After successful merge: remove worktree (`git worktree remove`), delete branch — no stale worktrees.
