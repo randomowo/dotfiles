@@ -1,17 +1,17 @@
 # Global preferences
 
-- Do not proactively write comments in code. We prefer code to be self explanatory. When we write comments its because there is something locally unintuitive that a future reader should know. But as we write code our goal is to make all code locally intuitive, removing the need for comments. If we ever do need to write comments, we never introduce jargon. Comments should be understandable to someone who was just dropped into the codebase for the first time. Comments should attempt to be concise, on average 1-2 lines. If you are writing a longer comment its likely there is a lot of useless information, which is bad because the information may become stale as the code changes
-- Do not leave random markdown files in the codebase that are meant to be some way to deliver information to me. If you want to write a markdown file write it in a temporary file, and give me the path and chat and I can read it
-- Never write code that is explicitly backwards compatible. Systems should handle backwards compatibility (like migrations), not logic. If there is some logic that needs to be written otherwise it would appear it would break older users, you MUST make the assumption that no users have ran that code yet and its unreleased, so it would not make sense to consider the side effects that code would produce. This is a safe assumption because the maintainers of this codebase always ensure code that gets shipped is compatbile with the systems that allow for us to not have to explicitly hardcode backwards compatibility
-- Commit every change (small, atomic commits) so full history exists and any change can be reverted. Overrides default "only commit when asked" behavior.
+- Do not write comments proactively. Code should be self explanatory; write a comment only for something locally unintuitive to a reader new to the codebase, and keep it 1-2 lines and jargon-free. Long comments go stale as the code changes.
+- Spec, plan, and design docs are never committed: write them to a temp dir outside the repo and share the path in chat. No other stray markdown files in the codebase either.
+- Never write backwards-compatible logic (shims, deprecated-path handling). Assume no users have run the code and it is unreleased; compatibility between old and new data belongs in systems like migrations, not in logic.
+- Commit every change in small, atomic commits so full history exists and any change can be reverted. Overrides the default "only commit when asked" behavior.
 
 ## File Operations
 
 - Use Claude Code's native `Read`, `Edit`, and `Write` tools for reading, editing, and writing files. If one is missing from the toolset it is deferred, not absent — load it with `ToolSearch("select:Read,Edit,Write")` rather than falling back to the shell.
-- Do not use `cat`, `head`, `tail`, `less`, `sed`, `awk`, `tee`, `echo >`, `printf >`, or `cat >>` for file reading and writing unless the task explicitly requires shell processing (piping into another command, `tail -f`, `sudo tee`, or a flag the native tool has no equivalent for).
-- Appending to a file is an edit: use `Edit` (or `Write` for a new file), never `cat >> file` or a `cat` heredoc.
-- `Glob` and `Grep` are preferred for file discovery and search, but are not present in every session — `ls`, `find`, and `grep`/`rg` are acceptable fallbacks when they are missing.
-- Use Bash for tests, builds, Git, Docker, and other executable commands.
+- Do not use `cat`, `head`, `tail`, `less`, `sed`, `awk`, `tee`, `echo >`, `printf >`, or `cat >>` for file reading or writing unless the task explicitly requires shell processing (piping into another command, `tail -f`, `sudo tee`, or a flag the native tool has no equivalent for).
+- Appending to a file is an edit: use `Edit` (or `Write` for a new file), never a `cat` heredoc.
+- `Glob` and `Grep` are preferred for file discovery and search when present; `ls`, `find`, and `rg`/`grep` are acceptable fallbacks.
+- Use `Bash` for tests, builds, Git, jj, Docker, and other executable commands.
 
 ## Subagent Delegation
 
@@ -40,17 +40,23 @@ Applies to every Agent/Task tool call.
   - never force a narrow agent onto a task that exceeds its stated scope — escalate to general-purpose instead
   - these tier rules override any model set in an agent's own definition — always pass the model explicitly per the tier rules above
 
-## Git Rules
+## Version Control
 
-- NEVER push to origin. All merges are local only (fast-forward into main from the worktree branch).
-- If a worktree branch has fallen behind main, rebase it onto main (`git rebase main`), do not merge main into the branch. Keeps branch history linear so integration stays a fast-forward.
-- Rebasing rewrites the branch's commits, so any reviewed SHAs stop existing. Re-share the new SHAs after a rebase, and never rebase a branch another checkout currently has open.
-- When worktree work is done, ask for approval first. Only after explicit approval, merge locally into main with `git merge --ff-only` and verify the main checkout's working tree is clean afterwards.
-- After a successful merge, remove the worktree (`git worktree remove`) and delete its branch so stale worktrees don't accumulate.
-- Ask before any command that touches a remote (fetch, fetch --prune, remote ref updates); push is already forbidden outright.
+Isolation, common to both workflows:
 
-## Worktrees
+- Before non-trivial edits, ask once per task: commits in the main checkout, or a separate workspace (jj) / worktree (git)? Default to commits when the user can't be asked (background run).
+- Simple edits (typo, one-line tweak, config value) never ask — commit directly in the main checkout.
+- If the user picks isolation, comply without pushback. Recommend it when work is experimental or parallel, long-running, or the user may want the main checkout kept clean.
+- Landing isolated work requires explicit approval first.
+- For landing, cleanup, conflict-resolution, and undo procedures, plus the jj cheat sheet, use the `vcs-workflows` skill.
 
-- If project git inited: edit code in separate git worktree, not main checkout.
-- Always create worktrees from latest local main (`git fetch` not required; rebase onto main if branch cut from stale ref).
-- All new code files go inside worktree dir (`.claude/worktrees` inside project root), never main checkout. Spec, plan, and design docs go in a temp dir outside the repo (path shared in chat), so they are never committed or merged into main.
+Commit messages, common to both workflows:
+
+- The title should stay under 80 characters; 120 is the hard limit.
+
+Remotes, common to both workflows:
+
+- NEVER push — no `git push`, `jj git push`, or any other push command.
+- Ask before any command that touches a remote (`fetch`, `fetch --prune`, remote ref updates).
+
+@~/.claude/vcs.md
