@@ -39,23 +39,10 @@ pvenv() {
     [ -n "$VIRTUAL_ENV" ] && psegment cyan $PRIMARY_FG " `basename $VIRTUAL_ENV` "
 }
 
-pjj_root() {
-    JJ_ROOT=''
-    local d=$PWD
-    while [[ $d != / ]]; do
-        if [[ -d $d/.jj ]]; then
-            JJ_ROOT=$d
-            return
-        fi
-        d=${d:h}
-    done
-}
-
 pjj() {
-    local color ref cid marks info
-    info=$(jj log -R $JJ_ROOT -r @ --no-graph -T $JJ_TEMPLATE 2>/dev/null) || return
+    local color ref cid marks
     local -a f
-    f=("${(@ps:$JJ_SEP:)info}")
+    f=("${(@ps:$JJ_SEP:)JJ_INFO}")
     cid=$f[1]
     marks=$f[2]
     if [[ $f[3] == c ]]; then
@@ -127,7 +114,7 @@ pend() {
 
 pbuild() {
     pvenv
-    if [[ -n $JJ_ROOT ]]; then
+    if [[ -n $JJ_INFO ]]; then
         pjj
     else
         pgit
@@ -139,8 +126,8 @@ pbuild() {
 }
 
 pprecmd() {
-    pjj_root
-    [[ -z $JJ_ROOT ]] && vcs_info
+    JJ_INFO=$(jj log -r @ --no-graph -T $JJ_TEMPLATE 2>/dev/null)
+    [[ -z $JJ_INFO ]] && vcs_info
     PROMPT='%{%f%b%k%}$(pbuild)'
 }
 
