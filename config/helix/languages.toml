@@ -98,3 +98,28 @@ file-types = ["dockerfile", { glob = "Dockerfile*" }, { glob = "Containerfile*" 
 name = "toml"
 auto-format = true
 language-servers = ["tombi"]
+
+[[language]]
+# npm i -g typescript typescript-language-server oxlint
+name = "javascript"
+auto-format = false
+indent = { tab-width = 2, unit = " " }
+formatter = { command = "oxlint", args = ["--stdin-filepath", "index.js"] }
+
+[[language]]
+name = "typescript"
+auto-format = false
+indent = { tab-width = 2, unit = " " }
+formatter = { command = "oxlint", args = ["--stdin-filepath", "index.ts"] }
+
+[[language]]
+name = "jsx"
+auto-format = false
+indent = { tab-width = 2, unit = " " }
+formatter = { command = "oxlint", args = ["--stdin-filepath", "index.jsx"] }
+
+[[language]]
+name = "tsx"
+auto-format = false
+indent = { tab-width = 2, unit = " " }
+formatter = { command = "oxlint", args = ["--stdin-filepath", "index.tsx"] }
