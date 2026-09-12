@@ -20,7 +20,7 @@ Detect at repo root: `.jj` present → jj workflow below. No `.jj` → git workf
 
 ### jj
 
-The working copy is always a commit; every edit is snapshotted automatically. Nothing can be lost, but nothing is described either: at every logical checkpoint run `jj commit -m "<message>"`. Keep commits small and single-purpose; if one commit grew multiple concerns, `jj split <paths>` before landing.
+The working copy is always a commit and every edit is snapshotted automatically, but that alone is not a checkpoint: undescribed work left in `@` gets folded into whatever change comes next. Ending a task means describing its commit and leaving a fresh empty `@` on top, which is exactly what `jj commit -m "<message>"` does — never end a task or session with undescribed changes sitting in `@`, and never treat `jj describe` alone as done (follow it with `jj new`, or just use `jj commit`). Keep commits small and single-purpose; if one commit grew multiple concerns, `jj split <paths>` before landing.
 
 Workspaces:
 
