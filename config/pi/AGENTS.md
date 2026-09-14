@@ -24,7 +24,11 @@ The working copy is always a commit; every edit is snapshotted automatically. No
 
 Workspaces:
 
-- Structured or multi-file work happens in a separate workspace, not the main checkout: `jj workspace add .pi/workspaces/<name>`. Trivial single-file fixes may edit the main checkout directly.
+- Before non-trivial edits, ask the user once per task: apply the work as commits in the main checkout, or in a separate workspace? Default to commits when the user can't be asked (background run).
+- Simple edits (a single trivial file change: typo, one-line tweak, config value) never ask and never create a workspace — commit directly.
+- If the user picks commits for workspace-sized work, comply without pushback.
+- Recommend a workspace when the work is experimental or parallel, long-running, or the user may want the main checkout kept clean.
+- Workspace work happens in a separate workspace, not the main checkout: `jj workspace add .pi/workspaces/<name>`.
 - Workspaces share the repo; the workspace's commits are visible from the main checkout's `jj log`.
 - To land finished work after explicit approval: `jj rebase -r <workspace head> -d <default bookmark>`, then `jj bookmark move <default bookmark> --to <workspace head>`, then from the main workspace `jj rebase -r @ -d <default bookmark>` so the main working copy sits on the landed history.
 - Clean up after landing: `jj workspace forget <name>` and remove the directory.
@@ -66,6 +70,8 @@ Cheat sheet:
 
 Worktrees (git repos only):
 
-- If project git inited: edit code in separate git worktree, not main checkout.
-- Always create worktrees from latest local main (`git fetch` not required; rebase onto main if branch cut from stale ref).
-- All new code files go inside the worktree dir (`.pi/worktrees` inside project root), never main checkout.
+- Before non-trivial edits, ask the user once per task: apply the work as commits in the main checkout, or in a separate git worktree? Default to commits when the user can't be asked (background run).
+- Simple edits (a single trivial file change) never ask and never create a worktree — commit directly in the main checkout.
+- If the user picks commits for worktree-sized work, comply without pushback.
+- Recommend a worktree when the work is experimental or parallel, long-running, or the user may want the main checkout kept clean.
+- If a worktree is chosen: create from latest local main (`git fetch` not required; rebase onto main if the branch was cut from a stale ref); all new code files go inside the worktree dir (`.pi/worktrees` inside project root), never the main checkout.
