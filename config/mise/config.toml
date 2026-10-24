@@ -1,10 +1,8 @@
 [settings]
-python.default_packages_file = "$HOME/.config/mise/default-pips"
 python.compile = false
 
 go.set_gobin = false
 go.set_goroot = true
-go.default_packages_file = "$HOME/.config/mise/default-go"
 
 [tools]
 python = "latest"
@@ -18,3 +16,12 @@ zls = "latest"
 java = "25"
 yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
 uv = "latest"
+gofumpt = "latest"
+golines = "latest"
+shfmt = "latest"
+witr = "latest"
+yq = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+"go:github.com/go-delve/delve/cmd/dlv" = "latest"
+"go:golang.org/x/tools/cmd/goimports" = "latest"
+"pypi:pyright" = "latest"
