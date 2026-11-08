@@ -5,4 +5,4 @@ go.set_gobin = false
 go.set_goroot = true
 
 [settings.write_targets]
-tools = "~/.config/mise/conf.d/cli.toml"
+tools = "~/.config/mise/conf.d/local.toml"
