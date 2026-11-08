@@ -4,5 +4,8 @@ python.compile = false
 go.set_gobin = false
 go.set_goroot = true
 
+env_cache = true
+env_cache_ttl = "1h"
+
 [settings.write_targets]
 tools = "~/.config/mise/conf.d/local.toml"
