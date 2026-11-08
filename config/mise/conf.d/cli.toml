@@ -1,0 +1,6 @@
+[tools]
+fzf = "latest"
+dyff = "latest"
+shfmt = "latest"
+witr = "latest"
+yq = "latest"

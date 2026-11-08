@@ -1,0 +1,3 @@
+[tools]
+python = "latest"
+"pypi:pyright" = "latest"
