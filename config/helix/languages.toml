@@ -74,6 +74,8 @@ formatter = { command = "shfmt", args = ["-i", "2"] }
 [[language]]
 name = "markdown"
 auto-format = false
+text-width = 120
+soft-wrap = { enable = true, wrap-at-text-width = true, max-wrap = 25, wrap-indicator = "" }
 language-servers = ["marksman", "buf"]
 
 [[language]]
